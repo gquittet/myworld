@@ -1,0 +1,386 @@
+" ========================================
+"       Coded by Guillaume QUITTET
+" ========================================
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" c.vim : Speed up c writing on vim
+Plugin 'vim-scripts/c.vim'
+
+" CtrlP : useful for open a file without know its name
+Plugin 'kien/ctrlp.vim'
+
+" Easy Motion : faster move in vim
+Plugin 'easymotion/vim-easymotion'
+
+" Emmet : new ZenCoding
+" Use abreviations and then type : <C-Y>,
+Plugin 'vim-scripts/Emmet.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+
+" Indent Guide
+Plugin 'nathanaelkane/vim-indent-guides'
+
+" Java auto complete
+Plugin 'vim-scripts/javacomplete'
+
+" Matchit : useful to switch between the start and the end of a function
+Plugin 'tmhedberg/matchit'
+
+" NERDCommenter : Better comments in vim
+Plugin 'scrooloose/nerdcommenter'
+
+" NERDTree Files Plugin"
+Plugin 'scrooloose/nerdtree'
+
+" Neocomplete
+Plugin 'Shougo/neocomplcache.vim'
+
+" Numbers.vim
+Plugin 'myusuf3/numbers.vim'
+
+" Powerline for vim : status line
+Plugin 'bling/vim-airline'
+
+" Solarized vim theme
+" Terminal Font : Inconsolata\ For\ Powerline\ Medium\ 14
+" Color Scheme and syntax color : Solarized Dark
+Plugin 'altercation/vim-colors-solarized'
+
+" Sparkup : Zen coding only for html
+Plugin 'rstacruz/sparkup'
+
+" SuperTab : Useful completiton
+Plugin 'ervandew/supertab'
+
+" Surround
+Plugin 'tpope/vim-surround'
+
+" Syntastic : Check errors
+Plugin 'scrooloose/syntastic'
+
+" Tabular : useful for great alignement
+Plugin 'godlygeek/tabular'
+
+" TagBar
+Plugin 'vim-scripts/Tagbar'
+
+" Vim trailing space : show unwanted space
+Plugin 'bronson/vim-trailing-whitespace'
+
+" UndoTree : See all undos
+Plugin 'mbbill/undotree'
+
+" ZoomWin : Show a buffer only without kill the others
+" Use <C-w>o to show and hide buffer
+Plugin 'vim-scripts/ZoomWin'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+" ====================================================
+" Global configuration
+" ====================================================
+"
+set backup
+set colorcolumn=+1  " Set the 80 character column
+set cursorline      " Highlight the current line
+set expandtab		" Show spaces instead of tabs
+set foldenable                  " Auto fold code
+set formatoptions+=t
+set history=1000 " Set a huge history
+set hlsearch 		" highlight the search result
+set ignorecase                  " Case insensitive search
+set incsearch       " Find as I type during the search
+set linespace=0 " No extra spaces between rows
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+set nojoinspaces    " Prevents inserting two spaces after punctuation on a join (J)
+set relativenumber 		" set the number in vim
+set scrolljump=5                " Lines to scroll when cursor leaves screen
+set scrolloff=3                 " Minimum lines to keep above and below cursor
+set shiftwidth=4	" set the tab size
+set showmatch       " Show current brackets
+set smartcase                   " Case sensitive when uc present
+set smartindent 	" set auto ident
+set splitbelow      " Puts new split windows to the bottom of the current
+set splitright      " Puts new vsplit windows to the right of the current
+set tabstop=4		" limit the tabs to 4
+set textwidth=80           " Set the text width to 80 characters
+set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+set wildmenu                    " Show list instead of just completing
+set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+set winminheight=0              " Windows can be 0 line high
+set wm=2            " set a space before the text
+
+if has('persistent_undo')
+    set undodir=~/.vim/undo_db
+    set undofile                " So is persistent undo ...
+    set undolevels=1000         " Maximum number of changes that can be undone
+    set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+endif
+
+set laststatus=2 " Enable airline : Download and set Inconsolata medium for powerline font
+
+" Useful git help
+" Instead of reverting the cursor to the last position in the buffer, we
+" " set it to the first line when editing a git commit message
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+" Enable Omni Completiton
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType java set omnifunc=javacomplete#Complete
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+"=====================================================
+" Keymap configuration
+"=====================================================
+let mapleader = ","
+let g:mapleader = ","
+" Buffer
+nmap <leader>bn :bnext<CR>
+nmap <leader>bp :bprevious<CR>
+nmap <leader>bf :bfirst<CR>
+nmap <leader>bd :bdelete<CR>
+
+" Disable the arrow keys
+nmap <UP> <NOP>
+nmap <DOWN> <NOP>
+nmap <LEFT> <NOP>
+nmap <RIGHT> <NOP>
+imap <UP> <NOP>
+imap <DOWN> <NOP>
+imap <LEFT> <NOP>
+imap <RIGHT> <NOP>
+vmap <UP> <NOP>
+vmap <DOWN> <NOP>
+vmap <LEFT> <NOP>
+vmap <RIGHT> <NOP>
+
+" Git
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>ga :Git add -A<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gl :Glog<CR>
+nmap <leader>gp :Gpush<CR>
+nmap <leader>gr :Gread<CR>
+nmap <leader>gw :Gwrite<CR>
+nmap <leader>ge :Gedit<CR>
+
+" Highlight
+map <C-h> :nohl<CR>
+
+" NERDTree
+map <C-e> :NERDTreeToggle<CR>
+map <leader>e :NERDTreeFind<CR>
+
+" Numbers.vim
+nnoremap <F3> :NumbersToggle<CR>
+nnoremap <F4> :NumbersOnOff<CR>
+
+" Sparkup
+let g:sparkupExecuteMapping='<Leader>se'
+let g:sparkupNextMapping='<Leader>sn'
+
+
+" Tabular
+nmap <Leader>a& :Tabularize /&<CR>
+vmap <Leader>a& :Tabularize /&<CR>
+nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+nmap <Leader>a=> :Tabularize /=><CR>
+vmap <Leader>a=> :Tabularize /=><CR>
+nmap <Leader>a: :Tabularize /:<CR>
+vmap <Leader>a: :Tabularize /:<CR>
+nmap <Leader>a:: :Tabularize /:\zs<CR>
+vmap <Leader>a:: :Tabularize /:\zs<CR>
+nmap <Leader>a, :Tabularize /,<CR>
+vmap <Leader>a, :Tabularize /,<CR>
+nmap <Leader>a,, :Tabularize /,\zs<CR>
+vmap <Leader>a,, :Tabularize /,\zs<CR>
+nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+
+" Tagbar
+map <leader>tt :TagbarToggle<CR>
+
+" Trailing Space
+nmap <leader>fs :FixWhitespace<CR>
+vmap <leader>fs :FixWhitespace<CR>
+
+" Undo tree
+map <Leader>u :UndotreeToggle<CR>
+
+" Save and quit
+" Don't forget to add this line in the ~/.bashrc file : stty -ixon
+map <C-s> :w!<CR>
+map <C-q> :q<CR>
+" ====================================================
+" Plugins configuration
+" ====================================================
+"
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+" Indent Guide
+if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_guide_size = 1
+    let g:indent_guides_enable_on_vim_startup = 1
+endif
+
+" NERDTree
+if isdirectory(expand("~/.vim/bundle/nerdtree"))
+    let g:NERDTreeDirArrowExpandable = '▸'
+    let g:NERDTreeDirArrowCollapsible = '▾'
+    let NERDTreeShowBookmarks=1
+    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+    let NERDTreeChDirMode=0
+    let NERDTreeQuitOnOpen=1
+    let NERDTreeMouseMode=2
+    let NERDTreeShowHidden=1
+    let NERDTreeKeepTreeInNewTab=1
+endif
+
+" Neocomplete
+" Disable AutoComplPop.
+" let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+" Enable heavy features.
+" Use camel case completion.
+"let g:neocomplcache_enable_camel_case_completion = 1
+" Use underbar completion.
+"let g:neocomplcache_enable_underbar_completion = 1
+
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    return neocomplcache#smart_close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() :
+"\<Space>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:]*\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" Numbers.vim
+if isdirectory(expand("~/.vim/bundle/numbers.vim"))
+    let g:enable_numbers = 1
+    let g:numbers_exclude = ['unite', 'startify', 'w3m', 'vimshell', 'tagbar', 'gundo', 'minibufexpl', 'nerdtree']
+    :au FocusLost * :set number
+    :au FocusGained * :set relativenumber
+    autocmd InsertEnter * :set number
+    autocmd InsertLeave * :set relativenumber
+    " Source : http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+endif
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Undo tree
+let g:undotree_SetFocusWhenToggle=1
+
+"=====================================================
+" Theme
+"=====================================================
+" Set the full color compatibility for vim and terminal
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
+let g:solarized_termcolors=256
+let g:solarized_termtrans = 1
+syntax enable
+set background=dark
+colorscheme solarized
