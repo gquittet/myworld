@@ -183,7 +183,6 @@ set laststatus=2 " Enable airline : Download and set Inconsolata medium for powe
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " Enable Omni Completiton
-" Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -198,6 +197,7 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 "=====================================================
 let mapleader = ","
 let g:mapleader = ","
+
 " Buffer
 nmap <leader>bn :bnext<CR>
 nmap <leader>bp :bprevious<CR>
@@ -231,6 +231,10 @@ nmap <leader>ge :Gedit<CR>
 
 " Highlight
 map <C-h> :nohl<CR>
+
+" Fix the indentation
+nmap <Leader>fi gg=G<CR>
+vmap <Leader>fi =<CR>
 
 " NERDTree
 map <C-e> :NERDTreeToggle<CR>
