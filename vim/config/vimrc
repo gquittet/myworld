@@ -137,12 +137,43 @@ set wildmode=list:longest,full  " Command <Tab> completion, list matches, then l
 set winminheight=0              " Windows can be 0 line high
 set wm=2            " set a space before the text
 
-if has('persistent_undo')
-    set undodir=~/.vim/undo_db
-    set undofile                " So is persistent undo ...
-    set undolevels=1000         " Maximum number of changes that can be undone
-    set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
-endif
+" Initialize directories : Thanks to SPF13 : The ultimate vim configuration
+    function! InitializeDirectories()
+        let parent = $HOME
+        let prefix = 'vim'
+        let dir_list = {
+                    \ 'backup': 'backupdir',
+                    \ 'views': 'viewdir',
+                    \ 'undos' : 'undodir',
+                    \ 'swap': 'directory' }
+
+        if has('persistent_undo')
+            set undodir=~/.vim/.undos/
+            set undofile                " So is persistent undo ...
+            set undolevels=1000         " Maximum number of changes that can be undone
+            set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+        endif
+
+        for [dirname, settingname] in items(dir_list)
+            let directory = parent . '/.'.  prefix . '/.' . dirname . '/'
+            if exists("*mkdir")
+                if !isdirectory(directory)
+                    call mkdir(directory)
+                endif
+            endif
+            if !isdirectory(directory)
+                echo "Warning: Unable to create backup directory: " . directory
+                echo "Try: mkdir -p " . directory
+            else
+                let directory = substitute(directory, " ", "\\\\ ", "g")
+                exec "set " . settingname . "=" . directory
+            endif
+        endfor
+        set backupdir=~/.vim/.backup/
+        set directory=~/.vim/.swap/
+        set viewdir=~/.vim/.views/
+    endfunction
+    call InitializeDirectories()
 
 set laststatus=2 " Enable airline : Download and set Inconsolata medium for powerline font
 
@@ -209,10 +240,15 @@ map <leader>e :NERDTreeFind<CR>
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
 
+" Set a good paste
+nmap <leader>p :set paste<CR>
+vmap <leader>p :set paste<CR>
+nmap <leader>np :set nopaste<CR>
+vmap <leader>np :set nopaste<CR>
+
 " Sparkup
 let g:sparkupExecuteMapping='<Leader>se'
 let g:sparkupNextMapping='<Leader>sn'
-
 
 " Tabular
 nmap <Leader>a& :Tabularize /&<CR>
@@ -376,9 +412,7 @@ let g:undotree_SetFocusWhenToggle=1
 " Theme
 "=====================================================
 " Set the full color compatibility for vim and terminal
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
+set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_termtrans = 1
 syntax enable
