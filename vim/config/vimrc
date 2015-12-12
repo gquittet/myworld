@@ -37,6 +37,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Java auto complete
 Plugin 'vim-scripts/javacomplete'
 
+" Markdown Preview
+Plugin 'suan/vim-instant-markdown'
+
 " Matchit : useful to switch between the start and the end of a function
 Plugin 'tmhedberg/matchit'
 
