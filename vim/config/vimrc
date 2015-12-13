@@ -37,6 +37,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Java auto complete
 Plugin 'vim-scripts/javacomplete'
 
+" VIM-LaTeX : VIM as a LaTeX IDE
+Plugin 'vim-latex/vim-latex'
+
 " Markdown Preview
 Plugin 'suan/vim-instant-markdown'
 
@@ -305,6 +308,9 @@ if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
     let g:indent_guides_guide_size = 1
     let g:indent_guides_enable_on_vim_startup = 1
 endif
+
+" VIM-LaTeX
+let g:Tex_DefaultTargetFormat = 'pdf'
 
 " NERDTree
 if isdirectory(expand("~/.vim/bundle/nerdtree"))
