@@ -67,6 +67,33 @@ Press the shortcut key in insert mode and your code will be like this
 ### Disable the highlight after research
     <C-h> : No Hightlight
 
+### VIM LaTeX : Use VIM as your LaTeX IDE
+
+If you want to compile your .tex file, just use this shortcut :
+
+    <Leader>ll : Compile the .tex file into pdf
+    <Leader>lv : Show the pdf viewer
+
+You can see the official documentation about this plugin :
+[Here](http://vim-latex.sourceforge.net/documentation/latex-suite.html)
+
+> How I can change the default output format ?
+
+*Juste add this option in your .vimrc file*
+
+    let g:Tex_DefaultTargetFormat = 'pdf'
+
+*Note you can customize the format. By default is only dvi.*
+
+> How I can change the defaults multiple output format ?
+
+*Juste add this option in your .vimrc file*
+
+    let g:Tex_MultipleCompileFormats = 'dvi, aux'
+
+*Note you can customize the format. By default is only 'dvi' and I set this option
+on 'pdf, aux'.*
+
 ### Markdown Preview
 
 > How to configure this plugin ?
