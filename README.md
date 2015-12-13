@@ -75,7 +75,7 @@ If you want to compile your .tex file, just use this shortcut :
     <Leader>lv : Show the pdf viewer
 
 You can see the official documentation about this plugin :
-[Here](http://vim-latex.sourceforge.net/documentation/latex-suite.html)
+[*Here*](http://vim-latex.sourceforge.net/documentation/latex-suite.html)
 
 > How I can change the default output format ?
 
