@@ -118,6 +118,7 @@ set colorcolumn=+1  " Set the 80 character column
 set cursorline      " Highlight the current line
 set expandtab		" Show spaces instead of tabs
 set foldenable                  " Auto fold code
+set foldmethod=syntax       " Fold are defined by syntax highlighting
 set formatoptions+=t
 set hidden " Any buffer can be hidden
 set history=1000 " Set a huge history
