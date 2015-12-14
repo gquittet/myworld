@@ -77,6 +77,12 @@ If you want to compile your .tex file, just use this shortcut :
 You can see the official documentation about this plugin :
 [*Here*](http://vim-latex.sourceforge.net/documentation/latex-suite.html)
 
+> How I can compile a multiple files project ?
+
+*Just create an empty file with the name of your main tex file + ".latexmain".
+Exemple : If your main file is "main.tex", you'll create a file with this name :
+"main.tex.latexmain".*
+
 > How I can change the default output format ?
 
 *Juste add this option in your .vimrc file*
