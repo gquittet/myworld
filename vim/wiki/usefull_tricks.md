@@ -10,6 +10,7 @@
 
     zf#j creates a fold from the cursor down # lines.
     zf/string creates a fold from the cursor to string .
+    zc close the current fold
     zj moves the cursor to the next fold.
     zk moves the cursor to the previous fold.
     zo opens a fold at the cursor.
