@@ -136,6 +136,9 @@ set shiftwidth=4	" set the tab size
 set showmatch       " Show current brackets
 set smartcase                   " Case sensitive when uc present
 set smartindent 	" set auto ident
+set spell "Set spell on
+set spelllang=en_us,fr
+set spellsuggest=best
 set splitbelow      " Puts new split windows to the bottom of the current
 set splitright      " Puts new vsplit windows to the right of the current
 set tabstop=4		" limit the tabs to 4
