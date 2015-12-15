@@ -37,6 +37,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Java auto complete
 Plugin 'vim-scripts/javacomplete'
 
+" LanguageTool : Tool for fix the words
+Plugin 'vim-scripts/LanguageTool'
+
 " VIM-LaTeX : VIM as a LaTeX IDE
 Plugin 'vim-latex/vim-latex'
 
@@ -137,7 +140,7 @@ set showmatch       " Show current brackets
 set smartcase                   " Case sensitive when uc present
 set smartindent 	" set auto ident
 set spell "Set spell on
-set spelllang=en_us,fr
+set spelllang=en_us
 set spellsuggest=best
 set splitbelow      " Puts new split windows to the bottom of the current
 set splitright      " Puts new vsplit windows to the right of the current
@@ -248,6 +251,14 @@ map <C-h> :nohl<CR>
 nmap <Leader>fi gg=G<CR>
 vmap <Leader>fi =<CR>
 
+" Languagetool
+nmap <Leader>lc :LanguageToolCheck<CR>
+vmap <Leader>lc :LanguageToolCheck<CR>
+nmap <Leader>lh :LanguageToolClear<CR>
+vmap <Leader>lh :LanguageToolClear<CR>
+nmap <Leader>ls :call SwitchLanguage()<CR>
+vmap <Leader>ls :call SwitchLanguage()<CR>
+
 " NERDTree
 map <C-e> :NERDTreeToggle<CR>
 map <leader>e :NERDTreeFind<CR>
@@ -312,6 +323,21 @@ if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
     let g:indent_guides_guide_size = 1
     let g:indent_guides_enable_on_vim_startup = 1
 endif
+
+" Languagetool
+let g:languagetool_jar='~/.vim/spell/LanguageTool-3.1/languagetool-commandline.jar'
+let g:languagetool_lang='fr'
+
+function! SwitchLanguage()
+    if g:languagetool_lang == 'en-US'
+        let g:languagetool_lang='fr'
+        set spelllang=fr
+    else
+        let g:languagetool_lang='en-US'
+        set spelllang=en_us
+    endif
+endfunction
+
 
 " VIM-LaTeX
 let g:Tex_DefaultTargetFormat = 'pdf'
