@@ -43,6 +43,9 @@ Plugin 'vim-scripts/LanguageTool'
 " VIM-LaTeX : VIM as a LaTeX IDE
 Plugin 'vim-latex/vim-latex'
 
+" VIM-Lexical
+Plugin 'reedes/vim-lexical'
+
 " Markdown Preview
 Plugin 'suan/vim-instant-markdown'
 
@@ -355,6 +358,13 @@ if isdirectory(expand("~/.vim/bundle/nerdtree"))
     let NERDTreeShowHidden=1
     let NERDTreeKeepTreeInNewTab=1
 endif
+
+" VIM Lexical
+let g:lexical#spell = 1         " 0=disabled, 1=enabled
+let g:lexical#spelllang = ['en_us','fr']
+let g:lexical#dictionary = ['/usr/share/dict/words','~/.vim/spell/dict/fr.txt']
+let g:lexical#spellfile = ['~/.vim/spell/en.utf-8.spl','~/.vim/spell/fr.utf-8.spl']
+let g:lexical#dictionary_key = '<Tab>'
 
 " Neocomplete
 " Disable AutoComplPop.
