@@ -91,6 +91,16 @@ Exemple : If your main file is "main.tex", you'll create a file with this name :
 
 *Note you can customize the format. By default is only dvi.*
 
+> é doesn't work
+
+*Just add these line in a new file called
+"~/.vim/bundle/vim-latex/ftplugin/tex.vim"*
+
+    imap <C-b> <Plug>Tex_MathBF
+    imap <C-c> <Plug>Tex_MathCal
+    imap <C-l> <Plug>Tex_LeftRight
+    imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
+
 > How I can change the defaults multiple output format ?
 
 *Juste add this option in your .vimrc file*
