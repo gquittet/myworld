@@ -10,7 +10,7 @@
     <Leader>bn : Switch to the next buffer
     <Leader>bp : Switch to the previous buffer
     <Leader>bf : Switch to the first buffer
-    <Leader>bd : Delete the current buffer
+    <C-w>      : Delete the current buffer
 
 ### CTags
 

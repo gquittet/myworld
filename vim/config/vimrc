@@ -220,7 +220,7 @@ let g:mapleader = ","
 nmap <leader>bn :bnext<CR>
 nmap <leader>bp :bprevious<CR>
 nmap <leader>bf :bfirst<CR>
-nmap <leader>bd :bdelete<CR>
+nmap <C-w> :bdelete<CR>
 
 " Disable the arrow keys
 nmap <UP> <NOP>
@@ -459,6 +459,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" The place of the android sdk
+let g:syntastic_java_javac_classpath = '~/Z-Autres/Tools/android-sdk-linux/platforms/android-21/*.jar'
 
 " Undo tree
 let g:undotree_SetFocusWhenToggle=1
