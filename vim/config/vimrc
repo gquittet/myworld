@@ -220,7 +220,7 @@ let g:mapleader = ","
 nmap <leader>bn :bnext<CR>
 nmap <leader>bp :bprevious<CR>
 nmap <leader>bf :bfirst<CR>
-nmap <C-w> :bdelete<CR>
+nmap <leader>bd :bdelete<CR>
 
 " Disable the arrow keys
 nmap <UP> <NOP>
@@ -281,22 +281,22 @@ let g:sparkupExecuteMapping='<Leader>se'
 let g:sparkupNextMapping='<Leader>sn'
 
 " Tabular
-nmap <Leader>a& :Tabularize /&<CR>
-vmap <Leader>a& :Tabularize /&<CR>
-nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-nmap <Leader>a=> :Tabularize /=><CR>
-vmap <Leader>a=> :Tabularize /=><CR>
-nmap <Leader>a: :Tabularize /:<CR>
-vmap <Leader>a: :Tabularize /:<CR>
-nmap <Leader>a:: :Tabularize /:\zs<CR>
-vmap <Leader>a:: :Tabularize /:\zs<CR>
-nmap <Leader>a, :Tabularize /,<CR>
-vmap <Leader>a, :Tabularize /,<CR>
-nmap <Leader>a,, :Tabularize /,\zs<CR>
-vmap <Leader>a,, :Tabularize /,\zs<CR>
-nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+nmap <Leader>t& :Tabularize /&<CR>
+vmap <Leader>t& :Tabularize /&<CR>
+nmap <Leader>t= :Tabularize /^[^=]*\zs=<CR>
+vmap <Leader>t= :Tabularize /^[^=]*\zs=<CR>
+nmap <Leader>t=> :Tabularize /=><CR>
+vmap <Leader>t=> :Tabularize /=><CR>
+nmap <Leader>t: :Tabularize /:<CR>
+vmap <Leader>t: :Tabularize /:<CR>
+nmap <Leader>t:: :Tabularize /:\zs<CR>
+vmap <Leader>t:: :Tabularize /:\zs<CR>
+nmap <Leader>t, :Tabularize /,<CR>
+vmap <Leader>t, :Tabularize /,<CR>
+nmap <Leader>t,, :Tabularize /,\zs<CR>
+vmap <Leader>t,, :Tabularize /,\zs<CR>
+nmap <Leader>t<Bar> :Tabularize /<Bar><CR>
+vmap <Leader>t<Bar> :Tabularize /<Bar><CR>
 
 " Tagbar
 map <leader>tt :TagbarToggle<CR>
