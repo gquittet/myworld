@@ -1,0 +1,97 @@
+! Guillaume QUITTET Xressources configuration
+! -------------------------------------------
+!
+! To update X apps configuration : xrdb -merge ~/.Xresources
+!
+
+! Set the font
+xterm*faceName : Inconsolata For Powerline
+xterm*faceSize: 14
+
+! Add utf-8 support
+XTerm*locale: true
+
+! Use 256 colors
+xterm*termName: xterm-256color
+
+! Set the saved lines for scrolling
+Xterm*saveLines: 8192
+
+#define base03        #002b36
+#define base02        #073642
+#define base01        #586e75
+#define base00        #657b83
+#define base0         #839496
+#define base1         #93a1a1
+#define base2         #eee8d5
+#define base3         #fdf6e3
+
+XTerm*background:            base03
+XTerm*foreground:            base0
+XTerm*fadeColor:             base03
+XTerm*cursorColor:           base1
+XTerm*pointerColorBackground:base01
+XTerm*pointerColorForeground:base1
+UXTerm*background:            base03
+UXTerm*foreground:            base0
+UXTerm*fadeColor:             base03
+UXTerm*cursorColor:           base1
+UXTerm*pointerColorBackground:base01
+UXTerm*pointerColorForeground:base1
+
+#define yellow        #b58900
+#define orange        #cb4b16
+#define red           #dc322f
+#define magenta       #d33682
+#define violet        #6c71c4
+#define blue          #268bd2
+#define cyan          #2aa198
+#define green         #859900
+
+!! black dark/light
+XTerm*color0:                base02
+XTerm*color8:                base03
+UXTerm*color0:                base02
+UXTerm*color8:                base03
+
+!! red dark/light
+XTerm*color1:                red
+XTerm*color9:                orange
+UXTerm*color1:                red
+UXTerm*color9:                orange
+
+!! green dark/light
+XTerm*color2:                green
+XTerm*color10:               base01
+UXTerm*color2:                green
+UXTerm*color10:               base01
+
+!! yellow dark/light
+XTerm*color3:                yellow
+XTerm*color11:               base00
+UXTerm*color3:                yellow
+UXTerm*color11:               base00
+
+!! blue dark/light
+XTerm*color4:                blue
+XTerm*color12:               base0
+UXTerm*color4:                blue
+UXTerm*color12:               base0
+
+!! magenta dark/light
+XTerm*color5:                magenta
+XTerm*color13:               violet
+UXTerm*color5:                magenta
+UXTerm*color13:               violet
+
+!! cyan dark/light
+XTerm*color6:                cyan
+XTerm*color14:               base1
+UXTerm*color6:                cyan
+UXTerm*color14:               base1
+
+!! white dark/light
+XTerm*color7:                base2
+XTerm*color15:               base3
+UXTerm*color7:                base2
+UXTerm*color15:               base3
