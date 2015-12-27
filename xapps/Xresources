@@ -4,6 +4,8 @@
 ! To update X apps configuration : xrdb -merge ~/.Xresources
 !
 
+! XTerm and UXTerm ------------------------------------------------------------
+
 ! Set the font
 xterm*faceName : Inconsolata For Powerline
 xterm*faceSize: 14
@@ -16,6 +18,24 @@ xterm*termName: xterm-256color
 
 ! Set the saved lines for scrolling
 Xterm*saveLines: 8192
+
+! Fix the META key
+XTerm*metaSendsEscape: true
+UXTerm*metaSendsEscape: true
+
+! Fix the scrolling
+xterm*jumpScroll:         true
+xterm*multiScroll:        true
+xterm*scrollKey:          true
+xterm*scrollTtyOutput:    false
+xterm*scrollBar:          false
+
+! Disable the toolbar
+xterm*toolBar:            false
+
+! Copy and paste from clipboard
+xterm*selectToClipboard: true
+uxterm*selectToClipboard: true
 
 #define base03        #002b36
 #define base02        #073642
@@ -95,3 +115,11 @@ XTerm*color7:                base2
 XTerm*color15:               base3
 UXTerm*color7:                base2
 UXTerm*color15:               base3
+
+! xpdf ------------------------------------------------------------------------
+
+xpdf*enableFreetype:    yes
+xpdf*antialias:         yes
+xpdf*foreground:        black
+xpdf*background:        white
+xpdf*urlCommand:        /usr/bin/firefox %s
