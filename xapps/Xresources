@@ -9,15 +9,19 @@
 ! Set the font
 xterm*faceName : Inconsolata For Powerline
 xterm*faceSize: 14
+uxterm*faceName : Inconsolata For Powerline
+uxterm*faceSize: 14
 
 ! Add utf-8 support
 XTerm*locale: true
+UXTerm*locale: true
 
 ! Use 256 colors
 xterm*termName: xterm-256color
 
 ! Set the saved lines for scrolling
 Xterm*saveLines: 8192
+UXterm*saveLines: 8192
 
 ! Fix the META key
 XTerm*metaSendsEscape: true
