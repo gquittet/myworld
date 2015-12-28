@@ -118,7 +118,7 @@ filetype plugin indent on    " required
 " Global configuration
 " ====================================================
 "
-set autowriteall " Save automatically all the buffers in vim
+set autowrite " Save automatically all the buffers in vim
 set backup
 set colorcolumn=+1  " Set the 80 character column
 set cursorline      " Highlight the current line
