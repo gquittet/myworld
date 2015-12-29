@@ -7,7 +7,7 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
+" alternatively, pass a path where Vundle should install pl ugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
@@ -95,6 +95,9 @@ Plugin 'bronson/vim-trailing-whitespace'
 
 " UndoTree : See all undos
 Plugin 'mbbill/undotree'
+
+" YouCompleteMe
+Plugin 'Valloric/YouCompleteMe'
 
 " ZoomWin : Show a buffer only without kill the others
 " Use <C-w>o to show and hide buffer
@@ -365,6 +368,7 @@ let g:lexical#spelllang = ['en_us','fr']
 let g:lexical#dictionary = ['/usr/share/dict/words','~/.vim/spell/dict/fr.txt']
 let g:lexical#spellfile = ['~/.vim/spell/en.utf-8.spl','~/.vim/spell/fr.utf-8.spl']
 
+" Thanks to SPF13-vim the best vim configuration
 " Neocomplete
 " Disable AutoComplPop.
 " let g:acp_enableAtStartup = 0
@@ -451,6 +455,7 @@ if isdirectory(expand("~/.vim/bundle/numbers.vim"))
     " Source : http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
 endif
 
+" Thanks to SPF13-vim the best vim configuration
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -464,6 +469,47 @@ let g:syntastic_java_javac_classpath = '~/Z-Autres/Tools/android-sdk-linux/platf
 
 " Undo tree
 let g:undotree_SetFocusWhenToggle=1
+
+" Thanks to SPF13-vim the best vim configuration
+" YouCompleteMe {
+    let g:acp_enableAtStartup = 0
+
+    " enable completion from tags
+    let g:ycm_collect_identifiers_from_tags_files = 1
+
+    " remap Ultisnips for compatibility for YCM
+    let g:UltiSnipsExpandTrigger = '<C-j>'
+    let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+    let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
+    " Enable omni completion.
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+    " Haskell post write lint and check with ghcmod
+    " $ `cabal install ghcmod` if missing and ensure
+    " ~/.cabal/bin is in your $PATH.
+    if !executable("ghcmod")
+        autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+    endif
+
+    " For snippet_complete marker.
+    if !exists("g:spf13_no_conceal")
+        if has('conceal')
+            set conceallevel=2 concealcursor=i
+        endif
+    endif
+
+    " Disable the neosnippet preview candidate window
+    " When enabled, there can be too much visual noise
+    " especially when splits are used.
+    set completeopt-=preview
+" }
 
 "=====================================================
 " Theme
