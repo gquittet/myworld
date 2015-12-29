@@ -1,5 +1,14 @@
 # Here is  my Tmux and Vim configuration
 
+## First of all : switch caps lock to escape
+Only for GNU/Linux computers
+
+    gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape']"
+
+To revert this :
+
+    gsettings set org.gnome.desktop.input-sources xkb-options []
+
 ## My shorcuts used in Vim
 
 > What is the mapleader key in my configuration ?

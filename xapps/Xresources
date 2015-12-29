@@ -33,9 +33,15 @@ xterm*multiScroll:        true
 xterm*scrollKey:          true
 xterm*scrollTtyOutput:    false
 xterm*scrollBar:          false
+uxterm*jumpScroll:         true
+uxterm*multiScroll:        true
+uxterm*scrollKey:          true
+uxterm*scrollTtyOutput:    false
+uxterm*scrollBar:          false
 
 ! Disable the toolbar
 xterm*toolBar:            false
+uxterm*toolBar:            false
 
 ! Copy and paste from clipboard
 xterm*selectToClipboard: true
