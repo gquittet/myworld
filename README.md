@@ -17,14 +17,9 @@ You must do in VIM :
 
 In a terminal :
 
-    sudo apt-get install vim-youcompleteme
-    cd ~
-    mkdir ycm_build
-    cd ycm_build
-    cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-    cmake --build . --target ycm_support_libs --config Release
-    cd ~
-    rm -rf ycm_build
+    sudo apt-get install libclang-3.7-dev
+    cd ~/.vim/bundle/clang_complete
+    make install
 
 ## My shorcuts used in Vim
 
