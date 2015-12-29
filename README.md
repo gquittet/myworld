@@ -1,4 +1,5 @@
 # Here is  my Tmux and Vim configuration
+### Only for Debian and Ubuntu users
 
 ## First of all : switch caps lock to escape
 Only for GNU/Linux computers
@@ -8,6 +9,22 @@ Only for GNU/Linux computers
 To revert this :
 
     gsettings set org.gnome.desktop.input-sources xkb-options []
+
+## To complete your VIM configuration
+You must do in VIM :
+
+    :PluginInstall
+
+In a terminal :
+
+    sudo apt-get install vim-youcompleteme
+    cd ~
+    mkdir ycm_build
+    cd ycm_build
+    cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+    cmake --build . --target ycm_support_libs --config Release
+    cd ~
+    rm -rf ycm_build
 
 ## My shorcuts used in Vim
 
