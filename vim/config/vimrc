@@ -25,6 +25,9 @@ Plugin 'OrangeT/vim-csharp'
 " CtrlP : useful for open a file without know its name
 Plugin 'kien/ctrlp.vim'
 
+" VIM-Dispatch : Useful for starting Omnisharp
+Plugin 'tpope/vim-dispatch'
+
 " Easy Motion : faster move in vim
 Plugin 'easymotion/vim-easymotion'
 
@@ -457,6 +460,9 @@ let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
 " OMNISharp
 "This is the default value, setting it isn't actually necessary
 let g:OmniSharp_host = "http://localhost:2000"
+let g:OmniSharp_selector_ui = 'ctrlp'  " Use ctrlp.vim
+let g:OmniSharp_server_type = 'v1'
+let g:OmniSharp_server_type = 'roslyn'
 
 "Set the type lookup function to use the preview window instead of the status line
 "let g:OmniSharp_typeLookupInPreview = 1

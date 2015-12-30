@@ -20,6 +20,12 @@ In a terminal :
     sudo apt-get install libclang-3.7-dev
     cd ~/.vim/bundle/clang_complete
     make install
+    cd ~/.vim/bundle/omnisharp-vim/server
+    xbuild
+    cd ~/.vim/bundle/omnisharp-vim/omnisharp-roslyn
+    ./build.sh
+    sudo npm install -g grunt-init
+    git clone https://github.com/nosami/grunt-init-csharpsolution.git ~/.grunt-init/csharpsolution
 
 ## My shorcuts used in Vim
 
