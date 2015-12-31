@@ -20,8 +20,8 @@ UXTerm*locale: true
 xterm*termName: xterm-256color
 
 ! Set the saved lines for scrolling
-Xterm*saveLines: 8192
-UXterm*saveLines: 8192
+Xterm*saveLines: 1024
+UXterm*saveLines: 1024
 
 ! Fix the META key
 XTerm*metaSendsEscape: true
