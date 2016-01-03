@@ -46,6 +46,13 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Java auto complete
 Plugin 'vim-scripts/javacomplete'
 
+" Jedi vim : Python completition
+" Don't forget to install this : sudo pip install jedi
+Plugin 'davidhalter/jedi-vim'
+
+" Python-mode : VIM as a python ide
+Plugin 'klen/python-mode'
+
 " LanguageTool : Tool for fix the words
 Plugin 'vim-scripts/LanguageTool'
 
@@ -78,6 +85,7 @@ Plugin 'OmniSharp/omnisharp-vim'
 
 " Powerline for vim : status line
 Plugin 'bling/vim-airline'
+
 
 " Solarized vim theme
 " Terminal Font : Inconsolata\ For\ Powerline\ Medium\ 14
@@ -587,6 +595,32 @@ if isdirectory(expand("~/.vim/bundle/numbers.vim"))
     autocmd InsertLeave * :set relativenumber
     " Source : http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
 endif
+
+" Python-mode
+let g:pymode_rope = 0
+let g:pymode_rope_lookup_project = 0
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+
+"Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+" Auto check on save
+let g:pymode_lint_write = 1
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>b'
+
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Thanks to SPF13-vim the best vim configuration
 " Syntastic
