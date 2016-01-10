@@ -1,0 +1,10 @@
+! -*- coding: utf-8 -*-
+! Copy this file to .Xmodmap
+! And do : xmodmap ~/.Xmodmap
+! Add a startup application with this command : xmodmap ~/.Xmodmap
+
+! keycode   9 = Escape NoSymbol Escape
+! keycode  66 = Caps_Lock NoSymbol Caps_Lock
+
+clear Lock
+keycode 66 = Escape NoSymbol Escape
