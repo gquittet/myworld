@@ -221,9 +221,9 @@ bar {
 
 # My configuration
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ #increase sound volume
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- #decrease sound volume
-bindsym XF86AudioMute exec amixer -D pulse sset Master toggle # mute sound
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 3%+ && pkill -RTMIN+1 i3blocks #increase sound volume
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 3%- && pkill -RTMIN+1 i3blocks #decrease sound volume
+bindsym XF86AudioMute exec amixer -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -234,6 +234,12 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Screenshot
+# Screen the hole screen
+bindsym --release Print exec --no-startup-id scrot -q 100
+# Screen a selection
+bindsym Shift+--release Print exec --no-startup-id scrot -q 100 -s
 
 # set the background
 exec_always --no-startup-id feh --bg-scale "~/Pictures/Mon\ bebe/12363913_664254623747311_936429490_o.jpg"
