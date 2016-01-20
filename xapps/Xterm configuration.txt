@@ -1,0 +1,20 @@
+My Terminal Configuration:
+---------------------------
+1) Install XTerm and set it as the default terminal
+2) Install my Xressources and Xmodmap configuration
+3) Install fish shell and oh-my-fish : http://fishshell.com/, https://github.com/oh-my-fish/oh-my-fish
+4) Edit /usr/bin/uxterm and add -e "/usr/bin/fish" add the startup line
+5) Install the agnoster theme : omf install agnoster
+6) Install the plugins list below
+
+To clear the greeting message add this line on the head of ~/.config/fish/config.fish: set fish_greeting
+
+Plugins List:
+--------------
+1) bang-bang : https://github.com/oh-my-fish/plugin-bang-bang
+2) python : https://github.com/oh-my-fish/plugin-python
+3) balias : https://github.com/oh-my-fish/plugin-balias
+4) jump : https://github.com/oh-my-fish/plugin-jump
+5) vi-mode : https://github.com/oh-my-fish/plugin-vi-mode
+6) pbcopy : https://github.com/oh-my-fish/plugin-pbcopy
+7) archlinux : https://github.com/oh-my-fish/plugin-archlinux
