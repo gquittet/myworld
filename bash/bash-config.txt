@@ -1,0 +1,18 @@
+# Copy the lines at the end of your ~/.bashrc
+# My alias
+alias apt-ins="sudo apt-get install"
+alias apt-src="apt-cache search"
+alias apt-up="sudo apt-get update"
+alias apt-arm=" sudo apt-get autoremove"
+alias v="vim"
+
+# Add these line at the end of your ~/.basrc
+# After done : pip install --user git+git://github.com/powerline/powerline
+# Powerline configuration
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ];
+then
+    source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+fi

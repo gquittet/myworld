@@ -1,7 +1,0 @@
-# Copy the lines at the end of your ~/.bashrc
-# My alias
-alias apt-ins="sudo apt-get install"
-alias apt-src="apt-cache search"
-alias apt-up="sudo apt-get update"
-alias apt-arm=" sudo apt-get autoremove"
-alias v="vim"
