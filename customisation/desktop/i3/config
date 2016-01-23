@@ -221,8 +221,8 @@ bar {
 
 # My configuration
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 3%+ && pkill -RTMIN+1 i3blocks #increase sound volume
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 3%- && pkill -RTMIN+1 i3blocks #decrease sound volume
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 2%+ && pkill -RTMIN+1 i3blocks #increase sound volume
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 2%- && pkill -RTMIN+1 i3blocks #decrease sound volume
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks # mute sound
 
 # Sreen brightness controls
@@ -253,7 +253,6 @@ exec --no-startup-id xss-lock -- i3lock --color "$bg-color" &
 
 # programs start at startup
 # Don't forget to install blueman
-exec --no-startup-id nm-applet
 exec --no-startup-id megasync
 exec --no-startup-id dropbox start
 exec --no-startup-id blueman-applet
