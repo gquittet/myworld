@@ -116,7 +116,7 @@ set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
-set $workspace5 "5: "
+set $workspace5 "5: "
 set $workspace6 "6: "
 set $workspace7 "7: "
 set $workspace8 "8: "
@@ -149,6 +149,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # assign appliactions to own workspace
 assign [class="Firefox"] $workspace1
+assign [class="Skype"] $workspace5
 assign [class="mplayer2"] $workspace9
 assign [class="Rhythmbox"] $workspace10
 
@@ -242,7 +243,7 @@ bindsym --release Print exec --no-startup-id scrot -q 100
 bindsym Shift+--release Print exec --no-startup-id scrot -q 100 -s
 
 # set the background
-exec_always --no-startup-id feh --bg-scale "~/Pictures/Mon\ bebe/12363913_664254623747311_936429490_o.jpg"
+exec_always --no-startup-id feh --bg-scale "/home/gquittet/Pictures/Mon bebe/12363913_664254623747311_936429490_o.jpg"
 
 # active transparancy
 exec_always compton -f
