@@ -80,9 +80,9 @@ UXTerm*pointerColorForeground:base1
 
 !! black dark/light
 XTerm*color0:                base02
-XTerm*color8:                base03
-UXTerm*color0:                base02
-UXTerm*color8:                base03
+XTerm*color8:                base0
+UXTerm*color0:               base02
+UXTerm*color8:               base0
 
 !! red dark/light
 XTerm*color1:                red
