@@ -1,0 +1,101 @@
+Ubuntu 15.10 Customization :
+----------------------------
+
+Bash to Update (Unity):
+--------------------------------
+#!/bin/bash
+sudo apt-get update && upgrade && dist-upgrade
+sudo apt-get install -y bleachbit gparted synaptic tree wmctrl xclip mplayer libcanberra-gtk-module cowsay htop zram-config preload
+# set a firewall
+sudo apt-get install -y  ufw gufw
+# tools for a better sound
+sudo apt-get install -y alsa-tools alsa-tools-gui pavucontrol
+# install irssi : IRC client for terminal
+sudo apt-get -y install irssi irssi-scripts ca-certificates \
+libcrypt-blowfish-perl libcrypt-dh-perl libcrypt-openssl-bignum-perl \
+libmath-bigint-gmp-perl
+# ssh for my computer
+sudo apt-get install -y openssh-server openssh-sftp-server openssh-client
+sudo apt-get install -y aircrack-ng reaver macchanger
+sudo apt-get install -y wireshark
+# useful for edit sound
+sudo apt-get install -y audacity
+# for coding and myworld
+sudo apt-get install -y ant python-tk default-jdk android-tools-adb git vim vim-gtk texlive texlive-lang-french texlive-latex-extra mono-complete gnuplot-x11 tmux w3m w3m-img zathura xpdf
+# VoIP
+sudo apt-get install -y skype
+# Tool for screenshot
+sudo apt-get install -y scrot
+# gimp for pictures editing
+sudo apt-get install -y gimp gimp-data gimp-plugin-registry gimp-data-extras feh
+# complete archive arsenal
+sudo apt-get install -y unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract
+# arsenal of non-free for ubuntu
+sudo apt-get install -y flac faac faad sox ffmpeg2theora libmpeg2-4 uudeview mpeg3-utils mpegdemux liba52-dev mpeg2dec vorbis-tools id3v2 mpg321 mpg123 libflac++6v5 icedax lame libmad0 libjpeg-progs libdvdread4 libdvdnav4 ubuntu-restricted-extras
+# install libdvdcss2 : useful for read encrypted dvd
+sudo bash /usr/share/doc/libdvdread4/install-css.sh
+# install firefox h264 codec
+sudo apt-get install -y x264
+# boost battery x4 on ubuntu
+sudo apt-get install -y tlp tlp-rdw
+# only under 15.10
+# sudo add-apt-repository -y ppa:linrunner/tlp && sudo apt-get update && sudo apt-get install -y tlp tlp-rdw
+# sudo add-apt-repository ppa:atareao/atareao && sudo apt-get update && sudo apt-get install -y touchpad-indicator
+# set firefox and libreoffice in french
+sudo apt-get install -y python3-uno libreoffice-l10n-fr libreoffice-help-fr hyphen-fr firefox-locale-fr
+sudo apt-get purge hyphen-en-us libreoffice-help-en-gb libreoffice-help-en-us libreoffice-l10n-en-gb libreoffice-l10n-en-za mythes-de-ch mythes-en-us
+# remove flash player
+sudo apt-get purge -y adobe-flashplugin flashplugin-installer adobe-flash-properties-gtk adobe-flash-properties-kde pepperflashplugin-nonfree
+# Tools for my desktop environnement
+# First, install San Francisco Font
+# My menu
+sudo apt-get install -y rofi
+# i3blocks is useful for my status bar
+sudo apt-get install -y i3blocks
+# blueman for bluetooth
+sudo apt-get install -y blueman
+# compton for beautiful desktop effect
+sudo apt-get install -y compton
+# Install xubuntu tools
+sudo apt-get install -y xubuntu-desktop gksu leafpad synaptic
+# lxappearance for theme changing
+sudo apt-get install -y lxappearance
+# remove gnome, unity
+sudo apt-get remove -y nautilus gnome-power-manager gnome-screensaver gnome-termina* gnome-pane* gnome-applet* gnome-bluetooth gnome-desktop* gnome-sessio* gnome-user* gnome-shell-common compiz compiz* unity unity* hud zeitgeist zeitgeist* python-zeitgeist libzeitgeist* activity-log-manager-common gnome-control-center gnome-screenshot overlay-scrollba* && sudo apt-get install xubuntu-community-wallpapers && sudo apt-get autoremove
+sudo apt-get -f install
+sudo apt-get autoremove
+sudo apt-get -y autoclean
+sudo apt-get -y clean
+
+Boost Ubuntu (on low ram computer) :
+-------------------------------------
+- Edit : gksu gedit /etc/sysctl.conf
+- Add : vm.swappiness=X
+X = 5 for less 1 Go of RAM
+X = 10 for 2 - 4 Go of RAM
+X = 20 for SSD and 4 - 32Go of RAM
+
+Disable guest Session :
+------------------------
+sudo nano /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
+
+Add this line at the end : allow-guest=false
+
+Synclient Options:
+-------------------
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "synaptics"
+    MatchIsTouchpad "on"
+        Option "TapButton1" "1"
+        Option "TapButton2" "3"
+        Option "TapButton3" "2"
+        Option "ClickFinger1" "1"
+        Option "ClickFinger2" "1"
+        Option "ClickFinger3" "1"
+        Option "VertScrollDelta" "-114"
+        Option "HorizScrollDelta" "-114"
+        Option "CircularScrolling" "on"
+        Option "CircScrollTrigger" "2"
+        Option "ClickPad" "true"
+EndSection

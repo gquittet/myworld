@@ -1,0 +1,11 @@
+ERROR On Linux :
+-----------------
+Hash Sum Mismatch :
+--------------------
+# apt-get clean
+# rm -rf /var/lib/apt/lists/*
+# rm -rf /var/lib/apt/lists/partial/*
+# rm -rf /var/lib/apt/lists
+# apt-get clean
+# apt-get update
+# apt-get upgrade

@@ -1,0 +1,105 @@
+NVidia drivers :
+----------------
+- Edit /etc/apt/sources.list
+- add these lines : deb http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu xenial main
+                    deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu xenial main
+- Install nvidia-XXX (latest version)
+
+Shell extension :
+-----------------
+- Caffeine
+- Coverflow Alt-Tab
+- Refresh Wifi Connections
+- Clipboard Indicator
+- Battery Percentage
+- Disconnect wifi
+- TopIcons
+- Dash to dock
+
+Repair bad sound quality :
+---------------------------
+The hdajackretask setup :
+
+Pins :
+
+0x12 : Not override > Internal mic
+0x14 : Override > Internal speaker
+0x15 : Not override > Headphone
+0x16 : Not override > Headphone
+0x18 : Override > Line out (front)
+0x1a : = Overrride > Line out (Center/LFE)
+
+In alsamixer I have no trace of an bass speaker but does control :
+
+Master : Only one channel control
+Speaker : Set to 00 and no control over
+Front : Two channels (R/L) separed controls
+Surround : Two channels (R/L) separed controls
+
+Source : https://bugs.launchpad.net/ubuntu/+source/alsa-driver/+bug/1302090/comments/58
+
+Font Name :      Inconsolata For Powerline 14
+--------------
+
+Theme :
+-------------------
+Vertex :
+--------
+Open terminal as root :
+-----------------------
+echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/Debian_8.0/ /' >> /etc/apt/sources.list.d/vertex-theme.list
+apt-get update
+apt-get install vertex-theme
+wget http://download.opensuse.org/repositories/home:Horst3180/Debian_8.0/Release.key
+apt-key add - < Release.key
+Arc-theme :
+-----------
+Ubuntu, Debian, Fedora, etc : https://software.opensuse.org/download.html?project=home%3AHorst3180&package=arc-theme
+Arch Linux : https://github.com/horst3180/Arc-theme
+
+Icons :
+-------
+Numix Circle
+
+Colorized terminal :
+--------------------
+- Edit ~./bashrc
+- Find the line force_color_prompt=yes and uncomment it :)
+PS1='${debian_chroot:+($debian_chroot)}\[\033[0;97m\]\133\[\033[0;91m\]\u@\h\[\033[0;94m\] \W\[\033[0;97m\]\135\044\[\033[0m\] '
+
+Fix pink color on Xubuntu : replace pink by #F84040
+---------------------------
+
+Disable apport :
+-----------------
+
+sudo sed -i "s/enabled=1/enabled=0/g" /etc/default/apport
+
+Disable Debian BEEP:
+--------------------
+adding "blacklist pcspkr" to /etc/modprobe.d/blacklist.conf
+
+Fix laptop don't suspend when lid is closed :
+---------------------------------------------
+Open logind.conf as root: # vim /etc/systemd/logind.conf and remove the # before HandleLidSwitch=suspend. You can also change the option suspend to hibernate or poweroff
+
+Fix from Launchpad Bug #863834, comment #30:
+
+Open a terminal: Ctrl + Alt + t
+# mkdir /etc/acpi/local
+# vim /etc/acpi/local/lid.sh.post
+Copy this short script:
+
+ #!/bin/bash
+ if grep -q closed /proc/acpi/button/lid/*/state
+ then
+     /usr/sbin/pm-suspend
+ fi
+... and paste it into vim by typing: "+p
+
+Save by typing ZZ (in capitals)
+
+Repair the Key error :
+-----------------------
+gpg --keyserver keyserver.ubuntu.com --recv-keys  votre_n°_de_clé
+gpg -a --export votre_n°_de_clé | sudo apt-key add -
