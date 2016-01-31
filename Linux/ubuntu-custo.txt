@@ -81,8 +81,10 @@ sudo nano /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
 
 Add this line at the end : allow-guest=false
 
-Synclient Options:
--------------------
+# Touchpad configuration
+# /etc/X11/xorg.conf.d/50-synaptics.conf
+# Synclient Options:
+# -------------------
 Section "InputClass"
     Identifier "touchpad"
     Driver "synaptics"
@@ -98,4 +100,20 @@ Section "InputClass"
         Option "CircularScrolling" "on"
         Option "CircScrollTrigger" "2"
         Option "ClickPad" "true"
+EndSection
+
+# Keyboard configuration
+# Live configuration : setxkbmap -layout us -variant altgr-intl -option nodeadkeys
+# nodeadkeys option is just to disable dead keys but this option isn't mandatory.
+# --------------------------------------------------------------------------------
+# Persistant configuration
+# -------------------------
+# /etc/X11/xorg.conf.d/00-keyboard.conf
+# ---------------------------------------
+Section "InputClass"
+    Identifier "system-keyboard"
+    MatchIsKeyboard "on"
+    Option "XkbLayout" "us"
+    Option "XkbVariant" "altgr-intl"
+    Option "XkbOptions" "compose:ralt, caps:escape, terminate:ctrl_alt_bksp"
 EndSection
