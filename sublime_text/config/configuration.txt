@@ -1,0 +1,210 @@
+User configuration:
+--------------------
+{
+	"always_show_minimap_viewport": true,
+	"auto_complete": true,
+	"auto_complete_commit_on_tab": true,
+	"auto_indent": true,
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"default_encoding": "UTF-8",
+	"default_line_ending": "unix",
+	"detect_indentation": true,
+	"drag_text": true,
+	"draw_indent_guides": true,
+	"enable_tab_scrolling": true,
+	"fade_fold_buttons": false,
+	"font_face": "Source Code Pro",
+	"font_options":
+	[
+		"gray_antialias",
+		"subpixel_antialias"
+	],
+	"font_size": 11,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"line_numbers": true,
+	"line_padding_bottom": 3,
+	"line_padding_top": 3,
+	"margin": 8,
+	"overlay_scroll_bars": "enabled",
+	"remember_open_files": false,
+	"rulers":
+	[
+		80
+	],
+	"show_encoding": true,
+	"smart_indent": true,
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true,
+	"word_wrap": true
+}
+
+Sublime Text package list :
+----------------------------
+- Alignment
+- All AutoComplete
+- Anaconda (Python Auto complete)
+- AutoFileName
+- BracketHighlighter
+- ClangAutoComplete (Idem)
+- Color Highlighter
+- ColorPicker
+- CSS Snippets
+- CSS3
+- CSSLint
+- DocBlockr
+- Emmet
+- Git
+- GitGutter
+- GitHub tools
+- HTMLBeautify
+- JavaIME (Java Auto complete)
+- jQuery
+- LiveReload
+- MarkdownPreview
+- Material Theme
+- Material Theme AppBar
+- Package Control
+- SideBarEnhancements
+- SublimeCodeIntel
+- SublimeLinter
+- SublimeREPL
+- Termial + config "terminal":"gnome-terminal"; ie default settings
+- Theme Soda
+- Theme Spacegray
+Go to Omnisharp site and read the instructions.
+
+My Keybindings:
+---------------
+[
+    {"keys": ["control+shift+i"], "command": "reindent"},
+    {"keys": ["alt+enter"], "command": "run_macro_file", "args": {"file": "Packages/User/alt-tab.sublime-macro"}}
+]
+
+My Snippets:
+------------
+HTML: div
+---------
+<snippet>
+    <content><![CDATA[
+<div class="$1">
+    ${2:Change me}
+</div><!-- /${1/\*//} -->
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>d</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>text.html</scope>
+</snippet>
+
+CSS: Clearfix
+--------------
+<snippet>
+    <content><![CDATA[
+.clearfix {
+    display: inline-block;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/* Hides from IE-mac */
+* html .clearfix {
+    height: 1%;
+}
+
+.clearfix {
+    display: block;
+}
+/* End hide from IE-mac */
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>.clearfix</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.css</scope>
+</snippet>
+
+My snippets scope list:
+-----------------------
+Here is a list of scopes to use in Sublime Text 2 snippets - 
+
+ActionScript: source.actionscript.2
+AppleScript: source.applescript
+ASP: source.asp
+Batch FIle: source.dosbatch
+C#: source.cs
+C++: source.c++
+Clojure: source.clojure
+CoffeeScript: source.coffee
+CSS: source.css
+D: source.d
+Diff: source.diff
+Erlang: source.erlang
+Go: source.go
+GraphViz: source.dot
+Groovy: source.groovy
+Haskell: source.haskell
+HTML: text.html(.basic)
+JSP: text.html.jsp
+Java: source.java
+Java Properties: source.java-props
+Java Doc: text.html.javadoc
+JSON: source.json
+Javascript: source.js
+BibTex: source.bibtex
+Latex Log: text.log.latex
+Latex Memoir: text.tex.latex.memoir
+Latex: text.tex.latex
+LESS: source.css.less
+TeX: text.tex
+Lisp: source.lisp
+Lua: source.lua
+MakeFile: source.makefile
+Markdown: text.html.markdown
+Multi Markdown: text.html.markdown.multimarkdown
+Matlab: source.matlab
+Objective-C: source.objc
+Objective-C++: source.objc++
+OCaml campl4: source.camlp4.ocaml
+OCaml: source.ocaml
+OCamllex: source.ocamllex
+Perl: source.perl
+PHP: source.php
+Regular Expression(python): source.regexp.python
+Python: source.python
+R Console: source.r-console
+R: source.r
+Ruby on Rails: source.ruby.rails
+Ruby HAML: text.haml
+SQL(Ruby): source.sql.ruby
+Regular Expression: source.regexp
+RestructuredText: text.restructuredtext
+Ruby: source.ruby
+SASS: source.sass
+Scala: source.scala
+Shell Script: source.shell
+SQL: source.sql
+Stylus: source.stylus
+TCL: source.tcl
+HTML(TCL): text.html.tcl
+Plain text: text.plain
+Textile: text.html.textile
+XML: text.xml
+XSL: text.xml.xsl
+YAML: source.yaml
