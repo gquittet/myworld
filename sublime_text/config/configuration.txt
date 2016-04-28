@@ -208,3 +208,17 @@ Textile: text.html.textile
 XML: text.xml
 XSL: text.xml.xsl
 YAML: source.yaml
+
+Plugins configuration:
+----------------------
+
+LiveReload (Default):
+---------------------
+{ 
+	"enabled_plugins": [ 
+		"SimpleReloadPlugin", 
+		"SimpleRefresh" 
+	]
+}
+
+
