@@ -35,6 +35,9 @@ Plugin 'easymotion/vim-easymotion'
 " Use abreviations and then type : <C-Y>,
 Plugin 'vim-scripts/Emmet.vim'
 
+" FastFold plugin
+Plugin 'Konfekt/FastFold'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -53,14 +56,8 @@ Plugin 'davidhalter/jedi-vim'
 " Python-mode : VIM as a python ide
 Plugin 'klen/python-mode'
 
-" LanguageTool : Tool for fix the words
-Plugin 'vim-scripts/LanguageTool'
-
 " VIM-LaTeX : VIM as a LaTeX IDE
 Plugin 'vim-latex/vim-latex'
-
-" VIM-Lexical
-Plugin 'reedes/vim-lexical'
 
 " Markdown Preview
 Plugin 'suan/vim-instant-markdown'
@@ -352,21 +349,6 @@ if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
     let g:indent_guides_enable_on_vim_startup = 1
 endif
 
-" Languagetool
-let g:languagetool_jar='~/.vim/spell/LanguageTool-3.1/languagetool-commandline.jar'
-let g:languagetool_lang='fr'
-
-function! SwitchLanguage()
-    if g:languagetool_lang == 'en-US'
-        let g:languagetool_lang='fr'
-        set spelllang=fr
-    else
-        let g:languagetool_lang='en-US'
-        set spelllang=en_us
-    endif
-endfunction
-
-
 " VIM-LaTeX
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'pdf, aux'
@@ -383,13 +365,6 @@ if isdirectory(expand("~/.vim/bundle/nerdtree"))
     let NERDTreeShowHidden=1
     let NERDTreeKeepTreeInNewTab=1
 endif
-
-" VIM Lexical
-let g:lexical#spell = 1         " 0=disabled, 1=enabled
-let g:lexical#spelllang = ['en_us','fr']
-let g:lexical#dictionary = ['/usr/share/dict/words','~/.vim/spell/dict/fr.txt']
-let g:lexical#spellfile = ['~/.vim/spell/en.utf-8.spl','~/.vim/spell/fr.utf-8.spl']
-
 
 " Neocomplete
 " Use neocomplete.
