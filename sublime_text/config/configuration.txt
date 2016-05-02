@@ -68,13 +68,13 @@ Sublime Text package list :
 - Git
 - GitGutter
 - GitHub tools
-- HTMLBeautify
 - JavaIME (Java Auto complete)
 - jQuery
 - LiveReload
 - MarkdownPreview
 - Material Theme
 - Material Theme AppBar
+- Minify
 - Package Control
 - SideBarEnhancements
 - SublimeCodeIntel
@@ -221,4 +221,10 @@ LiveReload (Default):
 	]
 }
 
+Minify (User):
+--------------
+{
+    "auto_minify_on_save": true,
+    "open_file": false
+}
 
