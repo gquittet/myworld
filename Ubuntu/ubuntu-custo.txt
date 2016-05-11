@@ -20,13 +20,13 @@ sudo apt-get install -y wireshark
 # useful for edit sound
 sudo apt-get install -y audacity
 # for coding and myworld
-sudo apt-get install -y ant python-tk python-gpgme default-jdk android-tools-adb git vim vim-gtk texlive texlive-lang-french texlive-latex-extra mono-complete gnuplot-x11
+sudo apt-get install -y ant python-tk python-gpgme default-jdk android-tools-adb git vim vim-gnome-py2 texlive texlive-lang-french texlive-latex-extra mono-complete gnuplot
 # gimp for pictures editing
-sudo apt-get install -y gimp gimp-data gimp-plugin-registry gimp-data-extras feh
+sudo apt-get install -y gimp gimp-data gimp-plugin-registry gimp-data-extras feh optipng jpegoptim
 # complete archive arsenal
 sudo apt-get install -y unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract
 # arsenal of non-free for ubuntu
-sudo apt-get install -y flac faac faad sox ffmpeg2theora libmpeg2-4 uudeview mpeg3-utils mpegdemux liba52-dev mpeg2dec vorbis-tools id3v2 mpg321 mpg123 libflac++6v5 icedax lame libmad0 libjpeg-progs libdvdread4 libdvdnav4 libdvd-pkg libdvdcss2 gstreamer1.0-fluendo-mp3 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-fluendo-mp3 libk3b6-extracodecs oxideqt-codecs-extra libavcodec-extra libavcodec-ffmpeg-extra56 ubuntu-restricted-extras
+sudo apt-get install -y flac faac faad sox ffmpeg2theora libmpeg2-4 uudeview mpeg3-utils mpegdemux liba52-dev mpeg2dec vorbis-tools id3v2 mpg321 mpg123 libflac++6v5 icedax lame libmad0 libjpeg-progs libdvdread4 libdvdnav4 libdvd-pkg gstreamer1.0-fluendo-mp3 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-fluendo-mp3 libk3b6-extracodecs oxideqt-codecs-extra libavcodec-extra libavcodec-ffmpeg-extra56 ubuntu-restricted-extras
 # install firefox h264 codec
 sudo apt-get install -y x264
 # boost battery x4 on ubuntu
