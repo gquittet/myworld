@@ -143,7 +143,7 @@ CSS: Clearfix
 
 My snippets scope list:
 -----------------------
-Here is a list of scopes to use in Sublime Text 2 snippets - 
+Here is a list of scopes to use in Sublime Text 2 snippets -
 
 ActionScript: source.actionscript.2
 AppleScript: source.applescript
@@ -215,10 +215,10 @@ Plugins configuration:
 
 LiveReload (Default):
 ---------------------
-{ 
-    "enabled_plugins": [ 
-        "SimpleReloadPlugin", 
-        "SimpleRefresh" 
+{
+    "enabled_plugins": [
+        "SimpleReloadPlugin",
+        "SimpleRefresh"
     ]
 }
 
@@ -232,4 +232,6 @@ Minify (User):
 LaTeXTools (User):
 ------------------
 Find these lines and edit them like this : "hide_build_panel": "no_warnings",
-                                           "builder": "simple",
+									  	   "builder": "script",
+In "builder_settings" > "linux", add this line under the comment:
+"script_commands": ["pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $file"]
