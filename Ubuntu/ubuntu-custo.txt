@@ -20,7 +20,7 @@ sudo apt-get install -y wireshark
 # useful for edit sound
 sudo apt-get install -y audacity
 # for coding and myworld
-sudo apt-get install -y ant python-tk python-gpgme default-jdk android-tools-adb git vim vim-gnome-py2 texlive texlive-lang-french texlive-latex-extra mono-complete gnuplot
+sudo apt-get install -y ant python-tk python-gpgme default-jdk android-tools-adb git vim vim-gnome-py2 texlive texlive-lang-french texlive-latex-extra texlive-science mono-complete gnuplot
 # gimp for pictures editing
 sudo apt-get install -y gimp gimp-data gimp-plugin-registry gimp-data-extras feh optipng jpegoptim
 # complete archive arsenal
