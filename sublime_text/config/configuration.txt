@@ -1,53 +1,53 @@
 User configuration:
 --------------------
 {
-	"always_show_minimap_viewport": true,
-	"auto_complete": true,
-	"auto_complete_commit_on_tab": true,
-	"auto_indent": true,
-	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
-	"default_encoding": "UTF-8",
-	"default_line_ending": "unix",
-	"detect_indentation": true,
-	"drag_text": true,
-	"draw_indent_guides": true,
-	"enable_tab_scrolling": true,
-	"fade_fold_buttons": false,
-	"font_face": "Source Code Pro",
-	"font_options":
-	[
-		"gray_antialias",
-		"subpixel_antialias"
-	],
-	"font_size": 11,
-	"highlight_line": true,
-	"highlight_modified_tabs": true,
-	"hot_exit": false,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
-	"indent_guide_options":
-	[
-		"draw_normal",
-		"draw_active"
-	],
-	"line_numbers": true,
-	"line_padding_bottom": 3,
-	"line_padding_top": 3,
-	"margin": 8,
-	"overlay_scroll_bars": "enabled",
-	"remember_open_files": false,
-	"rulers":
-	[
-		80
-	],
-	"show_encoding": true,
-	"smart_indent": true,
-	"tab_size": 4,
-	"translate_tabs_to_spaces": true,
-	"word_wrap": true
+    "always_show_minimap_viewport": true,
+    "auto_complete": true,
+    "auto_complete_commit_on_tab": true,
+    "auto_indent": true,
+    "bold_folder_labels": true,
+    "color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+    "default_encoding": "UTF-8",
+    "default_line_ending": "unix",
+    "detect_indentation": true,
+    "drag_text": true,
+    "draw_indent_guides": true,
+    "enable_tab_scrolling": true,
+    "fade_fold_buttons": false,
+    "font_face": "Source Code Pro",
+    "font_options":
+    [
+        "gray_antialias",
+        "subpixel_antialias"
+    ],
+    "font_size": 11,
+    "highlight_line": true,
+    "highlight_modified_tabs": true,
+    "hot_exit": false,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "indent_guide_options":
+    [
+        "draw_normal",
+        "draw_active"
+    ],
+    "line_numbers": true,
+    "line_padding_bottom": 3,
+    "line_padding_top": 3,
+    "margin": 8,
+    "overlay_scroll_bars": "enabled",
+    "remember_open_files": false,
+    "rulers":
+    [
+        80
+    ],
+    "show_encoding": true,
+    "smart_indent": true,
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true,
+    "word_wrap": true
 }
 
 Sublime Text package list :
@@ -70,6 +70,7 @@ Sublime Text package list :
 - GitHub tools
 - JavaIME (Java Auto complete)
 - jQuery
+- LaTeXTools
 - LiveReload
 - MarkdownPreview
 - Material Theme
@@ -215,10 +216,10 @@ Plugins configuration:
 LiveReload (Default):
 ---------------------
 { 
-	"enabled_plugins": [ 
-		"SimpleReloadPlugin", 
-		"SimpleRefresh" 
-	]
+    "enabled_plugins": [ 
+        "SimpleReloadPlugin", 
+        "SimpleRefresh" 
+    ]
 }
 
 Minify (User):
@@ -228,3 +229,7 @@ Minify (User):
     "open_file": false
 }
 
+LaTeXTools (User):
+------------------
+Find these lines and edit them like this : "hide_build_panel": "no_warnings",
+                                           "builder": "simple",
