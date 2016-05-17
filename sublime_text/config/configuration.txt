@@ -1,53 +1,54 @@
 User configuration:
 --------------------
 {
-    "always_show_minimap_viewport": true,
-    "auto_complete": true,
-    "auto_complete_commit_on_tab": true,
-    "auto_indent": true,
-    "bold_folder_labels": true,
-    "color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
-    "default_encoding": "UTF-8",
-    "default_line_ending": "unix",
-    "detect_indentation": true,
-    "drag_text": true,
-    "draw_indent_guides": true,
-    "enable_tab_scrolling": true,
-    "fade_fold_buttons": false,
-    "font_face": "Source Code Pro",
-    "font_options":
-    [
-        "gray_antialias",
-        "subpixel_antialias"
-    ],
-    "font_size": 11,
-    "highlight_line": true,
-    "highlight_modified_tabs": true,
-    "hot_exit": false,
-    "ignored_packages":
-    [
-        "Vintage"
-    ],
-    "indent_guide_options":
-    [
-        "draw_normal",
-        "draw_active"
-    ],
-    "line_numbers": true,
-    "line_padding_bottom": 3,
-    "line_padding_top": 3,
-    "margin": 8,
-    "overlay_scroll_bars": "enabled",
-    "remember_open_files": false,
-    "rulers":
-    [
-        80
-    ],
-    "show_encoding": true,
-    "smart_indent": true,
-    "tab_size": 4,
-    "translate_tabs_to_spaces": true,
-    "word_wrap": true
+	"always_show_minimap_viewport": true,
+	"auto_complete": true,
+	"auto_complete_commit_on_tab": true,
+	"auto_indent": true,
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"default_encoding": "UTF-8",
+	"default_line_ending": "unix",
+	"detect_indentation": true,
+	"drag_text": true,
+	"draw_indent_guides": true,
+	"enable_tab_scrolling": true,
+	"fade_fold_buttons": false,
+	"font_face": "Source Code Pro",
+	"font_options":
+	[
+		"gray_antialias",
+		"subpixel_antialias"
+	],
+	"font_size": 11,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"line_numbers": true,
+	"line_padding_bottom": 3,
+	"line_padding_top": 3,
+	"margin": 8,
+	"overlay_scroll_bars": "enabled",
+	"remember_open_files": false,
+	"rulers":
+	[
+		80
+	],
+	"show_encoding": true,
+	"smart_indent": true,
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true,
+	"word_wrap": true,
+	"wrap_width": 80
 }
 
 Sublime Text package list :
@@ -84,6 +85,7 @@ Sublime Text package list :
 - Termial + config "terminal":"gnome-terminal"; ie default settings
 - Theme Soda
 - Theme Spacegray
+- Writing Color Scheme
 Go to Omnisharp site and read the instructions.
 
 My Keybindings:
@@ -210,16 +212,67 @@ XML: text.xml
 XSL: text.xml.xsl
 YAML: source.yaml
 
+Syntax specific:
+----------------
+
+LaTeX:
+------
+{
+// Add this file to Packages/User/ folder for effect
+
+"extensions": [ "tex" ],
+
+"color_scheme": "Packages/Writing Color Scheme/Writing Color Scheme Light.tmTheme",
+
+"tab_size": 4,
+"translate_tabs_to_spaces": true,
+"trim_trailing_white_space_on_save": false,
+"auto_match_enabled": true,
+
+// Layout
+"draw_centered": true,
+"word_wrap": true,
+"wrap_width": 86,
+"rulers": [],
+
+// Line
+"line_numbers": true,
+"highlight_line": false,
+"line_padding_top": 2,
+"line_padding_bottom": 2,
+
+// Caret
+"caret_style": "solid", // blink with "smooth"
+"caret_extra_width": 1,
+"caret_extra_top": 3,
+"caret_extra_bottom": 1
+}
+
+C#:
+---
+ {
+    "auto_complete": true,
+    "auto_complete_selector": "source - comment",
+    "auto_complete_triggers": [ {"selector": "source.cs", "characters": ".<"} ],
+ }
+
+
 Plugins configuration:
 ----------------------
+
+ColorHighlighter (User):
+------------------------
+{
+    "ha_style": "filled"
+}
 
 LiveReload (Default):
 ---------------------
 {
-    "enabled_plugins": [
-        "SimpleReloadPlugin",
-        "SimpleRefresh"
-    ]
+	"enabled_plugins": [
+		"SimpleReloadPlugin",
+		"SimpleRefresh"
+	]
 }
 
 Minify (User):
