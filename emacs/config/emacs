@@ -1,0 +1,75 @@
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(package-initialize)
+
+; Start Evil mode at startup
+(require 'evil)
+  (evil-mode 1)
+
+; Load a beautiful theme
+(load-theme 'monokai t)
+
+; Change the font
+(add-to-list 'default-frame-alist '(font . "Source Code Pro-11" ))
+(set-face-attribute 'default t :font "Source Code Pro-11")
+
+; Disable menu bar, tool bar and scroll bar
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
+
+; Highlight the current line
+(global-hl-line-mode)
+
+; Enable line number
+(require 'nlinum-relative)
+(nlinum-relative-setup-evil)                    ;; setup for evil
+(add-hook 'prog-mode-hook 'nlinum-relative-mode)
+(setq nlinum-relative-redisplay-delay 0)      ;; delay
+(setq nlinum-relative-current-symbol "->")      ;; or "" for display current line number
+(setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
+
+; Change TAB width
+(setq-default c-basic-offset 4
+              tab-width 4
+              indent-tabs-mode t)
+;; make tab key always call a indent command.
+(setq-default tab-always-indent t)
+
+;; make tab key call indent command or insert tab character, depending on cursor position
+(setq-default tab-always-indent nil)
+
+;; make tab key do indent first then completion.
+(setq-default tab-always-indent 'complete)
+
+; Word wrap at 80
+(setq fill-column 80)
+(setq text-mode-hook 'turn-on-auto-fill)
+(setq default-major-mode 'text-mode)
+
+(column-number-mode t)
+(show-paren-mode 1)
+
+; Enable auto complete
+(require 'auto-complete)
+; Start the default config
+(require 'auto-complete-config)
+(ac-config-default)
+; Enable snippet
+(require 'yasnippet)
+(yas-global-mode 1)
+
+; Enable auto pair
+(autopair-global-mode)
+
+; Enable powerline
+(require 'powerline)
+(powerline-default-theme)
+(setq powerline-default-separator 'wave)
+
+; Use Python : install virtualenv on the computer first
+(require 'jedi)
+(autoload 'jedi:setup "jedi" nil t)
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:setup-keys t)
+(setq jedi:complete-on-dot t)
