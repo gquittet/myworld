@@ -1,13 +1,22 @@
 (require 'package)
+; list the packages you want
+(setq package-list '(auto-complete auto-complete-c-headers autopair emmet-mode jedi multiple-cursors nlinum nlinum-relative omnisharp yasnippet))
+
+; list the repositories containing them
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
-; Start Evil mode at startup
-(require 'evil)
-  (evil-mode 1)
+; fetch the list of packages available 
+(unless package-archive-contents
+  (package-refresh-contents))
+
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
 
 ; Load a beautiful theme
-(load-theme 'monokai t)
+; (load-theme 'monokai t)
 
 ; Change the font
 (add-to-list 'default-frame-alist '(font . "Source Code Pro-11" ))
@@ -20,14 +29,6 @@
 
 ; Highlight the current line
 (global-hl-line-mode)
-
-; Enable line number
-(require 'nlinum-relative)
-(nlinum-relative-setup-evil)                    ;; setup for evil
-(add-hook 'prog-mode-hook 'nlinum-relative-mode)
-(setq nlinum-relative-redisplay-delay 0)      ;; delay
-(setq nlinum-relative-current-symbol "->")      ;; or "" for display current line number
-(setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
 
 ; Change TAB width
 (setq-default c-basic-offset 4
@@ -50,6 +51,40 @@
 (column-number-mode t)
 (show-paren-mode 1)
 
+; Replace 'yes or no' by 'y or n'
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+; C#
+;; Speed up auto-complete on mono drastically. This comes with the
+;; downside that documentation is impossible to fetch.
+(setq omnisharp-auto-complete-want-documentation nil)
+
+; ORG MODE
+(org-babel-do-load-languages
+ 'org-babel-load-languages '((C . t)
+							 (java . t)
+							 (python . t)
+							 (sh . t)
+							 ))
+; BACKUP
+(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+  backup-by-copying t    ; Don't delink hardlinks
+  version-control t      ; Use version numbers on backups
+  delete-old-versions t  ; Automatically delete excess backups
+  kept-new-versions 20   ; how many of the newest versions to keep
+  kept-old-versions 5    ; and how many of the old
+  )
+
+; TERMINAL 
+; Completion
+(add-hook 'term-mode-hook (lambda()
+        (setq yas-dont-activate t)))
+
+; =========================================================================
+; PLUGINS
+; =========================================================================
+
+; AUTO-COMPLETE and AUTO-COMPLETE-C-HEADER
 ; Enable auto complete
 (require 'auto-complete)
 ; Start the default config
@@ -62,19 +97,20 @@
 (defun my:ac-c-header-init()
   (require 'auto-complete-c-headers)
   (add-to-list 'ac-sources 'ac-source-c-headers)
-  (add-to-list 'achead:include-directories '"/usr/include/x86_64-linux-gnu/c++/5")
   (add-to-list 'achead:include-directories '"/usr/lib/gcc/x86_64-linux-gnu/5/include"))
 (add-hook 'c++-mode-hook 'my:ac-c-header-init)
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
 
-; Enable auto pair
+; AUTOPAIR
+(require 'autopair)
 (autopair-global-mode)
 
-; Enable powerline
-(require 'powerline)
-(powerline-default-theme)
-(setq powerline-default-separator 'wave)
+; EMMET Mode
+(require 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 
+; JEDI
 ; Use Python : install virtualenv on the computer first
 (require 'jedi)
 (autoload 'jedi:setup "jedi" nil t)
@@ -82,43 +118,25 @@
 (setq jedi:setup-keys t)
 (setq jedi:complete-on-dot t)
 
-
-; C#
-;; Example evil-mode config
-
-(evil-define-key 'insert omnisharp-mode-map (kbd "M-.") 'omnisharp-auto-complete)
-(evil-define-key 'normal omnisharp-mode-map (kbd "<f12>") 'omnisharp-go-to-definition)
-(evil-define-key 'normal omnisharp-mode-map (kbd "g u") 'omnisharp-find-usages)
-(evil-define-key 'normal omnisharp-mode-map (kbd "g I") 'omnisharp-find-implementations) ; g i is taken
-(evil-define-key 'normal omnisharp-mode-map (kbd "g o") 'omnisharp-go-to-definition)
-(evil-define-key 'normal omnisharp-mode-map (kbd "g r") 'omnisharp-run-code-action-refactoring)
-(evil-define-key 'normal omnisharp-mode-map (kbd "g f") 'omnisharp-fix-code-issue-at-point)
-(evil-define-key 'normal omnisharp-mode-map (kbd "g F") 'omnisharp-fix-usings)
-(evil-define-key 'normal omnisharp-mode-map (kbd "g R") 'omnisharp-rename)
-(evil-define-key 'normal omnisharp-mode-map (kbd ", i") 'omnisharp-current-type-information)
-(evil-define-key 'normal omnisharp-mode-map (kbd ", I") 'omnisharp-current-type-documentation)
-(evil-define-key 'insert omnisharp-mode-map (kbd ".") 'omnisharp-add-dot-and-auto-complete)
-(evil-define-key 'normal omnisharp-mode-map (kbd ", n t") 'omnisharp-navigate-to-current-file-member)
-(evil-define-key 'normal omnisharp-mode-map (kbd ", n s") 'omnisharp-navigate-to-solution-member)
-(evil-define-key 'normal omnisharp-mode-map (kbd ", n f") 'omnisharp-navigate-to-solution-file-then-file-member)
-(evil-define-key 'normal omnisharp-mode-map (kbd ", n F") 'omnisharp-navigate-to-solution-file)
-(evil-define-key 'normal omnisharp-mode-map (kbd ", n r") 'omnisharp-navigate-to-region)
-(evil-define-key 'normal omnisharp-mode-map (kbd "<f12>") 'omnisharp-show-last-auto-complete-result)
-(evil-define-key 'insert omnisharp-mode-map (kbd "<f12>") 'omnisharp-show-last-auto-complete-result)
-(evil-define-key 'normal omnisharp-mode-map (kbd ",.") 'omnisharp-show-overloads-at-point)
-(evil-define-key 'normal omnisharp-mode-map (kbd ",rl") 'recompile)
-
-(evil-define-key 'normal omnisharp-mode-map (kbd ",rt")
-  (lambda() (interactive) (omnisharp-unit-test "single")))
-
-(evil-define-key 'normal omnisharp-mode-map
-  (kbd ",rf")
-  (lambda() (interactive) (omnisharp-unit-test "fixture")))
-
-(evil-define-key 'normal omnisharp-mode-map
-  (kbd ",ra")
-  (lambda() (interactive) (omnisharp-unit-test "all")))
-
-;; Speed up auto-complete on mono drastically. This comes with the
-;; downside that documentation is impossible to fetch.
-(setq omnisharp-auto-complete-want-documentation nil)
+; NLINUM
+(require 'nlinum)
+; To precalculate the line number width to avoid horizontal jumps on scrolling
+;; Preset width nlinum
+(add-hook 'nlinum-mode-hook
+          (lambda ()
+            (when nlinum-mode
+              (setq nlinum--width
+                    ;; works with the default `nlinum-format'
+                    (length (number-to-string
+                             (count-lines (point-min) (point-max)))))
+                    ;; use this instead if your `nlinum-format' has one space
+                    ;; (or other character) after the number
+                    ;;(1+ (length (number-to-string
+                    ;;             (count-lines (point-min) (point-max)))))
+              (nlinum--flush))))
+; NLINUM-RELATIVE
+(require 'nlinum-relative)
+(add-hook 'prog-mode-hook 'nlinum-relative-mode)
+(setq nlinum-relative-redisplay-delay 0)      ;; delay
+(setq nlinum-relative-current-symbol "->")      ;; or "" for display current line number
+(setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
