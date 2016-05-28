@@ -2,8 +2,8 @@ NVidia drivers :
 ----------------
 - Edit /etc/apt/sources.list
 - add these lines : deb http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu xenial main
-                    deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu xenial main
-- Install nvidia-XXX (latest version)
+					deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu xenial main
+- Install nvidia-XXX (latest LTS version)
 
 Shell extension :
 -----------------
@@ -22,10 +22,7 @@ The hdajackretask setup :
 
 Pins :
 
-0x12 : Not override > Internal mic
 0x14 : Override > Internal speaker
-0x15 : Not override > Headphone
-0x16 : Not override > Headphone
 0x18 : Override > Line out (front)
 0x1a : = Overrride > Line out (Center/LFE)
 
