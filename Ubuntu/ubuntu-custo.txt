@@ -20,9 +20,23 @@ sudo apt-get install -y wireshark
 # useful for edit sound
 sudo apt-get install -y audacity
 # for coding and myworld
-sudo apt-get install -y ant python-tk python-gpgme default-jdk android-tools-adb git vim vim-gnome-py2 texlive texlive-lang-french texlive-latex-extra texlive-science texlive-fonts-extra texlive-full texmaker mono-complete gnuplot apache2 nodejs npm
+sudo apt-get install -y ant python-tk python-gpgme default-jdk ruby-dev android-tools-adb git vim vim-gnome-py2 texlive texlive-lang-french texlive-latex-extra texlive-science texlive-fonts-extra texlive-full texmaker mono-complete gnuplot nodejs npm
 # Tools for my Emcas world
-sudo apt-get install -y emacs okular kde-l10n-fr
+sudo apt-get install -y emacs virtualenv flake8 aspell-fr
+# Usefull for pdf tool on emacs
+sudo apt-get install -y libpng-dev libz-dev libpoppler-glib-dev libpoppler-private-dev imagemagick
+# Emacs auto-complete
+sudo apt-get install -y python-pip
+sudo pip install --upgrade pip
+sudo pip install jedi epc mocker
+# ORG mode
+sudo apt-get install -y org-mode org-mode-doc
+# Java for Emacs
+sudo apt-get install -y gradle groovy2
+# PHP Mode for Emacs
+sudo apt-get install -y php-elisp
+# Dovecot for imap backup
+sudo apt-get install -y dovecot-imapd
 # gimp for pictures editing
 sudo apt-get install -y gimp gimp-data gimp-plugin-registry gimp-data-extras feh optipng jpegoptim
 # complete archive arsenal
@@ -38,7 +52,40 @@ sudo apt-get install -y tlp tlp-rdw powertop
 sudo apt-get install -y python3-uno libreoffice-l10n-fr libreoffice-help-fr hyphen-fr firefox-locale-fr
 sudo apt-get purge hyphen-en-us libreoffice-help-en-gb libreoffice-help-en-us libreoffice-l10n-en-gb libreoffice-l10n-en-za mythes-de-ch mythes-en-us
 # remove flash player
-sudo apt-get purge -y adobe-flashplugin flashplugin-installer adobe-flash-properties-gtk adobe-flash-properties-kde pepperflashplugin-nonfree
+sudo apt-get purge -y adobe-flashplugin flashplugin-installer
+adobe-flash-properties-gtk adobe-flash-properties-kde pepperflashplugin-nonfree
+
+# Tools for PHP, Apache2, MySQL
+sudo apt-get install -y apache2 apachetop
+sudo apt-get install -y php libapache2-mod-php php-mcrypt php-cli
+sudo apt-get install -y php-mysql mysql-server phpmyadmin
+sudo apt-get install -y php-mbstring php7.0-mbstring php-gettext
+ln -s /usr/share/phpmyadmin/ /var/www/html/phpmyadmin
+
+
+# Tools for my desktop environnement
+# First, install San Francisco Font
+# My menu
+sudo apt-get install -y rofi
+# i3blocks is useful for my status bar
+sudo apt-get install -y i3blocks
+# blueman for bluetooth
+sudo apt-get install -y blueman
+# compton for beautiful desktop effect
+sudo apt-get install -y compton xss-lock
+# Install xubuntu tools
+sudo apt-get install -y xubuntu-desktop gksu leafpad synaptic
+# lxappearance for theme changing
+sudo apt-get install -y lxappearance
+# Notify
+sudo apt-get install -y libnotify-bin
+# remove gnome, unity
+sudo apt-get remove -y nautilus gnome-power-manager gnome-screensaver gnome-termina* gnome-pane* gnome-applet* gnome-bluetooth gnome-desktop* gnome-sessio* gnome-user* gnome-shell-common compiz compiz* unity unity* hud zeitgeist zeitgeist* python-zeitgeist libzeitgeist* activity-log-manager-common gnome-control-center gnome-screenshot overlay-scrollba* && sudo apt-get install xubuntu-community-wallpapers && sudo apt-get autoremove
+sudo apt-get -f install
+sudo apt-get autoremove
+sudo apt-get -y autoclean
+sudo apt-get -y clean
+
 
 Disable guest Session :
 ------------------------
@@ -62,9 +109,6 @@ Section "InputClass"
         Option "ClickFinger3" "1"
         Option "VertScrollDelta" "-114"
         Option "HorizScrollDelta" "-114"
-        Option "CircularScrolling" "on"
-        Option "CircScrollTrigger" "2"
-        Option "ClickPad" "true"
 EndSection
 
 # Keyboard configuration

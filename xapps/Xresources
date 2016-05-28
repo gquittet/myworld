@@ -7,10 +7,10 @@
 ! XTerm and UXTerm ------------------------------------------------------------
 
 ! Set the font
-xterm*faceName : Inconsolata For Powerline
-xterm*faceSize: 14
-uxterm*faceName : Inconsolata For Powerline
-uxterm*faceSize: 14
+xterm*faceName : Source Code Pro for Powerline
+xterm*faceSize: 12
+uxterm*faceName : Source Code Pro for Powerline
+uxterm*faceSize: 12
 
 ! Add utf-8 support
 XTerm*locale: true
@@ -133,3 +133,13 @@ xpdf*antialias:         yes
 xpdf*foreground:        black
 xpdf*background:        white
 xpdf*urlCommand:        /usr/bin/firefox %s
+
+! Font -------------------------------------------------------------------------
+
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 96
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault

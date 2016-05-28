@@ -6,7 +6,7 @@ User configuration:
 	"auto_complete_commit_on_tab": true,
 	"auto_indent": true,
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Tomorrow-Night (SL).tmTheme",
 	"default_encoding": "UTF-8",
 	"default_line_ending": "unix",
 	"detect_indentation": true,
@@ -26,6 +26,7 @@ User configuration:
 	"hot_exit": false,
 	"ignored_packages":
 	[
+		"Vintage"
 	],
 	"indent_guide_options":
 	[
@@ -46,9 +47,9 @@ User configuration:
 	"smart_indent": true,
 	"tab_completion": false,
 	"tab_size": 4,
+	"theme": "Default.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
-	"vintage_start_in_command_mode": true,
 	"word_wrap": true,
 	"wrap_width": 80
 }
@@ -60,7 +61,9 @@ Sublime Text package list :
 - All AutoComplete
 - Anaconda (Python Auto complete)
 - AutoFileName
-- Block Cursor Everywhere
+- Autoprefixer
+- Babel
+- Babel Snippets
 - BracketHighlighter
 - ClangAutoComplete (Idem)
 - Color Highlighter
@@ -75,13 +78,17 @@ Sublime Text package list :
 - GitHub tools
 - JavaIME (Java Auto complete)
 - jQuery
+- JSFormat
+- JSHint
+- JS Snippets
 - LaTeXTools
 - LiveReload
 - MarkdownPreview
 - Material Theme
-- Material Theme AppBar
 - Minify
 - Package Control
+- Phpcs
+- PhpDoc
 - SideBarEnhancements
 - SublimeCodeIntel
 - SublimeLinter
@@ -89,6 +96,7 @@ Sublime Text package list :
 - Termial + config "terminal":"gnome-terminal"; ie default settings
 - Theme Soda
 - Theme Spacegray
+- Tomorrow Color Schemes
 - Writing Color Scheme
 Go to Omnisharp site and read the instructions.
 

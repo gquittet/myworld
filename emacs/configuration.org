@@ -1,0 +1,809 @@
+#+TITLE: Emacs configuration
+#+AUTHOR: Guillaume QUITTET
+#+EMAIL: guillaume.quittet@yahoo.fr
+#+DATE: Sat. 10th June 2016
+* Package Manager
+** Configuration
+#+BEGIN_SRC emacs-lisp
+  (require 'package)
+#+END_SRC
+   
+** List the repositories contening them and initialize the package
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+  (add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+#+END_SRC
+** Package that I need.
+#+BEGIN_SRC emacs-lisp
+  (setq package-list '(ace-popup-menu aggressive-indent ample-theme anaconda-mode android-mode auctex auto-complete auto-complete-c-headers auto-package-update autopair bbdb bm browse-at-remote buffer-move change-inner color-theme-sanityinc-tomorrow column-marker crm-custom elpy emmet-mode emms flx flx-ido flycheck flymake-cursor git git-commit git-gutter git-link git-messenger git-timemachine github-clone helm helm-projectile htmlize ido-vertical-mode iedit ido-ubiquitous imenu-anywhere impatient-mode jdee jedi js2-mode js-comint json-mode ledger-mode magit monokai-theme move-text multiple-cursors neotree nlinum nlinum-relative omnisharp org-bullets ox-ioslide ox-reveal ox-twbs pdf-tools projectile rainbow-mode restclient scss-mode simple-httpd skewer-mode smex solarized-theme tabbar tern w3m web-beautify web-mode whitespace-cleanup-mode yasnippet zenburn-theme))
+#+END_SRC
+
+** Package initialize
+#+BEGIN_SRC emacs-lisp
+  (package-initialize)
+#+END_SRC
+
+** Local Packages
+** Fetch the list of packages available
+#+BEGIN_SRC emacs-lisp
+  (unless package-archive-contents
+    (package-refresh-contents))
+#+END_SRC
+
+** Install the missing package
+#+BEGIN_SRC emacs-lisp
+  (dolist (package package-list)
+    (unless (package-installed-p package)
+      (package-install package)))
+#+END_SRC
+* Auto generate by Emacs
+#+BEGIN_SRC emacs-lisp
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(custom-safe-themes
+     (quote
+          ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))))
+
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(org-document-title ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana" :height 1.5 :underline nil))))
+   '(org-level-1 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana" :height 1.75))))
+   '(org-level-2 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana" :height 1.5))))
+   '(org-level-3 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana" :height 1.25))))
+   '(org-level-4 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana" :height 1.1))))
+   '(org-level-5 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana"))))
+   '(org-level-6 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana"))))
+   '(org-level-7 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana"))))
+   '(org-level-8 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana")))))
+#+END_SRC
+   
+* UI configuration
+** Load a beautiful theme
+#+BEGIN_SRC emacs-lisp
+  (load-theme 'sanityinc-tomorrow-night t)
+#+END_SRC
+** Change the font to Source Code Pro
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'default-frame-alist '(font . "Source Code Pro-11" ))
+  (set-face-attribute 'default t :font "Source Code Pro-11")
+#+END_SRC
+
+** Disable menu bar, tool bar and scroll bar
+#+BEGIN_SRC emacs-lisp
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+#+END_SRC
+
+** Set UTF8 everywhere
+#+BEGIN_SRC emacs-lisp
+  (setq locale-coding-system 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
+  (when (display-graphic-p)
+     (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
+#+END_SRC
+
+** Replace 'yes or no' with 'y or n'
+#+BEGIN_SRC emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+** Show the column number and the parent
+#+BEGIN_SRC emacs-lisp
+  (column-number-mode t)
+  (show-paren-mode 1)
+#+END_SRC
+
+* Editor settings
+** Highlight the current line
+#+BEGIN_SRC emacs-lisp
+  (global-hl-line-mode)
+#+END_SRC
+
+** Change tab width to 4 spaces
+#+BEGIN_SRC emacs-lisp
+  (setq tab-width 4)
+  (setq-default indent-tabs-mode nil)
+  (defvaralias 'c-basic-offset 'tab-width)
+  (defvaralias 'cperl-indent-level 'tab-width)
+  (setq tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
+#+END_SRC
+
+** Word wrap at 80
+#+BEGIN_SRC emacs-lisp
+  (setq-default fill-column 80)
+  (add-hook 'after-init-hook 'auto-fill-mode)
+  (setq text-mode-hook 'turn-on-auto-fill)
+  (setq default-major-mode 'text-mode)
+#+END_SRC
+
+** Clean white spaces when I save
+#+BEGIN_SRC emacs-lisp
+  (require 'whitespace-cleanup-mode)
+  (setq whitespace-style '(face empty tabs lines-tail trailing))
+  (global-whitespace-cleanup-mode 1)
+#+END_SRC
+* Backup
+** Set the backup to a dedicaced directory
+#+BEGIN_SRC emacs-lisp
+  (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+    backup-by-copying t    ; Don't delink hardlinks
+    version-control t      ; Use version numbers on backups
+    delete-old-versions t  ; Automatically delete excess backups
+    kept-new-versions 20   ; how many of the newest versions to keep
+    kept-old-versions 5    ; and how many of the old
+    )
+#+END_SRC
+
+* Org Mode
+** Add more export formats
+#+BEGIN_SRC emacs-lisp
+  (setq org-export-backends (quote (ascii beamer html icalendar latex man md org texinfo)))
+#+END_SRC
+
+** Add language support for compiling
+#+BEGIN_SRC emacs-lisp
+  (org-babel-do-load-languages
+   'org-babel-load-languages '((C . t)
+                               (css . t)
+                               (dot . t)
+                               (emacs-lisp t)
+                               (gnuplot . t)
+                               (java . t)
+                               (latex . t)
+                               (makefile . t)
+                               (org . t)
+                               (python . t)
+                               (ruby . t)
+                               (sass . t)
+                               (scala . t)
+                               (sh . t)
+                               ))
+#+END_SRC
+
+** Org Mode as a powerful Word processor
+*** Better look for italic text
+#+BEGIN_SRC emacs-lisp
+  (setq org-hide-emphasis-markers t)
+#+END_SRC
+
+*** Better bullets
+#+BEGIN_SRC emacs-lisp
+  (font-lock-add-keywords 'org-mode
+                          '(("^ +\\([-*]\\) "
+                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+#+END_SRC
+
+*** Better header bullet
+#+BEGIN_SRC emacs-lisp
+  (require 'org-bullets)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+END_SRC
+
+*** Better header
+#+BEGIN_SRC emacs-lisp
+  (let* ((variable-tuple (cond ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
+                               ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
+                               ((x-list-fonts "Verdana")         '(:font "Verdana"))
+                               ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
+                               (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
+         (base-font-color     (face-foreground 'default nil 'default))
+         (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
+
+    (custom-theme-set-faces 'user
+                            `(org-level-8 ((t (,@headline ,@variable-tuple))))
+                            `(org-level-7 ((t (,@headline ,@variable-tuple))))
+                            `(org-level-6 ((t (,@headline ,@variable-tuple))))
+                            `(org-level-5 ((t (,@headline ,@variable-tuple))))
+                            `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
+                            `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
+                            `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
+                            `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
+                            `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
+#+END_SRC
+
+** Editor settings
+Indent org file automatically
+#+BEGIN_SRC emacs-lisp
+  (with-eval-after-load 'org       
+    (setq org-startup-indented t) ; Enable `org-indent-mode' by default
+    (add-hook 'org-mode-hook #'visual-line-mode))
+#+END_SRC
+* Startup warning
+#+BEGIN_SRC emacs-lisp
+  (setq ad-redefinition-action 'accept)
+#+END_SRC
+	
+* Terminal
+** Enable completion in the terminal
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'term-mode-hook (lambda()
+          (setq yas-dont-activate t)))
+#+END_SRC
+* Plugins configuration
+** Ace popup menu
+#+BEGIN_SRC emacs-lisp
+  (ace-popup-menu-mode 1)
+  (setq ace-popup-menu-show-pane-header t)
+#+END_SRC
+** Aggressive indent: Keep code always indented
+#+BEGIN_SRC emacs-lisp
+  (global-aggressive-indent-mode 1)
+  (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
+#+END_SRC
+** Anaconda: Python IDE
+#+BEGIN_SRC emacs-lisp
+  (require 'anaconda-mode)
+  (add-hook 'python-mode-hook 'anaconda-mode)
+#+END_SRC
+** Android
+#+BEGIN_SRC emacs-lisp
+  (require 'android-mode)
+  (custom-set-variables '(android-mode-sdk-dir "~/opt/android-sdk"))
+#+END_SRC
+** Auto-complete
+#+BEGIN_SRC emacs-lisp
+  (require 'auto-complete)
+  (require 'auto-complete-config)
+  (ac-config-default)
+#+END_SRC
+** Auto-comple-c-headers
+#+BEGIN_SRC emacs-lisp
+  (defun my:ac-c-header-init()
+    (require 'auto-complete-c-headers)
+    (add-to-list 'ac-sources 'ac-source-c-headers)
+    (add-to-list 'achead:include-directories '"/usr/lib/gcc/x86_64-linux-gnu/5/include"))
+  (add-hook 'c++-mode-hook 'my:ac-c-header-init)
+  (add-hook 'c-mode-hook 'my:ac-c-header-init)
+#+END_SRC
+** Auto package update
+#+BEGIN_SRC emacs-lisp
+  (require 'auto-package-update)
+  (auto-package-update-maybe)
+  (auto-package-update-at-time "10:00")
+  (setq auto-package-update-interval 1)
+  (setq auto-package-update-delete-old-versions t)
+  (add-hook 'auto-package-update-before-hook
+            (lambda () (message "I will update my packages now.")))
+#+END_SRC
+** Autopair
+#+BEGIN_SRC emacs-lisp
+  (require 'autopair)
+  (autopair-global-mode)
+#+END_SRC
+** BM
+#+BEGIN_SRC emacs-lisp
+  (require 'bm)
+#+END_SRC
+** Browse at remote: Useful for Git
+#+BEGIN_SRC emacs-lisp
+  (require 'browse-at-remote)
+#+END_SRC
+** Change inner
+#+BEGIN_SRC emacs-lisp
+  (require 'change-inner)
+  (global-set-key (kbd "M-i") 'change-inner)
+  (global-set-key (kbd "M-o") 'change-outer)
+#+END_SRC
+** Column Marker
+#+BEGIN_SRC emacs-lisp
+  (require 'column-marker)
+  (add-hook 'after-init-hook (lambda () (interactive) (column-marker-1 80)))
+#+END_SRC
+** Company: Text completion
+#+BEGIN_SRC emacs-lisp
+  (require 'company)
+  (add-hook 'after-init-hook 'global-company-mode)
+#+END_SRC
+** Elpy: Python IDE
+#+BEGIN_SRC emacs-lisp
+  (elpy-enable)
+#+END_SRC
+** Emmet
+#+BEGIN_SRC emacs-lisp
+  (require 'emmet-mode)
+  (require 'web-mode)
+  (add-hook 'sgml-mode-hook 'emmet-mode)
+  (add-hook 'css-mode-hook  'emmet-mode)
+  (add-hook 'web-mode-hook 'emmet-mode)
+#+END_SRC
+** EMMS: Emacs Muti Media Server
+#+BEGIN_SRC emacs-lisp
+  (require 'emms-setup)
+  (emms-all)
+  (emms-default-players)
+#+END_SRC
+** EWW
+#+BEGIN_SRC emacs-lisp
+  (require 'eww)
+#+END_SRC
+** Flycheck
+#+BEGIN_SRC emacs-lisp
+  (require 'flycheck)
+  (global-flycheck-mode)
+#+END_SRC
+** Flymake
+#+BEGIN_SRC emacs-lisp
+  (require 'flymake)
+#+END_SRC
+*** LaTeX
+#+BEGIN_SRC emacs-lisp
+  (defun flymake-get-tex-args (file-name)
+  (list "pdflatex"
+  (list "-file-line-error" "-draftmode" "-interaction=nonstopmode" file-name)))
+  (add-hook 'LaTeX-mode-hook 'flymake-mode)
+#+END_SRC
+** Flyspell
+#+BEGIN_SRC emacs-lisp
+    (setq ispell-program-name "aspell")
+    (setq ispell-dictionary "francais")
+#+END_SRC
+*** Gnus
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'message-mode-hook 'flyspell-mode)
+  (add-hook 'message-mode-hook 'flyspell-buffer)
+#+END_SRC
+*** Latex
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+  (add-hook 'LaTeX-mode-hook 'flyspell-buffer)
+#+END_SRC
+*** Org
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'org-mode-hook 'flyspell-mode)
+  (add-hook 'org-mode-hook 'flyspell-buffer)
+#+END_SRC
+*** Text
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'text-mode-hook 'flyspell-mode)
+  (add-hook 'text-mode-hook 'flyspell-buffer)
+#+END_SRC
+** Git gutter
+#+BEGIN_SRC emacs-lisp
+  (global-git-gutter-mode +1)
+#+END_SRC
+** Git messenger
+#+BEGIN_SRC emacs-lisp
+  (require 'git-messenger)
+  (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode)
+#+END_SRC
+** Helm
+#+BEGIN_SRC emacs-lisp
+  (require 'helm-config)
+#+END_SRC
+** IDO
+*** Enable IDO
+#+BEGIN_SRC emacs-lisp
+  (require 'ido)
+  (ido-mode 1)
+  (ido-everywhere 1)
+  (require 'ido-ubiquitous)
+  (ido-ubiquitous-mode 1)
+  (require 'crm-custom)
+  (crm-custom-mode 1)
+  (require 'flx)
+  (flx-ido-mode 1)
+#+END_SRC
+*** Show IDO verticaly
+#+BEGIN_SRC emacs-lisp
+  (ido-vertical-mode 1)
+#+END_SRC
+*** Make IDO more powerful
+#+BEGIN_SRC emacs-lisp
+  (setq ido-enable-flex-matching t)
+  (setq ido-use-faces nil)
+#+END_SRC
+** Impatient Mode: HTML reload on the fly
+#+BEGIN_SRC emacs-lisp
+  (require 'impatient-mode)
+  (add-hook 'web-mode-hook 'httpd-start)
+  (add-hook 'web-mode-hook 'impatient-mode)
+  (add-hook 'css-mode-hook 'httpd-start)
+  (add-hook 'css-mode-hook 'impatient-mode)
+#+END_SRC
+** JDEE
+#+BEGIN_SRC emacs-lisp
+  (require 'jdee)
+#+END_SRC
+** Jedi
+#+BEGIN_SRC emacs-lisp
+  (require 'jedi)
+  (autoload 'jedi:setup "jedi" nil t)
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (setq jedi:setup-keys t)
+  (setq jedi:complete-on-dot t)
+#+END_SRC
+** JS-Comint
+#+BEGIN_SRC emacs-lisp
+  (require 'js-comint)
+  (setq inferioddr-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
+#+END_SRC
+** LaTeX
+*** Enable LaTeX mode
+#+BEGIN_SRC emacs-lisp
+  (setq Tex-PDF-mode t)
+#+END_SRC
+*** Update PDF automaticaly with DocView
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+  (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+#+END_SRC
+*** Configuration
+#+BEGIN_SRC emacs-lisp
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil)
+  (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+  (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+  (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
+  (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+  (setq reftex-plug-into-AUCTeX t)
+#+END_SRC
+*** Script command for LaTeX compiling
+#+BEGIN_SRC emacs-lisp
+  (setq latex-run-command "pdflatex -synctex=1 -interaction=nonstopmode --shell-escape")
+  (setq LaTeX-command "latex -synctex=1 -interaction=nonstopmode --shell-escape")
+#+END_SRC
+*** Integrate PDF Tools with Emacs
+#+BEGIN_SRC emacs-lisp
+  (setq TeX-source-correlate-method (quote synctex))
+  (setq TeX-source-correlate-mode t)
+  (setq TeX-source-correlate-start-server t)
+  (setq TeX-view-program-selection
+        (quote
+         ((output-pdf "PDF Tools")
+          ((output-dvi has-no-display-manager)
+           "dvi2tty")
+          ((output-dvi style-pstricks)
+           "dvips and gv")
+          (output-dvi "xdvi")
+          (output-(point)df "Evince")
+          (output-html "xdg-open"))))
+#+END_SRC
+** Linum
+#+BEGIN_SRC emacs-lisp
+  (require 'linum)
+  (add-hook 'text-mode-hook 'linum-mode)
+#+END_SRC
+** Move text
+#+BEGIN_SRC emacs-lisp
+  (require 'move-text)
+  (move-text-default-bindings)
+#+END_SRC
+** Multi cursors
+#+BEGIN_SRC emacs-lisp
+  (require 'multiple-cursors)
+  (add-hook 'after-init-hook 'multiple-cursors-mode)
+#+END_SRC
+** Neotree
+#+BEGIN_SRC emacs-lisp
+  (require 'neotree)
+#+END_SRC
+** NLinum
+#+BEGIN_SRC emacs-lisp
+  (require 'nlinum)
+#+END_SRC
+*** Fix horizontal jump on scrolling
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'nlinum-mode-hook
+            (lambda ()
+              (when nlinum-mode
+                (setq nlinum--width
+                      ;; works with the default `nlinum-format'
+                      (length (number-to-string
+                               (count-lines (point-min) (point-max)))))
+                      ;; use this instead if your `nlinum-format' has one space
+                      ;; (or other character) after the number
+                      ;;(1+ (length (number-to-string
+                      ;;             (count-lines (point-min) (point-max)))))
+                (nlinum--flush))))
+#+END_SRC
+** NLinum Relative: For relative line numbers
+#+BEGIN_SRC emacs-lisp
+  (require 'nlinum-relative)
+  (setq nlinum-relative-redisplay-delay 0)
+  (setq nlinum-relative-current-symbol "->")
+  (setq nlinum-relative-offset 0)
+#+END_SRC
+*** Enable only for programmations mode
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'prog-mode-hook 'nlinum-relative-mode)
+  (add-hook 'css-mode-hook 'nlinum-relative-mode)
+  (add-hook 'web-mode-hook 'nlinum-relative-mode)
+  (add-hook 'latex-mode-hook 'nlinum-relative-mode)
+  (add-hook 'js2-mode-hook 'nlinum-relative-mode)
+  (add-hook 'js-mode-hook 'nlinum-relative-mode)
+  (add-hook 'json-mode-hook 'nlinum-relative-mode)
+  (add-hook 'html-mode-hook 'nlinum-relative-mode)
+#+END_SRC
+** OMNISharp
+*** Speed up auto-complete
+#+BEGIN_SRC emacs-lisp
+  (setq omnisharp-auto-complete-want-documentation nil)
+#+END_SRC
+** Outline mode
+#+BEGIN_SRC emacs-lisp
+  (outline-minor-mode 1)
+#+END_SRC
+** Ox
+*** ox-ioslide
+#+BEGIN_SRC emacs-lisp
+  (require 'ox-ioslide)
+  (require 'ox-ioslide-helper)
+#+END_SRC
+*** ox-reveal
+#+BEGIN_SRC emacs-lisp
+  (require 'ox-reveal)
+#+END_SRC
+Fix org-html-fontify-code error
+#+BEGIN_SRC emacs-lisp
+  (defun org-font-lock-ensure ()
+    (font-lock-fontify-buffer))
+#+END_SRC
+*** ox-twbs
+#+BEGIN_SRC emacs-lisp
+  (require 'ox-twbs)
+#+END_SRC
+** PDF-Tools
+#+BEGIN_SRC emacs-lisp
+  (pdf-tools-install)
+#+END_SRC
+** Projectile
+#+BEGIN_SRC emacs-lisp
+  (require 'projectile)
+  (add-hook 'projectile-mode-hook 'helm-projectile-on)
+#+END_SRC
+** Rainbow
+#+BEGIN_SRC emacs-lisp
+  (require 'rainbow-mode)
+  (require 'web-mode)
+  (add-hook 'css-mode-hook 'rainbow-mode)
+  (add-hook 'web-mode-hook 'rainbow-mode)
+#+END_SRC
+** Restclient: Show HTTP request result in XML or JSON
+#+BEGIN_SRC emacs-lisp
+  (require 'restclient)
+#+END_SRC
+** Semantic Mode
+#+BEGIN_SRC emacs-lisp
+  (semantic-mode 1)
+#+END_SRC
+** Simple HTTPD
+#+BEGIN_SRC emacs-lisp
+  (require 'simple-httpd)
+  (setq httpd-root "/var/www/html")
+#+END_SRC
+** Skewer Mode
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'js2-mode-hook 'skewer-mode)
+  (add-hook 'css-mode-hook 'skewer-css-mode)
+  (add-hook 'html-mode-hook 'skewer-html-mode)
+  (add-hook 'web-mode-hook 'skewer-html-mode)
+#+END_SRC
+** Smex
+#+BEGIN_SRC emacs-lisp
+  (require 'smex)
+  (smex-initialize)
+#+END_SRC
+** Tern: Tool for JavaScript
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'js-mode-hook (lambda () (tern-mode t)))
+  (eval-after-load 'tern
+    '(progn
+       (require 'tern-auto-complete)
+       (tern-ac-setup)))
+#+END_SRC
+** Uniquify: Unique buffer name
+#+BEGIN_SRC emacs-lisp
+  (setq uniquify-buffer-name-style (quote post-forward))
+#+END_SRC
+** W3M
+#+BEGIN_SRC emacs-lisp
+  (require 'w3m)
+  (setq browse-url-browser-function 'w3m-browse-url)
+  (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+  (setq w3m-use-cookies t)
+  (setq w3m-coding-system 'utf-8
+        w3m-file-coding-system 'utf-8
+        w3m-file-name-coding-system 'utf-8
+        w3m-input-coding-system 'utf-8
+        w3m-output-coding-system 'utf-8
+        w3m-terminal-coding-system 'utf-8)
+#+END_SRC
+** Web beautify
+#+BEGIN_SRC emacs-lisp
+  (require 'web-beautify) ;; Not necessary if using ELPA package
+  (eval-after-load 'js2-mode
+    '(add-hook 'js2-mode-hook
+               (lambda ()
+                 (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
+
+  ;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
+  (eval-after-load 'js
+    '(add-hook 'js-mode-hook
+               (lambda ()
+                 (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
+
+  (eval-after-load 'json-mode
+    '(add-hook 'json-mode-hook
+               (lambda ()
+                 (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
+
+  (eval-after-load 'sgml-mode
+    '(add-hook 'html-mode-hook
+               (lambda ()
+                 (add-hook 'before-save-hook 'web-beautify-html-buffer t t))))
+
+  (eval-after-load 'web-mode
+    '(add-hook 'web-mode-hook
+               (lambda ()
+                 (add-hook 'before-save-hook 'web-beautify-html-buffer t t))))
+
+  (eval-after-load 'css-mode
+    '(add-hook 'css-mode-hook
+               (lambda ()
+                 (add-hook 'before-save-hook 'web-beautify-css-buffer t t))))
+#+END_SRC
+** Web Mode
+#+BEGIN_SRC emacs-lisp
+  (require 'web-mode)
+  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+#+END_SRC
+** Winner mode
+#+BEGIN_SRC emacs-lisp
+  (when (fboundp 'winner-mode)
+        (winner-mode 1))
+#+END_SRC
+** YASNIPPET
+#+BEGIN_SRC emacs-lisp
+  (require 'yasnippet)
+  (yas-global-mode 1)
+#+END_SRC
+* Keybinding
+** BM
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "<C-f2>") 'bm-toggle)
+  (global-set-key (kbd "<f2>")   'bm-next)
+  (global-set-key (kbd "<S-f2>") 'bm-previous)
+#+END_SRC
+** Browse at remote: Useful for Git
+#+BEGIN_SRC emacs-lisp
+    (global-set-key (kbd "C-c g g") 'browse-at-remote/browse)
+#+END_SRC
+** Buffer Move
+#+BEGIN_SRC emacs-lisp
+  (require 'buffer-move)
+  (global-set-key (kbd "<C-S-up>")     'buf-move-up)
+  (global-set-key (kbd "<C-S-down>")   'buf-move-down)
+  (global-set-key (kbd "<C-S-left>")   'buf-move-left)
+  (global-set-key (kbd "<C-S-right>")  'buf-move-right)
+#+END_SRC
+** EMMS: Emacs Multi Media Server
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-c e SPC") 'emms-pause)
+  (global-set-key (kbd "C-c e k") 'emms-stop)
+  (global-set-key (kbd "C-c e n") 'emms-next)
+  (global-set-key (kbd "C-c e p") 'emms-previous)
+  (global-set-key (kbd "C-c e +") 'emms-seek-forward)
+  (global-set-key (kbd "C-c e -") 'emms-seek-backward)
+  (global-set-key (kbd "C-c e s") 'emms-toggle-random-playlist)
+  (global-set-key (kbd "C-c e r t") 'emms-toggle-repeat-track)
+  (global-set-key (kbd "C-c e r p") 'emms-toggle-repeat-playlist)
+#+END_SRC
+** Git messenger
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x v p") 'git-messenger:popup-message)
+  (define-key git-messenger-map (kbd "m") 'git-messenger:copy-message)
+#+END_SRC
+** Helm
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-S-x") 'helm-M-x)
+#+END_SRC
+** IMenu
+#+BEGIN_SRC emacs-lisp
+  (require 'imenu-anywhere)
+  (global-set-key (kbd "C-,") #'imenu-anywhere)
+#+END_SRC
+** JS-Comint
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'js2-mode-hook '(lambda () 
+                              (local-set-key "\C-x\C-e" 'js-send-last-sexp)
+                              (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
+                              (local-set-key "\C-cb" 'js-send-buffer)
+                              (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
+                              (local-set-key "\C-cl" 'js-load-file-and-go)
+                              ))
+#+END_SRC
+** Multi cursors
+#+BEGIN_SRC emacs-lisp
+    (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+    (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+    (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+    (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+    (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
+#+END_SRC
+** Neotree
+#+BEGIN_SRC emacs-lisp
+  (global-set-key [f8] 'neotree-toggle)
+#+END_SRC
+** ORG Mode
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-c l") 'org-store-link)
+  (global-set-key (kbd "C-c a") 'org-agenda)
+  (global-set-key (kbd "C-c b") 'org-iswitchb)
+#+END_SRC
+** Smex
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "M-x") 'smex)
+  (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+  (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+#+END_SRC
+** Web beautify
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load 'js2-mode
+    '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
+  ;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
+  (eval-after-load 'js
+    '(define-key js-mode-map (kbd "C-c b") 'web-beautify-js))
+
+  (eval-after-load 'json-mode
+    '(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
+
+  (eval-after-load 'sgml-mode
+    '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
+
+  (eval-after-load 'web-mode
+    '(define-key web-mode-map (kbd "C-c b") 'web-beautify-html))
+
+  (eval-after-load 'css-mode
+    '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))
+#+END_SRC
+* EMail
+** Contacts
+#+BEGIN_SRC emacs-lisp
+  (require 'bbdb)
+  (bbdb-initialize 'gnus 'message)
+  (bbdb-insinuate-message)
+  (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
+  (setq bbdb-file "~/Documents/Dropbox/Mails/Contacts/.bbdb.gpg")
+  (setq bbdb-send-mail-style 'gnus)
+  (setq bbdb-complete-name-full-completion t)
+  (setq bbdb-completion-type 'primary-or-name)
+  (setq bbdb-complete-name-allow-cycling t)
+  (setq bbdb-always-add-address t)
+  (setq bbbd-message-caching-enabled t)
+  (setq bbdb-use-alternate-names t)
+  (setq bbdb-north-american-phone-numbers-p nil)
+  (setq
+   bbdb-offer-save 1
+   bbdb-use-pop-up t
+   bbdb-electric-p t
+   bbdb-popup-target-lines  1
+   )
+
+#+END_SRC
+** Mails folder
+#+BEGIN_SRC emacs-lisp
+  (setq gnus-always-read-dribble-file t)
+  (setq message-directory "~/Documents/Mails/")
+  (setq gnus-directory "~/Documents/Mails/news/")
+  (setq nnfolder-directory "~/Documents/Mails/archive/")
+#+END_SRC
+* Functions
