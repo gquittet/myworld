@@ -271,5 +271,6 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/deja-dup/deja-dup-monitor
 exec --no-startup-id synapse --startup
 exec --no-startup-id update-notifier
+exec --no-startup-id xbindkeys
 # exec rhythmbox
 
