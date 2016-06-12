@@ -1,3 +1,8 @@
+=================================================
+SUBLIME TEXT CONFIGURATION: By Guillaume QUITTET
+=================================================
+User settings:
+--------------
 {
     "always_show_minimap_viewport": true,
     "auto_complete": true,
@@ -37,6 +42,7 @@
     "margin": 8,
     "overlay_scroll_bars": "enabled",
     "remember_open_files": false,
+    "revert_font_size": 11,
     "rulers":
     [
         80
@@ -92,6 +98,7 @@ Sublime Text package list :
 - Package Control
 - Phpcs
 - PhpDoc
+- Revert font size
 - SCSS
 - SCSS Snippets
 - SideBarEnhancements
