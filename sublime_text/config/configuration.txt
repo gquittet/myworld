@@ -104,7 +104,9 @@ My Keybindings:
 ---------------
 [
     {"keys": ["control+shift+i"], "command": "reindent"},
-    {"keys": ["alt+enter"], "command": "run_macro_file", "args": {"file": "Packages/User/alt-tab.sublime-macro"}}
+    {"keys": ["alt+enter"], "command": "run_macro_file", "args": {"file": "Packages/User/alt-tab-new-line.sublime-macro"}},
+    { "keys": ["alt+shift+up"], "command": "select_lines", "args": {"forward": false} },
+    { "keys": ["alt+shift+down"], "command": "select_lines", "args": {"forward": true} }
 ]
 
 My Snippets:
