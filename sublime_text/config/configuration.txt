@@ -1,57 +1,56 @@
-User configuration:
---------------------
 {
-	"always_show_minimap_viewport": true,
-	"auto_complete": true,
-	"auto_complete_commit_on_tab": true,
-	"auto_indent": true,
-	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/SublimeLinter/Tomorrow-Night (SL).tmTheme",
-	"default_encoding": "UTF-8",
-	"default_line_ending": "unix",
-	"detect_indentation": true,
-	"drag_text": true,
-	"draw_indent_guides": true,
-	"enable_tab_scrolling": true,
-	"fade_fold_buttons": false,
-	"font_face": "Source Code Pro",
-	"font_options":
-	[
-		"gray_antialias",
-		"subpixel_antialias"
-	],
-	"font_size": 11,
-	"highlight_line": true,
-	"highlight_modified_tabs": true,
-	"hot_exit": false,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
-	"indent_guide_options":
-	[
-		"draw_normal",
-		"draw_active"
-	],
-	"line_numbers": true,
-	"line_padding_bottom": 1,
-	"line_padding_top": 1,
-	"margin": 8,
-	"overlay_scroll_bars": "enabled",
-	"remember_open_files": false,
-	"rulers":
-	[
-		80
-	],
-	"show_encoding": true,
-	"smart_indent": true,
-	"tab_completion": false,
-	"tab_size": 4,
-	"theme": "Default.sublime-theme",
-	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
-	"word_wrap": true,
-	"wrap_width": 80
+    "always_show_minimap_viewport": true,
+    "auto_complete": true,
+    "auto_complete_commit_on_tab": true,
+    "auto_indent": true,
+    "bold_folder_labels": true,
+    "color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+    "default_encoding": "UTF-8",
+    "default_line_ending": "unix",
+    "detect_indentation": true,
+    "drag_text": true,
+    "draw_indent_guides": true,
+    "enable_tab_scrolling": false,
+    "fade_fold_buttons": false,
+    "font_face": "Source Code Pro",
+    "font_options":
+    [
+        "gray_antialias",
+        "subpixel_antialias"
+    ],
+    "font_size": 11,
+    "highlight_line": true,
+    "highlight_modified_tabs": true,
+    "hot_exit": false,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "indent_guide_options":
+    [
+        "draw_normal",
+        "draw_active"
+    ],
+    "line_numbers": true,
+    "line_padding_bottom": 1,
+    "line_padding_top": 1,
+    "margin": 8,
+    "overlay_scroll_bars": "enabled",
+    "remember_open_files": false,
+    "rulers":
+    [
+        80
+    ],
+    "show_encoding": true,
+    "smart_indent": true,
+    "soda_classic_tabs": true,
+    "tab_completion": false,
+    "tab_size": 4,
+    "theme": "Soda Dark 3.sublime-theme",
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "word_wrap": true,
+    "wrap_width": 80
 }
 
 
@@ -72,23 +71,29 @@ Sublime Text package list :
 - CSS3
 - CSSLint
 - DocBlockr
+- EasyMotion
 - Emmet
 - Git
 - GitGutter
 - GitHub tools
+- HTML-CSS-JS Prettify
 - JavaIME (Java Auto complete)
 - jQuery
+- JS Snippets
 - JSFormat
 - JSHint
-- JS Snippets
 - LaTeXTools
 - LiveReload
-- MarkdownPreview
+- Markdown Extended
+- Markdown Preview
+- MarkdownEditing
 - Material Theme
 - Minify
 - Package Control
 - Phpcs
 - PhpDoc
+- SCSS
+- SCSS Snippets
 - SideBarEnhancements
 - SublimeCodeIntel
 - SublimeLinter
@@ -273,6 +278,14 @@ C#:
 
 Plugins configuration:
 ----------------------
+Autoprefixer (User):
+---------------------
+{
+    "browsers": ["last 50 versions"],
+    "cascade": false,
+    "remove": true,
+    "prefixOnSave": true
+}
 
 ColorHighlighter (User):
 ------------------------
@@ -280,13 +293,23 @@ ColorHighlighter (User):
     "ha_style": "filled"
 }
 
+HTML-CSS-JS-Prettify:
+---------------------
+Change " "format_on_save": false, " to " "format_on_save": true, "
+
+JSFormat (User):
+----------------
+{
+    "format_on_save": true
+}
+
 LiveReload (Default):
 ---------------------
 {
-	"enabled_plugins": [
-		"SimpleReloadPlugin",
-		"SimpleRefresh"
-	]
+    "enabled_plugins": [
+        "SimpleReloadPlugin",
+        "SimpleRefresh"
+    ]
 }
 
 Minify (User):
@@ -299,6 +322,6 @@ Minify (User):
 LaTeXTools (User):
 ------------------
 Find these lines and edit them like this : "hide_build_panel": "no_warnings",
-									  	   "builder": "script",
+                                           "builder": "script",
 In "builder_settings" > "linux", add this line under the comment:
 "script_commands": ["pdflatex -synctex=1 -interaction=nonstopmode --shell-escape $file"]
