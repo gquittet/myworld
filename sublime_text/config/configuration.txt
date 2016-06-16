@@ -9,7 +9,7 @@ User settings:
     "auto_complete_commit_on_tab": true,
     "auto_indent": true,
     "bold_folder_labels": true,
-    "color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+    "color_scheme": "Packages/User/SublimeLinter/Flatland Monokai (SL).tmTheme",
     "default_encoding": "UTF-8",
     "default_line_ending": "unix",
     "detect_indentation": true,
@@ -106,8 +106,9 @@ Sublime Text package list :
 - SublimeLinter
 - SublimeREPL
 - Termial + config "terminal":"gnome-terminal"; ie default settings
-- Theme Soda
-- Theme Spacegray
+- Theme - Flatland
+- Theme - Soda
+- Theme - Spacegray
 - Tomorrow Color Schemes
 - Writing Color Scheme
 Go to Omnisharp site and read the instructions.
