@@ -133,3 +133,8 @@ Section "InputClass"
     Option "XkbVariant" "altgr-intl"
     Option "XkbOptions" "compose:ralt, caps:escape, terminate:ctrl_alt_bksp"
 EndSection
+
+MATE section:
+--------------
+Default font DPI: 96
+My DPI for full hd screen resolution: 125
