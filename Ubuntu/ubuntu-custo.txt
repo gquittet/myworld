@@ -5,7 +5,9 @@ Bash to Update (Unity):
 --------------------------------
 #!/bin/bash
 sudo apt-get update && upgrade && dist-upgrade
-sudo apt-get install -y bleachbit gparted synaptic tree wmctrl xclip mplayer libcanberra-gtk-module cowsay htop zram-config preload
+sudo apt-get install -y bleachbit gparted synaptic tree wmctrl xclip mplayer libcanberra-gtk-module cowsay htop zram-config gdebi preload
+# Install gedit
+sudo apt-get install gedit gedit-plugins
 # set a firewall
 sudo apt-get install -y  ufw gufw
 # tools for a better sound
@@ -59,8 +61,7 @@ sudo apt-get install -y tlp tlp-rdw powertop
 sudo apt-get install -y python3-uno libreoffice-l10n-fr libreoffice-help-fr hyphen-fr firefox-locale-fr
 sudo apt-get purge hyphen-en-us libreoffice-help-en-gb libreoffice-help-en-us libreoffice-l10n-en-gb libreoffice-l10n-en-za mythes-de-ch mythes-en-us
 # remove flash player
-sudo apt-get purge -y adobe-flashplugin flashplugin-installer
-adobe-flash-properties-gtk adobe-flash-properties-kde pepperflashplugin-nonfree
+sudo apt-get purge -y adobe-flashplugin flashplugin-installer adobe-flash-properties-gtk adobe-flash-properties-kde pepperflashplugin-nonfree
 
 # Tools for PHP, Apache2, MySQL
 sudo apt-get install -y apache2 apachetop

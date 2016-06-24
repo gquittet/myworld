@@ -1,6 +1,6 @@
 NVidia drivers :
 ----------------
-- Edit /etc/apt/sources.list
+- Edit /etc/apt/sources.list                                                     
 - add these lines : deb http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu xenial main
 					deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu xenial main
 - Install nvidia-XXX (latest LTS version)
@@ -35,20 +35,36 @@ Surround : Two channels (R/L) separed controls
 
 Source : https://bugs.launchpad.net/ubuntu/+source/alsa-driver/+bug/1302090/comments/58
 
-Font Name :      Inconsolata For Powerline 14
---------------
+Boost sound Ubuntu:
+-------------------
+gksu gedit /etc/asound.conf
 
+# And add these lines to this file:
+
+pcm.!default {
+type plug
+slave.pcm "softvol"
+}
+
+pcm.softvol {
+type softvol
+slave {
+pcm "dmix"
+}
+control {
+name "Pre-Amp"
+card 0
+}
+min_dB -5.0
+max_dB 20.0
+resolution 6
+}
+
+# Restart
+
+---------------------------------------------
 Theme :
 -------------------
-Vertex :
---------
-Open terminal as root :
------------------------
-echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/Debian_8.0/ /' >> /etc/apt/sources.list.d/vertex-theme.list
-apt-get update
-apt-get install vertex-theme
-wget http://download.opensuse.org/repositories/home:Horst3180/Debian_8.0/Release.key
-apt-key add - < Release.key
 Arc-theme :
 -----------
 Ubuntu, Debian, Fedora, etc : https://software.opensuse.org/download.html?project=home%3AHorst3180&package=arc-theme
@@ -69,7 +85,6 @@ Fix pink color on Xubuntu : replace pink by #F84040
 
 Disable apport :
 -----------------
-
 sudo sed -i "s/enabled=1/enabled=0/g" /etc/default/apport
 
 Disable Debian BEEP:
