@@ -6,6 +6,9 @@ Bash to Update (Unity):
 #!/bin/bash
 sudo apt-get update && upgrade && dist-upgrade
 sudo apt-get install -y bleachbit gparted synaptic tree wmctrl xclip mplayer libcanberra-gtk-module cowsay htop zram-config gdebi preload
+# Tool for remove the old kernels
+# The command to remove the old kernel is : sudo purge-old-kernel
+sudo apt install byobu
 # Install gedit
 sudo apt-get install gedit gedit-plugins
 # set a firewall
@@ -22,8 +25,9 @@ sudo apt-get install -y wireshark
 # useful for edit sound
 sudo apt-get install -y audacity
 # for coding and myworld
-sudo apt-get install -y ant python-tk python-gpgme default-jdk ruby-dev android-tools-adb git vim vim-gnome-py2 texlive texlive-lang-french texlive-latex-extra texlive-science texlive-fonts-extra texlive-full texmaker mono-complete gnuplot nodejs npm
-
+sudo apt-get install -y ant python-tk python-gpgme default-jdk ruby-dev android-tools-adb vim vim-gnome-py2 texlive texlive-lang-french texlive-latex-extra texlive-science texlive-fonts-extra texlive-full texmaker mono-complete gnuplot nodejs npm
+# Git tool
+sudo apt-get install git gitg
 # Disable Mouse scroll
 sudo apt-get install -y xbindkeys
 # Copy .xbindkeys from dropbox to $HOME
