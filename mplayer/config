@@ -1,0 +1,26 @@
+# My mplayer config : copy to ~/.mplayer/config
+# Sortie vidéo (si bug mettre x11)
+vo = xv
+ 
+# Si le fullscreen bug
+# keepaspect = no
+# zoom = yes
+ 
+# Plein écran (F)
+fs=1
+ 
+# Sortie audio
+ao = alsa
+
+# Best sound
+af = volnorm
+
+# Stoper le screensaver pendant le film
+stop-xscreensaver = "yes"
+ 
+# Masquer les fenêtres d'erreurs 
+really-quiet = "1"
+
+# Langue du film
+alang = fr
+# Sous-titres (j - b) (v)
