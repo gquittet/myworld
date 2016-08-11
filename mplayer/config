@@ -1,7 +1,13 @@
+# Write your default config options here!
+
 # My mplayer config : copy to ~/.mplayer/config
 # Sortie vidéo (si bug mettre x11)
-vo = xv
- 
+# Specify default video driver (see -vo help for a list).
+vo=xv
+
+# do_connect
+lirc=no
+
 # Si le fullscreen bug
 # keepaspect = no
 # zoom = yes
