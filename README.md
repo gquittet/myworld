@@ -1,6 +1,7 @@
-# Here is  my Tmux and Vim configuration
+# Here is  my world configuration
 ### Only for Debian and Ubuntu users
 
+## Here is my Vim configuration
 ## First of all : switch caps lock to escape
 Only for GNU/Linux computers
 
