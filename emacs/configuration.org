@@ -15,7 +15,7 @@
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent ample-theme anaconda-mode android-mode auctex auto-complete auto-complete-c-headers auto-package-update autopair bbdb bm browse-at-remote buffer-move change-inner color-theme-sanityinc-tomorrow column-marker crm-custom elpy emmet-mode emms flx flx-ido flycheck flymake-cursor git git-commit git-gutter git-link git-messenger git-timemachine github-clone helm helm-projectile htmlize ido-vertical-mode iedit ido-ubiquitous imenu-anywhere impatient-mode jdee jedi js2-mode js-comint json-mode ledger-mode magit monokai-theme move-text multiple-cursors neotree nlinum nlinum-relative omnisharp org-bullets ox-ioslide ox-reveal ox-twbs pdf-tools projectile rainbow-mode restclient scss-mode simple-httpd skewer-mode smex solarized-theme tabbar tern w3m web-beautify web-mode whitespace-cleanup-mode yasnippet zenburn-theme))
+  (setq package-list '(ace-popup-menu aggressive-indent ample-theme anaconda-mode android-mode auctex auto-complete auto-complete-c-headers auto-package-update autopair bbdb bm browse-at-remote buffer-move change-inner color-theme-sanityinc-tomorrow column-marker crm-custom elpy emmet-mode emms evil evil-easymotion evil-surround flx flx-ido flycheck flymake-cursor git git-commit git-gutter git-link git-messenger git-timemachine github-clone helm helm-projectile htmlize ido-vertical-mode iedit ido-ubiquitous imenu-anywhere impatient-mode jdee jedi js2-mode js-comint json-mode ledger-mode magit monokai-theme move-text multiple-cursors neotree nlinum nlinum-relative omnisharp org-bullets ox-ioslide ox-reveal ox-twbs pdf-tools projectile rainbow-mode restclient scss-mode simple-httpd skewer-mode smex solarized-theme tabbar tern w3m web-beautify web-mode whitespace-cleanup-mode yasnippet zenburn-theme))
 #+END_SRC
 
 ** Package initialize
@@ -65,9 +65,6 @@
    
 * UI configuration
 ** Load a beautiful theme
-#+BEGIN_SRC emacs-lisp
-  (load-theme 'sanityinc-tomorrow-night t)
-#+END_SRC
 ** Change the font to Source Code Pro
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'default-frame-alist '(font . "Source Code Pro-11" ))
@@ -107,23 +104,6 @@
 ** Highlight the current line
 #+BEGIN_SRC emacs-lisp
   (global-hl-line-mode)
-#+END_SRC
-
-** Change tab width to 4 spaces
-#+BEGIN_SRC emacs-lisp
-  (setq tab-width 4)
-  (setq-default indent-tabs-mode nil)
-  (defvaralias 'c-basic-offset 'tab-width)
-  (defvaralias 'cperl-indent-level 'tab-width)
-  (setq tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
-#+END_SRC
-
-** Word wrap at 80
-#+BEGIN_SRC emacs-lisp
-  (setq-default fill-column 80)
-  (add-hook 'after-init-hook 'auto-fill-mode)
-  (setq text-mode-hook 'turn-on-auto-fill)
-  (setq default-major-mode 'text-mode)
 #+END_SRC
 
 ** Clean white spaces when I save
@@ -248,7 +228,7 @@ Indent org file automatically
 ** Android
 #+BEGIN_SRC emacs-lisp
   (require 'android-mode)
-  (custom-set-variables '(android-mode-sdk-dir "~/opt/android-sdk"))
+  (custom-set-variables '(android-mode-sdk-dir "/opt/android-sdk"))
 #+END_SRC
 ** Auto-complete
 #+BEGIN_SRC emacs-lisp
@@ -321,6 +301,14 @@ Indent org file automatically
   (require 'emms-setup)
   (emms-all)
   (emms-default-players)
+#+END_SRC
+** Evil mode
+#+BEGIN_SRC emacs-lisp
+  (require 'evil)
+  (evil-mode 1)
+  (require 'evil-surround)
+  (global-evil-surround-mode 1)
+  (evilem-default-keybindings "SPC")
 #+END_SRC
 ** EWW
 #+BEGIN_SRC emacs-lisp
