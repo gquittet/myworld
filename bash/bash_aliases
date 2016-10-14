@@ -1,0 +1,2 @@
+alias em=emacsclient
+alias ls="ls -l"

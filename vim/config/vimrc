@@ -1,5 +1,6 @@
 " ========================================
 "       Coded by Guillaume QUITTET
+"         Date Tue. 1st Nov 2016
 " ========================================
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -81,8 +82,8 @@ Plugin 'myusuf3/numbers.vim'
 Plugin 'OmniSharp/omnisharp-vim'
 
 " Powerline for vim : status line
-Plugin 'bling/vim-airline'
-
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Solarized vim theme
 " Terminal Font : Inconsolata\ For\ Powerline\ Medium\ 14
@@ -620,8 +621,9 @@ set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_termtrans = 1
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
+let g:airline_theme='solarized'
 if has('gui_running')
   set guifont=Source\ Code\ Pro\ 12
 endif

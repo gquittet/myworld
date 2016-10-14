@@ -1,7 +1,7 @@
 #+TITLE: Emacs configuration
 #+AUTHOR: Guillaume QUITTET
-#+EMAIL: guillaume.quittet@yahoo.fr
-#+DATE: Sat. 10th June 2016
+#+EMAIL: guillaume.quittet@gmail.com
+#+DATE: Tue. 1st Nov 2016
 * Package Manager
 ** Configuration
 #+BEGIN_SRC emacs-lisp
@@ -11,11 +11,12 @@
 ** List the repositories contening them and initialize the package
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
   (add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 #+END_SRC
-** Package that I need.
+** Package tnhat I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent ample-theme anaconda-mode android-mode auctex auto-complete auto-complete-c-headers auto-package-update bbdb bm browse-at-remote buffer-move change-inner color-theme-sanityinc-tomorrow column-marker crm-custom elpy emmet-mode emms flx flx-ido flycheck flymake-cursor git git-commit git-gutter git-link git-messenger git-timemachine github-clone helm helm-projectile htmlize ido-vertical-mode iedit ido-ubiquitous imenu-anywhere impatient-mode jdee jedi js2-mode js-comint json-mode ledger-mode magit monokai-theme move-text multiple-cursors neotree nlinum nlinum-relative omnisharp org-bullets ox-ioslide ox-reveal ox-twbs pdf-tools projectile rainbow-mode restclient scss-mode simple-httpd skewer-mode smex solarized-theme tabbar tern w3m web-beautify web-mode whitespace-cleanup-mode yasnippet zenburn-theme))
+  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-complete auto-complete-c-headers auto-package-update bbdb bm browse-at-remote buffer-move column-marker crm-custom elpy emmet-mode emms expand-region flx flx-ido flycheck flymake-cursor git git-commit git-gutter git-link git-messenger git-timemachine github-clone helm helm-projectile htmlize iedit ido-ubiquitous imenu-anywhere impatient-mode jdee jedi js2-mode js-comint json-mode ledger-mode magit markdown-mode memoize move-text multiple-cursors neotree omnisharp org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools projectile rainbow-mode restclient scss-mode simple-httpd skewer-mode smex solarized-theme sql-indent sqlplus tabbar tern w3m web-beautify web-mode whitespace-cleanup-mode yasnippet))
 #+END_SRC
 
 ** Package initialize
@@ -38,39 +39,14 @@
 #+END_SRC
 * Auto generate by Emacs
 #+BEGIN_SRC emacs-lisp
-  (custom-set-variables
-   ;; custom-set-variables was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(custom-safe-themes
-     (quote
-          ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))))
 
-  (custom-set-faces
-   ;; custom-set-faces was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(org-document-title ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana" :height 1.5 :underline nil))))
-   '(org-level-1 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana" :height 1.75))))
-   '(org-level-2 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana" :height 1.5))))
-   '(org-level-3 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana" :height 1.25))))
-   '(org-level-4 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana" :height 1.1))))
-   '(org-level-5 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana"))))
-   '(org-level-6 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana"))))
-   '(org-level-7 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana"))))
-   '(org-level-8 ((t (:inherit default :weight bold :foreground "#4c4c4c" :font "Verdana")))))
 #+END_SRC
-   
-* UI configuration
-** Load a beautiful theme
-** Change the font to Source Code Pro
+* Start the server
+   This is useful for increase the startup speed of Emacs
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'default-frame-alist '(font . "Source Code Pro-11" ))
-  (set-face-attribute 'default t :font "Source Code Pro-11")
+   (server-start)
 #+END_SRC
-
+* UI configuration
 ** Disable menu bar, tool bar and scroll bar
 #+BEGIN_SRC emacs-lisp
   (menu-bar-mode -1)
@@ -101,6 +77,17 @@
 #+END_SRC
 
 * Editor settings
+** Set the theme
+#+BEGIN_SRC emacs-lisp
+  (require 'solarized)
+  (load-theme 'solarized-light t)
+  (setq solarized-termcolors 256)
+#+END_SRC
+** Change the font to Source Code Pro
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'default-frame-alist '(font . "Source Code Pro-11" ))
+  (set-face-attribute 'default t :font "Source Code Pro-11")
+#+END_SRC
 ** Highlight the current line
 #+BEGIN_SRC emacs-lisp
   (global-hl-line-mode)
@@ -169,34 +156,17 @@
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 #+END_SRC
 
-*** Better header
-#+BEGIN_SRC emacs-lisp
-  (let* ((variable-tuple (cond ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
-                               ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
-                               ((x-list-fonts "Verdana")         '(:font "Verdana"))
-                               ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
-                               (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
-         (base-font-color     (face-foreground 'default nil 'default))
-         (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
-
-    (custom-theme-set-faces 'user
-                            `(org-level-8 ((t (,@headline ,@variable-tuple))))
-                            `(org-level-7 ((t (,@headline ,@variable-tuple))))
-                            `(org-level-6 ((t (,@headline ,@variable-tuple))))
-                            `(org-level-5 ((t (,@headline ,@variable-tuple))))
-                            `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
-                            `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
-                            `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
-                            `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
-                            `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
-#+END_SRC
-
 ** Editor settings
 Indent org file automatically
 #+BEGIN_SRC emacs-lisp
   (with-eval-after-load 'org       
     (setq org-startup-indented t) ; Enable `org-indent-mode' by default
     (add-hook 'org-mode-hook #'visual-line-mode))
+#+END_SRC
+** Open website in chromium
+#+BEGIN_SRC emacs-lisp
+  (setq browse-url-browser-function 'browse-url-generic
+        browse-url-generic-program "chromium-browser")
 #+END_SRC
 * Startup warning
 #+BEGIN_SRC emacs-lisp
@@ -230,11 +200,16 @@ Indent org file automatically
   (require 'android-mode)
   (custom-set-variables '(android-mode-sdk-dir "/opt/android-sdk"))
 #+END_SRC
-** Auto-complete
+** Auto-complete and YASNIPPET
 #+BEGIN_SRC emacs-lisp
+  (require 'yasnippet)
+  (yas-global-mode 1)
   (require 'auto-complete)
   (require 'auto-complete-config)
   (ac-config-default)
+  (setq ac-auto-start t)            ; if t starts ac at startup automatically
+  (setq ac-auto-show-menu t)
+  (global-auto-complete-mode t) 
 #+END_SRC
 ** Auto-comple-c-headers
 #+BEGIN_SRC emacs-lisp
@@ -249,13 +224,14 @@ Indent org file automatically
 #+BEGIN_SRC emacs-lisp
   (require 'auto-package-update)
   (auto-package-update-maybe)
-  (auto-package-update-at-time "10:00")
+  (auto-package-update-at-time "21:00")
   (setq auto-package-update-interval 1)
   (setq auto-package-update-delete-old-versions t)
   (add-hook 'auto-package-update-before-hook
             (lambda () (message "I will update my packages now.")))
 #+END_SRC
 ** Autopair
+This plugin is replaced by a mode implemented in Emacs.
 #+BEGIN_SRC emacs-lisp
   (electric-pair-mode 1)
 #+END_SRC
@@ -266,12 +242,6 @@ Indent org file automatically
 ** Browse at remote: Useful for Git
 #+BEGIN_SRC emacs-lisp
   (require 'browse-at-remote)
-#+END_SRC
-** Change inner
-#+BEGIN_SRC emacs-lisp
-  (require 'change-inner)
-  (global-set-key (kbd "M-i") 'change-inner)
-  (global-set-key (kbd "M-o") 'change-outer)
 #+END_SRC
 ** Column Marker
 #+BEGIN_SRC emacs-lisp
@@ -305,6 +275,10 @@ Indent org file automatically
 #+BEGIN_SRC emacs-lisp
   (require 'eww)
 #+END_SRC
+** Expand region
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "M-i") 'er/expand-region)
+#+END_SRC
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
   (require 'flycheck)
@@ -323,8 +297,18 @@ Indent org file automatically
 #+END_SRC
 ** Flyspell
 #+BEGIN_SRC emacs-lisp
-    (setq ispell-program-name "hunspell")
-    (setq ispell-dictionary "fr")
+  (setq ispell-program-name "hunspell")
+  (setq ispell-dictionary "fr_BE")
+  (global-set-key
+   [f3]
+   (lambda ()
+     (interactive)
+     (ispell-change-dictionary "fr_BE")))
+  (global-set-key
+   [f4]
+   (lambda ()
+     (interactive)
+     (ispell-change-dictionary "en_GB")))
 #+END_SRC
 *** Gnus
 #+BEGIN_SRC emacs-lisp
@@ -371,10 +355,6 @@ Indent org file automatically
   (crm-custom-mode 1)
   (require 'flx)
   (flx-ido-mode 1)
-#+END_SRC
-*** Show IDO verticaly
-#+BEGIN_SRC emacs-lisp
-  (ido-vertical-mode 1)
 #+END_SRC
 *** Make IDO more powerful
 #+BEGIN_SRC emacs-lisp
@@ -449,10 +429,12 @@ Indent org file automatically
           (output-(point)df "Evince")
           (output-html "xdg-open"))))
 #+END_SRC
-** Linum
+** Markdown mode
 #+BEGIN_SRC emacs-lisp
-  (require 'linum)
-  (add-hook 'text-mode-hook 'linum-mode)
+  (autoload 'markdown-mode "markdown-mode"
+    "Major mode for editing Markdown files" t)
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 #+END_SRC
 ** Move text
 #+BEGIN_SRC emacs-lisp
@@ -469,43 +451,6 @@ Indent org file automatically
   (require 'neotree)
   (setq neo-smart-open t)
   (setq projectile-switch-project-action 'neotree-projectile-action)
-#+END_SRC
-** NLinum
-#+BEGIN_SRC emacs-lisp
-  (require 'nlinum)
-#+END_SRC
-*** Fix horizontal jump on scrolling
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'nlinum-mode-hook
-            (lambda ()
-              (when nlinum-mode
-                (setq nlinum--width
-                      ;; works with the default `nlinum-format'
-                      (length (number-to-string
-                               (count-lines (point-min) (point-max)))))
-                      ;; use this instead if your `nlinum-format' has one space
-                      ;; (or other character) after the number
-                      ;;(1+ (length (number-to-string
-                      ;;             (count-lines (point-min) (point-max)))))
-                (nlinum--flush))))
-#+END_SRC
-** NLinum Relative: For relative line numbers
-#+BEGIN_SRC emacs-lisp
-  (require 'nlinum-relative)
-  (setq nlinum-relative-redisplay-delay 0)
-  (setq nlinum-relative-current-symbol "->")
-  (setq nlinum-relative-offset 0)
-#+END_SRC
-*** Enable only for programmations mode
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-  (add-hook 'css-mode-hook 'nlinum-relative-mode)
-  (add-hook 'web-mode-hook 'nlinum-relative-mode)
-  (add-hook 'latex-mode-hook 'nlinum-relative-mode)
-  (add-hook 'js2-mode-hook 'nlinum-relative-mode)
-  (add-hook 'js-mode-hook 'nlinum-relative-mode)
-  (add-hook 'json-mode-hook 'nlinum-relative-mode)
-  (add-hook 'html-mode-hook 'nlinum-relative-mode)
 #+END_SRC
 ** OMNISharp
 #+BEGIN_SRC emacs-lisp
@@ -577,6 +522,11 @@ Fix org-html-fontify-code error
 #+BEGIN_SRC emacs-lisp
   (require 'smex)
   (smex-initialize)
+#+END_SRC
+** SQL indent
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load "sql"
+    (load-library "sql-indent"))
 #+END_SRC
 ** Tern: Tool for JavaScript
 #+BEGIN_SRC emacs-lisp
@@ -653,11 +603,6 @@ Fix org-html-fontify-code error
 #+BEGIN_SRC emacs-lisp
   (when (fboundp 'winner-mode)
         (winner-mode 1))
-#+END_SRC
-** YASNIPPET
-#+BEGIN_SRC emacs-lisp
-  (require 'yasnippet)
-  (yas-global-mode 1)
 #+END_SRC
 * Keybinding
 ** BM
@@ -785,8 +730,10 @@ Fix org-html-fontify-code error
 ** Mails folder
 #+BEGIN_SRC emacs-lisp
   (setq gnus-always-read-dribble-file t)
-  (setq message-directory "~/Documents/Mails/")
-  (setq gnus-directory "~/Documents/Mails/news/")
-  (setq nnfolder-directory "~/Documents/Mails/archive/")
+  (setq message-directory "~/Documents/Dropbox/Mails")
+  (setq gnus-secondary-select-methods
+        '((nnmaildir "GMail" (directory "~/Documents/Dropbox/Mails"))))
+  (setq gnus-directory "~/Documents/Dropbox/Mails/News/")
+  (setq nnfolder-directory "~/Documents/Dropbox/Mails/Archives/")
 #+END_SRC
 * Functions

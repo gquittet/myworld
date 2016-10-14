@@ -5,7 +5,9 @@ Bash to Update (Unity):
 --------------------------------
 #!/bin/bash
 sudo apt-get update && upgrade && dist-upgrade
-sudo apt install -y bleachbit gparted synaptic tree wmctrl xclip mplayer libcanberra-gtk-module cowsay htop zram-config gdebi preload
+sudo apt install -y bleachbit gparted synaptic tree wmctrl xclip mplayer fish libcanberra-gtk-module redshift cowsay htop zram-config gdebi preload
+# Wallpaper
+sudo apt install wallch
 # Tool for remove the old kernels
 # The command to remove the old kernel is : sudo purge-old-kernel
 sudo apt install -y byobu
@@ -27,9 +29,9 @@ sudo apt install -y ntfs-3g
 # useful for edit sound
 sudo apt install -y audacity
 # for coding and myworld
-sudo apt install -y ant python-tk python-gpgme default-jdk ruby-dev android-tools-adb vim vim-gnome-py2 texlive texlive-lang-french texlive-latex-extra texlive-science texlive-fonts-extra texlive-full texmaker mono-complete gnuplot nodejs npm
+sudo apt install -y ant python-tk python-gpgme default-jdk ruby-dev android-tools-adb vim vim-gnome-py2 texlive texlive-lang-french texlive-latex-extra texlive-science texlive-fonts-extra texlive-full texstudio mono-complete gnuplot nodejs npm tiled
 # Git tool
-sudo apt install git gitg
+sudo apt install git
 # Disable Mouse scroll
 sudo apt install -y xbindkeys
 # Copy .xbindkeys from dropbox to $HOME
@@ -55,7 +57,7 @@ sudo apt install -y gradle groovy2
 # PHP Mode for Emacs
 sudo apt install -y php-elisp
 # Dovecot for imap backup
-sudo apt install -y dovecot-imapd
+sudo apt install -y dovecot-imapd offlineimap
 # OmniSharp support
 sudo apt install -y curl
 git clone https://github.com/OmniSharp/omnisharp-server.git

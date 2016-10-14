@@ -16,6 +16,22 @@ Shell extension :
 - TopIcons
 - Dash to dock
 
+Fix ubuntu apt:
+---------------
+Add the lines at the end of /etc/sysctl.conf before the swap modification:
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+
+Run sudo sysctl -p
+
+Enable redshift:
+----------------
+- Install it first.
+- Add it as a startup application.
+Command: redshift -l 50.4:3.8
+-l = coordonnées gps d'où j'habite.
+
 Repair bad sound quality :
 ---------------------------
 The hdajackretask setup :
@@ -34,6 +50,15 @@ Front : Two channels (R/L) separed controls
 Surround : Two channels (R/L) separed controls
 
 Source : https://bugs.launchpad.net/ubuntu/+source/alsa-driver/+bug/1302090/comments/58
+
+Fish terminal:
+--------------
+sudo apt install -y fish
+Install oh my fish (omf)
+Install cmorrell theme
+Edit ~/.config/fish/config.fish:
+Add this line at the end:
+set fish_greeting ""
 
 Boost sound Ubuntu:
 -------------------
