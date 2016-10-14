@@ -22,6 +22,8 @@ libmath-bigint-gmp-perl
 # ssh for my computer
 sudo apt-get install -y openssh-server openssh-sftp-server openssh-client
 sudo apt-get install -y wireshark
+# NTFS support
+sudo apt-get install -y ntfs-3g
 # useful for edit sound
 sudo apt-get install -y audacity
 # for coding and myworld
@@ -33,6 +35,7 @@ sudo apt-get install -y xbindkeys
 # Copy .xbindkeys from dropbox to $HOME
 # Run : killall xbindkeys && xbindkeys
 # Add startup application with this command : xbindkeys
+
 
 # Tools for my Emcas world
 sudo apt-get install -y emacs virtualenv flake8 aspell-fr
@@ -50,6 +53,8 @@ sudo apt-get install -y gradle groovy2
 sudo apt-get install -y php-elisp
 # Dovecot for imap backup
 sudo apt-get install -y dovecot-imapd
+
+
 # gimp for pictures editing
 sudo apt-get install -y gimp gimp-data gimp-plugin-registry gimp-data-extras feh optipng jpegoptim
 # complete archive arsenal
@@ -68,7 +73,7 @@ sudo apt-get purge hyphen-en-us libreoffice-help-en-gb libreoffice-help-en-us li
 sudo apt-get purge -y adobe-flashplugin flashplugin-installer adobe-flash-properties-gtk adobe-flash-properties-kde pepperflashplugin-nonfree
 
 # Tools for PHP, Apache2, MySQL
-sudo apt-get install -y apache2 apachetop
+sudo apt-get install apache2 php mysql-server libapache2-mod-php php-mysql apachetop
 sudo apt-get install -y php libapache2-mod-php php-mcrypt php-cli
 sudo apt-get install -y php-mysql mysql-server phpmyadmin
 sudo apt-get install -y php-mbstring php7.0-mbstring php-gettext
