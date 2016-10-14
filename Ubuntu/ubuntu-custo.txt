@@ -45,6 +45,7 @@ sudo apt-get install -y libpng-dev libz-dev libpoppler-glib-dev libpoppler-priva
 sudo apt-get install -y python-pip
 sudo pip install --upgrade pip
 sudo pip install jedi epc mocker
+sudo pip install flake8 --upgrade
 # ORG mode
 sudo apt-get install -y org-mode org-mode-doc
 # Java for Emacs
