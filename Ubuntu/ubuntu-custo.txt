@@ -56,6 +56,12 @@ sudo apt install -y gradle groovy2
 sudo apt install -y php-elisp
 # Dovecot for imap backup
 sudo apt install -y dovecot-imapd
+# OmniSharp support
+sudo apt install -y curl
+git clone https://github.com/OmniSharp/omnisharp-server.git
+cd omnisharp-server
+git submodule update --init --recursive
+xbuild /p:TargetFrameworkVersion="v4.5"
 
 
 # gimp for pictures editing
