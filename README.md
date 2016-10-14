@@ -1,5 +1,5 @@
 # Here is  my world configuration
-## The editor that I use every day is Emacs with Emacs shortcut.
+## The editor that I use every day is Emacs with Emacs shortcuts.
 ### Only for Debian and Ubuntu users
 
 ## Here is my Vim configuration
