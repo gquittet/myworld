@@ -15,7 +15,7 @@
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent ample-theme anaconda-mode android-mode auctex auto-complete auto-complete-c-headers auto-package-update autopair bbdb bm browse-at-remote buffer-move change-inner color-theme-sanityinc-tomorrow column-marker crm-custom elpy emmet-mode emms evil evil-easymotion evil-surround flx flx-ido flycheck flymake-cursor git git-commit git-gutter git-link git-messenger git-timemachine github-clone helm helm-projectile htmlize ido-vertical-mode iedit ido-ubiquitous imenu-anywhere impatient-mode jdee jedi js2-mode js-comint json-mode ledger-mode magit monokai-theme move-text multiple-cursors neotree nlinum nlinum-relative omnisharp org-bullets ox-ioslide ox-reveal ox-twbs pdf-tools projectile rainbow-mode restclient scss-mode simple-httpd skewer-mode smex solarized-theme tabbar tern w3m web-beautify web-mode whitespace-cleanup-mode yasnippet zenburn-theme))
+  (setq package-list '(ace-popup-menu aggressive-indent ample-theme anaconda-mode android-mode auctex auto-complete auto-complete-c-headers auto-package-update bbdb bm browse-at-remote buffer-move change-inner color-theme-sanityinc-tomorrow column-marker crm-custom elpy emmet-mode emms flx flx-ido flycheck flymake-cursor git git-commit git-gutter git-link git-messenger git-timemachine github-clone helm helm-projectile htmlize ido-vertical-mode iedit ido-ubiquitous imenu-anywhere impatient-mode jdee jedi js2-mode js-comint json-mode ledger-mode magit monokai-theme move-text multiple-cursors neotree nlinum nlinum-relative omnisharp org-bullets ox-ioslide ox-reveal ox-twbs pdf-tools projectile rainbow-mode restclient scss-mode simple-httpd skewer-mode smex solarized-theme tabbar tern w3m web-beautify web-mode whitespace-cleanup-mode yasnippet zenburn-theme))
 #+END_SRC
 
 ** Package initialize
@@ -257,8 +257,7 @@ Indent org file automatically
 #+END_SRC
 ** Autopair
 #+BEGIN_SRC emacs-lisp
-  (require 'autopair)
-  (autopair-global-mode)
+  (electric-pair-mode 1)
 #+END_SRC
 ** BM
 #+BEGIN_SRC emacs-lisp
@@ -302,14 +301,6 @@ Indent org file automatically
   (emms-all)
   (emms-default-players)
 #+END_SRC
-** Evil mode
-#+BEGIN_SRC emacs-lisp
-  (require 'evil)
-  (evil-mode 1)
-  (require 'evil-surround)
-  (global-evil-surround-mode 1)
-  (evilem-default-keybindings "SPC")
-#+END_SRC
 ** EWW
 #+BEGIN_SRC emacs-lisp
   (require 'eww)
@@ -332,8 +323,8 @@ Indent org file automatically
 #+END_SRC
 ** Flyspell
 #+BEGIN_SRC emacs-lisp
-    (setq ispell-program-name "aspell")
-    (setq ispell-dictionary "francais")
+    (setq ispell-program-name "hunspell")
+    (setq ispell-dictionary "fr")
 #+END_SRC
 *** Gnus
 #+BEGIN_SRC emacs-lisp
@@ -734,47 +725,6 @@ Fix org-html-fontify-code error
 ** Neotree
 #+BEGIN_SRC emacs-lisp
   (global-set-key [f8] 'neotree-toggle)
-#+END_SRC
-** OMNISharp
-#+BEGIN_SRC emacs-lisp
-  ;; Example evil-mode config
-
-  (evil-define-key 'insert omnisharp-mode-map (kbd "M-.") 'omnisharp-auto-complete)
-  (evil-define-key 'normal omnisharp-mode-map (kbd "<f12>") 'omnisharp-go-to-definition)
-  (evil-define-key 'normal omnisharp-mode-map (kbd "g u") 'omnisharp-find-usages)
-  (evil-define-key 'normal omnisharp-mode-map (kbd "g I") 'omnisharp-find-implementations) ; g i is taken
-  (evil-define-key 'normal omnisharp-mode-map (kbd "g o") 'omnisharp-go-to-definition)
-  (evil-define-key 'normal omnisharp-mode-map (kbd "g r") 'omnisharp-run-code-action-refactoring)
-  (evil-define-key 'normal omnisharp-mode-map (kbd "g f") 'omnisharp-fix-code-issue-at-point)
-  (evil-define-key 'normal omnisharp-mode-map (kbd "g F") 'omnisharp-fix-usings)
-  (evil-define-key 'normal omnisharp-mode-map (kbd "g R") 'omnisharp-rename)
-  (evil-define-key 'normal omnisharp-mode-map (kbd ", i") 'omnisharp-current-type-information)
-  (evil-define-key 'normal omnisharp-mode-map (kbd ", I") 'omnisharp-current-type-documentation)
-  (evil-define-key 'insert omnisharp-mode-map (kbd ".") 'omnisharp-add-dot-and-auto-complete)
-  (evil-define-key 'normal omnisharp-mode-map (kbd ", n t") 'omnisharp-navigate-to-current-file-member)
-  (evil-define-key 'normal omnisharp-mode-map (kbd ", n s") 'omnisharp-navigate-to-solution-member)
-  (evil-define-key 'normal omnisharp-mode-map (kbd ", n f") 'omnisharp-navigate-to-solution-file-then-file-member)
-  (evil-define-key 'normal omnisharp-mode-map (kbd ", n F") 'omnisharp-navigate-to-solution-file)
-  (evil-define-key 'normal omnisharp-mode-map (kbd ", n r") 'omnisharp-navigate-to-region)
-  (evil-define-key 'normal omnisharp-mode-map (kbd "<f12>") 'omnisharp-show-last-auto-complete-result)
-  (evil-define-key 'insert omnisharp-mode-map (kbd "<f12>") 'omnisharp-show-last-auto-complete-result)
-  (evil-define-key 'normal omnisharp-mode-map (kbd ",.") 'omnisharp-show-overloads-at-point)
-  (evil-define-key 'normal omnisharp-mode-map (kbd ",rl") 'recompile)
-
-  (evil-define-key 'normal omnisharp-mode-map (kbd ",rt")
-    (lambda() (interactive) (omnisharp-unit-test "single")))
-
-  (evil-define-key 'normal omnisharp-mode-map
-    (kbd ",rf")
-    (lambda() (interactive) (omnisharp-unit-test "fixture")))
-
-  (evil-define-key 'normal omnisharp-mode-map
-    (kbd ",ra")
-    (lambda() (interactive) (omnisharp-unit-test "all")))
-
-  ;; Speed up auto-complete on mono drastically. This comes with the
-  ;; downside that documentation is impossible to fetch.
-  (setq omnisharp-auto-complete-want-documentation nil)
 #+END_SRC
 ** ORG Mode
 #+BEGIN_SRC emacs-lisp

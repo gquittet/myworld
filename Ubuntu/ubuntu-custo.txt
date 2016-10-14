@@ -40,7 +40,7 @@ sudo apt install -y indicator-keylock
 
 
 # Tools for my Emcas world
-sudo apt install -y emacs virtualenv flake8 aspell-fr
+sudo apt install -y emacs virtualenv flake8 aspell-fr hunspell
 # Usefull for pdf tool on emacs
 sudo apt install -y libpng-dev libz-dev libpoppler-glib-dev libpoppler-private-dev imagemagick
 # Emacs auto-complete
