@@ -3,4 +3,6 @@
 - gvfs-afc
 - usbmuxd
 
-	sudo pacman -S gvfs-afc usbmuxd
+Use this command:
+
+    sudo pacman -S gvfs-afc usbmuxd
