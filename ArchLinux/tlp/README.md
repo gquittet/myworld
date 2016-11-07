@@ -7,9 +7,9 @@ Thinkpad only
 
     sudo pacman -S tp_smapi acpi_call
 
-## Install the depedencies
+## Install the dependencies
 
-    sudo pacman -S lsb-release smartmontools
+    sudo pacman -S lsb-release smartmontools x86_energy_perf_policy
 
 ## Enable TLP
 
