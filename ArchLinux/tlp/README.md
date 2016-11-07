@@ -6,6 +6,10 @@
 Thinkpad only
 
     sudo pacman -S tp_smapi acpi_call
+
+## Install the depedencies
+
+   sudo pacman -S lsb-release smartmontools
     
 ## Enable TLP
 
