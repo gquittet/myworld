@@ -9,8 +9,8 @@ Thinkpad only
 
 ## Install the depedencies
 
-   sudo pacman -S lsb-release smartmontools
-    
+    sudo pacman -S lsb-release smartmontools
+
 ## Enable TLP
 
     sudo systemctl enable tlp.service
@@ -19,4 +19,3 @@ Thinkpad only
 ## Disable the systemd service to avoid conflicts
 
     sudo systemctl mask systemd-rfkill.service
-    
