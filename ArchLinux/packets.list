@@ -620,6 +620,7 @@ mime-types 9-1
 mjpegtools 2.1.0-3
 mkinitcpio 21-1
 mkinitcpio-busybox 1.24.2-1
+mlocate 0.26-5
 mobile-broadband-provider-info 20151214-1
 mousepad 0.4.0-2
 mozilla-common 1.4-4
@@ -860,6 +861,8 @@ ttf-inconsolata 20151221.480630d-1
 ttf-liberation-ib 2.00.1-13
 ttf-ms-fonts 2.0-10
 ttf-noto-fonts-ib 20150929-2
+ttf-roboto-ibx 2.0-8
+ttf-roboto-mono-ibx 2.0-3
 ttf-symbola-ib 8.00-2
 ttf-ubuntu-font-family 0.83-1
 tumbler 0.1.31-1
@@ -985,7 +988,7 @@ xfce4-timer-plugin 1.6.0-4
 xfce4-verve-plugin 1.1.0-1
 xfce4-wavelan-plugin 0.6.0-1
 xfce4-weather-plugin 0.8.8-1
-xfce4-whiskermenu-plugin 1.6.0-1
+xfce4-whiskermenu-plugin 1.6.1-1
 xfce4-xkb-plugin 0.7.1-2
 xfconf 4.12.1-1
 xfdesktop 4.12.3-3
