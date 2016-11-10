@@ -1,23 +1,23 @@
-# Installation d'un serveur web sous ArchLinux
-N'oubliez pas de vérifier sur le wiki si la configuration est à jour.
+# Install a web server on ArchLinux
+Don't forget to go on the wiki and to check if this configuration is updated.
 
 ## Install Apache and PHP
 
 	sudo pacman -S apache php php-apache
 
-## Décommentez les lignes suivantes du fichier: /etc/php/php.ini
+## Uncomment these folowing lines in the file: /etc/php/php.ini
 
 	extension=mysqli.so
 	extension=pdo_mysql.so
 
-## Rajoutez le contenu suivant dans ce fichier: /etc/httpd/conf/httpd.conf
+## Edit the content below in this file: /etc/httpd/conf/httpd.conf
 
-### Ajoutez dans à la fin des chargements de modules (LoadModule)
+### Add at the end of the loading of the modules (LoadModule)
 
 	# Load php7 module
 	LoadModule php7_module modules/libphp7.so
 
-### Ajoutez à la fin des includes des fichiers de configurations (Includes)
+### Add at the end of the includes loading (Includes)
 
     # PHP settings
 	Include conf/extra/php7_module.conf
@@ -35,10 +35,10 @@ Add the handler at the end of LoadModule
 
     AddHandler php7-script php
 
-## Démarrez automatiquement le serveur Apache
+## Run the apache server with the computer
 
 	systemctl enable httpd
 
-## Lancez-le
+## Start it
 
 	systemctl start httpd
