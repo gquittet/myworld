@@ -42,12 +42,3 @@ Add the handler at the end of LoadModule
 ## Lancez-le
 
 	systemctl start httpd
-
-## Rajoutez le hostname de la machine (chez moi alien) dans le fichier /etc/hosts
-
-	#
-    # /etc/hosts: static lookup table for host names
-	#
-	#<ip-address>    <hostname.domain.org>    <hostname>
-	127.0.0.1    localhost.localdomain    localhost alien
-    # End of file
