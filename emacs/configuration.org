@@ -291,9 +291,28 @@ This plugin is replaced by a mode implemented in Emacs.
 *** LaTeX
 #+BEGIN_SRC emacs-lisp
   (defun flymake-get-tex-args (file-name)
-  (list "pdflatex"
-  (list "-file-line-error" "-draftmode" "-interaction=nonstopmode" file-name)))
-  (add-hook 'LaTeX-mode-hook 'flymake-mode)
+    (list "pdflatex" (list "-file-line-error" "-draftmode" "-interaction=nonstopmode" file-name)))
+#+END_SRC
+*** Java
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'java-mode-hook 'flymake-mode-on)
+#+END_SRC
+*** HTML
+#+BEGIN_SRC emacs-lisp
+  (defun flymake-html-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+		       'flymake-create-temp-inplace))
+	   (local-file (file-relative-name
+			temp-file
+			(file-name-directory buffer-file-name))))
+      (list "tidy" (list local-file))))
+
+  (add-to-list 'flymake-allowed-file-name-masks
+	       '("\\.html$\\|\\.ctp" flymake-html-init))
+
+  (add-to-list 'flymake-err-line-patterns
+	       '("line \\([0-9]+\\) column \\([0-9]+\\) - \\(Warning\\|Error\\): \\(.*\\)"
+		 nil 1 2 4))
 #+END_SRC
 ** Flyspell
 #+BEGIN_SRC emacs-lisp
