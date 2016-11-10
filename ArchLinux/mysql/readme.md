@@ -1,4 +1,4 @@
-# Installation MySQL to ArchLinux
+# Install SQL to ArchLinux
 ArchLinux has replaced mysql with MariaDB because it's more efficient
 
 ## Install MariaDB
