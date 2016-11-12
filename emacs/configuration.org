@@ -1,7 +1,7 @@
 #+TITLE: Emacs configuration
 #+AUTHOR: Guillaume QUITTET
 #+EMAIL: guillaume.quittet@gmail.com
-#+DATE: Tue. 1st Nov 2016
+#+DATE: Fri. 11th Nov 2016
 * Package Manager
 ** Configuration
 #+BEGIN_SRC emacs-lisp
@@ -729,7 +729,7 @@ Fix org-html-fontify-code error
   (bbdb-initialize 'gnus 'message)
   (bbdb-insinuate-message)
   (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
-  (setq bbdb-file "~/Documents/Dropbox/Mails/Contacts/.bbdb.gpg")
+  (setq bbdb-file "~/Documents/Cloud/Mails/Contacts/.bbdb.gpg")
   (setq bbdb-send-mail-style 'gnus)
   (setq bbdb-complete-name-full-completion t)
   (setq bbdb-completion-type 'primary-or-name)
@@ -749,10 +749,12 @@ Fix org-html-fontify-code error
 ** Mails folder
 #+BEGIN_SRC emacs-lisp
   (setq gnus-always-read-dribble-file t)
-  (setq message-directory "~/Documents/Dropbox/Mails")
+  (setq message-directory "~/Documents/Cloud/Mails")
   (setq gnus-secondary-select-methods
-        '((nnmaildir "GMail" (directory "~/Documents/Dropbox/Mails"))))
-  (setq gnus-directory "~/Documents/Dropbox/Mails/News/")
-  (setq nnfolder-directory "~/Documents/Dropbox/Mails/Archives/")
+	'((nnmaildir "GMail" (directory "~/Documents/Cloud/Mails"))))
+  (setq user-mail-address "guillaume.quittet@gmail.com")
+  (setq gnus-ignored-from-addresses "guillaume.quittet")
+  (setq gnus-directory "~/Documents/Cloud/Mails/News/")
+  (setq nnfolder-directory "~/Documents/Cloud/Mails/Archives/")
 #+END_SRC
 * Functions
