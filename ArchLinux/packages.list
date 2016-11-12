@@ -1,7 +1,7 @@
 a52dec 0.7.4-9
 aalib 1.4rc5-12
 accountsservice 0.6.43-1
-acl 2.2.52-2
+acl 2.2.52-3
 adobe-source-code-pro-fonts 2.030ro+1.050it-1
 adwaita-icon-theme 3.22.0-1
 aic94xx-firmware 30-9
@@ -27,7 +27,7 @@ at-spi2-atk 2.22.0-1
 at-spi2-core 2.22.0-1
 atk 2.22+1+gd57f97d-1
 atkmm 2.24.2+1+gf30b47f-1
-attr 2.4.47-1
+attr 2.4.47-2
 audacity 2.1.2-3
 aurvote 1.9-3
 autoconf 2.69-4
@@ -47,7 +47,7 @@ bumblebee 3.2.1-12
 bzip2 1.0.6-5
 c-ares 1.12.0-1
 ca-certificates 20160507-1
-ca-certificates-cacert 20140824-3
+ca-certificates-cacert 20140824-4
 ca-certificates-mozilla 3.27.1-1
 ca-certificates-utils 20160507-1
 cabextract 1.6-1
@@ -59,11 +59,11 @@ cdparanoia 10.2-5
 celt 0.11.3-2
 cheese 3.22.1-1
 chromaprint 1.3.2-1
-chromium 54.0.2840.90-1
+chromium 54.0.2840.100-1
 cifs-utils 6.5-1
 clucene 2.3.3.4-9
 clutter 1.26.0+24+g79da526-1
-clutter-gst 3.0.20-1
+clutter-gst 3.0.20+5+ga71607b-1
 clutter-gtk 1.8.2-1
 cogl 1.22.2-1
 compositeproto 0.4.2-3
@@ -71,6 +71,7 @@ confuse 3.0-1
 coreutils 8.25-2
 cowsay 3.03-9
 cracklib 2.9.6-1
+crypto++ 5.6.5-2
 cryptsetup 1.7.3-1
 curl 7.51.0-1
 customizepkg-git 55.d8bddf6-1
@@ -93,7 +94,6 @@ dnssec-anchors 20150403-1
 dovecot 2.2.26.0-1
 dri2proto 2.8-2
 dri3proto 1.0-1
-dropbox 14.4.19-1
 e2fsprogs 1.43.3-1
 efibootmgr 14-1
 efivar 28-1
@@ -138,7 +138,7 @@ gd 2.2.3-3
 gdbm 1.12-2
 gdk-pixbuf2 2.36.0+2+ga7c869a-1
 gegl02 0.2.0-4
-geoclue2 2.4.4-1
+geoclue2 2.4.4-2
 geoip 1.6.9-1
 geoip-database 20161004-1
 gettext 0.19.8.1-2
@@ -171,7 +171,7 @@ gpgme 1.7.1-2
 gpm 1.20.7-7
 gradle 3.1-1
 graphene 1.4.0-1
-graphite 1:1.3.8-1
+graphite 1:1.3.9-1
 grep 2.26-1
 grilo 0.3.2+8+g6ffe445-1
 groff 1.22.3-7
@@ -255,6 +255,7 @@ jsoncpp 1.7.7-1
 kbd 2.0.3-1
 kbproto 1.0.7-1
 keepassx2 2.0.3-1
+kexec-tools 2.0.12-1
 keyutils 1.5.9-1
 kmod 23-1
 krb5 1.13.4-1
@@ -487,7 +488,7 @@ libusbmuxd 1.0.10-1
 libutempter 1.1.6-2
 libutil-linux 2.28.2-1
 libuv 1.10.0-1
-libva 1.7.2-1
+libva 1.7.3-1
 libvdpau 1.1.1-2
 libvisio 0.1.5-2
 libvisual 0.4.0-6
@@ -518,8 +519,8 @@ libxfont 1.5.2-1
 libxft 2.3.2-1
 libxi 1.7.8-1
 libxinerama 1.1.3-2
-libxkbcommon 0.6.1-1
-libxkbcommon-x11 0.6.1-1
+libxkbcommon 0.7.0-1
+libxkbcommon-x11 0.7.0-1
 libxkbfile 1.0.9-1
 libxklavier 5.4-1
 libxml2 2.9.4+12+ge905f08-1
@@ -546,10 +547,10 @@ lightdm 1:1.18.3-1
 lightdm-gtk-greeter 1:2.0.2-1
 lightdm-gtk-greeter-settings 1.2.1-4
 lilv 0.22.0-2
-linux 4.8.6-1
+linux 4.8.7-1
 linux-api-headers 4.7-1
 linux-firmware 20161005.9c71af9-1
-linux-headers 4.8.6-1
+linux-headers 4.8.7-1
 lirc 1:0.9.4.b-1
 llvm-libs 3.9.0-1
 lm_sensors 3.4.0-2
@@ -578,6 +579,7 @@ mariadb-clients 10.1.19-1
 mc 4.8.18-1
 mdadm 3.4-1
 media-player-info 22-2
+megasync 2.9.8.0-2
 menulibre 2.1.3-1
 mesa 13.0.0-1
 mesa-demos 8.3.0-2
@@ -796,7 +798,6 @@ texlive-science 2016.41327-2
 thin-provisioning-tools 0.6.3-1
 thunar 1.6.10-3
 thunar-archive-plugin 0.3.1-6
-thunar-dropbox 0.2.1-1
 thunar-media-tags-plugin 0.2.1-2
 thunar-volman 0.8.1-2
 tiled 0.17.1-1
@@ -946,7 +947,7 @@ xfce4-whiskermenu-plugin 1.6.1-1
 xfce4-xkb-plugin 0.7.1-2
 xfconf 4.12.1-1
 xfdesktop 4.12.3-3
-xfsprogs 4.7.0-1
+xfsprogs 4.8.0-1
 xfwm4 4.12.3-2
 xfwm4-themes 4.10.0-2
 xineramaproto 1.2.1-3
