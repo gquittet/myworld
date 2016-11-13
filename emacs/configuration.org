@@ -752,8 +752,6 @@ Fix org-html-fontify-code error
   (setq message-directory "~/Documents/Cloud/Mails")
   (setq gnus-secondary-select-methods
 	'((nnmaildir "GMail" (directory "~/Documents/Cloud/Mails"))))
-  (setq user-mail-address "guillaume.quittet@gmail.com")
-  (setq gnus-ignored-from-addresses "guillaume.quittet")
   (setq gnus-directory "~/Documents/Cloud/Mails/News/")
   (setq nnfolder-directory "~/Documents/Cloud/Mails/Archives/")
 #+END_SRC
