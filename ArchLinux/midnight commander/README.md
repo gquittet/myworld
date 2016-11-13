@@ -50,3 +50,7 @@ You can set the default viewer and editor by edit the PAGER and EDITOR in your ~
 - Alt - s or Ctrl - s: Quick search mode. Start typing and the selection will move to the first matching file. Press the shortcut again to switch to the next matching file (Use wildcards "*" and "?" for easier matching).
 
 ### Common action
+- Ctrl - space : Calculate the size of selected directories. Press this shortcut on ".." to calculate the size of all directories in the current directory.
+- Ctrl - x s or l : Create a symbolic (s) or hard link (l)
+- Ctrl - x c : Open the chmod dialog
+- Ctrl - x o : Open the chown dialog
