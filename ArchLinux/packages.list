@@ -53,7 +53,6 @@ cairomm 1.12.0-2
 cantarell-fonts 1:0.0.25-2
 cblas 3.6.1-2
 cdparanoia 10.2-5
-cdrkit 1.1.11-3
 celt 0.11.3-2
 cheese 3.22.1-1
 chromaprint 1.3.2-1
@@ -81,7 +80,6 @@ dbus-glib 0.108-1
 dcadec 0.2.0-1
 dconf 0.26.0-2
 desktop-file-utils 0.23-1
-devede 4.8.4-1
 device-mapper 2.02.166-1
 dhclient 4.3.5-1
 dhcpcd 6.11.3-1
@@ -93,7 +91,6 @@ dnssec-anchors 20150403-1
 dovecot 2.2.26.0-1
 dri2proto 2.8-2
 dri3proto 1.0-1
-dvdauthor 0.7.1-7
 e2fsprogs 1.43.3-1
 efibootmgr 14-1
 efivar 28-1
@@ -578,7 +575,6 @@ mc 4.8.18-1
 mdadm 3.4-1
 media-player-info 22-2
 megasync 2.9.8.0-2
-mencoder 37857-1
 menulibre 2.1.3-1
 mesa 13.0.0-1
 mesa-demos 8.3.0-2
@@ -832,7 +828,6 @@ util-linux 2.28.2-1
 uudeview 0.5.20-12
 v4l-utils 1.10.1-1
 vamp-plugin-sdk 2.6-1
-vcdimager 0.7.24-7
 vi 1:070224-2
 vid.stab 1.1-1
 videoproto 2.3.3-1
