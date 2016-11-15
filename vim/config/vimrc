@@ -85,10 +85,8 @@ Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" Solarized vim theme
-" Terminal Font : Inconsolata\ For\ Powerline\ Medium\ 14
-" Color Scheme and syntax color : Solarized Dark
-Plugin 'altercation/vim-colors-solarized'
+" Dracula theme
+Plugin 'dracula/vim'
 
 " Sparkup : Zen coding only for html
 Plugin 'rstacruz/sparkup'
@@ -617,13 +615,9 @@ let g:undotree_SetFocusWhenToggle=1
 " Theme
 "=====================================================
 " Set the full color compatibility for vim and terminal
-set t_Co=256
-let g:solarized_termcolors=256
-let g:solarized_termtrans = 1
-syntax enable
-set background=light
-colorscheme solarized
-let g:airline_theme='solarized'
+syntax on
+color dracula
+let g:airline_theme='simple'
 if has('gui_running')
   set guifont=Source\ Code\ Pro\ 12
 endif

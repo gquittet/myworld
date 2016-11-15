@@ -1,7 +1,7 @@
 #+TITLE: Emacs configuration
 #+AUTHOR: Guillaume QUITTET
 #+EMAIL: guillaume.quittet@gmail.com
-#+DATE: Fri. 11th Nov 2016
+#+DATE: Wed. 16th Nov 2016
 * Package Manager
 ** Configuration
 #+BEGIN_SRC emacs-lisp
@@ -14,9 +14,9 @@
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
   (add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 #+END_SRC
-** Package tnhat I need.
+** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-complete auto-complete-c-headers auto-package-update bbdb bm browse-at-remote buffer-move column-marker crm-custom elpy emmet-mode emms expand-region flx flx-ido flycheck flymake-cursor git git-commit git-gutter git-link git-messenger git-timemachine github-clone helm helm-projectile htmlize iedit ido-ubiquitous imenu-anywhere impatient-mode jdee jedi js2-mode js-comint json-mode ledger-mode magit markdown-mode memoize move-text multiple-cursors neotree omnisharp org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools projectile rainbow-mode restclient scss-mode simple-httpd skewer-mode smex solarized-theme sql-indent sqlplus tabbar tern w3m web-beautify web-mode whitespace-cleanup-mode yasnippet))
+  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-complete auto-complete-c-headers auto-package-update bbdb bm browse-at-remote buffer-move column-marker crm-custom dracula-theme elpy emmet-mode emms expand-region flx flx-ido flycheck flymake-cursor git git-commit git-gutter git-link git-messenger git-timemachine github-clone helm helm-projectile htmlize iedit ido-ubiquitous imenu-anywhere impatient-mode jdee jedi js2-mode js-comint json-mode ledger-mode magit markdown-mode memoize move-text multiple-cursors neotree omnisharp org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode smex sql-indent sqlplus tabbar tern w3m web-beautify web-mode whitespace-cleanup-mode yasnippet))
 #+END_SRC
 
 ** Package initialize
@@ -79,14 +79,12 @@
 * Editor settings
 ** Set the theme
 #+BEGIN_SRC emacs-lisp
-  (require 'solarized)
-  (load-theme 'solarized-light t)
-  (setq solarized-termcolors 256)
+  (load-theme 'dracula t)
 #+END_SRC
 ** Change the font to Source Code Pro
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'default-frame-alist '(font . "Source Code Pro-11" ))
-  (set-face-attribute 'default t :font "Source Code Pro-11")
+  (add-to-list 'default-frame-alist '(font . "Source Code Pro-12" ))
+  (set-face-attribute 'default t :font "Source Code Pro-12")
 #+END_SRC
 ** Highlight the current line
 #+BEGIN_SRC emacs-lisp
@@ -144,13 +142,6 @@
 #+END_SRC
 
 *** Better bullets
-#+BEGIN_SRC emacs-lisp
-  (font-lock-add-keywords 'org-mode
-                          '(("^ +\\([-*]\\) "
-                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-#+END_SRC
-
-*** Better header bullet
 #+BEGIN_SRC emacs-lisp
   (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
@@ -216,7 +207,7 @@ Indent org file automatically
   (defun my:ac-c-header-init()
     (require 'auto-complete-c-headers)
     (add-to-list 'ac-sources 'ac-source-c-headers)
-    (add-to-list 'achead:include-directories '"/usr/lib/gcc/x86_64-linux-gnu/5/include"))
+    (add-to-list 'achead:include-directories '"/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include"))
   (add-hook 'c++-mode-hook 'my:ac-c-header-init)
   (add-hook 'c-mode-hook 'my:ac-c-header-init)
 #+END_SRC
@@ -516,6 +507,10 @@ Fix org-html-fontify-code error
   (require 'web-mode)
   (add-hook 'css-mode-hook 'rainbow-mode)
   (add-hook 'web-mode-hook 'rainbow-mode)
+#+END_SRC
+** Rainbow delimiters
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 #+END_SRC
 ** Restclient: Show HTTP request result in XML or JSON
 #+BEGIN_SRC emacs-lisp
