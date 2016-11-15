@@ -79,13 +79,42 @@ Connect the ethernet cable
 Use fdisk and use 2 partitions because we're lazy.
 
 - An EFI partition : 512MB
-- The swap partition : 2 x RAM if you've 4GB or less of RAM. Else, use 1,5 x RAM.
 - A big system partition : the rest of the disk
+- The swap partition : 2 x RAM if you've 4GB or less of RAM. Else, use 1,5 x RAM.
 
 Don't forget to format it with ***mkfs***
 
-### Mount the partition
+    mkfs.fat -F32 /dev/sdX1
+    mkfs.ext4 /dev/sdX2
+    mkswap /dev/sdX3
 
-    mount /dev/sdXY /mnt
-    swapon /dev/sdXY
+### Mount the partitions
+
+    mount /dev/sdX2 /mnt
+    swapon /dev/sdX3
+
+### Select the mirrors
+
+Uncomment the best server (the servers that have a lower indice < 0.5)
+
+    sed -i "s/Server/#Server/g"
+    nano /etc/pacman.d/mirrorlist
+
+### Install the system
+
+    pacstrap /mnt base base-devel
+
+### Generate the fstab
+
+    genfstab -U -p /mnt >> /mnt/etc/fstab
+
+### Chroot in the system
+
+    arch-chroot /mnt
+
+### Change the hostname
+
+    echo hostname > /etc/hostname
+
+
 
