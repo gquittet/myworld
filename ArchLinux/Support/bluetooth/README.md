@@ -8,7 +8,9 @@
 
     sudo modprobe btusb
 
-## Edit ***/etc/systemd/system/bluetooth.target.wants/bluetooth.service***
+## Fix the sap driver bug
+
+Edit ***/etc/systemd/system/bluetooth.target.wants/bluetooth.service***
 
 Find this line:
 
