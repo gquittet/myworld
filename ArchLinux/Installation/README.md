@@ -95,7 +95,7 @@ Don't forget to format it with ***mkfs***
 
 ### Select the mirrors
 
-Uncomment the best server (the servers that have a lower indice < 0.5)
+Uncomment the best servers (the servers that have a lower indice < 0.5)
 
     sed -i "s/Server/#Server/g"
     nano /etc/pacman.d/mirrorlist
@@ -125,5 +125,10 @@ Uncomment the best server (the servers that have a lower indice < 0.5)
     hwclock --systohc
 
 ### Generate the locale
+
+Uncomment the languages that you need in this file: ***/etc/locale.gen***
+
+    nano /etc/locale.gen
+    locale-gen
 
 
