@@ -102,7 +102,7 @@ Uncomment the best servers (the servers that have a lower indice < 0.5)
 
 ### Install the system
 
-    pacstrap /mnt base base-devel
+    pacstrap /mnt base base-devel dialog wireless_tools wireless_supplicant
 
 ### Generate the fstab
 
