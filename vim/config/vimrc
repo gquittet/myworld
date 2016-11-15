@@ -617,7 +617,7 @@ let g:undotree_SetFocusWhenToggle=1
 " Set the full color compatibility for vim and terminal
 syntax on
 color dracula
-let g:airline_theme='simple'
+let g:airline_theme='bubblegum'
 if has('gui_running')
   set guifont=Source\ Code\ Pro\ 12
 endif
