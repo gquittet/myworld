@@ -84,4 +84,9 @@ Use fdisk and use 2 partitions because we're lazy.
 
 Don't forget to format it with ***mkfs***
 
+### Mount the partition
+
+    mount /dev/sdXY /mnt
+    swapon /dev/sdXY
+
 
