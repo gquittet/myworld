@@ -89,4 +89,3 @@ Don't forget to format it with ***mkfs***
     mount /dev/sdXY /mnt
     swapon /dev/sdXY
 
-
