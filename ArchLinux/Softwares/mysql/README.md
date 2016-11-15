@@ -27,3 +27,10 @@ If this doesn't work, use this:
 After set a password retry the configuration:
 
 	sudo mysql_secure_installation
+
+## Enable auto completion
+Information: This option increase the startup time of MySQL.
+
+Edit ***/etc/mysql/my.cnf*** and change ****no-auto-rehash**** into
+****auto-rehash****
+
