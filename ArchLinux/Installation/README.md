@@ -116,5 +116,14 @@ Uncomment the best server (the servers that have a lower indice < 0.5)
 
     echo hostname > /etc/hostname
 
+### Set the timezone
+
+    ln -s /usr/share/zoneinfo/Region/City /etc/localtime
+
+### Adjust time
+
+    hwclock --systohc
+
+### Generate the locale
 
 
