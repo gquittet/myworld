@@ -16,7 +16,7 @@
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-complete auto-complete-c-headers auto-package-update bbdb bm browse-at-remote buffer-move column-marker crm-custom dracula-theme elpy emmet-mode emms expand-region flx flx-ido flycheck flymake-cursor git git-commit git-gutter git-link git-messenger git-timemachine github-clone helm helm-projectile htmlize iedit ido-ubiquitous imenu-anywhere impatient-mode jdee jedi js2-mode js-comint json-mode ledger-mode magit markdown-mode memoize move-text multiple-cursors neotree omnisharp org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode smex sql-indent sqlplus tabbar tern w3m web-beautify web-mode whitespace-cleanup-mode yasnippet))
+  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-complete auto-complete-c-headers auto-package-update bbdb bm browse-at-remote buffer-move column-marker crm-custom dracula-theme elpy emmet-mode emms expand-region flx flx-ido flycheck flymake-cursor git git-commit git-gutter git-link git-messenger git-timemachine github-clone helm helm-projectile htmlize iedit ido-ubiquitous imenu-anywhere impatient-mode jedi js2-mode js-comint json-mode ledger-mode magit markdown-mode memoize move-text multiple-cursors neotree omnisharp org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode smex sql-indent sqlplus tabbar tern w3m web-beautify web-mode whitespace-cleanup-mode yasnippet))
 #+END_SRC
 
 ** Package initialize
@@ -373,10 +373,6 @@ This plugin is replaced by a mode implemented in Emacs.
   (add-hook 'web-mode-hook 'impatient-mode)
   (add-hook 'css-mode-hook 'httpd-start)
   (add-hook 'css-mode-hook 'impatient-mode)
-#+END_SRC
-** JDEE
-#+BEGIN_SRC emacs-lisp
-  (require 'jdee)
 #+END_SRC
 ** Jedi
 #+BEGIN_SRC emacs-lisp
