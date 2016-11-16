@@ -6,7 +6,7 @@
 
 ## Icon theme
 
-    elementary-xfce-dark
+    elementary-xfce-icons
 
 ## Cursor theme
 
