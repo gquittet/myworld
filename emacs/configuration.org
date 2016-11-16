@@ -136,11 +136,6 @@
 #+END_SRC
 
 ** Org Mode as a powerful Word processor
-*** Better look for italic text
-#+BEGIN_SRC emacs-lisp
-  (setq org-hide-emphasis-markers t)
-#+END_SRC
-
 *** Better bullets
 #+BEGIN_SRC emacs-lisp
   (require 'org-bullets)
