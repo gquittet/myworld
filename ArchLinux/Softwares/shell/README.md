@@ -15,5 +15,7 @@ Edit the file ~/.zshrc and replace
 
 with
 
-    ZSH_THEME="avit"
+    ZSH_THEME="dracula"
+
+Don't forget to download the dracula theme for zsh first.
 

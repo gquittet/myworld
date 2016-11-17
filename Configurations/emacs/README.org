@@ -1,0 +1,132 @@
+#+TITLE: Emacs shortcuts list
+#+AUTHOR: Guillaume Quittet
+#+EMAIL: guillaume.quittet@gmail.com
+#+DATE: Sat. 21st Jan. 2017
+#+OPTIONS: timestamp:nil
+* Emacs shortcuts list
+** Introduction
+By default:
+- C = Control key
+- S = Shift key
+- M = Meta key (Alt)
+** File
+| Shortcut | Meaning                          |
+|----------+----------------------------------|
+| C-x C-f  | Open/Create a file               |
+| C-x C-s  | Save the file                    |
+| C-x C-w  | Save to an alternate name        |
+| C-x C-v  | Find alternate file              |
+| C-x i    | Insert a file at cursor position |
+** Buffer
+| Shortcut | Meaning              |
+|----------+----------------------|
+| C-x b    | Create/Switch buffer |
+| C-x C-b  | Show buffer list     |
+| C-x k    | Kill buffer          |
+** Movement
+| Shortcut | Meaning            |
+|----------+--------------------|
+| C-f      | Forward char       |
+| C-b      | Backward char      |
+| C-p      | Previous line      |
+| C-n      | Next line          |
+| M-f      | Forward 1 word     |
+| M-b      | Backward 1 word    |
+| C-a      | Beginning of line  |
+| C-e      | End of line        |
+| M-{      | 1 paragraph up     |
+| M-}      | 1 paragraph down   |
+| C-v      | One page up        |
+| M-v      | One page down      |
+| M-<      | Begining of buffer |
+| M->      | End of buffer      |
+** Editing
+*** Repeat commands and delete
+| Shortcut | Meaning                              |
+|----------+--------------------------------------|
+| M-n      | Repeat the following command n times |
+| C-u      | Repeat the following command 4 times |
+| C-u n    | Repeat the following command n times |
+| C-d      | Delete a char                        |
+| M-d      | Delete a word                        |
+| M-DEL    | Delete a word backward               |
+| C-k      | Kill line                            |
+*** Mark
+| Shortcut | Meaning                    |
+|----------+----------------------------|
+| C-SPACE  | Set the beginnig of a mark |
+*** Cut, copy and paste
+| Shortcut | Meaning                |
+|----------+------------------------|
+| C-w      | Cut                    |
+| M-w      | Copy                   |
+| C-y      | Paste                  |
+| M-y      | Paste earlier text     |
+| C-x C-x  | Switch cursor and mark |
+*** Transposition
+| Shortcut | Meaning           |
+|----------+-------------------|
+| C-t      | Transpose 2 chars |
+| M-t      | Transpose 2 words |
+| C-x C-t  | Transpose 2 lines |
+*** Uppercase and lowercase
+| Shortcut | Meaning                                        |
+|----------+------------------------------------------------|
+| M-u      | Uppercase word from the cursor position        |
+| M-l      | Lowercase word from the cursor position        |
+| M-c      | Uppercase the letter under the cursor position |
+| C-x C-u  | Uppercase a region                             |
+| C-x C-l  | Lowercase a region                             |
+** Undo and recover
+| Shortcut            | Meaning                            |
+|---------------------+------------------------------------|
+| C-g                 | Cancel the current command         |
+| C-x u               | Undo                               |
+| C-_                 | Undo                               |
+| C-/                 | Undo                               |
+| M-x revert-buffer   | Undo all changes since last save   |
+| M-x recover-file    | Recover text from an autosave file |
+| M-x recover-session | Recover many files                 |
+** Help
+| Shortcut | Meaning                                            |
+|----------+----------------------------------------------------|
+| C-h c    | Show the action of a key with message              |
+| C-h k    | Show the action of a key with the help             |
+| C-h l    | Show the last 100 typed keys                       |
+| C-h w    | Show key-combo of a command                        |
+| C-h f    | Show the action of a function                      |
+| C-h v    | Show a variable with its value                     |
+| C-h b    | Show all keycommand for the focus buffer           |
+| C-h t    | Start the emacs tutorial                           |
+| C-h i    | Start the info reader                              |
+| C-h C-k  | Start the info reader at a certain key-combo point |
+| C-h F    | Show the emacs FAQ                                 |
+| C-h p    | Show infos about the Elisp package on this machine |
+** Search and Replace
+| Shorcut | Meaning                                       |
+|---------+-----------------------------------------------|
+| C-s     | Search forward or repeat the search forward   |
+| C-r     | Search backward or repeat the search backward |
+| M-%     | Query replace                                 |
+| C-M-%   | Regex replace                                 |
+*** Query replace
+| Keys        | Action                                     |
+|-------------+--------------------------------------------|
+| SPACE or y  | Replace this occurence                     |
+| Del or n    | Don't replace                              |
+| .           | Only replace this and stop replace         |
+| ,           | Replace and pause (resume with SPACE or y) |
+| ^           | Back to the previous match                 |
+| RETURN or q | Quit replace                               |
+*** Regex replace
+| Keys | Action                         |
+|------+--------------------------------|
+| ^    | Beginning of a line            |
+| $    | End of a line                  |
+| .    | Single char                    |
+| .*   | Group or null of chars         |
+| \<   | Beginning of a word            |
+| \>   | End of a word                  |
+| []   | Every char inside the brackets |
+**** Exemple
+[a-z]: means every small letter

@@ -11,6 +11,28 @@ lxappearance feh acpi bc sysstat dmenu
     yaourt i3blocks
     yaourt playerctl
 
+## Before configure it
+
+Write into your .xinitrc file:
+
+    exec i3
+
+If you want to change your keyboard type before ***exec i3***:
+
+    setxkbmap -layout us -variant alt-intl -option nodeadkey
+
+I have an QWERTY keyboard. I'm Belgian so I need the alternative international
+and I don't want the dead keys.
+
+If you want to change your screen resolution type before ***exec i3***:
+
+    xrandr -s 1600x900
+
+To know the resolution that is supported by your monitor type in a terminal:
+
+    xrandr -q
+
+
 ## Configure it
 
 Copy my i3 and i3blocks configuration to 

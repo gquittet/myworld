@@ -9,12 +9,13 @@ status_backend = sqlite
 
 [Repository Local]
 type = Maildir
-localfolders = /home/gquittet/Documents/Dropbox/Mails
+localfolders = ~/Documents/Cloud/Mails
 
 [Repository Gmail]
 type = Gmail
 maxconnections = 2
 ssl = yes
+auth_mechanisms = LOGIN
 remoteuser = guillaume.quittet@gmail.com
 realdelete = no
 folderfilter = lambda foldername: foldername in ['INBOX', '[Gmail]/All Mail', '[Gmail]/Sent Mail', '[Gmail].Starred', '[Gmail].Drafts', '[Gmail].Important']

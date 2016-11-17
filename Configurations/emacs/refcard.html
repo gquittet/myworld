@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Emacs references card</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Guillaume Quittet">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script type="text/javascript">
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-9"><h1 class="title">Emacs references card</h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Emacs shortcuts list</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Introduction</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+By default:
+</p>
+<ul class="org-ul">
+<li>C = Control key
+</li>
+<li>S = Shift key
+</li>
+<li>M = Meta key (Alt)
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> File</h3>
+<div class="outline-text-3" id="text-1-2">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Shortcut</th>
+<th scope="col" class="text-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">C-x C-f</td>
+<td class="text-left">Open/Create a file</td>
+</tr>
+
+<tr>
+<td class="text-left">C-x C-s</td>
+<td class="text-left">Save the file</td>
+</tr>
+
+<tr>
+<td class="text-left">C-x C-w</td>
+<td class="text-left">Save to an alternate name</td>
+</tr>
+
+<tr>
+<td class="text-left">C-x C-v</td>
+<td class="text-left">Find alternate file</td>
+</tr>
+
+<tr>
+<td class="text-left">C-x i</td>
+<td class="text-left">Insert a file at cursor position</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Buffer</h3>
+<div class="outline-text-3" id="text-1-3">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Shortcut</th>
+<th scope="col" class="text-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">C-x b</td>
+<td class="text-left">Create/Switch buffer</td>
+</tr>
+
+<tr>
+<td class="text-left">C-x C-b</td>
+<td class="text-left">Show buffer list</td>
+</tr>
+
+<tr>
+<td class="text-left">C-x k</td>
+<td class="text-left">Kill buffer</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Movement</h3>
+<div class="outline-text-3" id="text-1-4">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Shortcut</th>
+<th scope="col" class="text-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">C-f</td>
+<td class="text-left">Forward char</td>
+</tr>
+
+<tr>
+<td class="text-left">C-b</td>
+<td class="text-left">Backward char</td>
+</tr>
+
+<tr>
+<td class="text-left">C-p</td>
+<td class="text-left">Previous line</td>
+</tr>
+
+<tr>
+<td class="text-left">C-n</td>
+<td class="text-left">Next line</td>
+</tr>
+
+<tr>
+<td class="text-left">M-f</td>
+<td class="text-left">Forward 1 word</td>
+</tr>
+
+<tr>
+<td class="text-left">M-b</td>
+<td class="text-left">Backward 1 word</td>
+</tr>
+
+<tr>
+<td class="text-left">C-a</td>
+<td class="text-left">Beginning of line</td>
+</tr>
+
+<tr>
+<td class="text-left">C-e</td>
+<td class="text-left">End of line</td>
+</tr>
+
+<tr>
+<td class="text-left">M-{</td>
+<td class="text-left">1 paragraph up</td>
+</tr>
+
+<tr>
+<td class="text-left">M-}</td>
+<td class="text-left">1 paragraph down</td>
+</tr>
+
+<tr>
+<td class="text-left">C-v</td>
+<td class="text-left">One page up</td>
+</tr>
+
+<tr>
+<td class="text-left">M-v</td>
+<td class="text-left">One page down</td>
+</tr>
+
+<tr>
+<td class="text-left">M-&lt;</td>
+<td class="text-left">Begining of buffer</td>
+</tr>
+
+<tr>
+<td class="text-left">M-&gt;</td>
+<td class="text-left">End of buffer</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Editing</h3>
+<div class="outline-text-3" id="text-1-5">
+</div><div id="outline-container-sec-1-5-1" class="outline-4">
+<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> Repeat commands and delete</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Shortcut</th>
+<th scope="col" class="text-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">M-n</td>
+<td class="text-left">Repeat the following command n times</td>
+</tr>
+
+<tr>
+<td class="text-left">C-u</td>
+<td class="text-left">Repeat the following command 4 times</td>
+</tr>
+
+<tr>
+<td class="text-left">C-u n</td>
+<td class="text-left">Repeat the following command n times</td>
+</tr>
+
+<tr>
+<td class="text-left">C-d</td>
+<td class="text-left">Delete a char</td>
+</tr>
+
+<tr>
+<td class="text-left">M-d</td>
+<td class="text-left">Delete a word</td>
+</tr>
+
+<tr>
+<td class="text-left">M-DEL</td>
+<td class="text-left">Delete a word backward</td>
+</tr>
+
+<tr>
+<td class="text-left">C-k</td>
+<td class="text-left">Kill line</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-1-5-2" class="outline-4">
+<h4 id="sec-1-5-2"><span class="section-number-4">1.5.2</span> Mark</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Shortcut</th>
+<th scope="col" class="text-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">C-SPACE</td>
+<td class="text-left">Set the beginnig of a mark</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-1-5-3" class="outline-4">
+<h4 id="sec-1-5-3"><span class="section-number-4">1.5.3</span> Cut, copy and paste</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Shortcut</th>
+<th scope="col" class="text-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">C-w</td>
+<td class="text-left">Cut</td>
+</tr>
+
+<tr>
+<td class="text-left">M-w</td>
+<td class="text-left">Copy</td>
+</tr>
+
+<tr>
+<td class="text-left">C-y</td>
+<td class="text-left">Paste</td>
+</tr>
+
+<tr>
+<td class="text-left">M-y</td>
+<td class="text-left">Paste earlier text</td>
+</tr>
+
+<tr>
+<td class="text-left">C-x C-x</td>
+<td class="text-left">Switch cursor and mark</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-1-5-4" class="outline-4">
+<h4 id="sec-1-5-4"><span class="section-number-4">1.5.4</span> Transposition</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Shortcut</th>
+<th scope="col" class="text-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">C-t</td>
+<td class="text-left">Transpose 2 chars</td>
+</tr>
+
+<tr>
+<td class="text-left">M-t</td>
+<td class="text-left">Transpose 2 words</td>
+</tr>
+
+<tr>
+<td class="text-left">C-x C-t</td>
+<td class="text-left">Transpose 2 lines</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-1-5-5" class="outline-4">
+<h4 id="sec-1-5-5"><span class="section-number-4">1.5.5</span> Uppercase and lowercase</h4>
+<div class="outline-text-4" id="text-1-5-5">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Shortcut</th>
+<th scope="col" class="text-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">M-u</td>
+<td class="text-left">Uppercase word from the cursor position</td>
+</tr>
+
+<tr>
+<td class="text-left">M-l</td>
+<td class="text-left">Lowercase word from the cursor position</td>
+</tr>
+
+<tr>
+<td class="text-left">M-c</td>
+<td class="text-left">Uppercase the letter under the cursor position</td>
+</tr>
+
+<tr>
+<td class="text-left">C-x C-u</td>
+<td class="text-left">Uppercase a region</td>
+</tr>
+
+<tr>
+<td class="text-left">C-x C-l</td>
+<td class="text-left">Lowercase a region</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Undo and recover</h3>
+<div class="outline-text-3" id="text-1-6">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Shortcut</th>
+<th scope="col" class="text-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">C-g</td>
+<td class="text-left">Cancel the current command</td>
+</tr>
+
+<tr>
+<td class="text-left">C-x u</td>
+<td class="text-left">Undo</td>
+</tr>
+
+<tr>
+<td class="text-left">C-_</td>
+<td class="text-left">Undo</td>
+</tr>
+
+<tr>
+<td class="text-left">C-/</td>
+<td class="text-left">Undo</td>
+</tr>
+
+<tr>
+<td class="text-left">M-x revert-buffer</td>
+<td class="text-left">Undo all changes since last save</td>
+</tr>
+
+<tr>
+<td class="text-left">M-x recover-file</td>
+<td class="text-left">Recover text from an autosave file</td>
+</tr>
+
+<tr>
+<td class="text-left">M-x recover-session</td>
+<td class="text-left">Recover many files</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> Help</h3>
+<div class="outline-text-3" id="text-1-7">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Shortcut</th>
+<th scope="col" class="text-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">C-h c</td>
+<td class="text-left">Show the action of a key with message</td>
+</tr>
+
+<tr>
+<td class="text-left">C-h k</td>
+<td class="text-left">Show the action of a key with the help</td>
+</tr>
+
+<tr>
+<td class="text-left">C-h l</td>
+<td class="text-left">Show the last 100 typed keys</td>
+</tr>
+
+<tr>
+<td class="text-left">C-h w</td>
+<td class="text-left">Show key-combo of a command</td>
+</tr>
+
+<tr>
+<td class="text-left">C-h f</td>
+<td class="text-left">Show the action of a function</td>
+</tr>
+
+<tr>
+<td class="text-left">C-h v</td>
+<td class="text-left">Show a variable with its value</td>
+</tr>
+
+<tr>
+<td class="text-left">C-h b</td>
+<td class="text-left">Show all keycommand for the focus buffer</td>
+</tr>
+
+<tr>
+<td class="text-left">C-h t</td>
+<td class="text-left">Start the emacs tutorial</td>
+</tr>
+
+<tr>
+<td class="text-left">C-h i</td>
+<td class="text-left">Start the info reader</td>
+</tr>
+
+<tr>
+<td class="text-left">C-h C-k</td>
+<td class="text-left">Start the info reader at a certain key-combo point</td>
+</tr>
+
+<tr>
+<td class="text-left">C-h F</td>
+<td class="text-left">Show the emacs FAQ</td>
+</tr>
+
+<tr>
+<td class="text-left">C-h p</td>
+<td class="text-left">Show infos about the Elisp package on this machine</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> Search and Replace</h3>
+<div class="outline-text-3" id="text-1-8">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Shorcut</th>
+<th scope="col" class="text-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">C-s</td>
+<td class="text-left">Search forward or repeat the search forward</td>
+</tr>
+
+<tr>
+<td class="text-left">C-r</td>
+<td class="text-left">Search backward or repeat the search backward</td>
+</tr>
+
+<tr>
+<td class="text-left">M-%</td>
+<td class="text-left">Query replace</td>
+</tr>
+
+<tr>
+<td class="text-left">C-M-%</td>
+<td class="text-left">Regex replace</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="outline-container-sec-1-8-1" class="outline-4">
+<h4 id="sec-1-8-1"><span class="section-number-4">1.8.1</span> Query replace</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Keys</th>
+<th scope="col" class="text-left">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">SPACE or y</td>
+<td class="text-left">Replace this occurence</td>
+</tr>
+
+<tr>
+<td class="text-left">Del or n</td>
+<td class="text-left">Don't replace</td>
+</tr>
+
+<tr>
+<td class="text-left">.</td>
+<td class="text-left">Only replace this and stop replace</td>
+</tr>
+
+<tr>
+<td class="text-left">,</td>
+<td class="text-left">Replace and pause (resume with SPACE or y)</td>
+</tr>
+
+<tr>
+<td class="text-left">^</td>
+<td class="text-left">Back to the previous match</td>
+</tr>
+
+<tr>
+<td class="text-left">RETURN or q</td>
+<td class="text-left">Quit replace</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-1-8-2" class="outline-4">
+<h4 id="sec-1-8-2"><span class="section-number-4">1.8.2</span> Regex replace</h4>
+<div class="outline-text-4" id="text-1-8-2">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Keys</th>
+<th scope="col" class="text-left">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">^</td>
+<td class="text-left">Beginning of a line</td>
+</tr>
+
+<tr>
+<td class="text-left">$</td>
+<td class="text-left">End of a line</td>
+</tr>
+
+<tr>
+<td class="text-left">.</td>
+<td class="text-left">Single char</td>
+</tr>
+
+<tr>
+<td class="text-left">.*</td>
+<td class="text-left">Group or null of chars</td>
+</tr>
+
+<tr>
+<td class="text-left">\&lt;</td>
+<td class="text-left">Beginning of a word</td>
+</tr>
+
+<tr>
+<td class="text-left">\&gt;</td>
+<td class="text-left">End of a word</td>
+</tr>
+
+<tr>
+<td class="text-left">[]</td>
+<td class="text-left">Every char inside the brackets</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="org-ol"><li><a id="sec-1-8-2-1" name="sec-1-8-2-1"></a>Exemple<br ><div class="outline-text-5" id="text-1-8-2-1">
+<p>
+[a-z]: means every small letter
+</p>
+</div>
+</li></ol>
+</div>
+</div>
+</div>
+</div><div class="col-md-3"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. Emacs shortcuts list</a>
+<ul class="nav">
+<li><a href="#sec-1-1">1.1. Introduction</a></li>
+<li><a href="#sec-1-2">1.2. File</a></li>
+<li><a href="#sec-1-3">1.3. Buffer</a></li>
+<li><a href="#sec-1-4">1.4. Movement</a></li>
+<li><a href="#sec-1-5">1.5. Editing</a></li>
+<li><a href="#sec-1-6">1.6. Undo and recover</a></li>
+<li><a href="#sec-1-7">1.7. Help</a></li>
+<li><a href="#sec-1-8">1.8. Search and Replace</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="date">Date: Sat. 21st Jan. 2017</p>
+<p class="author">Author: Guillaume Quittet</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org-mode</a> 9.0.3)</p>
+</div>
+</footer>
+</body>
+</html>

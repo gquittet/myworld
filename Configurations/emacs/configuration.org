@@ -1,36 +1,31 @@
 #+TITLE: Emacs configuration
 #+AUTHOR: Guillaume QUITTET
 #+EMAIL: guillaume.quittet@gmail.com
-#+DATE: Wed. 16th Nov 2016
+#+DATE: Tue. 17th Jan 2017
 * Package Manager
 ** Configuration
 #+BEGIN_SRC emacs-lisp
   (require 'package)
 #+END_SRC
-   
 ** List the repositories contening them and initialize the package
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-  (add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-complete auto-complete-c-headers auto-package-update bbdb bm browse-at-remote buffer-move column-marker crm-custom dracula-theme elpy emmet-mode emms expand-region flx flx-ido flycheck flymake-cursor git git-commit git-gutter git-link git-messenger git-timemachine github-clone helm helm-projectile htmlize iedit ido-ubiquitous imenu-anywhere impatient-mode jedi js2-mode js-comint json-mode ledger-mode magit markdown-mode memoize move-text multiple-cursors neotree omnisharp org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode smex sql-indent sqlplus tabbar tern w3m web-beautify web-mode whitespace-cleanup-mode yasnippet))
+  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-package-update bbdb bm browse-at-remote buffer-move coffee-mode column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-web company-ycmd dracula-theme eclim elpy emmet-mode emms expand-region flycheck flycheck-ycmd gist git git-gutter git-link helm helm-projectile htmlize iedit imenu-anywhere impatient-mode js2-mode js-comint json-mode ledger-mode magit markdown-mode move-text multiple-cursors omnisharp org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode sql-indent sqlplus tabbar tern web-beautify web-mode whitespace-cleanup-mode yasnippet ycmd))
 #+END_SRC
-
 ** Package initialize
 #+BEGIN_SRC emacs-lisp
   (package-initialize)
 #+END_SRC
-
 ** Local Packages
 ** Fetch the list of packages available
 #+BEGIN_SRC emacs-lisp
   (unless package-archive-contents
     (package-refresh-contents))
 #+END_SRC
-
 ** Install the missing package
 #+BEGIN_SRC emacs-lisp
   (dolist (package package-list)
@@ -42,60 +37,74 @@
 
 #+END_SRC
 * Start the server
-   This is useful for increase the startup speed of Emacs
 #+BEGIN_SRC emacs-lisp
-   (server-start)
+  (require 'server)
+  (unless (server-running-p) (server-start))
 #+END_SRC
 * UI configuration
-** Disable menu bar, tool bar and scroll bar
+** Column number
+#+BEGIN_SRC emacs-lisp
+  (column-number-mode t)
+  (show-paren-mode 1)
+#+END_SRC
+** Menu bar/Tool bar/Scroll bar
 #+BEGIN_SRC emacs-lisp
   (menu-bar-mode -1)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
 #+END_SRC
-
-** Set UTF8 everywhere
+** Replace 'yes or no' with 'y or n'
+#+BEGIN_SRC emacs-lisp
+(defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+** Startup warning
+#+BEGIN_SRC emacs-lisp
+  (setq ad-redefinition-action 'accept)
+#+END_SRC
+** Theme
+#+BEGIN_SRC emacs-lisp
+  (load-theme 'dracula t)
+#+END_SRC
+** UTF8 everywhere
 #+BEGIN_SRC emacs-lisp
   (setq locale-coding-system 'utf-8)
   (set-terminal-coding-system 'utf-8)
   (set-keyboard-coding-system 'utf-8)
   (set-selection-coding-system 'utf-8)
   (prefer-coding-system 'utf-8)
+  (set-default-coding-systems 'utf-8)
+  (set-language-environment 'utf-8)
   (when (display-graphic-p)
-     (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
+    (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
 #+END_SRC
-
-** Replace 'yes or no' with 'y or n'
-#+BEGIN_SRC emacs-lisp
-  (defalias 'yes-or-no-p 'y-or-n-p)
-#+END_SRC
-
-** Show the column number and the parent
-#+BEGIN_SRC emacs-lisp
-  (column-number-mode t)
-  (show-paren-mode 1)
-#+END_SRC
-
 * Editor settings
-** Set the theme
+** Clean white spaces when I save 
 #+BEGIN_SRC emacs-lisp
-  (load-theme 'dracula t)
+  (require 'whitespace-cleanup-mode)
+  (setq whitespace-style '(face empty tabs lines-tail trailing))
+  (global-whitespace-cleanup-mode 1)
 #+END_SRC
-** Change the font to Source Code Pro
+** Folding
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'default-frame-alist '(font . "Source Code Pro-12" ))
-  (set-face-attribute 'default t :font "Source Code Pro-12")
+  (add-hook 'prog-mode-hook 'hs-minor-mode)
+#+END_SRC
+** Font
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12"))
+  (set-face-attribute 'default t :font "DejaVu Sans Mono-12")
 #+END_SRC
 ** Highlight the current line
 #+BEGIN_SRC emacs-lisp
   (global-hl-line-mode)
 #+END_SRC
-
-** Clean white spaces when I save
+** Upcase and lower case region
 #+BEGIN_SRC emacs-lisp
-  (require 'whitespace-cleanup-mode)
-  (setq whitespace-style '(face empty tabs lines-tail trailing))
-  (global-whitespace-cleanup-mode 1)
+  (put 'upcase-region 'disabled nil)
+  (put 'downcase-region 'disabled nil)
+#+END_SRC
+** visual-line-mode
+#+BEGIN_SRC emacs-lisp
+  (global-visual-line-mode 1)
 #+END_SRC
 * Backup
 ** Set the backup to a dedicaced directory
@@ -108,14 +117,25 @@
     kept-old-versions 5    ; and how many of the old
     )
 #+END_SRC
-
 * Org Mode
-** Add more export formats
+** Auto indent org file
+#+BEGIN_SRC emacs-lisp
+  (setq org-startup-indented t)
+#+END_SRC
+** Better bullets
+#+BEGIN_SRC emacs-lisp
+  (require 'org-bullets)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+END_SRC
+** Ellipsis symbol
+#+BEGIN_SRC emacs-lisp
+  (setq org-ellipsis "⤵")
+#+END_SRC
+** Export formats
 #+BEGIN_SRC emacs-lisp
   (setq org-export-backends (quote (ascii beamer html icalendar latex man md org texinfo)))
 #+END_SRC
-
-** Add language support for compiling
+** Language support for compiling
 #+BEGIN_SRC emacs-lisp
   (org-babel-do-load-languages
    'org-babel-load-languages '((C . t)
@@ -134,31 +154,11 @@
                                (sh . t)
                                ))
 #+END_SRC
-
-** Org Mode as a powerful Word processor
-*** Better bullets
-#+BEGIN_SRC emacs-lisp
-  (require 'org-bullets)
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-#+END_SRC
-
-** Editor settings
-Indent org file automatically
-#+BEGIN_SRC emacs-lisp
-  (with-eval-after-load 'org       
-    (setq org-startup-indented t) ; Enable `org-indent-mode' by default
-    (add-hook 'org-mode-hook #'visual-line-mode))
-#+END_SRC
 ** Open website in chromium
 #+BEGIN_SRC emacs-lisp
   (setq browse-url-browser-function 'browse-url-generic
-        browse-url-generic-program "chromium-browser")
-#+END_SRC
-* Startup warning
-#+BEGIN_SRC emacs-lisp
-  (setq ad-redefinition-action 'accept)
-#+END_SRC
-	
+        browse-url-generic-program "chromium")
+#+END_SRC	
 * Terminal
 ** Enable completion in the terminal
 #+BEGIN_SRC emacs-lisp
@@ -180,31 +180,12 @@ Indent org file automatically
 #+BEGIN_SRC emacs-lisp
   (require 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-mode)
+  (setq python-shell-interpreter "/usr/bin/python2")
 #+END_SRC
 ** Android
 #+BEGIN_SRC emacs-lisp
   (require 'android-mode)
-  (custom-set-variables '(android-mode-sdk-dir "/opt/android-sdk"))
-#+END_SRC
-** Auto-complete and YASNIPPET
-#+BEGIN_SRC emacs-lisp
-  (require 'yasnippet)
-  (yas-global-mode 1)
-  (require 'auto-complete)
-  (require 'auto-complete-config)
-  (ac-config-default)
-  (setq ac-auto-start t)            ; if t starts ac at startup automatically
-  (setq ac-auto-show-menu t)
-  (global-auto-complete-mode t) 
-#+END_SRC
-** Auto-comple-c-headers
-#+BEGIN_SRC emacs-lisp
-  (defun my:ac-c-header-init()
-    (require 'auto-complete-c-headers)
-    (add-to-list 'ac-sources 'ac-source-c-headers)
-    (add-to-list 'achead:include-directories '"/usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include"))
-  (add-hook 'c++-mode-hook 'my:ac-c-header-init)
-  (add-hook 'c-mode-hook 'my:ac-c-header-init)
+  (setq android-mode-sdk-dir '"/opt/android-sdk")
 #+END_SRC
 ** Auto package update
 #+BEGIN_SRC emacs-lisp
@@ -234,10 +215,90 @@ This plugin is replaced by a mode implemented in Emacs.
   (require 'column-marker)
   (add-hook 'after-init-hook (lambda () (interactive) (column-marker-1 80)))
 #+END_SRC
-** Company: Text completion
+** Company
 #+BEGIN_SRC emacs-lisp
   (require 'company)
   (add-hook 'after-init-hook 'global-company-mode)
+  (setq company-tooltip-limit 20)                      ; bigger popup window
+  (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
+  (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+  (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+#+END_SRC
+*** company-anaconda
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load "company"
+    '(add-to-list 'company-backends '(company-anaconda :with company-capf)))
+#+END_SRC
+*** company-auctex
+#+BEGIN_SRC emacs-lisp
+  (require 'company-auctex)
+  (company-auctex-init)
+#+END_SRC
+*** company-c-headers
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load "company"
+    '(add-to-list 'company-backends 'company-c-headers))
+#+END_SRC
+*** company-edbi
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'company-backends 'company-edbi)
+#+END_SRC
+*** company-emacs-eclim
+#+BEGIN_SRC emacs-lisp
+  (require 'company-emacs-eclim)
+  (company-emacs-eclim-setup)
+  (setq company-emacs-eclim-ignore-case t)
+#+END_SRC
+*** company-jedi
+#+BEGIN_SRC emacs-lisp
+  (defun my/python-mode-hook ()
+    (add-to-list 'company-backends 'company-jedi))
+
+  (add-hook 'python-mode-hook 'my/python-mode-hook)
+#+END_SRC
+*** company-math
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'company-backends 'company-math-symbols-unicode)
+#+END_SRC
+*** company-omnisharp
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load 'company
+    '(add-to-list 'company-backends 'company-omnisharp))
+#+END_SRC
+*** company-quickhelp
+#+BEGIN_SRC emacs-lisp
+  (company-quickhelp-mode 1)
+  (setq company-quickhelp-delay nil)
+#+END_SRC
+*** company-restclient
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'company-backends 'company-restclient)
+#+END_SRC
+*** company-shell
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'company-backends 'company-shell)
+#+END_SRC
+*** company-web
+#+BEGIN_SRC emacs-lisp
+  (require 'company-web-html)
+  (require 'company-web-jade)
+  (require 'company-web-slim)
+#+END_SRC
+*** company-ycmd
+#+BEGIN_SRC emacs-lisp
+  (require 'company-ycmd)
+  (company-ycmd-setup)
+#+END_SRC
+** Eclim
+#+BEGIN_SRC emacs-lisp
+  (require 'eclim)
+  (require 'eclimd)
+  (setq eclimd-autostart t)
+  (add-hook 'java-mode-hook 'eclim-mode)
+  (setq eclimd-default-workspace '"~/Documents/Projets/Java/Projets/")
+  (setq help-at-pt-display-when-idle t)
+  (setq help-at-pt-timer-delay 0.1)
+  (help-at-pt-set-timer)
 #+END_SRC
 ** Elpy: Python IDE
 #+BEGIN_SRC emacs-lisp
@@ -260,45 +321,18 @@ This plugin is replaced by a mode implemented in Emacs.
 ** EWW
 #+BEGIN_SRC emacs-lisp
   (require 'eww)
+  (setq eww-download-directory '"~/Téléchargements/")
 #+END_SRC
-** Expand region
+** expand-region
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "M-i") 'er/expand-region)
+  (require 'expand-region)
 #+END_SRC
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
   (require 'flycheck)
   (global-flycheck-mode)
-#+END_SRC
-** Flymake
-#+BEGIN_SRC emacs-lisp
-  (require 'flymake)
-#+END_SRC
-*** LaTeX
-#+BEGIN_SRC emacs-lisp
-  (defun flymake-get-tex-args (file-name)
-    (list "pdflatex" (list "-file-line-error" "-draftmode" "-interaction=nonstopmode" file-name)))
-#+END_SRC
-*** Java
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'java-mode-hook 'flymake-mode-on)
-#+END_SRC
-*** HTML
-#+BEGIN_SRC emacs-lisp
-  (defun flymake-html-init ()
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-		       'flymake-create-temp-inplace))
-	   (local-file (file-relative-name
-			temp-file
-			(file-name-directory buffer-file-name))))
-      (list "tidy" (list local-file))))
-
-  (add-to-list 'flymake-allowed-file-name-masks
-	       '("\\.html$\\|\\.ctp" flymake-html-init))
-
-  (add-to-list 'flymake-err-line-patterns
-	       '("line \\([0-9]+\\) column \\([0-9]+\\) - \\(Warning\\|Error\\): \\(.*\\)"
-		 nil 1 2 4))
+  (require 'flycheck-ycmd)
+  (flycheck-ycmd-setup)
 #+END_SRC
 ** Flyspell
 #+BEGIN_SRC emacs-lisp
@@ -315,72 +349,28 @@ This plugin is replaced by a mode implemented in Emacs.
      (interactive)
      (ispell-change-dictionary "en_GB")))
 #+END_SRC
-*** Gnus
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'message-mode-hook 'flyspell-mode)
-  (add-hook 'message-mode-hook 'flyspell-buffer)
-#+END_SRC
-*** Latex
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-  (add-hook 'LaTeX-mode-hook 'flyspell-buffer)
-#+END_SRC
-*** Org
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'org-mode-hook 'flyspell-mode)
-  (add-hook 'org-mode-hook 'flyspell-buffer)
-#+END_SRC
-*** Text
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'text-mode-hook 'flyspell-mode)
-  (add-hook 'text-mode-hook 'flyspell-buffer)
-#+END_SRC
 ** Git gutter
 #+BEGIN_SRC emacs-lisp
   (global-git-gutter-mode +1)
 #+END_SRC
-** Git messenger
-#+BEGIN_SRC emacs-lisp
-  (require 'git-messenger)
-  (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode)
-#+END_SRC
 ** Helm
 #+BEGIN_SRC emacs-lisp
   (require 'helm-config)
+  (require 'helm-projectile)
+  (helm-projectile-on)
 #+END_SRC
-** IDO
-*** Enable IDO
+** Iedit
 #+BEGIN_SRC emacs-lisp
-  (require 'ido)
-  (ido-mode 1)
-  (ido-everywhere 1)
-  (require 'ido-ubiquitous)
-  (ido-ubiquitous-mode 1)
-  (require 'crm-custom)
-  (crm-custom-mode 1)
-  (require 'flx)
-  (flx-ido-mode 1)
-#+END_SRC
-*** Make IDO more powerful
-#+BEGIN_SRC emacs-lisp
-  (setq ido-enable-flex-matching t)
-  (setq ido-use-faces nil)
+  (require 'iedit)
 #+END_SRC
 ** Impatient Mode: HTML reload on the fly
+Impatient server: *http://localhost:8080/imp*
 #+BEGIN_SRC emacs-lisp
   (require 'impatient-mode)
   (add-hook 'web-mode-hook 'httpd-start)
   (add-hook 'web-mode-hook 'impatient-mode)
   (add-hook 'css-mode-hook 'httpd-start)
   (add-hook 'css-mode-hook 'impatient-mode)
-#+END_SRC
-** Jedi
-#+BEGIN_SRC emacs-lisp
-  (require 'jedi)
-  (autoload 'jedi:setup "jedi" nil t)
-  (add-hook 'python-mode-hook 'jedi:setup)
-  (setq jedi:setup-keys t)
-  (setq jedi:complete-on-dot t)
 #+END_SRC
 ** JS-Comint
 #+BEGIN_SRC emacs-lisp
@@ -402,8 +392,6 @@ This plugin is replaced by a mode implemented in Emacs.
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil)
-  (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
   (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
@@ -447,18 +435,10 @@ This plugin is replaced by a mode implemented in Emacs.
   (require 'multiple-cursors)
   (add-hook 'after-init-hook 'multiple-cursors-mode)
 #+END_SRC
-** Neotree
-#+BEGIN_SRC emacs-lisp
-  (require 'neotree)
-  (setq neo-smart-open t)
-  (setq projectile-switch-project-action 'neotree-projectile-action)
-#+END_SRC
-** OMNISharp
+** Omnisharp
 #+BEGIN_SRC emacs-lisp
   (add-hook 'csharp-mode-hook 'omnisharp-mode)
-  (eval-after-load 'company
-    '(add-to-list 'company-backends 'company-omnisharp))
-  (setq omnisharp-server-executable-path "/opt/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe")
+  (setq omnisharp-server-executable-path "/opt/ycmd/third_party/OmniSharpServer")
 #+END_SRC
 ** Outline mode
 #+BEGIN_SRC emacs-lisp
@@ -486,11 +466,6 @@ Fix org-html-fontify-code error
 ** PDF-Tools
 #+BEGIN_SRC emacs-lisp
   (pdf-tools-install)
-#+END_SRC
-** Projectile
-#+BEGIN_SRC emacs-lisp
-  (require 'projectile)
-  (add-hook 'projectile-mode-hook 'helm-projectile-on)
 #+END_SRC
 ** Rainbow
 #+BEGIN_SRC emacs-lisp
@@ -523,11 +498,6 @@ Fix org-html-fontify-code error
   (add-hook 'html-mode-hook 'skewer-html-mode)
   (add-hook 'web-mode-hook 'skewer-html-mode)
 #+END_SRC
-** Smex
-#+BEGIN_SRC emacs-lisp
-  (require 'smex)
-  (smex-initialize)
-#+END_SRC
 ** SQL indent
 #+BEGIN_SRC emacs-lisp
   (eval-after-load "sql"
@@ -544,19 +514,6 @@ Fix org-html-fontify-code error
 ** Uniquify: Unique buffer name
 #+BEGIN_SRC emacs-lisp
   (setq uniquify-buffer-name-style (quote post-forward))
-#+END_SRC
-** W3M
-#+BEGIN_SRC emacs-lisp
-  (require 'w3m)
-  (setq browse-url-browser-function 'w3m-browse-url)
-  (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
-  (setq w3m-use-cookies t)
-  (setq w3m-coding-system 'utf-8
-        w3m-file-coding-system 'utf-8
-        w3m-file-name-coding-system 'utf-8
-        w3m-input-coding-system 'utf-8
-        w3m-output-coding-system 'utf-8
-        w3m-terminal-coding-system 'utf-8)
 #+END_SRC
 ** Web beautify
 #+BEGIN_SRC emacs-lisp
@@ -609,6 +566,18 @@ Fix org-html-fontify-code error
   (when (fboundp 'winner-mode)
         (winner-mode 1))
 #+END_SRC
+** YASNIPPET
+#+BEGIN_SRC emacs-lisp
+  (require 'yasnippet)
+  (yas-global-mode 1)
+#+END_SRC
+** YCMD
+#+BEGIN_SRC emacs-lisp
+  (require 'ycmd)
+  (add-hook 'after-init-hook #'global-ycmd-mode)
+  (set-variable 'ycmd-server-command '("python" "/opt/ycmd/ycmd"))
+  (set-variable 'ycmd-global-config "/opt/ycmd/examples/.ycm_extra_conf.py")
+#+END_SRC
 * Keybinding
 ** BM
 #+BEGIN_SRC emacs-lisp
@@ -618,7 +587,7 @@ Fix org-html-fontify-code error
 #+END_SRC
 ** Browse at remote: Useful for Git
 #+BEGIN_SRC emacs-lisp
-    (global-set-key (kbd "C-c g g") 'browse-at-remote/browse)
+    (global-set-key (kbd "C-c g g") 'browse-at-remote)
 #+END_SRC
 ** Buffer Move
 #+BEGIN_SRC emacs-lisp
@@ -627,6 +596,16 @@ Fix org-html-fontify-code error
   (global-set-key (kbd "<C-S-down>")   'buf-move-down)
   (global-set-key (kbd "<C-S-left>")   'buf-move-left)
   (global-set-key (kbd "<C-S-right>")  'buf-move-right)
+#+END_SRC
+** Company
+*** company-quickhelp
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load 'company
+    '(define-key company-active-map (kbd "M-h") #'company-quickhelp-manual-begin))
+#+END_SRC
+*** company-web
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key
 #+END_SRC
 ** EMMS: Emacs Multi Media Server
 #+BEGIN_SRC emacs-lisp
@@ -640,19 +619,17 @@ Fix org-html-fontify-code error
   (global-set-key (kbd "C-c e r t") 'emms-toggle-repeat-track)
   (global-set-key (kbd "C-c e r p") 'emms-toggle-repeat-playlist)
 #+END_SRC
-** Git messenger
+** expand-region
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-x v p") 'git-messenger:popup-message)
-  (define-key git-messenger-map (kbd "m") 'git-messenger:copy-message)
+  (global-set-key (kbd "M-i") 'er/expand-region)
 #+END_SRC
 ** Helm
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-S-x") 'helm-M-x)
+  (global-set-key (kbd "M-x") 'helm-M-x)
 #+END_SRC
 ** IMenu
 #+BEGIN_SRC emacs-lisp
-  (require 'imenu-anywhere)
-  (global-set-key (kbd "C-,") #'imenu-anywhere)
+  (global-set-key (kbd "C-.") #'imenu-anywhere)
 #+END_SRC
 ** JS-Comint
 #+BEGIN_SRC emacs-lisp
@@ -672,21 +649,11 @@ Fix org-html-fontify-code error
     (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
     (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 #+END_SRC
-** Neotree
-#+BEGIN_SRC emacs-lisp
-  (global-set-key [f8] 'neotree-toggle)
-#+END_SRC
 ** ORG Mode
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-c l") 'org-store-link)
   (global-set-key (kbd "C-c a") 'org-agenda)
   (global-set-key (kbd "C-c b") 'org-iswitchb)
-#+END_SRC
-** Smex
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "M-x") 'smex)
-  (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-  (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 #+END_SRC
 ** Web beautify
 #+BEGIN_SRC emacs-lisp
@@ -740,5 +707,12 @@ Fix org-html-fontify-code error
 	'((nnmaildir "GMail" (directory "~/Documents/Cloud/Mails"))))
   (setq gnus-directory "~/Documents/Cloud/Mails/News/")
   (setq nnfolder-directory "~/Documents/Cloud/Mails/Archives/")
+#+END_SRC
+** Send function
+#+BEGIN_SRC emacs-lisp
+  (setq send-mail-function 'smtpmail-send-it
+	smtpmail-smtp-server  "smtp.gmail.com"
+	smtpmail-stream-type  'ssl
+	smtpmail-smtp-service 465)
 #+END_SRC
 * Functions

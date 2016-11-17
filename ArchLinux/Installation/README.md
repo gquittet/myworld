@@ -131,4 +131,43 @@ Uncomment the languages that you need in this file: ***/etc/locale.gen***
     nano /etc/locale.gen
     locale-gen
 
+### Set the LANG variable in /etc/locale.conf
+
+    LANG=en_US.UTF-8
+
+### Set the keyboard layout in /etc/vconsole.conf
+
+    KEYMAP=de-latin1
+
+### Set the hostname
+
+    echo mycustomhostname > /etc/hostname
+
+
+### Install these package
+
+    pacman -S sudo bash-completion
+
+### Set root password
+
+    passwd
+
+### Add user and set the user passwd
+
+    useradd -m -g users -G wheel,storage,power -s /bin/bash gquittet
+    passwd gquittet
+
+### Compile the kernel
+
+    mkinitcpio -p linux
+
+### Install grub needed tools
+
+    pacman -S grub
+    grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck
+    grub-mkconfig -o /boot/grub/grub.conf
+
+### Umount all
+
+    umount -R /mnt
 

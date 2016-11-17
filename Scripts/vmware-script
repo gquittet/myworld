@@ -1,0 +1,24 @@
+#!/bin/sh
+# Created by Guillaume Quittet on 12-08-2016
+# Run or stop vmware
+username=$(whoami)
+case $1 in
+    --start) sudo /etc/init.d/vmware start && sudo mkdir /run/{media,media/$username,/media/$username/SSD} && sudo mount /dev/sdb1 /run/media/gquittet/SSD
+	     nohup vmware > /dev/null 2>&1 &
+	     disown
+	     ;;
+    -s) sudo /etc/init.d/vmware start && sudo mkdir /run/{media,media/$username,/media/$username/SSD} && sudo mount /dev/sdb1 /run/media/gquittet/SSD
+	nohup vmware > /dev/null 2>&1 &
+	disown
+	;;
+    --kill) sudo umount /run/media/$username/SSD && sudo rm -r /run/media && sudo /etc/init.d/vmware stop
+	    ;;
+    -k) sudo umount /run/media/$username/SSD && sudo rm -r /run/media && sudo /etc/init.d/vmware stop
+	;;
+    -h) echo -e "\nvmware-script [OPTION]\n\n[OPTION]: {-s|--start|-k|--kill}\n\nGet help: vmware-script {-h|--help}\n"
+	;;
+    --help) echo -e "\nvmware-script [OPTION]\n\n[OPTION]: {-s|--start|-k|--kill}\n\nGet help: vmware-script {-h|--help}\n"
+	    ;;
+    *) echo "Unknown command."
+       ;;
+esac
