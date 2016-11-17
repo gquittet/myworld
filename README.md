@@ -1,6 +1,6 @@
 # My GNU/Linux configuration
 You can find here all my configurations that I used.
-My text editor is Vim. My IDE is Emacs. My operating system is ArchLinux with the XFCE desktop environnement.
+My text editor is Vim. My IDE is Emacs. My operating system is ArchLinux with the XFCE desktop environnement and the i3 window manager.
 
 ![my-os]
 
