@@ -9,3 +9,9 @@
 ## Install these packages
 
    sudo pip install rope jedi flake8 importmagic autopep8 yapf
+
+## Install these too
+
+   sudo pacman -S python-virtualenv python2-virtualenv
+
+
