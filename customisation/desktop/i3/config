@@ -246,6 +246,9 @@ bindsym Shift+--release Print exec --no-startup-id scrot -q 100 -s
 exec --no-startup-id xrandr -s 1600x900
 exec_always --no-startup-id feh --bg-center "/usr/share/pixmaps/minimalistic-hackers_00358377.png"
 
+# Change the keyboard
+exec --no-startup-id setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
+
 # active transparancy
 exec_always compton -f
 
