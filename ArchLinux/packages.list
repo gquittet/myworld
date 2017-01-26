@@ -26,7 +26,6 @@ bc
 bind-tools
 binutils
 bison
-bleachbit
 blender
 blueman
 bluez
@@ -208,14 +207,12 @@ pulseaudio-alsa
 python
 python-gmpy2
 python-jedi
-python-livereload
 python-pip
 python-rope
 python-virtualenv
 python2-autopep8
 python2-flake8
 python2-jedi
-python2-livereload
 python2-rope
 python2-virtualenv
 python2-yapf
