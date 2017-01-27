@@ -165,6 +165,7 @@ mpv
 mtools
 mugshot
 nano
+net-tools
 netctl
 network-manager-applet
 networkmanager
@@ -275,6 +276,7 @@ usbmuxd
 usbutils
 util-linux
 uudeview
+vde2
 vi
 virtualbox
 virtualbox-ext-oracle
