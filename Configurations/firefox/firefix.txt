@@ -1,0 +1,42 @@
+=========
+ FireFix
+=========
+Firefox tricks for a better browser:
+------------------------------------
+
+Makes Firefox uses less RAM and CPU:
+------------------------------------
+Go to 'about:config':
+---------------------
+1) Search for 'browser.sessionhistory.max_entries' and set it to 5 instead of 50.
+2) Search for 'browser.sessionhistory.max_total_viewers' and set it to X instead of 50. X is a number. See the values below.
+X = 0 => no page will be stored in memory.
+X = 5 => 5 pages will be stored in memory.
+3) Right click in 'about:config' and choose New > Boolean
+Type 'config.trim_on_minimize', hit Enter, select True and hit Enter again.
+4) Search for 'browser.cache.disk.enable' and 'browser.cache.memory.enable' and set them to False.
+
+Makes Firefox runs faster:
+--------------------------
+Go to 'about:config':
+---------------------
+1) Search for 'network.http.pipelining' and set it to True.
+2) Search for 'network.http.proxy.pipelining' and set it to True.
+3) Search for 'network.http.pipelining.maxrequests' and set it to a number > 30.
+4) Right click in 'about:config' and choose New > Integer.
+Name it 'nglayout.initialpaint.delay' and set it to 0.
+
+Useful add-ons list:
+--------------------
+1) Disconnect - https://addons.mozilla.org/fr/firefox/addon/disconnect/
+2) uBlock Origin : https://addons.mozilla.org/fr/firefox/addon/ublock-origin/
+3) HTTPS-Everywhere : https://addons.mozilla.org/fr/firefox/addon/https-everywhere/
+4) Unseen (remove the 'seen' message status in Facebook) : https://addons.mozilla.org/fr/firefox/addon/unseen-fb/
+
+My others add-ons (useful only for me):
+---------------------------------------
+1) HackBar - https://addons.mozilla.org/fr/firefox/addon/hackbar/
+2) LanguageToolFx - https://addons.mozilla.org/fr/firefox/addon/languagetoolfx/
+3) NoScript - https://addons.mozilla.org/fr/firefox/addon/noscript/
+4) Random Agent Spoofer - https://addons.mozilla.org/fr/firefox/addon/random-agent-spoofer/
+5) Addictive Typing Lessons - https://addons.mozilla.org/fr/firefox/addon/addictive-typing-lessons/
