@@ -153,6 +153,7 @@ assign [class="Chromium"] $workspace1
 assign [class="Emacs"] $workspace3
 assign [class="Gvim"] $workspace3
 assign [class="Skype"] $workspace5
+assign [class="VirtualBox"] $workspace8
 assign [class="Vmware"] $workspace8
 assign [class="mplayer2"] $workspace9
 assign [class="Rhythmbox"] $workspace10
