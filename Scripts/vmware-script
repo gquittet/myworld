@@ -1,19 +1,34 @@
 #!/bin/sh
 # Created by Guillaume Quittet on 12-08-2016
 # Run or stop vmware
+#
+# Copyright (C) 2017  Guillaume Quittet
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 username=$(whoami)
 case $1 in
-    --start) sudo /etc/init.d/vmware start && sudo mkdir /run/{media,media/$username,/media/$username/SSD} && sudo mount /dev/sdb1 /run/media/$username/SSD
+    --start) sudo /etc/init.d/vmware start && sudo mkdir /mnt/{$username,$username/SSD} && sudo mount /dev/sdb1 /mnt/$username/SSD
 	     nohup vmware > /dev/null 2>&1 &
 	     disown
 	     ;;
-    -s) sudo /etc/init.d/vmware start && sudo mkdir /run/{media,media/$username,/media/$username/SSD} && sudo mount /dev/sdb1 /run/media/$username/SSD
+    -s) sudo /etc/init.d/vmware start && sudo mkdir /mnt/{$username,$username/SSD} && sudo mount /dev/sdb1 /mnt/$username/SSD
 	nohup vmware > /dev/null 2>&1 &
 	disown
 	;;
-    --kill) sudo umount /run/media/$username/SSD && sudo rm -r /run/media && sudo /etc/init.d/vmware stop
+    --kill) sudo umount /mnt/$username/SSD && sudo rm -r /mnt/$username && sudo /etc/init.d/vmware stop
 	    ;;
-    -k) sudo umount /run/media/$username/SSD && sudo rm -r /run/media && sudo /etc/init.d/vmware stop
+    -k) sudo umount /mnt/$username/SSD && sudo rm -r /mnt/$username && sudo /etc/init.d/vmware stop
 	;;
     -h) echo -e "\nvmware-script [OPTION]\n\n[OPTION]: {-s|--start|-k|--kill}\n\nGet help: vmware-script {-h|--help}\n"
 	;;
