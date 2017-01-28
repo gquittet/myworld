@@ -3,11 +3,11 @@
 # Run or stop vmware
 username=$(whoami)
 case $1 in
-    --start) sudo /etc/init.d/vmware start && sudo mkdir /run/{media,media/$username,/media/$username/SSD} && sudo mount /dev/sdb1 /run/media/gquittet/SSD
+    --start) sudo /etc/init.d/vmware start && sudo mkdir /run/{media,media/$username,/media/$username/SSD} && sudo mount /dev/sdb1 /run/media/$username/SSD
 	     nohup vmware > /dev/null 2>&1 &
 	     disown
 	     ;;
-    -s) sudo /etc/init.d/vmware start && sudo mkdir /run/{media,media/$username,/media/$username/SSD} && sudo mount /dev/sdb1 /run/media/gquittet/SSD
+    -s) sudo /etc/init.d/vmware start && sudo mkdir /run/{media,media/$username,/media/$username/SSD} && sudo mount /dev/sdb1 /run/media/$username/SSD
 	nohup vmware > /dev/null 2>&1 &
 	disown
 	;;
