@@ -1,0 +1,24 @@
+#!/bin/sh
+# Created by Guillaume Quittet on 01-28-2017
+# Run or stop virtualbox
+username=$(whoami)
+case $1 in
+    --start) sudo mkdir /run/{media,media/$username,/media/$username/SSD} && sudo mount /dev/sdb1 /run/media/$username/SSD
+	     nohup virtualbox > /dev/null 2>&1 &
+	     disown
+	     ;;
+    -s) sudo mkdir /run/{media,media/$username,/media/$username/SSD} && sudo mount /dev/sdb1 /run/media/$username/SSD
+	nohup virtualbox > /dev/null 2>&1 &
+	disown
+	;;
+    --kill) sudo umount /run/media/$username/SSD && sudo rm -r /run/media
+	    ;;
+    -k) sudo umount /run/media/$username/SSD && sudo rm -r /run/media
+	;;
+    -h) echo -e "\nvb-script [OPTION]\n\n[OPTION]: {-s|--start|-k|--kill}\n\nGet help: vb-script {-h|--help}\n"
+	;;
+    --help) echo -e "\nvb-script [OPTION]\n\n[OPTION]: {-s|--start|-k|--kill}\n\nGet help: vb-script {-h|--help}\n"
+	    ;;
+    *) echo "Unknown command."
+       ;;
+esac
