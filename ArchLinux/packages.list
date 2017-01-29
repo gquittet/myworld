@@ -62,7 +62,6 @@ eclipse-java
 efibootmgr
 elementary-icon-theme
 emacs
-engrampa
 ethtool
 exo
 extra-cmake-modules
@@ -250,10 +249,6 @@ texlive-plainextra
 texlive-pstricks
 texlive-publishers
 texlive-science
-thunar
-thunar-archive-plugin
-thunar-media-tags-plugin
-thunar-volman
 tiled
 tk
 tlp
@@ -346,7 +341,6 @@ xfce4-weather-plugin
 xfce4-whiskermenu-plugin
 xfce4-xkb-plugin
 xfconf
-xfdesktop
 xfsprogs
 xfwm4
 xfwm4-themes
