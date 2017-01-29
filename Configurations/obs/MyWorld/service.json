@@ -1,0 +1,9 @@
+{
+    "settings": {
+        "key": "1tm5-m34t-hd5a-532r",
+        "server": "rtmp://a.rtmp.youtube.com/live2",
+        "service": "YouTube / YouTube Gaming",
+        "show_all": false
+    },
+    "type": "rtmp_common"
+}
