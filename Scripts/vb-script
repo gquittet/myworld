@@ -18,17 +18,17 @@
 
 username=$(whoami)
 case $1 in
-    --start) sudo mkdir /mnt/{$username,$username/SSD} && sudo mount /dev/sdb1 /mnt/$username/SSD
+    --start) gqmount /dev/sdb1
 	     nohup virtualbox > /dev/null 2>&1 &
 	     disown
 	     ;;
-    -s) sudo mkdir /mnt/{$username,$username/SSD} && sudo mount /dev/sdb1 /mnt/$username/SSD
+    -s) gqmount /dev/sdb1
 	nohup virtualbox > /dev/null 2>&1 &
 	disown
 	;;
-    --kill) sudo umount /mnt/$username/SSD && sudo rm -r /mnt/$username
+    --kill) gqumount /dev/sdb1
 	    ;;
-    -k) sudo umount /mnt/$username/SSD && sudo rm -r /mnt/$username
+    -k) gqumount /dev/sdb1
 	;;
     -h) echo -e "\nvb-script [OPTION]\n\n[OPTION]: {-s|--start|-k|--kill}\n\nGet help: vb-script {-h|--help}\n"
 	;;
