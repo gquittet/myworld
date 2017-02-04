@@ -55,12 +55,12 @@ ditaa
 dmenu
 dosfstools
 dovecot
+dunst
 e2fsprogs
 easy-rsa
 eclim
 eclipse-java
 efibootmgr
-elementary-icon-theme
 emacs
 ethtool
 extra-cmake-modules
@@ -302,7 +302,6 @@ xf86-video-nouveau
 xf86-video-openchrome
 xf86-video-vesa
 xf86-video-voodoo
-xfce4-notifyd
 xfce4-power-manager
 xfce4-terminal
 xfsprogs
