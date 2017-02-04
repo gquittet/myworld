@@ -4,4 +4,4 @@ My text editor is Vim. My IDE is Emacs. My operating system is ArchLinux with th
 
 ![my-os]
 
-[my-os]: https://github.com/GuillaumeQuittet/myworld/blob/master/screenshots/ArchLinux/my-os.png
+[my-os]: https://github.com/gquittet/myworld/blob/master/Pictures/ArchLinux/my-os.png
