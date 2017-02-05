@@ -36,7 +36,7 @@ if [ -n "$1"  ]; then
 	    exit
 	fi
 	# Detect if the partition is mounted
-	isMounted=$(mount | grep $1 | cut -d " " -f 1)
+	isMounted=$(mount | grep $1 | awk '{print $1}')
 	if [ "$isMounted" != "$1" ]; then
 	    echo "$1 is already umounted."
 	    exit
@@ -48,7 +48,7 @@ if [ -n "$1"  ]; then
 	# if the partition label is null set a new one
 	if [ -z "$partitionLabel" ]; then
 	    # Save the UUID of the partition
-	    uuid=$(blkid /dev/sdb1 | awk '{ print $3 }' | cut -d "\"" -f 2)
+	    uuid=$(sudo blkid /dev/sdb1 | awk '{ print $3 }' | cut -d "\"" -f 2)
 	    # If the UUID is null set the partition name as partition label. Else, set it as a partition label.
 	    if [ -n "uuid" ]; then
 		$partitionLabel=$uuid
@@ -56,9 +56,15 @@ if [ -n "$1"  ]; then
 		$partitionLabel=$partitionName
 	    fi
 	fi
-	mountFolder=/mnt/$username/$partitionLabel
-	sudo umount $mountFolder
-	sudo rm -r /mnt/$username
+	if [ "$(mount | grep $1 | awk '{print $3}' | cut -d "/" -f 4)" != "$uuid" ]; then
+	    mountFolder="/mnt/$username/$partitionLabel"
+	else
+	    mountFolder="/mnt/$username/$uuid"
+	fi
+	sudo umount "$mountFolder" && sudo rm -r "$mountFolder"
+	if [ -z "$(ls /mnt/$username)" ]; then
+	    sudo rm -r "/mnt/$username"
+	fi
     fi
 else
     echo "Please enter the partition name."
