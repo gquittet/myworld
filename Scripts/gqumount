@@ -43,25 +43,11 @@ if [ -n "$1"  ]; then
 	fi
 	# Save the username
 	username=$(whoami)
-	# Save the partition label
-        partitionLabel=$(lsblk $1 -o label | head -n2 | tail -n1)
-	# if the partition label is null set a new one
-	if [ -z "$partitionLabel" ]; then
-	    # Save the UUID of the partition
-	    uuid=$(sudo blkid /dev/sdb1 | awk '{ print $3 }' | cut -d "\"" -f 2)
-	    # If the UUID is null set the partition name as partition label. Else, set it as a partition label.
-	    if [ -n "uuid" ]; then
-		$partitionLabel=$uuid
-	    else
-		$partitionLabel=$partitionName
-	    fi
-	fi
-	if [ "$(mount | grep $1 | awk '{print $3}' | cut -d "/" -f 4)" != "$uuid" ]; then
-	    mountFolder="/mnt/$username/$partitionLabel"
-	else
-	    mountFolder="/mnt/$username/$uuid"
-	fi
+	# Get the mount point
+	mountFolder="$(lsblk $1 -o mountpoint | head -n2 | tail -n)"
+	# Umount the partition and if it succefull, remove the folder
 	sudo umount "$mountFolder" && sudo rm -r "$mountFolder"
+	# If the /mnt/username is empty, delete it
 	if [ -z "$(ls /mnt/$username)" ]; then
 	    sudo rm -r "/mnt/$username"
 	fi

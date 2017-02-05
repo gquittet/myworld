@@ -48,16 +48,19 @@ if [ -n "$1"  ]; then
 	partitionLabel="$(lsblk $1 -o label | head -n2 | tail -n1)"
 	# if the partition label is null set a new one
 	if [ -n "$(ls /mnt | grep $username)" ]; then
-	    if [ -n "$(ls /mnt/$username | grep $partitionLabel)" ]; then
-		# Save the UUID of the partition
-		uuid=$(sudo blkid $1 | awk '{ print $3 }' | cut -d "\"" -f 2)
-		# If the UUID is null set the partition name as partition label. Else, set it as a partition label.
-		if [ -n "uuid" ]; then
-		    $partitionLabel=$uuid
-		else
-		    $partitionLabel=$partitionName
+	    folderList=$(ls -1 /mnt/$username)
+	    for i in $folderList; do
+		if [ "$i" == "$partitionLabel" ]; then
+		    # Save the UUID of the partition
+		    uuid=$(sudo blkid $1 | awk '{ print $3 }' | cut -d "\"" -f 2)
+		    # If the UUID is null set the partition name as partition label. Else, set it as a partition label.
+		    if [ -n "uuid" ]; then
+			$partitionLabel=$uuid
+		    else
+			$partitionLabel=$partitionName
+		    fi
 		fi
-	    fi
+	    done
 	fi
 	if [ -z "$partitionLabel" ]; then
 	    # Save the UUID of the partition
