@@ -37,9 +37,9 @@ if [ -n "$1"  ]; then
 	    exit
 	fi
 	# Detect if the partition is mounted
-	isMounted=$(mount | grep $1 | cut -d " " -f 1)
+	isMounted=$(mount | grep $1 | awk '{print $1}')
 	if [ "$isMounted" == "$1" ]; then
-	    echo "$1 is already mounted in $(sudo mount | grep $1 | cut -d " " -f 3)"
+	    echo "$1 is already mounted in $(sudo mount | grep $1 | awk '{print $3}')"
 	    exit
 	fi
 	# Save the username
