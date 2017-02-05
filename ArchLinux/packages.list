@@ -151,7 +151,6 @@ maven
 mc
 mdadm
 megasync
-menulibre
 mesa-demos
 mirage
 mlocate
@@ -160,7 +159,6 @@ mono-tools
 mplayer
 mpv
 mtools
-mugshot
 nano
 net-tools
 netctl
