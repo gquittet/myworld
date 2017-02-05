@@ -272,15 +272,15 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 # programs start at startup
 # Don't forget to install blueman
+exec --no-startup-id blueman-applet
+exec --no-startup-id light-locker
 exec --no-startup-id megasync
 exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id redshift -l 50.4:3.8
-exec --no-startup-id light-locker
-exec --no-startup-id zeitgeist-datahub
+exec --no-startup-id start-pulseaudio-x11
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xbindkeys
 exec --no-startup-id xfce4-power-manager
+exec --no-startup-id zeitgeist-datahub
 # exec rhythmbox
 
