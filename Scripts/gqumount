@@ -44,7 +44,7 @@ if [ -n "$1"  ]; then
 	# Save the username
 	username=$(whoami)
 	# Get the mount point
-	mountFolder="$(lsblk $1 -o mountpoint | head -n2 | tail -n)"
+	mountFolder="$(lsblk $1 -o mountpoint | head -n2 | tail -n1)"
 	# Umount the partition and if it succefull, remove the folder
 	sudo umount "$mountFolder" && sudo rm -r "$mountFolder"
 	# If the /mnt/username is empty, delete it
