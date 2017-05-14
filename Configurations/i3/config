@@ -44,11 +44,12 @@ font pango: Roboto 11
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-# Use Mouse+$mod to drag floating windows to their wanted 
+# Use Mouse+$mod to drag floating windows to their wanted
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -158,6 +159,11 @@ assign [class="Vmware"] $workspace8
 assign [class="mplayer2"] $workspace9
 assign [class="Rhythmbox"] $workspace10
 
+gaps inner 20
+gaps outer 10
+smart_gaps on
+smart_borders on
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -193,6 +199,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Floating
+  for_window [class="^.*"] border pixel 0
   for_window [class="Lxappearance"] floating enable
   for_window [class="Seahorse"] floating enable
   for_window [class="mplayer2"] floating enable
@@ -227,9 +234,9 @@ bar {
 
 # My configuration
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks #increase sound volume
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks #decrease sound volume
-bindsym XF86AudioMute exec amixer -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks # mute sound
+bindsym XF86AudioRaiseVolume exec amixer set PCM 5%+ && pkill -RTMIN+1 i3blocks #increase sound volume
+bindsym XF86AudioLowerVolume exec amixer set PCM 5%- && pkill -RTMIN+1 i3blocks #decrease sound volume
+bindsym XF86AudioMute exec amixer -D default sset PCM toggle && amixer -D default sset Master unmute && pkill -RTMIN+1 i3blocks # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -248,11 +255,7 @@ bindsym --release Print exec --no-startup-id scrot -q 100
 bindsym Shift+--release Print exec --no-startup-id scrot -q 100 -s
 
 # set the background wallpaper and screen resolution
-exec --no-startup-id xrandr -s 1600x900
 exec_always --no-startup-id feh --bg-center "/usr/share/pixmaps/minimalistic-hackers_00358377.png"
-
-# Change the keyboard
-exec_always --no-startup-id setxkbmap -layout us -variant alt-intl -option nodeadkeys
 
 # active transparancy
 exec compton -f
@@ -263,7 +266,7 @@ exec compton -f
 
 # Add the light locker shortcut
 # Press Control+Alt+l to lock your computer
-bindsym Control+Mod1+l exec light-locker-command -l
+bindsym Control+Mod1+l exec i3lock -c $base00
 
 
 # CAPS key indicator
@@ -273,14 +276,11 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # programs start at startup
 # Don't forget to install blueman
 exec --no-startup-id blueman-applet
-exec --no-startup-id light-locker
 exec --no-startup-id megasync
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift -l 50.4:3.8
-exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xbindkeys
-exec --no-startup-id xfce4-power-manager
 exec --no-startup-id zeitgeist-datahub
 # exec rhythmbox
 
