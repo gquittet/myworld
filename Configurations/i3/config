@@ -56,11 +56,11 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # install rofi and compton for transparancy
-# bindsym $mod+d exec rofi -show run -opacity "75" -lines 5 -eh 2 -width 100 -padding 400 -bg "$bg-color" -bc "$bg-color" -bw 0 -fg "#FDFDFD" -hlbg "$bg-color" -hlfg "#9575cd"  -font "Roboto 18"
+#bindsym $mod+d exec rofi -show run -opacity "10" -lines 5 -eh 2 -width 50 -padding 10 -bg "$bg-color" -bc "$bg-color" -bw 0 -fg "#FDFDFD" -dpi 144 -hlbg "$bg-color" -hlfg "#9575cd" -font "Roboto 11"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'Roboto 11' -nb '$base01' -nf '$base05'"
 
 # change focus
 bindsym $mod+j focus left
@@ -219,6 +219,7 @@ bar {
         status_command i3blocks -c  ~/.config/i3/i3blocks.conf
         strip_workspace_numbers yes
         position top
+        height 30
         colors {
         separator $base03
         background $base01
