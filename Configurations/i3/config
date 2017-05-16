@@ -22,18 +22,12 @@ set $base0E #c0b7f9
 set $base0F #fcc09e
 set $bg-color #2F343F
 
-# specific i3 gaps configuration
+# specific i3 configuration
 # disable borders
 new_window none
 new_float none
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0
-# Gaps
-gaps inner 20
-gaps outer 10
-# Gaps shortcut
-bindsym $mod+shift+t gaps inner all set 20; gaps outer all set 10
-bindsym $mod+shift+d gaps inner all set 0; gaps outer all set 0
 
 set $term xfce4-terminal
 
@@ -231,7 +225,6 @@ bar {
         status_command i3blocks -c  ~/.config/i3/i3blocks.conf
         strip_workspace_numbers yes
         position top
-        height 30
         colors {
         separator $base03
         background $base01
@@ -278,7 +271,7 @@ exec compton -f
 
 # Add the light locker shortcut
 # Press Control+Alt+l to lock your computer
-bindsym Control+Mod1+l exec i3lock -c $base00
+bindsym Control+Mod1+l exec ~/.config/i3/lock
 
 
 # CAPS key indicator
