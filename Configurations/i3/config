@@ -33,7 +33,7 @@ set $term xfce4-terminal
 
 # Sofwares shortcut
 bindsym $mod+m exec $term -e mocp
-bindsym $mod+shift+f exec $term -e ranger
+bindsym $mod+f exec $term -e ranger
 
 # Function keys
 bindsym F1 exec --no-startup-id $term -e echo "I don't need help" > /dev/null
@@ -64,7 +64,7 @@ floating_modifier $mod
 bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
 # install rofi and compton for transparancy
@@ -173,11 +173,11 @@ assign [class="Rhythmbox"] $workspace10
 
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Control+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Would you like to quit me? :(' -b 'Yes, I dont have time' 'i3-msg exit'"
+bindsym $mod+Shift+q exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
