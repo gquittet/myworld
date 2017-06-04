@@ -237,9 +237,19 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    -- My keybindings: thanks to rememberYou (see his github)
+    awful.key({ modkey, "Control" }, "Down",  function () awful.client.moveresize(0, 0, 0, 40) end),
+    awful.key({ modkey, "Control" }, "Up",    function () awful.client.moveresize(0, 0, 0, -40) end),
+    awful.key({ modkey, "Control" }, "Left",  function () awful.client.moveresize(0, 0, -40, 0) end),
+    awful.key({ modkey, "Control" }, "Right", function () awful.client.moveresize(0, 0, 40, 0) end),
+    awful.key({ modkey, "Shift"   }, "Down",  function () awful.client.moveresize(0, 40, 0, 0) end),
+    awful.key({ modkey, "Shift"   }, "Up",    function () awful.client.moveresize(0, -40, 0, 0) end),
+    awful.key({ modkey, "Shift"   }, "Left",  function () awful.client.moveresize(-40, 0, 0, 0) end),
+    awful.key({ modkey, "Shift"   }, "Right", function () awful.client.moveresize(40, 0, 0, 0) end),
+
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-    awful.key({modkey, }, "d", function() awful.util.spawn("dmenu_run -fn 'Roboto 11'") end),
+    awful.key({modkey, }, "d", function() awful.util.spawn("dmenu_run -fn 'Roboto 10'") end),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
@@ -564,3 +574,6 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- Startup programs
+awful.util.spawn_with_shell("~/.config/awesome/autorun.sh")

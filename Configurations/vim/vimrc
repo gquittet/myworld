@@ -327,6 +327,7 @@ if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
 endif
 
 " VIM-LaTeX
+let g:Tex_CompileRule_pdf = 'xelatex --synctex=1 -interaction=nonstopmode $*'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'pdf, aux'
 

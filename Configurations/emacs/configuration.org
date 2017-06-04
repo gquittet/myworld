@@ -1,7 +1,7 @@
 #+TITLE: Emacs configuration
 #+AUTHOR: Guillaume QUITTET
 #+EMAIL: guillaume.quittet@gmail.com
-#+DATE: Tue. 17th Jan 2017
+#+DATE: Sun. 04th Jun 2017
 * Package Manager
 ** Configuration
 #+BEGIN_SRC emacs-lisp
@@ -14,7 +14,7 @@
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-package-update bbdb bm browse-at-remote buffer-move coffee-mode column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-web company-ycmd dracula-theme eclim elpy emmet-mode emms expand-region flycheck flycheck-ycmd gist git git-gutter git-link helm helm-projectile htmlize iedit imenu-anywhere impatient-mode jabber js2-mode js-comint json-mode ledger-mode magit markdown-mode move-text multiple-cursors omnisharp org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode sql-indent sqlplus tabbar tern web-beautify web-mode whitespace-cleanup-mode yasnippet ycmd))
+  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-package-update bbdb bm browse-at-remote buffer-move coffee-mode column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-web company-ycmd dracula-theme eclim elpy emmet-mode emms expand-region flycheck flycheck-ycmd gist git git-gutter git-link helm helm-projectile htmlize iedit imenu-anywhere impatient-mode jabber js2-mode js-comint json-mode ledger-mode lua-mode magit markdown-mode move-text multiple-cursors omnisharp org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode sql-indent sqlplus tabbar tern web-beautify web-mode whitespace-cleanup-mode yasnippet ycmd))
 #+END_SRC
 ** Package initialize
 #+BEGIN_SRC emacs-lisp
@@ -65,6 +65,10 @@
 #+BEGIN_SRC emacs-lisp
   (load-theme 'dracula t)
 #+END_SRC
+** Tranparent background
+#+BEGIN_SRC emacs-lisp
+  (set-frame-parameter (selected-frame) 'alpha '(90 90))
+#+END_SRC
 ** UTF8 everywhere
 #+BEGIN_SRC emacs-lisp
   (setq locale-coding-system 'utf-8)
@@ -90,8 +94,8 @@
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12"))
-  (set-face-attribute 'default t :font "DejaVu Sans Mono-12")
+  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-10"))
+  (set-face-attribute 'default t :font "DejaVu Sans Mono-10")
 #+END_SRC
 ** Highlight the current line
 #+BEGIN_SRC emacs-lisp
@@ -380,7 +384,7 @@ Impatient server: *http://localhost:8080/imp*
 ** LaTeX
 *** Enable LaTeX mode
 #+BEGIN_SRC emacs-lisp
-  (setq Tex-PDF-mode t)
+  (setq-default Tex-PDF-mode t)
 #+END_SRC
 *** Update PDF automaticaly with DocView
 #+BEGIN_SRC emacs-lisp
@@ -391,6 +395,7 @@ Impatient server: *http://localhost:8080/imp*
 #+BEGIN_SRC emacs-lisp
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
+  (setq-default TeX-engine 'xetex)
   (setq-default TeX-master nil)
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
   (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
@@ -399,7 +404,7 @@ Impatient server: *http://localhost:8080/imp*
 #+END_SRC
 *** Script command for LaTeX compiling
 #+BEGIN_SRC emacs-lisp
-  (setq latex-run-command "pdflatex -synctex=1 -interaction=nonstopmode --shell-escape")
+  (setq latex-run-command "xelatex -synctex=1 -interaction=nonstopmode --shell-escape")
   (setq LaTeX-command "latex -synctex=1 -interaction=nonstopmode --shell-escape")
 #+END_SRC
 *** Integrate PDF Tools with Emacs
