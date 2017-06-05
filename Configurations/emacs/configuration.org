@@ -67,7 +67,7 @@
 #+END_SRC
 ** Tranparent background
 #+BEGIN_SRC emacs-lisp
-  (set-frame-parameter (selected-frame) 'alpha '(90 90))
+  (set-frame-parameter (selected-frame) 'alpha '(85 85))
 #+END_SRC
 ** UTF8 everywhere
 #+BEGIN_SRC emacs-lisp
