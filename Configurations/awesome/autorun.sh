@@ -8,4 +8,5 @@ function run {
 }
 
 run compton -f
+run xautolock -time 99 -locker 'xtrlock'
 
