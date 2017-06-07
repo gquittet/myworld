@@ -56,6 +56,8 @@ Plugin 'klen/python-mode'
 
 " VIM-LaTeX : VIM as a LaTeX IDE
 Plugin 'vim-latex/vim-latex'
+" Preview for latex
+Plugin 'xuhdev/vim-latex-live-preview'
 
 " Markdown Preview
 Plugin 'suan/vim-instant-markdown'
@@ -191,9 +193,9 @@ set wm=2            " set a space before the text
                 exec "set " . settingname . "=" . directory
             endif
         endfor
-        set backupdir=~/.vim/.backup/
-        set directory=~/.vim/.swap/
-        set viewdir=~/.vim/.views/
+        set backupdir=~/.vim/.backup//
+        set directory=~/.vim/.swap//
+        set viewdir=~/.vim/.views//
     endfunction
     call InitializeDirectories()
 
@@ -330,6 +332,8 @@ endif
 let g:Tex_CompileRule_pdf = 'xelatex --synctex=1 -interaction=nonstopmode $*'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'pdf, aux'
+let g:livepreview_previewer = 'zathura'
+autocmd Filetype tex setl updatetime=1
 
 " OMNISharp
 "This is the default value, setting it isn't actually necessary
