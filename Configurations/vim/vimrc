@@ -314,6 +314,16 @@ map <Leader>u :UndotreeToggle<CR>
 " Don't forget to add this line in the ~/.bashrc file : stty -ixon
 map <C-s> :w!<CR>
 map <C-q> :q<CR>
+
+" Fix alt key for Vim Latex
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+set timeout ttimeoutlen=50
+
 " ====================================================
 " Plugins configuration
 " ====================================================
@@ -480,8 +490,9 @@ let g:undotree_SetFocusWhenToggle=1
 syntax on
 color dracula
 if has('gui_running')
-  set guifont=Deja\Vu\ Sans\ Mono\ 12
+  set guifont=Deja\Vu\ Sans\ Mono\ 10
 endif
+hi Normal ctermbg=NONE
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
