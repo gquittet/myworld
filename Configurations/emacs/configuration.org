@@ -14,7 +14,7 @@
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-package-update bbdb bm browse-at-remote buffer-move coffee-mode column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-web company-ycmd dracula-theme eclim elpy emmet-mode emms expand-region flycheck flycheck-ycmd gist git git-gutter git-link helm helm-projectile htmlize iedit imenu-anywhere impatient-mode jabber js2-mode js-comint json-mode ledger-mode lua-mode magit markdown-mode move-text multiple-cursors omnisharp org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode sql-indent sqlplus tabbar tern web-beautify web-mode whitespace-cleanup-mode yasnippet ycmd))
+  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-package-update bbdb bm browse-at-remote buffer-move coffee-mode column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-web company-ycmd dracula-theme eclim elpy emmet-mode emms expand-region flycheck flycheck-ycmd gist git git-gutter git-link helm helm-projectile htmlize iedit imenu-anywhere impatient-mode jabber js2-mode js-comint json-mode ledger-mode lua-mode magit markdown-mode move-text omnisharp org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode sql-indent sqlplus tabbar tern web-beautify web-mode whitespace-cleanup-mode yasnippet ycmd))
 #+END_SRC
 ** Package initialize
 #+BEGIN_SRC emacs-lisp
@@ -341,17 +341,17 @@ This plugin is replaced by a mode implemented in Emacs.
 ** Flyspell
 #+BEGIN_SRC emacs-lisp
   (setq ispell-program-name "hunspell")
-  (setq ispell-dictionary "fr_BE")
+  (setq ispell-dictionary "fr_FR")
   (global-set-key
    [f3]
    (lambda ()
      (interactive)
-     (ispell-change-dictionary "fr_BE")))
+     (ispell-change-dictionary "fr_FR")))
   (global-set-key
    [f4]
    (lambda ()
      (interactive)
-     (ispell-change-dictionary "en_GB")))
+     (ispell-change-dictionary "en_US")))
 #+END_SRC
 ** Git gutter
 #+BEGIN_SRC emacs-lisp
@@ -385,6 +385,11 @@ Impatient server: *http://localhost:8080/imp*
 *** Enable LaTeX mode
 #+BEGIN_SRC emacs-lisp
   (setq-default Tex-PDF-mode t)
+#+END_SRC
+*** Run Bibtex with XeLatex
+#+BEGIN_SRC emacs-lisp
+  (setq TeX-parse-self t)
+  (setq TeX-auto-save t)
 #+END_SRC
 *** Update PDF automaticaly with DocView
 #+BEGIN_SRC emacs-lisp
@@ -434,11 +439,6 @@ Impatient server: *http://localhost:8080/imp*
 #+BEGIN_SRC emacs-lisp
   (require 'move-text)
   (move-text-default-bindings)
-#+END_SRC
-** Multi cursors
-#+BEGIN_SRC emacs-lisp
-  (require 'multiple-cursors)
-  (add-hook 'after-init-hook 'multiple-cursors-mode)
 #+END_SRC
 ** Omnisharp
 #+BEGIN_SRC emacs-lisp
