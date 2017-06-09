@@ -161,14 +161,13 @@ local volume_widget = lain.widget.pulseaudio({
 
 
 -- Caps Lock
-
 caps_lock_state = 0
 caps_lock_widget = wibox.widget.textbox(" ")
 
 function toggle_caps_lock()
     if caps_lock_state == 0 then
         caps_lock_state = 1
-        caps_lock_widget:set_markup(lain.util.markup('#00FF00', 'CAPS'))
+        caps_lock_widget:set_markup(lain.util.markup('#50fa7b', 'CAPS'))
     else
         caps_lock_state = 0
         caps_lock_widget.text = " "
