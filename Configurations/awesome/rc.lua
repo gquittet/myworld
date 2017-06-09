@@ -152,9 +152,10 @@ local volume_widget = lain.widget.pulseaudio({
         vlevel = volume_now.left.."%"
         if volume_now.muted == "yes" then
             vlevel = volume_now.left.."M"
+            widget:set_markup(lain.util.markup("#FF5555", vlevel))
+        else
+            widget:set_markup(lain.util.markup("#6272a4", vlevel))
         end
-
-        widget:set_markup(lain.util.markup("#7493d2", vlevel))
     end
 })
 
