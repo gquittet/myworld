@@ -237,6 +237,7 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    awful.key({ "Mod1", "Control" }, "l", function () awful.util.spawn("xtrlock") end),
     -- My keybindings: thanks to rememberYou (see his github)
    awful.key({ modkey, "Control" }, "j",  function () awful.client.moveresize(0, 0, 0, 40) end),
    awful.key({ modkey, "Control" }, "k",    function () awful.client.moveresize(0, 0, 0, -40) end),
