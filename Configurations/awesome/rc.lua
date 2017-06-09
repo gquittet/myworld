@@ -10,6 +10,8 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
+local beautiful = require("beautiful")
+local lain = require("lain")
 -- Enable VIM help for hotkeys widget when client with matching name is opened:
 require("awful.hotkeys_popup.keys.vim")
 
@@ -108,6 +110,8 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
 
 emptypanel = wibox.widget.textbox(" ")
 
+separator = wibox.widget.textbox(" :: ")
+
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
 
@@ -121,6 +125,55 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock("%a %b %d, %H:%M:%S", 1)
+
+-- Battery
+local baticon = wibox.widget.imagebox(beautiful.widget_batt)
+local batwidget = lain.widget.bat({
+    battery = "BAT0",
+    timeout = 10,
+    settings = function()
+    if bat_now.status == "Charging" then
+        baticon:set_image(beautiful.widget_ac)
+        widget:set_markup(markup("#db842f", bat_now.perc .. "% (AC)"))
+    elseif bat_now.status == "Full" or bat_now.status == "Unknown" then
+        baticon:set_image(beautiful.widget_ac)
+        widget:set_markup(markup("#db842f", "AC"))
+    else
+        baticon:set_image(beautiful.widget_batt)
+        widget:set_markup(bat_now.perc .. "% (" .. bat_now.time .. ")")
+    end
+    end
+})
+
+-- Volume
+local volume_widget = lain.widget.pulseaudio({
+    timeout = 0.1,
+    settings = function()
+        vlevel = volume_now.left.."%"
+        if volume_now.muted == "yes" then
+            vlevel = volume_now.left.."M"
+        end
+
+        widget:set_markup(lain.util.markup("#7493d2", vlevel))
+    end
+})
+
+
+-- Caps Lock
+
+caps_lock_state = 0
+caps_lock_widget = wibox.widget.textbox(" ")
+
+function toggle_caps_lock()
+    if caps_lock_state == 0 then
+        caps_lock_state = 1
+        caps_lock_widget:set_markup(lain.util.markup('#00FF00', 'CAPS'))
+    else
+        caps_lock_state = 0
+        caps_lock_widget.text = " "
+    end
+end
+
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -218,9 +271,19 @@ awful.screen.connect_for_each_screen(function(s)
         emptypanel, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            caps_lock_widget,
+            separator,
             mykeyboardlayout,
             wibox.widget.systray(),
+            separator,
+            volicon,
+            volume_widget,
+            separator,
+            baticon,
+            batwidget,
+            separator,
             mytextclock,
+            separator,
             s.mylayoutbox,
         },
     }
@@ -235,6 +298,7 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     awful.key({ "Mod1", "Control" }, "l", function () awful.util.spawn("xtrlock") end),
@@ -247,6 +311,16 @@ globalkeys = gears.table.join(
    awful.key({ modkey, "Shift"   }, "k",    function () awful.client.moveresize(0, -40, 0, 0) end),
    awful.key({ modkey, "Shift"   }, "h",  function () awful.client.moveresize(-40, 0, 0, 0) end),
    awful.key({ modkey, "Shift"   }, "l", function () awful.client.moveresize(40, 0, 0, 0) end),
+   -- Brightness shortcut
+   awful.key({ }, "XF86MonBrightnessUp",  function () awful.util.spawn("xbacklight -inc 20") end),
+   awful.key({ }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -dec 20") end),
+   -- Sound shortcuts
+
+   awful.key({ }, "XF86AudioRaiseVolume",  function() awful.util.spawn("pactl set-sink-volume 0 +5%") end),
+   awful.key({ }, "XF86AudioLowerVolume",  function() awful.util.spawn("pactl set-sink-volume 0 -5%") end),
+   awful.key({ }, "XF86AudioMute",  function() awful.util.spawn("pactl set-sink-mute 0 toggle") end),
+   -- Caps Lock status
+   awful.key({ }, "Caps_Lock", toggle_caps_lock),
 
    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
       {description="show help", group="awesome"}),
