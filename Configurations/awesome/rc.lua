@@ -163,6 +163,7 @@ local volume_widget = lain.widget.pulseaudio({
 -- Caps Lock
 caps_lock_state = 0
 caps_lock_widget = wibox.widget.textbox(" ")
+caps_lock_widget:set_markup(lain.util.markup('#000000', 'CAPS'))
 
 function toggle_caps_lock()
     if caps_lock_state == 0 then
@@ -170,7 +171,7 @@ function toggle_caps_lock()
         caps_lock_widget:set_markup(lain.util.markup('#50fa7b', 'CAPS'))
     else
         caps_lock_state = 0
-        caps_lock_widget.text = " "
+        caps_lock_widget:set_markup(lain.util.markup('#000000', 'CAPS'))
     end
 end
 
@@ -271,10 +272,10 @@ awful.screen.connect_for_each_screen(function(s)
         emptypanel, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            caps_lock_widget,
-            separator,
             mykeyboardlayout,
             wibox.widget.systray(),
+            separator,
+            caps_lock_widget,
             separator,
             volicon,
             volume_widget,
