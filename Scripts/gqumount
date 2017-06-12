@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Created by Guillaume Quittet 01-28-2017
 # gqumount is useful to umount partition
 #
