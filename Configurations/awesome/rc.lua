@@ -315,39 +315,40 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    -- Lock the screen
     awful.key({ "Mod1", "Control" }, "l", function () awful.util.spawn("xtrlock") end),
     -- My keybindings: thanks to rememberYou (see his github)
-   awful.key({ modkey, "Control" }, "j",  function () awful.client.moveresize(0, 0, 0, 40) end),
-   awful.key({ modkey, "Control" }, "k",    function () awful.client.moveresize(0, 0, 0, -40) end),
-   awful.key({ modkey, "Control" }, "h",  function () awful.client.moveresize(0, 0, -40, 0) end),
-   awful.key({ modkey, "Control" }, "l", function () awful.client.moveresize(0, 0, 40, 0) end),
-   awful.key({ modkey, "Shift"   }, "j",  function () awful.client.moveresize(0, 40, 0, 0) end),
-   awful.key({ modkey, "Shift"   }, "k",    function () awful.client.moveresize(0, -40, 0, 0) end),
-   awful.key({ modkey, "Shift"   }, "h",  function () awful.client.moveresize(-40, 0, 0, 0) end),
-   awful.key({ modkey, "Shift"   }, "l", function () awful.client.moveresize(40, 0, 0, 0) end),
-   -- Brightness shortcut
-   awful.key({ }, "XF86MonBrightnessUp",  function () os.execute("xbacklight -inc 10") update_brightness() end),
-   awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") update_brightness() end),
+    awful.key({ modkey, "Control" }, "j",  function () awful.client.moveresize(0, 0, 0, 40) end),
+    awful.key({ modkey, "Control" }, "k",    function () awful.client.moveresize(0, 0, 0, -40) end),
+    awful.key({ modkey, "Control" }, "h",  function () awful.client.moveresize(0, 0, -40, 0) end),
+    awful.key({ modkey, "Control" }, "l", function () awful.client.moveresize(0, 0, 40, 0) end),
+    awful.key({ modkey, "Shift"   }, "j",  function () awful.client.moveresize(0, 40, 0, 0) end),
+    awful.key({ modkey, "Shift"   }, "k",    function () awful.client.moveresize(0, -40, 0, 0) end),
+    awful.key({ modkey, "Shift"   }, "h",  function () awful.client.moveresize(-40, 0, 0, 0) end),
+    awful.key({ modkey, "Shift"   }, "l", function () awful.client.moveresize(40, 0, 0, 0) end),
+    -- Brightness shortcut
+    awful.key({ }, "XF86MonBrightnessUp",  function () os.execute("xbacklight -inc 10") update_brightness() end),
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") update_brightness() end),
 
-   -- Sound shortcuts
-   awful.key({ }, "XF86AudioRaiseVolume",  function() awful.util.spawn("pactl set-sink-volume 0 +5%") end),
-   awful.key({ }, "XF86AudioLowerVolume",  function() awful.util.spawn("pactl set-sink-volume 0 -5%") end),
-   awful.key({ }, "XF86AudioMute",  function() awful.util.spawn("pactl set-sink-mute 0 toggle") end),
+    -- Sound shortcuts
+    awful.key({ }, "XF86AudioRaiseVolume",  function() awful.util.spawn("pactl set-sink-volume 0 +5%") end),
+    awful.key({ }, "XF86AudioLowerVolume",  function() awful.util.spawn("pactl set-sink-volume 0 -5%") end),
+    awful.key({ }, "XF86AudioMute",  function() awful.util.spawn("pactl set-sink-mute 0 toggle") end),
 
-   -- Caps Lock status
-   awful.key({ }, "Caps_Lock", toggle_caps_lock),
+    -- Caps Lock status
+    awful.key({ }, "Caps_Lock", toggle_caps_lock),
 
-   awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
+    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
       {description="show help", group="awesome"}),
-   awful.key({modkey, }, "d", function() awful.util.spawn("dmenu_run -fn 'Roboto 10'") end),
-   awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+    awful.key({modkey, }, "d", function() awful.util.spawn("dmenu_run -fn 'Roboto 10'") end),
+    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
       {description = "view previous", group = "tag"}),
-   awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
       {description = "view next", group = "tag"}),
-   awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
+    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
       {description = "go back", group = "tag"}),
 
-   awful.key({ modkey,           }, "j",
+    awful.key({ modkey,           }, "j",
       function ()
 	 awful.client.focus.byidx( 1)
       end,
