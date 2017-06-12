@@ -337,6 +337,7 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86AudioRaiseVolume",  function() awful.util.spawn("pactl set-sink-volume 0 +5%") end),
     awful.key({ }, "XF86AudioLowerVolume",  function() awful.util.spawn("pactl set-sink-volume 0 -5%") end),
     awful.key({ }, "XF86AudioMute",  function() awful.util.spawn("pactl set-sink-mute 0 toggle") end),
+    awful.key({ }, "XF86AudioMicMute",  function() awful.util.spawn("amixer sset Mic toggle") awful.util.spawn("amixer sset Capture toggle") end),
 
     -- Caps Lock status
     awful.key({ }, "Caps_Lock", toggle_caps_lock),
