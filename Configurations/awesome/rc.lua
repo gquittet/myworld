@@ -12,6 +12,8 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 local beautiful = require("beautiful")
 local lain = require("lain")
+local first_line = require("lain.helpers").first_line
+
 -- Enable VIM help for hotkeys widget when client with matching name is opened:
 require("awful.hotkeys_popup.keys.vim")
 
@@ -129,7 +131,7 @@ mytextclock = wibox.widget.textclock("%a %b %d, %H:%M:%S", 1)
 -- Battery
 local baticon = wibox.widget.imagebox(beautiful.widget_batt)
 local batwidget = lain.widget.bat({
-    battery = "BAT0",
+    battery = "BAT1",
     timeout = 10,
     settings = function()
     if bat_now.status == "Charging" then
@@ -159,6 +161,15 @@ local volume_widget = lain.widget.pulseaudio({
     end
 })
 
+-- Brightness
+local backlight = "/sys/class/backlight/intel_backlight"
+local actual_brightness = tonumber(first_line(backlight .. "/actual_brightness"))
+local full_brightness = tonumber(first_line(backlight .. "/max_brightness"))
+local brightness_widget = wibox.widget.textbox(math.floor((actual_brightness / full_brightness) * 100) .. "%")
+local function update_brightness()
+    actual_brightness = tonumber(first_line(backlight .. "/actual_brightness"))
+    brightness_widget.text = math.floor((actual_brightness / full_brightness) * 100) .. "%"
+end
 
 -- Caps Lock
 caps_lock_state = 0
@@ -280,6 +291,8 @@ awful.screen.connect_for_each_screen(function(s)
             volicon,
             volume_widget,
             separator,
+            brightness_widget,
+            separator,
             baticon,
             batwidget,
             separator,
@@ -313,13 +326,14 @@ globalkeys = gears.table.join(
    awful.key({ modkey, "Shift"   }, "h",  function () awful.client.moveresize(-40, 0, 0, 0) end),
    awful.key({ modkey, "Shift"   }, "l", function () awful.client.moveresize(40, 0, 0, 0) end),
    -- Brightness shortcut
-   awful.key({ }, "XF86MonBrightnessUp",  function () awful.util.spawn("xbacklight -inc 20") end),
-   awful.key({ }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -dec 20") end),
-   -- Sound shortcuts
+   awful.key({ }, "XF86MonBrightnessUp",  function () os.execute("xbacklight -inc 10") update_brightness() end),
+   awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") update_brightness() end),
 
+   -- Sound shortcuts
    awful.key({ }, "XF86AudioRaiseVolume",  function() awful.util.spawn("pactl set-sink-volume 0 +5%") end),
    awful.key({ }, "XF86AudioLowerVolume",  function() awful.util.spawn("pactl set-sink-volume 0 -5%") end),
    awful.key({ }, "XF86AudioMute",  function() awful.util.spawn("pactl set-sink-mute 0 toggle") end),
+
    -- Caps Lock status
    awful.key({ }, "Caps_Lock", toggle_caps_lock),
 
