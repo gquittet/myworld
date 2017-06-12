@@ -132,14 +132,17 @@ mytextclock = wibox.widget.textclock("%a %b %d, %H:%M:%S", 1)
 local baticon = wibox.widget.imagebox(beautiful.widget_batt)
 local batwidget = lain.widget.bat({
     battery = "BAT1",
+    ac = "ACAD",
+    n_perc = {20, 30},
     timeout = 10,
+    notify = "on",
     settings = function()
     if bat_now.status == "Charging" then
         baticon:set_image(beautiful.widget_ac)
-        widget:set_markup(markup("#db842f", bat_now.perc .. "% (AC)"))
+        widget:set_markup(bat_now.perc .. "% (AC)")
     elseif bat_now.status == "Full" or bat_now.status == "Unknown" then
         baticon:set_image(beautiful.widget_ac)
-        widget:set_markup(markup("#db842f", "AC"))
+        widget:set_markup("AC")
     else
         baticon:set_image(beautiful.widget_batt)
         widget:set_markup(bat_now.perc .. "% (" .. bat_now.time .. ")")
