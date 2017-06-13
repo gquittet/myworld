@@ -707,11 +707,11 @@ Fix org-html-fontify-code error
 ** Mails folder
 #+BEGIN_SRC emacs-lisp
   (setq gnus-always-read-dribble-file t)
-  (setq message-directory "~/Documents/Cloud/Mails")
+  (setq message-directory "~/.Mails")
   (setq gnus-secondary-select-methods
-	'((nnmaildir "GMail" (directory "~/Documents/Cloud/Mails"))))
-  (setq gnus-directory "~/Documents/Cloud/Mails/News/")
-  (setq nnfolder-directory "~/Documents/Cloud/Mails/Archives/")
+	'((nnmaildir "GMail" (directory "~/.Mails"))))
+  (setq gnus-directory "~/.Mails/News/")
+  (setq nnfolder-directory "~/.Mails/Archives/")
 #+END_SRC
 ** Send function
 #+BEGIN_SRC emacs-lisp
