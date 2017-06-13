@@ -13,7 +13,7 @@ Go to this folder
 And type this command
 
 ```bash
-ranger --copy-config-all
+ranger --copy-config=all
 ```
 
 Now you can put your configuration in these files:
