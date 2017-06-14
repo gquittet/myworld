@@ -10,7 +10,6 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
-local beautiful = require("beautiful")
 local lain = require("lain")
 local first_line = require("lain.helpers").first_line
 
@@ -254,6 +253,8 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    beautiful.useless_gap = 15
+    beautiful.gap_single_client = true
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
