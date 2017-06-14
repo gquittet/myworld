@@ -1,0 +1,7 @@
+#!/bin/bash
+dateBefore=`date +%s`
+while true
+do
+    echo -ne "$(date -u --date @$((`date +%s` - $dateBefore)) +%H:%M:%S)\r"
+    sleep 1
+done
