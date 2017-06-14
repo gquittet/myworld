@@ -4,4 +4,5 @@ xrdb -merge ~/.Xresources
 start-pulseaudio-x11 &
 setxkbmap -layout us -variant alt-intl -option nodeadkeys
 xinput --disable 13
+xautolock -time 99 -locker 'xtrlock'
 exec awesome
