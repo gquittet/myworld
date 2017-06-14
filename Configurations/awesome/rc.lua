@@ -128,7 +128,6 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 mytextclock = wibox.widget.textclock("%a %b %d, %H:%M:%S", 1)
 
 -- Battery
-local baticon = wibox.widget.imagebox(beautiful.widget_batt)
 local batwidget = lain.widget.bat({
     battery = "BAT1",
     ac = "ACAD",
@@ -137,13 +136,10 @@ local batwidget = lain.widget.bat({
     notify = "on",
     settings = function()
     if bat_now.status == "Charging" then
-        baticon:set_image(beautiful.widget_ac)
         widget:set_markup(bat_now.perc .. "% (AC)")
     elseif bat_now.status == "Full" or bat_now.status == "Unknown" then
-        baticon:set_image(beautiful.widget_ac)
         widget:set_markup("AC")
     else
-        baticon:set_image(beautiful.widget_batt)
         widget:set_markup(bat_now.perc .. "% (" .. bat_now.time .. ")")
     end
     end
@@ -339,6 +335,10 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86AudioLowerVolume",  function() awful.util.spawn("pactl set-sink-volume 0 -5%") end),
     awful.key({ }, "XF86AudioMute",  function() awful.util.spawn("pactl set-sink-mute 0 toggle") end),
     awful.key({ }, "XF86AudioMicMute",  function() awful.util.spawn("amixer sset Mic toggle") awful.util.spawn("amixer sset Capture toggle") end),
+
+    -- Screenshot
+    awful.key({ }, "Print",  function() awful.util.spawn("scrot -q 100 -e 'mv $f ~/Pictures/Screenshots'") end),
+    awful.key({ "Shift" }, "Print",  function() awful.util.spawn("scrot -q 100 -s -e 'mv $f ~/Pictures/Screenshots'") end),
 
     -- Caps Lock status
     awful.key({ }, "Caps_Lock", toggle_caps_lock),
@@ -667,8 +667,8 @@ end)
     --end
 --end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus c.opacity=1 end)
+client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal c.opacity=0.7 end)
 -- }}}
 
 -- Startup programs
