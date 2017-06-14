@@ -21,7 +21,7 @@ MiscMiddleClickOpensUri=FALSE
 MiscDefaultWorkingDir=
 MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
-BackgroundDarkness=1,000000
+BackgroundDarkness=0.850000
 ShortcutsNoMnemonics=TRUE
 ColorPalette=rgb(40,42,54);rgb(255,85,85);rgb(80,250,123);rgb(255,184,108);rgb(83,139,151);rgb(189,147,249);rgb(139,233,253);rgb(223,223,217);rgb(68,71,90);rgb(255,118,118);rgb(132,251,162);rgb(241,250,140);rgb(111,186,202);rgb(255,121,198);rgb(185,241,253);rgb(248,248,242)
 ShortcutsNoMenukey=TRUE
@@ -34,5 +34,6 @@ ColorSelection=#444447475a5a
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 MiscCopyOnSelect=FALSE
 MiscSlimTabs=FALSE
-FontName=DejaVu Sans Mono 12
+FontName=DejaVu Sans Mono 11
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 
