@@ -249,8 +249,6 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-    beautiful.useless_gap = 15
-    beautiful.gap_single_client = true
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -673,3 +671,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Startup programs
 awful.util.spawn_with_shell("~/.config/awesome/autorun.sh")
+beautiful.useless_gap = 15
+beautiful.gap_single_client = true
