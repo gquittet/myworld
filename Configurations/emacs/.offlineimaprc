@@ -9,7 +9,7 @@ status_backend = sqlite
 
 [Repository Local]
 type = Maildir
-localfolders = ~/Documents/Cloud/Mails
+localfolders = ~/.Mails
 
 [Repository Gmail]
 type = Gmail
