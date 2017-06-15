@@ -14,7 +14,7 @@
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-package-update bbdb bm browse-at-remote buffer-move coffee-mode column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-web company-ycmd dracula-theme eclim elpy emmet-mode emms expand-region flycheck flycheck-ycmd gist git git-gutter git-link helm helm-projectile htmlize iedit imenu-anywhere impatient-mode jabber js2-mode js-comint json-mode ledger-mode lua-mode magit markdown-mode move-text omnisharp org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode sql-indent sqlplus tabbar tern web-beautify web-mode whitespace-cleanup-mode yasnippet ycmd))
+  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-package-update bbdb bm browse-at-remote buffer-move coffee-mode column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-web dracula-theme eclim elpy emmet-mode emms expand-region flycheck gist git git-gutter git-link helm helm-projectile htmlize iedit imenu-anywhere impatient-mode jabber js2-mode js-comint json-mode ledger-mode lua-mode magit markdown-mode move-text org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode sql-indent sqlplus tabbar tern web-beautify web-mode whitespace-cleanup-mode yasnippet))
 #+END_SRC
 ** Package initialize
 #+BEGIN_SRC emacs-lisp
@@ -264,11 +264,6 @@ This plugin is replaced by a mode implemented in Emacs.
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'company-backends 'company-math-symbols-unicode)
 #+END_SRC
-*** company-omnisharp
-#+BEGIN_SRC emacs-lisp
-  (eval-after-load 'company
-    '(add-to-list 'company-backends 'company-omnisharp))
-#+END_SRC
 *** company-quickhelp
 #+BEGIN_SRC emacs-lisp
   (company-quickhelp-mode 1)
@@ -288,18 +283,15 @@ This plugin is replaced by a mode implemented in Emacs.
   (require 'company-web-jade)
   (require 'company-web-slim)
 #+END_SRC
-*** company-ycmd
-#+BEGIN_SRC emacs-lisp
-  (require 'company-ycmd)
-  (company-ycmd-setup)
-#+END_SRC
 ** Eclim
 #+BEGIN_SRC emacs-lisp
   (require 'eclim)
   (require 'eclimd)
   (setq eclimd-autostart t)
   (add-hook 'java-mode-hook 'eclim-mode)
-  (setq eclimd-default-workspace '"~/Documents/Projets/Java/Projets/")
+  (setq eclimd-default-workspace '"~/Documents/Projets/Java/")
+  (setq eclim-eclipse-dirs '"/opt/eclipse")
+  (setq eclim-executable '"/opt/eclipse/eclim")
   (setq help-at-pt-display-when-idle t)
   (setq help-at-pt-timer-delay 0.1)
   (help-at-pt-set-timer)
@@ -335,8 +327,6 @@ This plugin is replaced by a mode implemented in Emacs.
 #+BEGIN_SRC emacs-lisp
   (require 'flycheck)
   (global-flycheck-mode)
-  (require 'flycheck-ycmd)
-  (flycheck-ycmd-setup)
 #+END_SRC
 ** Flyspell
 #+BEGIN_SRC emacs-lisp
@@ -439,11 +429,6 @@ Impatient server: *http://localhost:8080/imp*
 #+BEGIN_SRC emacs-lisp
   (require 'move-text)
   (move-text-default-bindings)
-#+END_SRC
-** Omnisharp
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'csharp-mode-hook 'omnisharp-mode)
-  (setq omnisharp-server-executable-path "/opt/ycmd/third_party/OmniSharpServer")
 #+END_SRC
 ** Outline mode
 #+BEGIN_SRC emacs-lisp
@@ -575,13 +560,6 @@ Fix org-html-fontify-code error
 #+BEGIN_SRC emacs-lisp
   (require 'yasnippet)
   (yas-global-mode 1)
-#+END_SRC
-** YCMD
-#+BEGIN_SRC emacs-lisp
-  (require 'ycmd)
-  (add-hook 'after-init-hook #'global-ycmd-mode)
-  (set-variable 'ycmd-server-command '("python" "/opt/ycmd/ycmd"))
-  (set-variable 'ycmd-global-config "/opt/ycmd/examples/.ycm_extra_conf.py")
 #+END_SRC
 * Keybinding
 ** BM
