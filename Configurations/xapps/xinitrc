@@ -4,5 +4,5 @@ xbacklight -set 40
 xrdb -merge ~/.Xresources
 start-pulseaudio-x11 &
 setxkbmap -layout us -variant alt-intl -option nodeadkeys
-xinput --disable 13
+xinput --disable 12
 exec awesome
