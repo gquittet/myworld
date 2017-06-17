@@ -658,40 +658,6 @@ Fix org-html-fontify-code error
   (eval-after-load 'css-mode
     '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))
 #+END_SRC
-* EMail
-** Contacts
-#+BEGIN_SRC emacs-lisp
-  (require 'bbdb)
-  (bbdb-initialize 'gnus 'message)
-  (bbdb-insinuate-message)
-  (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
-  (setq bbdb-file "~/Documents/Cloud/Mails/Contacts/.bbdb.gpg")
-  (setq bbdb-send-mail-style 'gnus)
-  (setq bbdb-complete-name-full-completion t)
-  (setq bbdb-completion-type 'primary-or-name)
-  (setq bbdb-complete-name-allow-cycling t)
-  (setq bbdb-always-add-address t)
-  (setq bbbd-message-caching-enabled t)
-  (setq bbdb-use-alternate-names t)
-  (setq bbdb-north-american-phone-numbers-p nil)
-  (setq
-   bbdb-offer-save 1
-   bbdb-use-pop-up t
-   bbdb-electric-p t
-   bbdb-popup-target-lines  1
-   )
-
-#+END_SRC
-** Mails folder
-#+BEGIN_SRC emacs-lisp
-  (setq gnus-always-read-dribble-file t)
-  (setq message-directory "~/.Mails")
-  (setq gnus-secondary-select-methods
-	'((nnmaildir "GMail" (directory "~/.Mails"))))
-  (setq gnus-directory "~/.Mails/News/")
-  (setq nnfolder-directory "~/.Mails/Archives/")
-#+END_SRC
-** Send function
 #+BEGIN_SRC emacs-lisp
   (setq send-mail-function 'smtpmail-send-it
 	smtpmail-smtp-server  "smtp.gmail.com"
