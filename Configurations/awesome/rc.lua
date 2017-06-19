@@ -340,6 +340,10 @@ globalkeys = gears.table.join(
 
     -- Caps Lock status
     awful.key({ }, "Caps_Lock", toggle_caps_lock),
+    awful.key({ "Mod1" }, "Caps_Lock", toggle_caps_lock),
+    awful.key({ "Shift" }, "Caps_Lock", toggle_caps_lock),
+    awful.key({ "Control" }, "Caps_Lock", toggle_caps_lock),
+    awful.key({ "Mod4" }, "Caps_Lock", toggle_caps_lock),
 
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
       {description="show help", group="awesome"}),
