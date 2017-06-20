@@ -9,7 +9,7 @@
 ! Set the font
 XTerm*faceName: DejaVu Sans Mono
 XTerm*faceSize: 11
-*font: xft:DejaVu Sans Mono-11
+urxvt*font: xft:DejaVu Sans Mono-11
 
 ! Add utf-8 support
 *locale: true
