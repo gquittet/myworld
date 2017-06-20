@@ -15,7 +15,8 @@ urxvt*font: xft:DejaVu Sans Mono-11
 *locale: true
 
 ! Use 256 colors
-*termName: xterm-256color
+xterm*termName: xterm-256color
+urxvt*termName: rxvt-unicode-256color
 
 ! Set the saved lines for scrolling
 *saveLines: 1024
