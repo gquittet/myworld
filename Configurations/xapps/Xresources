@@ -23,6 +23,9 @@ XTerm*faceSize: 11
 ! Fix the META key
 *metaSendsEscape: true
 
+! Hide cursor when typping
+*pointerBlank: true
+
 ! Fix the scrolling
 *jumpScroll:         true
 *multiScroll:        true
