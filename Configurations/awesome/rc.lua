@@ -46,7 +46,7 @@ end
 beautiful.init("/home/gquittet/.config/awesome/themes/my-theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xfce4-terminal"
+terminal = "urxvt"
 edit = "vim"
 editor = os.getenv("EDITOR") or edit
 editor_cmd = terminal .. " -e " .. editor

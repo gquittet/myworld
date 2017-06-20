@@ -7,124 +7,59 @@
 ! XTerm and UXTerm ------------------------------------------------------------
 
 ! Set the font
-xterm*faceName : Source Code Pro for Powerline
-xterm*faceSize: 12
-uxterm*faceName : Source Code Pro for Powerline
-uxterm*faceSize: 12
+XTerm*faceName: DejaVu Sans Mono
+XTerm*faceSize: 11
+*font: xft:DejaVu Sans Mono-11
 
 ! Add utf-8 support
-XTerm*locale: true
-UXTerm*locale: true
+*locale: true
 
 ! Use 256 colors
-xterm*termName: xterm-256color
+*termName: xterm-256color
 
 ! Set the saved lines for scrolling
-Xterm*saveLines: 1024
-UXterm*saveLines: 1024
+*saveLines: 1024
 
 ! Fix the META key
-XTerm*metaSendsEscape: true
-UXTerm*metaSendsEscape: true
+*metaSendsEscape: true
 
 ! Fix the scrolling
-xterm*jumpScroll:         true
-xterm*multiScroll:        true
-xterm*scrollKey:          true
-xterm*scrollTtyOutput:    false
-xterm*scrollBar:          false
-uxterm*jumpScroll:         true
-uxterm*multiScroll:        true
-uxterm*scrollKey:          true
-uxterm*scrollTtyOutput:    false
-uxterm*scrollBar:          false
+*jumpScroll:         true
+*multiScroll:        true
+*scrollKey:          true
+*scrollTtyOutput:    false
+*scrollBar:          false
 
 ! Disable the toolbar
-xterm*toolBar:            false
-uxterm*toolBar:            false
+*toolBar:            false
 
 ! Copy and paste from clipboard
-xterm*selectToClipboard: true
-uxterm*selectToClipboard: true
+*selectToClipboard: true
 
-#define base03        #002b36
-#define base02        #073642
-#define base01        #586e75
-#define base00        #657b83
-#define base0         #839496
-#define base1         #93a1a1
-#define base2         #eee8d5
-#define base3         #fdf6e3
-
-XTerm*background:            base03
-XTerm*foreground:            base0
-XTerm*fadeColor:             base03
-XTerm*cursorColor:           base1
-XTerm*pointerColorBackground:base01
-XTerm*pointerColorForeground:base1
-UXTerm*background:            base03
-UXTerm*foreground:            base0
-UXTerm*fadeColor:             base03
-UXTerm*cursorColor:           base1
-UXTerm*pointerColorBackground:base01
-UXTerm*pointerColorForeground:base1
-
-#define yellow        #b58900
-#define orange        #cb4b16
-#define red           #dc322f
-#define magenta       #d33682
-#define violet        #6c71c4
-#define blue          #268bd2
-#define cyan          #2aa198
-#define green         #859900
-
-!! black dark/light
-XTerm*color0:                base02
-XTerm*color8:                base0
-UXTerm*color0:               base02
-UXTerm*color8:               base0
-
-!! red dark/light
-XTerm*color1:                red
-XTerm*color9:                orange
-UXTerm*color1:                red
-UXTerm*color9:                orange
-
-!! green dark/light
-XTerm*color2:                green
-XTerm*color10:               base01
-UXTerm*color2:                green
-UXTerm*color10:               base01
-
-!! yellow dark/light
-XTerm*color3:                yellow
-XTerm*color11:               base00
-UXTerm*color3:                yellow
-UXTerm*color11:               base00
-
-!! blue dark/light
-XTerm*color4:                blue
-XTerm*color12:               base0
-UXTerm*color4:                blue
-UXTerm*color12:               base0
-
-!! magenta dark/light
-XTerm*color5:                magenta
-XTerm*color13:               violet
-UXTerm*color5:                magenta
-UXTerm*color13:               violet
-
-!! cyan dark/light
-XTerm*color6:                cyan
-XTerm*color14:               base1
-UXTerm*color6:                cyan
-UXTerm*color14:               base1
-
-!! white dark/light
-XTerm*color7:                base2
-XTerm*color15:               base3
-UXTerm*color7:                base2
-UXTerm*color15:               base3
+! Dracula Xresources palette
+*.foreground: #F8F8F2
+*.background: #282A36
+!! Fake transparency. It has priority over true transparency (composite)
+! urxvt*transparent: true
+! urxvt*shading: 30
+urxvt*depth: 32
+urxvt*background: [85]#282A36
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
 
 ! xpdf ------------------------------------------------------------------------
 
@@ -140,6 +75,6 @@ Xft.autohint: 0
 Xft.antialias: 1
 Xft.hinting: true
 Xft.hintstyle: hintslight
-Xft.dpi: 96
+Xft.dpi: 144
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
