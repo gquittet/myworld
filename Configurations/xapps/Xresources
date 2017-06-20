@@ -44,7 +44,7 @@ XTerm*faceSize: 11
 *.background: #282A36
 !! Fake transparency. It has priority over true transparency (composite)
 ! urxvt*transparent: true
-! urxvt*shading: 30
+! urxvt*shading: 15
 urxvt*depth: 32
 urxvt*background: [85]#282A36
 *.color0:     #000000
