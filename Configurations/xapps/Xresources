@@ -7,63 +7,91 @@
 ! XTerm and UXTerm ------------------------------------------------------------
 
 ! Set the font
-XTerm*faceName: DejaVu Sans Mono
-XTerm*faceSize: 11
+xterm*faceName: DejaVu Sans Mono
+xterm*faceSize: 11
 urxvt*font: xft:DejaVu Sans Mono-11
 
 ! Add utf-8 support
-*locale: true
+xterm*locale: true
+urxvt*locale: true
 
 ! Use 256 colors
 xterm*termName: xterm-256color
 urxvt*termName: rxvt-unicode-256color
 
 ! Set the saved lines for scrolling
-*saveLines: 1024
+xterm*saveLines: 1024
+urxvt*saveLines: 1024
 
 ! Fix the META key
-*metaSendsEscape: true
-
+xterm*metaSendsEscape: true
+urxvt*metaSendsEscape: true
 ! Hide cursor when typping
-*pointerBlank: true
+xterm*pointerBlank: true
+urxvt*pointerBlank: true
 
 ! Fix the scrolling
-*jumpScroll:         true
-*multiScroll:        true
-*scrollKey:          true
-*scrollTtyOutput:    false
-*scrollBar:          false
+xterm*jumpScroll:         true
+urxvt*jumpScroll:         true
+xterm*multiScroll:        true
+urxvt*multiScroll:        true
+xterm*scrollKey:          true
+urxvt*scrollKey:          true
+xterm*scrollTtyOutput:    false
+urxvt*scrollTtyOutput:    false
+xterm*scrollBar:          false
+urxvt*scrollBar:          false
 
 ! Disable the toolbar
-*toolBar:            false
+xterm*toolBar:            false
+urxvt*toolBar:            false
 
 ! Copy and paste from clipboard
-*selectToClipboard: true
+xterm*selectToClipboard: true
+urxvt*selectToClipboard: true
 
 ! Dracula Xresources palette
-*.foreground: #F8F8F2
-*.background: #282A36
+xterm*.foreground: #F8F8F2
+urxvt*.foreground: #F8F8F2
+xterm*.background: #282A36
+urxvt*.background: #282A36
 !! Fake transparency. It has priority over true transparency (composite)
 ! urxvt*transparent: true
 ! urxvt*shading: 15
 urxvt*depth: 32
 urxvt*background: [85]#282A36
-*.color0:     #000000
-*.color8:     #4D4D4D
-*.color1:     #FF5555
-*.color9:     #FF6E67
-*.color2:     #50FA7B
-*.color10:    #5AF78E
-*.color3:     #F1FA8C
-*.color11:    #F4F99D
-*.color4:     #BD93F9
-*.color12:    #CAA9FA
-*.color5:     #FF79C6
-*.color13:    #FF92D0
-*.color6:     #8BE9FD
-*.color14:    #9AEDFE
-*.color7:     #BFBFBF
-*.color15:    #E6E6E6
+xterm*.color0:     #000000
+urxvt*.color0:     #000000
+xterm*.color8:     #4D4D4D
+urxvt*.color8:     #4D4D4D
+xterm*.color1:     #FF5555
+urxvt*.color1:     #FF5555
+xterm*.color9:     #FF6E67
+urxvt*.color9:     #FF6E67
+xterm*.color2:     #50FA7B
+urxvt*.color2:     #50FA7B
+xterm*.color10:    #5AF78E
+urxvt*.color10:    #5AF78E
+xterm*.color3:     #F1FA8C
+urxvt*.color3:     #F1FA8C
+xterm*.color11:    #F4F99D
+urxvt*.color11:    #F4F99D
+xterm*.color4:     #BD93F9
+urxvt*.color4:     #BD93F9
+xterm*.color12:    #CAA9FA
+urxvt*.color12:    #CAA9FA
+xterm*.color5:     #FF79C6
+urxvt*.color5:     #FF79C6
+xterm*.color13:    #FF92D0
+urxvt*.color13:    #FF92D0
+xterm*.color6:     #8BE9FD
+urxvt*.color6:     #8BE9FD
+xterm*.color14:    #9AEDFE
+urxvt*.color14:    #9AEDFE
+xterm*.color7:     #BFBFBF
+urxvt*.color7:     #BFBFBF
+xterm*.color15:    #E6E6E6
+urxvt*.color15:    #E6E6E6
 
 ! xpdf ------------------------------------------------------------------------
 
