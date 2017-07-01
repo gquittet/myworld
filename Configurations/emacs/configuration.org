@@ -45,7 +45,6 @@
 ** Column number
 #+BEGIN_SRC emacs-lisp
   (column-number-mode t)
-  (show-paren-mode 1)
 #+END_SRC
 ** Menu bar/Tool bar/Scroll bar
 #+BEGIN_SRC emacs-lisp
@@ -100,6 +99,11 @@
 ** Highlight the current line
 #+BEGIN_SRC emacs-lisp
   (global-hl-line-mode)
+#+END_SRC
+** Parenthesis mode
+#+BEGIN_SRC emacs-lisp
+  (setq show-paren-mode t)
+  (setq show-paren-style 'expression)
 #+END_SRC
 ** Upcase and lower case region
 #+BEGIN_SRC emacs-lisp

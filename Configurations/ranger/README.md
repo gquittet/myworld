@@ -28,3 +28,12 @@ I've added these lines to *rc.conf*
 ```
 map cW bulkrename %s
 ```
+### For picture rendering
+I've added these lines to *rc.conf*
+You need to install these packages: *w3m* and the w3m images support (*w3m-img*
+for me)
+
+```
+set preview_images true
+set preview_images_method w3m
+```
