@@ -3,6 +3,6 @@ xrandr --dpi 144
 xbacklight -set 40
 xrdb -merge ~/.Xresources
 start-pulseaudio-x11 &
-setxkbmap -layout us -variant alt-intl -option compose:ralt -option caps:escape -option nodeadkeys -option terminate:ctrl_alt_bksp
+setxkbmap -layout us -variant alt-intl -option compose:ralt -option nodeadkeys -option terminate:ctrl_alt_bksp
 xinput --disable 12
 exec awesome
