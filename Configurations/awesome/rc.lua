@@ -281,7 +281,6 @@ awful.screen.connect_for_each_screen(function(s)
         emptypanel, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             wibox.widget.systray(),
             separator,
             caps_lock_widget,
