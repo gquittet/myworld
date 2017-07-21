@@ -14,7 +14,7 @@
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex auto-package-update bbdb bm browse-at-remote buffer-move coffee-mode column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-web dracula-theme eclim elpy emmet-mode emms expand-region flycheck gist git git-gutter git-link helm helm-projectile htmlize iedit imenu-anywhere impatient-mode jabber js2-mode js-comint json-mode ledger-mode lua-mode magit markdown-mode move-text org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode sql-indent sqlplus tabbar tern web-beautify web-mode whitespace-cleanup-mode yasnippet))
+  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex bbdb bm browse-at-remote buffer-move coffee-mode column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-web dracula-theme eclim elpy emmet-mode emms expand-region flycheck gist git git-gutter git-link helm helm-projectile htmlize iedit imenu-anywhere impatient-mode jabber js2-mode js-comint json-mode ledger-mode lua-mode magit markdown-mode move-text org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode sql-indent sqlplus tabbar tern web-beautify web-mode whitespace-cleanup-mode yasnippet))
 #+END_SRC
 ** Package initialize
 #+BEGIN_SRC emacs-lisp
@@ -196,16 +196,6 @@
 #+BEGIN_SRC emacs-lisp
   (require 'android-mode)
   (setq android-mode-sdk-dir '"/opt/android-sdk")
-#+END_SRC
-** Auto package update
-#+BEGIN_SRC emacs-lisp
-  (require 'auto-package-update)
-  (auto-package-update-maybe)
-  (auto-package-update-at-time "21:00")
-  (setq auto-package-update-interval 1)
-  (setq auto-package-update-delete-old-versions t)
-  (add-hook 'auto-package-update-before-hook
-            (lambda () (message "I will update my packages now.")))
 #+END_SRC
 ** Autopair
 This plugin is replaced by a mode implemented in Emacs.
