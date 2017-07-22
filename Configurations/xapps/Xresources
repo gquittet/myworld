@@ -79,7 +79,7 @@ urxvt*background: [85]#282A36
 
 xpdf*enableFreetype:    yes
 xpdf*antialias:         yes
-xpdf*urlCommand:        /usr/bin/chromium %s
+xpdf*urlCommand:        /usr/bin/firefox %s
 
 ! Font -------------------------------------------------------------------------
 
