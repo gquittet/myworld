@@ -1,7 +1,7 @@
 #+TITLE: Emacs configuration
 #+AUTHOR: Guillaume QUITTET
 #+EMAIL: guillaume.quittet@gmail.com
-#+DATE: Sun. 04th Jun 2017
+#+DATE: Sun. 23rd Jul. 2017
 * Package Manager
 ** Configuration
 #+BEGIN_SRC emacs-lisp
@@ -63,6 +63,14 @@
 ** Theme
 #+BEGIN_SRC emacs-lisp
   (load-theme 'dracula t)
+#+END_SRC
+*** Disable theme for terminal
+#+BEGIN_SRC emacs-lisp
+  (defun on-after-init ()
+    (unless (display-graphic-p (selected-frame))
+      (set-face-background 'default "unspecified-bg" (selected-frame))))
+
+  (add-hook 'window-setup-hook 'on-after-init)
 #+END_SRC
 ** Tranparent background
 #+BEGIN_SRC emacs-lisp
