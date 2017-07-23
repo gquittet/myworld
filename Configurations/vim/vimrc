@@ -1,6 +1,6 @@
 " ========================================
 "       Coded by Guillaume QUITTET
-"         Date Tue. 1st Nov 2016
+"         Date Sun. 23rd Jul 2017
 " ========================================
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -24,6 +24,7 @@ Plugin 'Rip-Rip/clang_complete'
 Plugin 'tpope/vim-dispatch'
 
 " Easy Motion : faster move in vim
+" Press <Leader> <Leader> and the letter that you want to go
 Plugin 'easymotion/vim-easymotion'
 
 " Emmet : new ZenCoding
@@ -53,8 +54,6 @@ Plugin 'klen/python-mode'
 
 " VIM-LaTeX : VIM as a LaTeX IDE
 Plugin 'vim-latex/vim-latex'
-" Preview for latex
-Plugin 'xuhdev/vim-latex-live-preview'
 
 " Markdown Preview
 Plugin 'suan/vim-instant-markdown'
@@ -87,6 +86,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'godlygeek/tabular'
 
 " TagBar
+" Install ctags before use it
 Plugin 'vim-scripts/Tagbar'
 
 " Vim trailing space : show unwanted space
