@@ -353,13 +353,6 @@ This plugin is replaced by a mode implemented in Emacs.
 #+BEGIN_SRC emacs-lisp
   (global-git-gutter-mode +1)
 #+END_SRC
-#+END_SRC
-** Helm
-#+BEGIN_SRC emacs-lisp
-  (helm-mode 1)
-  (setq helm-mode-fuzzy-match t)
-  (setq helm-completion-in-region-fuzzy-match t)
-#+END_SRC
 ** Iedit
 #+BEGIN_SRC emacs-lisp
   (require 'iedit)
