@@ -1,7 +1,7 @@
 #+TITLE: Emacs configuration
 #+AUTHOR: Guillaume QUITTET
 #+EMAIL: guillaume.quittet@gmail.com
-#+DATE: Sun. 23rd Jul. 2017
+#+DATE: Mon. 24th Jul. 2017
 * Package Manager
 ** Configuration
 #+BEGIN_SRC emacs-lisp
@@ -14,7 +14,7 @@
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode auctex bbdb bm browse-at-remote buffer-move coffee-mode column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-web dracula-theme eclim elpy emmet-mode emms expand-region flycheck gist git git-gutter git-link helm helm-projectile htmlize iedit imenu-anywhere impatient-mode jabber js2-mode js-comint json-mode ledger-mode lua-mode magit markdown-mode move-text org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd skewer-mode sql-indent sqlplus tabbar tern web-beautify web-mode whitespace-cleanup-mode yasnippet))
+  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode async auctex bbdb browse-at-remote buffer-move column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-tern company-web dracula-theme eclim elpy emmet-mode emms expand-region flycheck gist git git-gutter helm iedit imenu-anywhere impatient-mode jabber js2-mode json-mode lua-mode magit markdown-mode move-text org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd sql-indent sqlplus tern undo-tree web-beautify web-mode whitespace-cleanup-mode yasnippet))
 #+END_SRC
 ** Package initialize
 #+BEGIN_SRC emacs-lisp
@@ -210,10 +210,6 @@ This plugin is replaced by a mode implemented in Emacs.
 #+BEGIN_SRC emacs-lisp
   (electric-pair-mode 1)
 #+END_SRC
-** BM
-#+BEGIN_SRC emacs-lisp
-  (require 'bm)
-#+END_SRC
 ** Browse at remote: Useful for Git
 #+BEGIN_SRC emacs-lisp
   (require 'browse-at-remote)
@@ -280,6 +276,12 @@ This plugin is replaced by a mode implemented in Emacs.
 *** company-shell
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'company-backends 'company-shell)
+#+END_SRC
+*** company-tern
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'company-backends 'company-tern)
+  (setq company-tern-meta-as-single-line t)
+  (setq company-tern-property-marker nil)
 #+END_SRC
 *** company-web
 #+BEGIN_SRC emacs-lisp
@@ -351,11 +353,12 @@ This plugin is replaced by a mode implemented in Emacs.
 #+BEGIN_SRC emacs-lisp
   (global-git-gutter-mode +1)
 #+END_SRC
+#+END_SRC
 ** Helm
 #+BEGIN_SRC emacs-lisp
-  (require 'helm-config)
-  (require 'helm-projectile)
-  (helm-projectile-on)
+  (helm-mode 1)
+  (setq helm-mode-fuzzy-match t)
+  (setq helm-completion-in-region-fuzzy-match t)
 #+END_SRC
 ** Iedit
 #+BEGIN_SRC emacs-lisp
@@ -369,11 +372,6 @@ Impatient server: *http://localhost:8080/imp*
   (add-hook 'web-mode-hook 'impatient-mode)
   (add-hook 'css-mode-hook 'httpd-start)
   (add-hook 'css-mode-hook 'impatient-mode)
-#+END_SRC
-** JS-Comint
-#+BEGIN_SRC emacs-lisp
-  (require 'js-comint)
-  (setq inferioddr-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
 #+END_SRC
 ** LaTeX
 *** Enable LaTeX mode
@@ -483,14 +481,7 @@ Fix org-html-fontify-code error
 ** Simple HTTPD
 #+BEGIN_SRC emacs-lisp
   (require 'simple-httpd)
-  (setq httpd-root "/var/www/html")
-#+END_SRC
-** Skewer Mode
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'js2-mode-hook 'skewer-mode)
-  (add-hook 'css-mode-hook 'skewer-css-mode)
-  (add-hook 'html-mode-hook 'skewer-html-mode)
-  (add-hook 'web-mode-hook 'skewer-html-mode)
+  (setq httpd-root "/srv/www/apache")
 #+END_SRC
 ** SQL indent
 #+BEGIN_SRC emacs-lisp
@@ -498,12 +489,16 @@ Fix org-html-fontify-code error
     (load-library "sql-indent"))
 #+END_SRC
 ** Tern: Tool for JavaScript
+Don't forget to install tern with this command
+#+BEGIN_SRC bash
+  sudo npm install -g tern
+#+END_SRC
 #+BEGIN_SRC emacs-lisp
   (add-hook 'js-mode-hook (lambda () (tern-mode t)))
-  (eval-after-load 'tern
-    '(progn
-       (require 'tern-auto-complete)
-       (tern-ac-setup)))
+#+END_SRC
+** Undo tree
+#+BEGIN_SRC emacs-lisp
+  (global-undo-tree-mode)
 #+END_SRC
 ** Uniquify: Unique buffer name
 #+BEGIN_SRC emacs-lisp
@@ -566,12 +561,6 @@ Fix org-html-fontify-code error
   (yas-global-mode 1)
 #+END_SRC
 * Keybinding
-** BM
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "<C-f2>") 'bm-toggle)
-  (global-set-key (kbd "<f2>")   'bm-next)
-  (global-set-key (kbd "<S-f2>") 'bm-previous)
-#+END_SRC
 ** Browse at remote: Useful for Git
 #+BEGIN_SRC emacs-lisp
     (global-set-key (kbd "C-c g g") 'browse-at-remote)
