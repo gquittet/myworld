@@ -334,8 +334,8 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86AudioMicMute",  function() awful.util.spawn("amixer sset Mic toggle") awful.util.spawn("amixer sset Capture toggle") end),
 
     -- Screenshot
-    awful.key({ }, "Print",  function() awful.util.spawn("scrot -q 100 -e 'mv $f ~/Pictures/Screenshots'") end),
-    awful.key({ "Shift" }, "Print",  function() awful.util.spawn("scrot -q 100 -s -e 'mv $f ~/Pictures/Screenshots'") end),
+    awful.key({ "Shift" }, "Print",  function() awful.util.spawn("scrot -q 100 -e 'mv $f ~/Pictures/Screenshots'") end),
+    awful.key({ "Control", "Shift" }, "Print",  function() awful.util.spawn("scrot -q 100 -s -e 'mv $f ~/Pictures/Screenshots'") end),
 
     -- Caps Lock status
     awful.key({ }, "Caps_Lock", toggle_caps_lock),
