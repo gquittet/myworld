@@ -563,6 +563,11 @@ Don't forget to install tern with this command
   (yas-global-mode 1)
 #+END_SRC
 * Keybinding
+** Default emacs keybindings
+*** Hiding emacs
+#+BEGIN_SRC emacs-lisp
+  (global-unset-key (kbd "C-z"))
+#+END_SRC
 ** Browse at remote: Useful for Git
 #+BEGIN_SRC emacs-lisp
     (global-set-key (kbd "C-c g g") 'browse-at-remote)
