@@ -14,7 +14,7 @@
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode async auctex bbdb browse-at-remote buffer-move column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-tern company-web dracula-theme eclim elpy emmet-mode emms expand-region flycheck gist git git-gutter helm iedit imenu-anywhere impatient-mode jabber js2-mode json-mode lua-mode magit markdown-mode move-text org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd sql-indent sqlplus tern undo-tree web-beautify web-mode whitespace-cleanup-mode yasnippet))
+  (setq package-list '(ac-php ace-popup-menu aggressive-indent anaconda-mode android-mode async auctex bbdb browse-at-remote buffer-move column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-tern company-web dracula-theme eclim elpy emmet-mode emms expand-region flycheck gist git git-gutter helm iedit imenu-anywhere impatient-mode jabber js2-mode json-mode lua-mode magit markdown-mode move-text org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd sql-indent sqlplus tern undo-tree web-beautify web-mode whitespace-cleanup-mode yasnippet))
 #+END_SRC
 ** Package initialize
 #+BEGIN_SRC emacs-lisp
@@ -263,6 +263,15 @@ This plugin is replaced by a mode implemented in Emacs.
 *** company-math
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'company-backends 'company-math-symbols-unicode)
+#+END_SRC
+*** company-php
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'php-mode-hook
+            '(lambda ()
+               (require 'company-php)
+               (ac-php-core-eldoc-setup) ;; enable eldoc
+               (make-local-variable 'company-backends)
+               (add-to-list 'company-backends 'company-ac-php-backend)))
 #+END_SRC
 *** company-quickhelp
 #+BEGIN_SRC emacs-lisp
