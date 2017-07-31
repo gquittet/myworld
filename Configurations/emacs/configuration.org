@@ -175,7 +175,7 @@
 ** Open website in chromium
 #+BEGIN_SRC emacs-lisp
   (setq browse-url-browser-function 'browse-url-generic
-        browse-url-generic-program "chromium")
+        browse-url-generic-program "firefox")
 #+END_SRC	
 * Terminal
 ** Enable completion in the terminal
