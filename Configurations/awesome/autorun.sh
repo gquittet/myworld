@@ -8,7 +8,6 @@ function run {
 }
 
 run xautolock -time 99 -locker 'xtrlock'
-run nm-applet
 run compton -f
 run redshift -l 50.4:3.8
 
