@@ -83,8 +83,8 @@ xpdf*urlCommand:        /usr/bin/firefox %s
 
 ! Font -------------------------------------------------------------------------
 
-Xft.autohint: 0
-Xft.antialias: 1
+Xft.autohint: false
+Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.dpi: 144
