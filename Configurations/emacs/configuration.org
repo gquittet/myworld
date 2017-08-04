@@ -1,7 +1,7 @@
 #+TITLE: Emacs configuration
 #+AUTHOR: Guillaume QUITTET
 #+EMAIL: guillaume.quittet@gmail.com
-#+DATE: Mon. 24th Jul. 2017
+#+DATE: Sat. 5th Aug. 2017
 * Package Manager
 ** Configuration
 #+BEGIN_SRC emacs-lisp
@@ -585,6 +585,10 @@ Don't forget to install tern with this command
   (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 #+END_SRC
 ** Company
+*** company
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "M-SPC") 'company-complete)
+#+END_SRC
 *** company-quickhelp
 #+BEGIN_SRC emacs-lisp
   (eval-after-load 'company
