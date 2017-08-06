@@ -14,7 +14,7 @@
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode async auctex bbdb browse-at-remote buffer-move column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-jedi company-math company-php company-quickhelp company-restclient company-shell company-tern company-web dracula-theme eclim elpy emmet-mode emms expand-region flycheck gist git git-gutter helm iedit imenu-anywhere impatient-mode jabber js2-mode json-mode lua-mode magit markdown-mode move-text org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd sql-indent sqlplus tern undo-tree web-beautify web-mode whitespace-cleanup-mode yasnippet))
+  (setq package-list '(ace-popup-menu aggressive-indent anaconda-mode android-mode async auctex bbdb browse-at-remote buffer-move column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-go company-jedi company-math company-php company-quickhelp company-restclient company-shell company-tern company-web dracula-theme eclim elpy emmet-mode emms exec-path-from-shell expand-region flycheck gist git git-gutter go-mode helm iedit imenu-anywhere impatient-mode jabber js2-mode json-mode lua-mode magit markdown-mode move-text org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd sql-indent sqlplus tern undo-tree web-beautify web-mode whitespace-cleanup-mode yasnippet))
 #+END_SRC
 ** Package initialize
 #+BEGIN_SRC emacs-lisp
@@ -247,6 +247,11 @@ This plugin is replaced by a mode implemented in Emacs.
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'company-backends 'company-edbi)
 #+END_SRC
+*** company-go
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'go-mode-hook (lambda ()
+                            (set (make-local-variable 'company-backends) '(company-go))))
+#+END_SRC
 *** company-emacs-eclim
 #+BEGIN_SRC emacs-lisp
   (require 'company-emacs-eclim)
@@ -333,6 +338,12 @@ This plugin is replaced by a mode implemented in Emacs.
 #+BEGIN_SRC emacs-lisp
   (require 'eww)
   (setq eww-download-directory '"~/Téléchargements/")
+#+END_SRC
+** exec-path-from-shell
+Go language dependencie. It reads the PATH and GOPATH variable.
+#+BEGIN_SRC emacs-lisp
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH")
 #+END_SRC
 ** expand-region
 #+BEGIN_SRC emacs-lisp
@@ -571,6 +582,7 @@ Don't forget to install tern with this command
 *** Hiding emacs
 #+BEGIN_SRC emacs-lisp
   (global-unset-key (kbd "C-z"))
+  (global-unset-key (kbd "C-x C-z"))
 #+END_SRC
 ** Browse at remote: Useful for Git
 #+BEGIN_SRC emacs-lisp
@@ -671,5 +683,27 @@ Don't forget to install tern with this command
 	smtpmail-smtp-server  "smtp.gmail.com"
 	smtpmail-stream-type  'ssl
 	smtpmail-smtp-service 465)
+#+END_SRC
+* ERC
+#+BEGIN_SRC emacs-lisp
+  (load "~/.ercpass")
+  (require 'erc-services)
+  (erc-services-mode 1)
+  (setq erc-prompt-for-nickserv-password nil
+        erc-hide-list '("JOIN" "PART" "QUIT")
+        erc-server-reconnect-attempts 5
+        erc-server-reconnect-timeout 3
+        erc-track-exclude-types '("JOIN" "MODE" "NICK" "PART" "QUIT"
+                                  "324" "329" "332" "333" "353" "477"))
+  (setq erc-nickserv-passwords
+        `((freenode     (("loodoons" . ,freenode-password)))))
+  (defun erc-start-or-switch ()
+    "Connect to ERC, or switch to last active buffer."
+    (interactive)
+    (if (get-buffer "chat.freenode.net:6697")
+        (erc-track-switch-buffer 1)
+      (when (y-or-n-p "Start ERC?")
+        (erc-ssl :server "chat.freenode.net" :port 6697 :nick "loodoons"))))
+  (global-set-key (kbd "C-x C-z") 'erc-start-or-switch)
 #+END_SRC
 * Functions
