@@ -9,6 +9,7 @@ gsettings set org.gnome.desktop.interface show-battery-percentage true
 ## My GNOME shell extensions
 
 - Dash to dock
+- Refresh wifi connections
 
 ## How to create menu folder
 
