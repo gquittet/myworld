@@ -16,6 +16,8 @@ Date: Fri. 11th Aug. 2017
 - [minimap](https://atom.io/packages/minimap)
 
 ### Programming
+- [atom-beautify](https://atom.io/packages/atom-beautify)
+
 #### Java
 - [autocomplete-java](https://atom.io/packages/autocomplete-java)
 - [linter-javac](https://atom.io/packages/linter-javac)
@@ -26,7 +28,10 @@ Date: Fri. 11th Aug. 2017
 - [python-indent](https://atom.io/packages/python-indent)
 
 ### Web development
-- [atom-beautify](https://atom.io/packages/atom-beautify)
+
+#### CSS
+- [color-picker](https://atom.io/packages/color-picker)
+- [pigments](https://atom.io/packages/pigments)
 
 #### HTML
 - [emmet](https://atom.io/packages/emmet)
