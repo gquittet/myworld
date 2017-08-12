@@ -74,8 +74,8 @@
 #+END_SRC
 ** Tranparent background
 #+BEGIN_SRC emacs-lisp
-  (set-frame-parameter (selected-frame) 'alpha '(95 85))
-  (add-to-list 'default-frame-alist '(alpha 95 85))
+  ;;(set-frame-parameter (selected-frame) 'alpha '(95 85))
+  ;;(add-to-list 'default-frame-alist '(alpha 95 85))
 #+END_SRC
 ** UTF8 everywhere
 #+BEGIN_SRC emacs-lisp
@@ -102,8 +102,8 @@
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-10"))
-  (set-face-attribute 'default t :font "DejaVu Sans Mono-10")
+  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-14"))
+  (set-face-attribute 'default t :font "DejaVu Sans Mono-14")
 #+END_SRC
 ** Highlight the current line
 #+BEGIN_SRC emacs-lisp
