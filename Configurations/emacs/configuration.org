@@ -102,12 +102,18 @@
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-14"))
-  (set-face-attribute 'default t :font "DejaVu Sans Mono-14")
+  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12"))
+  (set-face-attribute 'default t :font "DejaVu Sans Mono-12")
 #+END_SRC
 ** Highlight the current line
 #+BEGIN_SRC emacs-lisp
   (global-hl-line-mode)
+#+END_SRC
+** Indentation mode
+#+BEGIN_SRC emacs-lisp
+  (setq c-default-style "cc-mode")
+  (setq c-basic-indent 4)
+  (setq c-basic-offset 4)
 #+END_SRC
 ** Parenthesis mode
 #+BEGIN_SRC emacs-lisp
@@ -373,6 +379,10 @@ Go language dependencie. It reads the PATH and GOPATH variable.
 #+BEGIN_SRC emacs-lisp
   (global-git-gutter-mode +1)
 #+END_SRC
+** IDO
+#+BEGIN_SRC emacs-lisp
+  (ido-mode t)
+#+END_SRC
 ** Iedit
 #+BEGIN_SRC emacs-lisp
   (require 'iedit)
@@ -453,6 +463,14 @@ Impatient server: *http://localhost:8080/imp*
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
   ;; Install the fonts with this command
   ;; all-the-icons-install-fonts
+#+END_SRC
+*** Detect open file
+#+BEGIN_SRC emacs-lisp
+  (setq neo-smart-open t)
+#+END_SRC
+*** Projectile integration
+#+BEGIN_SRC emacs-lisp
+  (setq projectile-switch-project-action 'neotree-projectile-action)
 #+END_SRC
 ** Outline mode
 #+BEGIN_SRC emacs-lisp
@@ -596,6 +614,10 @@ Don't forget to install tern with this command
 ** Browse at remote: Useful for Git
 #+BEGIN_SRC emacs-lisp
     (global-set-key (kbd "C-c g g") 'browse-at-remote)
+#+END_SRC
+** Buffer focus
+#+BEGIN_SRC emacs-lisp
+
 #+END_SRC
 ** Buffer Move
 #+BEGIN_SRC emacs-lisp
