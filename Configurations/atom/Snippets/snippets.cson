@@ -55,8 +55,8 @@
         * $2
         * @author Guillaume Quittet
         */
-        public class $2 {$3
-
+        public class $2 {
+            $3
         }
         """
     # package public class constructor
@@ -69,13 +69,30 @@
         * $2
         * @author Guillaume Quittet
         */
-        public class $2 {$3
-
+        public class $2 {
+            $3
             /**
             * $2 Constructor
             */
             public $2() {
 
+            }
+        }
+        """
+    # package public class Main
+    'package public class Main':
+        'prefix': 'ppcm'
+        'body': """
+        package $1;
+
+        /**
+        * The main class for the package $1
+        * @author Guillaume Quittet
+        */
+        public class ${2:Main} {
+
+            public static void main(String[] args) {
+                $3
             }
         }
         """
@@ -87,8 +104,8 @@
         * $1
         * @author Guillaume Quittet
         */
-        public class $1 {$2
-
+        public class $1 {
+            $2
         }
         """
     # public class constructor
@@ -99,8 +116,8 @@
         * $1
         * @author Guillaume Quittet
         */
-        public class $1 {$2
-
+        public class $1 {
+            $2
             /**
             * $1 Constructor
             */
@@ -113,10 +130,14 @@
     'public class Main':
         'prefix': 'pcm'
         'body': """
-        public class Main {
+        /**
+        * The main class
+        * @author Guillaume Quittet
+        */
+        public class ${1:Main} {
 
             public static void main(String[] args) {
-                $1
+                $2
             }
         }
         """
@@ -130,9 +151,8 @@
         'body': """
         try {
             $2
-        } catch ($1 err) {
+        } catch (${1:Exception} err) {
             System.out.println(err.getMessage());
         }
         $3
         """
-
