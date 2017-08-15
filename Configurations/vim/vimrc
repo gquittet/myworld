@@ -49,6 +49,9 @@ Plugin 'vim-scripts/javacomplete'
 " Don't forget to install this : sudo pip install jedi
 Plugin 'davidhalter/jedi-vim'
 
+" NERDTree
+Plugin 'scrooloose/nerdtree'
+
 " Python-mode : VIM as a python ide
 Plugin 'klen/python-mode'
 
@@ -397,7 +400,7 @@ let g:undotree_SetFocusWhenToggle=1
 syntax on
 color dracula
 if has('gui_running')
-  set guifont=Deja\Vu\ Sans\ Mono\ 10
+  set guifont=Deja\Vu\ Sans\ Mono\ 12
 endif
 hi Normal ctermbg=NONE
 set guioptions-=m  "remove menu bar
