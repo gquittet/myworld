@@ -1,9 +1,52 @@
 # ==============================================================================
+# COFFEE
+# ==============================================================================
+'.source.coffee':
+    'huge snippet':
+        'prefix': 'hsnip'
+        'body': """
+        # $2
+        '$2':
+            'prefix': '$3'
+            'body': \"\"\"
+            $4
+            \"\"\"
+        """
+    'huge source snippet':
+        'prefix': 'hssnip'
+        'body': """
+        '.$1':
+            # $2
+            '$2':
+                'prefix': '$3'
+                'body': \"\"\"
+                $4
+                \"\"\"
+        """
+    'snippet':
+        'prefix': 'snip'
+        'body': """
+        # $2
+        '$2':
+            'prefix': '$3'
+            'body': '$4'
+        """
+    'source snippet':
+        'prefix': 'ssnip'
+        'body': """
+        '.$1':
+            # $2
+            '$2':
+                'prefix': '$3'
+                'body': '$4'
+        """
+
+# ==============================================================================
 # JAVA
 # ==============================================================================
 '.source.java':
     # package public class
-    'public class with constructor':
+    'package public class':
         'prefix': 'ppc'
         'body': """
         package $1;
@@ -17,7 +60,7 @@
         }
         """
     # package public class constructor
-    'public class constructor':
+    'package public class constructor':
         'prefix': 'ppcc'
         'body': """
         package $1;
