@@ -1,0 +1,95 @@
+# ==============================================================================
+# JAVA
+# ==============================================================================
+'.source.java':
+    # package public class
+    'public class with constructor':
+        'prefix': 'ppc'
+        'body': """
+        package $1;
+
+        /**
+        * $2
+        * @author Guillaume Quittet
+        */
+        public class $2 {$3
+
+        }
+        """
+    # package public class constructor
+    'public class constructor':
+        'prefix': 'ppcc'
+        'body': """
+        package $1;
+
+        /**
+        * $2
+        * @author Guillaume Quittet
+        */
+        public class $2 {$3
+
+            /**
+            * $2 Constructor
+            */
+            public $2() {
+
+            }
+        }
+        """
+    # public class
+    'public class':
+        'prefix': 'pc'
+        'body': """
+        /**
+        * $1
+        * @author Guillaume Quittet
+        */
+        public class $1 {$2
+
+        }
+        """
+    # public class constructor
+    'public class constructor':
+        'prefix': 'pcc'
+        'body': """
+        /**
+        * $1
+        * @author Guillaume Quittet
+        */
+        public class $1 {$2
+
+            /**
+            * $1 Constructor
+            */
+            public $1() {
+
+            }
+        }
+        """
+    # public class Main
+    'public class Main':
+        'prefix': 'pcm'
+        'body': """
+        public class Main {
+
+            public static void main(String[] args) {
+                $1
+            }
+        }
+        """
+    # System.out.println
+    'system.out.prinln':
+        'prefix': 'sysout'
+        'body': 'System.out.println("$1");$2'
+    # Try catch
+    'try catch':
+        'prefix': 'try'
+        'body': """
+        try {
+            $2
+        } catch ($1 err) {
+            System.out.println(err.getMessage());
+        }
+        $3
+        """
+
