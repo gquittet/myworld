@@ -247,3 +247,7 @@
     'static type':
         'prefix': 'stt'
         'body': '{static} '
+    # title
+    'title':
+        'prefix': 'ttl'
+        'body': 'title '
