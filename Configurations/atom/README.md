@@ -27,6 +27,12 @@ Date: Fri. 11th Aug. 2017
 - [linter-pylint](https://atom.io/packages/linter-pylint)
 - [python-indent](https://atom.io/packages/python-indent)
 
+### Tools
+
+#### UML
+- [language-plantuml](https://atom.io/packages/language-plantuml)
+- [plantuml-viewer](https://atom.io/packages/plantuml-viewer)
+
 ### Web development
 
 #### CSS
