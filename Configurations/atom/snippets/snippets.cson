@@ -154,5 +154,96 @@
         } catch (${1:Exception} err) {
             System.out.println(err.getMessage());
         }
-        $3
+
         """
+
+# ==============================================================================
+# PLANTUML
+# ==============================================================================
+'.source.plantuml':
+    # create uml
+    'create uml':
+        'prefix': 'uml'
+        'body': """
+        @startuml
+
+        $1
+
+        @enduml
+        """
+    # abstract
+    'abstract':
+        'prefix': 'abs'
+        'body': 'abstract '
+    # abstract class
+    'abstract class':
+        'prefix': 'absc'
+        'body': """
+        abstract class $1 {
+            $2
+        }
+        """
+    # abstract type
+    'abstract type':
+        'prefix': 'abst'
+        'body': '{abstract} '
+    # class
+    'class':
+        'prefix': 'cl'
+        'body': """
+        class $1 {
+            $2
+        }
+        """
+    # direction
+    'direction':
+        'prefix': 'direction'
+        'body': '$1 to $2 direction'
+    # enum
+    'enum':
+        'prefix': 'enu'
+        'body': """
+        enum $1 {
+            $2
+        }
+        """
+    # interface
+    'interface':
+        'prefix': 'itf'
+        'body': """
+        interface $1 {
+            $2
+        }
+        """
+    # namespace
+    'namespace':
+        'prefix': 'nspc'
+        'body': """
+        namespace $1 {
+            $2
+        }
+        """
+    # object
+    'object':
+        'prefix': 'obj'
+        'body': """
+        object $1 {
+            $2
+        }
+        """
+    # package
+    'package':
+        'prefix': 'pkg'
+        'body': """
+        package $1 {
+            $2
+        }
+        """
+    # page
+    'page':
+        'prefix': 'page'
+        'body': 'page $1x$2'
+    # static type
+    'static type':
+        'prefix': 'stt'
+        'body': '{static} '
