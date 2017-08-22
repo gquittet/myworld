@@ -16,7 +16,6 @@ Date: Fri. 11th Aug. 2017
 - [minimap](https://atom.io/packages/minimap)
 
 ### Programming
-- [atom-beautify](https://atom.io/packages/atom-beautify)
 
 #### Java
 - [autocomplete-java](https://atom.io/packages/autocomplete-java)
