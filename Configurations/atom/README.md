@@ -1,18 +1,17 @@
 Title: Atom Configuration  
 Author: Guillaume Quittet  
-Date: Fri. 11th Aug. 2017  
+Date: Sat. 14th Oct. 2017  
 
 # Atom Configuration
 
 ## Theme
 
-- <b>UI</b>: One Dark
-- <b>Editor</b>: [Dracula](https://atom.io/themes/dracula-syntax)
+- <b>UI</b>: One Light
+- <b>Editor</b>: One Light
 
 ## Packages
 
 ### UI
-- [file-icons](https://atom.io/packages/file-icons)
 - [minimap](https://atom.io/packages/minimap)
 
 ### Programming
@@ -33,10 +32,6 @@ Date: Fri. 11th Aug. 2017
 - [plantuml-viewer](https://atom.io/packages/plantuml-viewer)
 
 ### Web development
-
-#### CSS
-- [color-picker](https://atom.io/packages/color-picker)
-- [pigments](https://atom.io/packages/pigments)
 
 #### HTML
 - [emmet](https://atom.io/packages/emmet)
