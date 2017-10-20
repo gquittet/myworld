@@ -1,0 +1,10 @@
+[Unit]
+Description=i3lock on suspend
+
+[Service]
+User=gquittet
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/xtrlock -b
+
+[Install]
+WantedBy=suspend.target
