@@ -1,6 +1,6 @@
 " ========================================
 "       Coded by Guillaume QUITTET
-"         Date Sun. 23rd Jul 2017
+"         Date Sun. 22th Oct 2017
 " ========================================
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -38,6 +38,9 @@ Plugin 'Konfekt/FastFold'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+
+" Grammalecte
+Plugin 'dpelle/vim-Grammalecte'
 
 " Indent Guide
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -92,9 +95,6 @@ Plugin 'godlygeek/tabular'
 " Install ctags before use it
 Plugin 'vim-scripts/Tagbar'
 
-" Vim trailing space : show unwanted space
-Plugin 'bronson/vim-trailing-whitespace'
-
 " UndoTree : See all undos
 Plugin 'mbbill/undotree'
 
@@ -134,8 +134,7 @@ set hlsearch 		" highlight the search result
 set ignorecase                  " Case insensitive search
 set incsearch       " Find as I type during the search
 set linespace=0 " No extra spaces between rows
-set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+set nolist
 set nojoinspaces    " Prevents inserting two spaces after punctuation on a join (J)
 set path+=**        " fuzzy matching
 set relativenumber 		" set the number in vim
@@ -299,10 +298,6 @@ vmap <Leader>t<Bar> :Tabularize /<Bar><CR>
 " Tagbar
 map <leader>tt :TagbarToggle<CR>
 
-" Trailing Space
-nmap <leader>fs :FixWhitespace<CR>
-vmap <leader>fs :FixWhitespace<CR>
-
 " Undo tree
 map <Leader>u :UndotreeToggle<CR>
 
@@ -400,7 +395,7 @@ let g:undotree_SetFocusWhenToggle=1
 syntax on
 color dracula
 if has('gui_running')
-  set guifont=Deja\Vu\ Sans\ Mono\ 12
+  set guifont=Fira\ Mono\ 10
 endif
 hi Normal ctermbg=NONE
 set guioptions-=m  "remove menu bar
