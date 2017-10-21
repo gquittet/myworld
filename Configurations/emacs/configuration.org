@@ -1,7 +1,7 @@
 #+TITLE: Emacs configuration
 #+AUTHOR: Guillaume QUITTET
 #+EMAIL: guillaume.quittet@gmail.com
-#+DATE: Sat. 5th Aug. 2017
+#+DATE: Sun 22th Oct 2017
 * Package Manager
 ** Configuration
 #+BEGIN_SRC emacs-lisp
@@ -14,7 +14,7 @@
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent all-the-icons anaconda-mode android-mode async auctex bbdb browse-at-remote buffer-move column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-go company-jedi company-math company-php company-quickhelp company-restclient company-shell company-tern company-web dracula-theme eclim elpy emmet-mode emms exec-path-from-shell expand-region flycheck gist git git-gutter go-mode helm iedit imenu-anywhere impatient-mode jabber js2-mode json-mode lua-mode magit markdown-mode move-text neotree org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd sql-indent sqlplus tern undo-tree web-beautify web-mode whitespace-cleanup-mode yasnippet))
+  (setq package-list '(ace-popup-menu aggressive-indent all-the-icons anaconda-mode android-mode async auctex bbdb browse-at-remote buffer-move column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-go company-jedi company-math company-php company-quickhelp company-restclient company-shell company-tern company-web dracula-theme eclim elpy emmet-mode emms exec-path-from-shell expand-region flycheck gist git git-gutter go-mode helm iedit imenu-anywhere impatient-mode jabber js2-mode json-mode lua-mode magit markdown-mode move-text neotree org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd sql-indent sqlplus tern undo-tree web-beautify web-mode yasnippet))
 #+END_SRC
 ** Package initialize
 #+BEGIN_SRC emacs-lisp
@@ -52,6 +52,10 @@
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
 #+END_SRC
+** Open new buffer on the right
+#+BEGIN_SRC emacs-lisp
+  (setq split-width-threshold 1)
+#+END_SRC
 ** Replace 'yes or no' with 'y or n'
 #+BEGIN_SRC emacs-lisp
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -74,8 +78,8 @@
 #+END_SRC
 ** Tranparent background
 #+BEGIN_SRC emacs-lisp
-  ;;(set-frame-parameter (selected-frame) 'alpha '(95 85))
-  ;;(add-to-list 'default-frame-alist '(alpha 95 85))
+  (set-frame-parameter (selected-frame) 'alpha '(95 85))
+  (add-to-list 'default-frame-alist '(alpha 95 85))
 #+END_SRC
 ** UTF8 everywhere
 #+BEGIN_SRC emacs-lisp
@@ -90,20 +94,14 @@
     (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
 #+END_SRC
 * Editor settings
-** Clean white spaces when I save 
-#+BEGIN_SRC emacs-lisp
-  (require 'whitespace-cleanup-mode)
-  (setq whitespace-style '(face empty tabs lines-tail trailing))
-  (global-whitespace-cleanup-mode 1)
-#+END_SRC
 ** Folding
 #+BEGIN_SRC emacs-lisp
   (add-hook 'prog-mode-hook 'hs-minor-mode)
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12"))
-  (set-face-attribute 'default t :font "DejaVu Sans Mono-12")
+  (add-to-list 'default-frame-alist '(font . "Fira Mono-10"))
+  (set-face-attribute 'default t :font "Fira Mono-10")
 #+END_SRC
 ** Highlight the current line
 #+BEGIN_SRC emacs-lisp
@@ -126,9 +124,12 @@
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
 #+END_SRC
-** visual-line-mode
+** Word wrap
 #+BEGIN_SRC emacs-lisp
-  (global-visual-line-mode 1)
+  ;; Word wrap at 80
+  (setq-default fill-column 80)
+  ;; Don't break question for the French language
+  (setq fill-nobreak-predicate '(fill-french-nobreak-p))
 #+END_SRC
 * Backup
 ** Set the backup to a dedicaced directory
@@ -363,12 +364,12 @@ Go language dependencie. It reads the PATH and GOPATH variable.
 ** Flyspell
 #+BEGIN_SRC emacs-lisp
   (setq ispell-program-name "hunspell")
-  (setq ispell-dictionary "fr_FR")
+  (setq ispell-dictionary "fr_BE")
   (global-set-key
    [f3]
    (lambda ()
      (interactive)
-     (ispell-change-dictionary "fr_FR")))
+     (ispell-change-dictionary "fr_BE")))
   (global-set-key
    [f4]
    (lambda ()
@@ -418,7 +419,6 @@ Impatient server: *http://localhost:8080/imp*
   (setq-default TeX-engine 'xetex)
   (setq-default TeX-master nil)
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-  (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (setq reftex-plug-into-AUCTeX t)
 #+END_SRC
