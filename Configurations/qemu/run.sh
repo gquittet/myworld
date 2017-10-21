@@ -11,5 +11,7 @@ qemu-system-x86_64 \
     -display sdl,gl=on \
     -soundhw hda \
     -net nic \
-    -net user,smb='/absolute/path/to/folder'
+    -net user,smb='/absolute/path/to/folder' \
+    -nodefaults \
+    -monitor telnet:127.0.0.1:7005,server,nowait
 
