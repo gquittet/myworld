@@ -1,5 +1,5 @@
 qemu-system-x86_64 \
-    -cdrom file.iso \
+    -cdrom cdrom.iso \
     -boot order=d \
     -drive file=hdd,format=qcow2 \
     -enable-kvm \
@@ -7,6 +7,9 @@ qemu-system-x86_64 \
     -machine q35,accel=kvm \
     -cpu host \
     -m 2G \
+    -vga std \
+    -display sdl,gl=on \
+    -soundhw hda \
     -net nic \
     -net user,smb='/absolute/path/to/folder'
 
