@@ -81,6 +81,10 @@
   (set-frame-parameter (selected-frame) 'alpha '(95 85))
   (add-to-list 'default-frame-alist '(alpha 95 85))
 #+END_SRC
+** Visual Line
+#+BEGIN_SRC emacs-lisp
+  (global-visual-line-mode)
+#+END_SRC
 ** UTF8 everywhere
 #+BEGIN_SRC emacs-lisp
   (setq locale-coding-system 'utf-8)
