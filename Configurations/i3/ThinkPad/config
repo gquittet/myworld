@@ -194,6 +194,9 @@ bindsym $mod+n move scratchpad
 
 bindsym $mod+Ctrl+l exec xtrlock -b
 
+# Focus urgent workspace
+bindsym $mod+u [urgent=latest] focus
+
 # Startup applications
 exec --no-startup-id redshift -l 50.4:3.8
 exec --no-startup-id compton -bCG
