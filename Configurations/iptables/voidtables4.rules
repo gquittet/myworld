@@ -1,0 +1,155 @@
+*filter
+# Par défaut, on bloque tout
+:INPUT DROP [14:2004]
+:FORWARD DROP [0:0]
+:OUTPUT DROP [0:0]
+
+
+
+# INPUT
+# On accepte notre boucle locale
+-A INPUT -i lo -j ACCEPT
+
+# DHCP
+-A INPUT -p udp -m udp --dport 67:68 -j ACCEPT
+
+# DNS
+-A INPUT -p tcp -m tcp --dport 53 -j ACCEPT
+-A INPUT -p udp -m udp --dport 53 -j ACCEPT
+-A INPUT -p tcp -m tcp --sport 53 -j ACCEPT
+-A INPUT -p udp -m udp --sport 53 -j ACCEPT
+
+# EMAIL
+# SMTP
+-A INPUT -p tcp -m tcp --dport 25 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 465 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 587 -j ACCEPT
+# IMAP/IMAPS
+-A INPUT -p tcp -m tcp --dport 143 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 220 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 993 -j ACCEPT
+
+# FTP/FTPS
+-A INPUT -p tcp -m tcp --dport 20 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 21 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 990 -j ACCEPT
+
+# IMPRESSION
+# CUPS
+-A INPUT -p tcp -m tcp --dport 631 -j ACCEPT
+-A INPUT -p udp -m udp --dport 631 -j ACCEPT
+
+# PING
+# Demande
+#-A INPUT -p icmp -m icmp --icmp-type echo-request -m limit --limit 5/sec --limit-burst 5 -j ACCEPT
+# Réponse
+-A INPUT -p icmp -m icmp --icmp-type echo-reply -m limit --limit 5/sec --limit-burst 5 -j ACCEPT
+
+# SSH
+# Entrant
+-A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+# Sortant
+-A INPUT -p tcp -m tcp --sport 22 -j ACCEPT
+
+# TELNET
+# Entrant
+-A INPUT -p tcp -m tcp --dport 23 -j ACCEPT
+# Sortant
+-A INPUT -p tcp -m tcp --sport 23 -j ACCEPT
+
+# TIME
+# NTP
+-A INPUT -p udp -m udp --dport 123 -j ACCEPT
+-A INPUT -p udp -m udp --sport 123 -j ACCEPT
+
+# WEB
+# HTTP
+-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -p tcp -m tcp --sport 80 -j ACCEPT
+# HTTPS
+-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+-A INPUT -p tcp -m tcp --sport 443 -j ACCEPT
+
+# FAILLES
+# On bloque les paquets XMAS
+-A INPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,PSH,ACK,URG -j DROP
+# On bloque les paquets NULL
+-A INPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG NONE -j DROP
+# Sync flood attack
+-A INPUT -p tcp ! --syn -m state --state NEW -j DROP
+
+# On logue tout ce qui entre. On logue les 10 premiers, puis 5 toutes les minutes.
+-A INPUT -m limit --limit 5/m --limit-burst 10 -j LOG
+
+
+
+# FORWARD
+# QEMU rule for bridge connection
+-A FORWARD -m physdev --physdev-is-bridged -j ACCEPT
+# On logue tout ce qui passe par forward. On logue les 10 premiers, puis 5 toutes les minutes.
+-A FORWARD -m limit --limit 5/m --limit-burst 10 -j LOG
+
+
+
+# OUTPUT
+# On accepte notre boucle locale
+-A OUTPUT -o lo -j ACCEPT
+
+# DHCP
+-A OUTPUT -p udp -m udp --sport 67:68 -j ACCEPT
+
+# DNS
+-A OUTPUT -p tcp -m tcp --dport 53 -j ACCEPT
+-A OUTPUT -p udp -m udp --dport 53 -j ACCEPT
+-A OUTPUT -p tcp -m tcp --sport 53 -j ACCEPT
+-A OUTPUT -p udp -m udp --sport 53 -j ACCEPT
+
+# EMAIL
+# SMTP
+-A OUTPUT -p tcp -m tcp --sport 25 -j ACCEPT
+-A OUTPUT -p tcp -m tcp --sport 485 -j ACCEPT
+-A OUTPUT -p tcp -m tcp --sport 587 -j ACCEPT
+# IMAP/IMAPS
+-A OUTPUT -p tcp -m tcp --sport 143 -j ACCEPT
+-A OUTPUT -p tcp -m tcp --sport 220 -j ACCEPT
+-A OUTPUT -p tcp -m tcp --sport 993 -j ACCEPT
+
+# FTP/FTPS
+-A OUTPUT -p tcp -m tcp --sport 20 -j ACCEPT
+-A OUTPUT -p tcp -m tcp --sport 21 -j ACCEPT
+-A OUTPUT -p tcp -m tcp --sport 990 -j ACCEPT
+
+# IMPRESSION
+# CUPS
+-A OUTPUT -p tcp -m tcp --sport 631 -j ACCEPT
+-A OUTPUT -p udp -m udp --sport 631 -j ACCEPT
+
+# PING
+# Demande
+-A OUTPUT -p icmp -m icmp --icmp-type echo-request -j ACCEPT
+# Réponse
+#-A OUTPUT -p icmp -m icmp --icmp-type echo-reply -j ACCEPT
+
+# SSH
+# Entrant
+#-A OUTPUT -p tcp -m tcp --sport 22 -j ACCEPT
+# Sortant
+-A OUTPUT -p tcp -m tcp --dport 22 -j ACCEPT
+
+# TELNET
+-A OUTPUT -p tcp -m tcp --sport 23 -j ACCEPT
+
+# TIME
+# NTP
+-A OUTPUT -p udp -m udp --dport 123 -j ACCEPT
+-A OUTPUT -p udp -m udp --sport 123 -j ACCEPT
+
+# WEB
+# HTTP
+-A OUTPUT -p tcp -m tcp --sport 80 -j ACCEPT
+-A OUTPUT -p tcp -m tcp --dport 80 -j ACCEPT
+# HTTPS
+-A OUTPUT -p tcp -m tcp --sport 443 -j ACCEPT
+-A OUTPUT -p tcp -m tcp --dport 443 -j ACCEPT
+
+COMMIT
