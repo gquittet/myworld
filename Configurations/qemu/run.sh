@@ -9,9 +9,10 @@ qemu-system-x86_64 \
     -m 2G \
     -vga std \
     -display sdl,gl=on \
+    -nodefaults \
+    -monitor telnet:localhost:7005,server,nowait,nodelay \
+    -serial telnet:localhost:7015,server,nowait,nodelay \
     -soundhw hda \
     -net nic \
-    -net user,smb='/absolute/path/to/folder' \
-    -nodefaults \
-    -monitor telnet:127.0.0.1:7005,server,nowait
-
+    #-net bridge,br=br0 \
+    -net user,smb='/absolute/path/to/folder'
