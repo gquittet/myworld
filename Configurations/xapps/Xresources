@@ -7,9 +7,9 @@
 ! XTerm and UXTerm ------------------------------------------------------------
 
 ! Set the font
-xterm*faceName: DejaVu Sans Mono
-xterm*faceSize: 11
-urxvt*font: xft:DejaVu Sans Mono-11
+xterm*faceName: Fira Mono
+xterm*faceSize: 10
+urxvt*font: xft:Fira Mono-10
 
 ! Add utf-8 support
 xterm*locale: true
@@ -20,8 +20,8 @@ xterm*termName: xterm-256color
 urxvt*termName: rxvt-unicode-256color
 
 ! Set the saved lines for scrolling
-xterm*saveLines: 1024
-urxvt*saveLines: 1024
+xterm*saveLines: 512
+urxvt*saveLines: 512
 
 ! Fix the META key
 xterm*metaSendsEscape: true
