@@ -199,4 +199,4 @@ bindsym $mod+u [urgent=latest] focus
 
 # Startup applications
 exec --no-startup-id redshift -l 50.4:3.8
-exec --no-startup-id compton -bCG
+exec --no-startup-id compton -bCG --backend glx --vsync opengl --xrender-sync
