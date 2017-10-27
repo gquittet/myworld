@@ -57,7 +57,7 @@ urxvt*selectToClipboard: true
 ! urxvt*transparent: true
 ! urxvt*shading: 15
 urxvt*depth: 32
-urxvt*background: [95]#282A36
+! urxvt*background: [95]#282A36
 *.color0:     #000000
 *.color8:     #4D4D4D
 *.color1:     #FF5555
