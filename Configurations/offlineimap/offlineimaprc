@@ -1,0 +1,43 @@
+[general]
+accounts=gmail,heh
+maxsyncaccounts = 1
+
+[Account gmail]
+localrepository = gmail-local
+remoterepository = gmail-remote
+
+[Repository gmail-local]
+type = Maildir
+localfolders = ~/.mails/gmail
+
+[Repository gmail-remote]
+type = Gmail
+realdelete = no
+remoteuser = username@gmail.com
+remotepass = thepassword
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+folderfilter = lambda foldername: foldername in ['[Gmail]/Brouillons', '[Gmail]/Corbeille', '[Gmail]/Messages envoy&AOk-s', 'INBOX']
+nametrans = lambda folder:  re.sub('\[Gmail\].Brouillons', 'drafts', 
+                            re.sub('\[Gmail\].Corbeille', 'trash',
+                            re.sub('\[Gmail\].Messages envoy&AOk-s', 'sent', folder)))
+
+[Account heh]
+localrepository = heh-local
+remoterepository = heh-remote
+
+[Repository heh-local]
+type = Maildir
+localfolders = ~/.mails/heh
+
+[Repository heh-remote]
+type = IMAP
+realdelete = no
+remotehost = outlook.office365.com
+remoteuser = username@domain.com
+remotepass = thepassword
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+folderfilter = lambda foldername: foldername in ['Brouillons', '&AMk-l&AOk-ments envoy&AOk-s', '&AMk-l&AOk-ments supprim&AOk-s', 'INBOX']
+nametrans = lambda folder: re.sub('Brouillons', 'drafts',
+                           re.sub('&AMk-l&AOk-ments envoy&AOk-s', 'sent',
+                           re.sub('&AMk-l&AOk-ments supprim&AOk-s', 'trash', folder)))
