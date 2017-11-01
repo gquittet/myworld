@@ -1,0 +1,22 @@
+# Sending mail
+set realname = "Your name"
+set reverse_name = yes
+set from = "email@domain.com"
+set sendmail = "/usr/bin/msmtp -a heh"
+
+# Receive mail
+set mbox_type = Maildir
+set folder = ~/.mails/heh
+# + use the folder variable
+set spoolfile = "+INBOX"
+set record = "+sent"
+set postponed = "+drafts"
+set trash = "+trash"
+set header_cache = ~/.cache/mutt/heh/headers
+set message_cachedir =  ~/.cache/mutt/heh/bodies
+
+mailboxes +INBOX
+
+set signature = "~/.config/mutt/accounts/heh/signature"
+
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"

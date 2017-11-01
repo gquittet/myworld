@@ -1,0 +1,15 @@
+source ~/.config/mutt/keybindingsrc
+source ~/.config/mutt/accounts/gmail/gmailrc
+source ~/.config/mutt/themerc
+
+macro index <f2> '<enter-command>source ~/.config/mutt/accounts/gmail/gmailrc<enter><change-folder>!<enter>'
+macro index <f3> '<enter-command>source ~/.config/mutt/accounts/heh/hehrc<enter><change-folder>!<enter>'
+
+# HTML mails
+set mailcap_path = ~/.mutt/mailcap
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# Editor
+set editor = "vim"
+

@@ -1,0 +1,3 @@
+image/*; ~/.config/mutt/scripts/muttimage.sh %s ; copiousoutput
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
