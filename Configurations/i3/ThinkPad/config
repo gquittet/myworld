@@ -41,8 +41,8 @@ bindsym $mod+Shift+c kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec --no-startup-id ~/.config/i3/rofi.sh -d
-bindsym $mod+Shift+d exec --no-startup-id ~/.config/i3/rofi.sh -w
+bindsym $mod+d exec --no-startup-id ~/.config/i3/scripts/rofi.sh -d
+bindsym $mod+Shift+d exec --no-startup-id ~/.config/i3/scripts/rofi.sh -w
 
 # change focus
 bindsym $mod+h focus left
@@ -182,13 +182,13 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym XF86AudioMicMute exec amixer sset Capture toggle
 
 # Projection
-bindsym XF86Display exec urxvt -e bash -c "xrandr -q && echo 'Press any key to close...' && read -rsn1"
+bindsym XF86Display exec termite -e "bash -c ~/.config/i3/scripts/display.sh"
 
 # Kill Wi-Fi
 # bindsym XF86WLAN exec urxvt -e bash -c "kill-wifi"
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-scale "/home/gquittet/.wallpapers/miyu__daru__she_and_her_cat__wallpaper_by_insanitykitsune-da1edvi.png"
+exec_always --no-startup-id feh --bg-fill "~/.wallpapers/panda_wallpaper_by_apofiss-dahj9x5.jpg"
 
 # Maximize and minimize
 bindsym $mod+m scratchpad show
