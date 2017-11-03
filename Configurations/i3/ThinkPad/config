@@ -188,7 +188,7 @@ bindsym XF86Display exec termite -e "bash -c ~/.config/i3/scripts/display.sh"
 # bindsym XF86WLAN exec urxvt -e bash -c "kill-wifi"
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-fill "~/.wallpapers/panda_wallpaper_by_apofiss-dahj9x5.jpg"
+exec_always --no-startup-id feh --bg-fill "/home/user/.wallpapers/panda_wallpaper_by_apofiss-dahj9x5.jpg"
 
 # Maximize and minimize
 bindsym $mod+m scratchpad show
