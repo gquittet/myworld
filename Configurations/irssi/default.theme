@@ -1,0 +1,5 @@
+default_color = "-1";
+
+abstracts {
+    sb_background = "%w";
+};
