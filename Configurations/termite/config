@@ -2,38 +2,41 @@
 font = Fira Mono 10
 
 [colors]
-foreground = #f8f8f2
-background = #282a36
-background = rgba(40, 42, 54, 0.95)
-# Black
-color0 = #000000
-# Red
-color1 = #FF5555
-# Green
-color2 = #50FA7B
-# Yellow
-color3 = #F1FA8C
-# Purple
-color4 = #BD93F9
-# Pink
-color5 = #FF79C6
-# Cyan
-color6 = #8BE9FD
-# Gray
-color7 = #BFBFBF
-# Gray
-color8 = #4D4D4D
-# Pink
-color9 = #FF6E67
-# Green
-color10 = #5AF78E
-# Yellow
-color11 = #F4F99D
-# Purple
-color12 = #CAA9FA
-# Pink
-color13 = #FF92D0
-# Cyan
-color14 = #9AEDFE
-# Gray
-color15 = #E6E6E6
+# special
+foreground      = #f8f8f2
+foreground_bold = #f8f8f2
+cursor          = #f8f8f2
+background      = #282a36
+background      = rgba(40, 42, 54, 0.95)
+
+# black
+color0  = #000000
+color8  = #4d4d4d
+
+# red
+color1  = #ff5555
+color9  = #ff6e67
+
+# green
+color2  = #50fa7b
+color10 = #5af78e
+
+# yellow
+color3  = #f1fa8c
+color11 = #f4f99d
+
+# blue
+color4  = #bd93f9
+color12 = #caa9fa
+
+# magenta
+color5  = #ff79c6
+color13 = #ff92d0
+
+# cyan
+color6  = #8be9fd
+color14 = #9aedfe
+
+# white
+color7  = #bfbfbf
+color15 = #e6e6e6
