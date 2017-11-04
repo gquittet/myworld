@@ -1,6 +1,6 @@
 " ========================================
 "       Coded by Guillaume QUITTET
-"         Date Sun. 22th Oct 2017
+"         Date Sat. 4th Nov 2017
 " ========================================
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -95,6 +95,10 @@ Plugin 'godlygeek/tabular'
 " Install ctags before use it
 Plugin 'vim-scripts/Tagbar'
 
+" Tern
+" For JavaScript IDE features
+Plugin 'ternjs/tern_for_vim'
+
 " UndoTree : See all undos
 Plugin 'mbbill/undotree'
 
@@ -127,7 +131,7 @@ set cursorline      " Highlight the current line
 set expandtab		" Show spaces instead of tabs
 set foldenable                  " Auto fold code
 set foldmethod=syntax       " Fold are defined by syntax highlighting
-set formatoptions+=t
+set formatoptions-=t      " Keep my textwidth setting
 set hidden " Any buffer can be hidden
 set history=1000 " Set a huge history
 set hlsearch 		" highlight the search result
@@ -149,7 +153,8 @@ set spellsuggest=best
 set splitbelow      " Puts new split windows to the bottom of the current
 set splitright      " Puts new vsplit windows to the right of the current
 set tabstop=4		" limit the tabs to 4
-set textwidth=80           " Set the text width to 80 characters
+set textwidth=0           " Word wrap without line break
+set wrapmargin=0          " Word wrap without line break
 set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
 set wrap                        " Set wrapping
 set wildmenu                    " Show list instead of just completing
@@ -335,6 +340,9 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'pdf, aux'
 let g:livepreview_previewer = 'zathura'
 autocmd Filetype tex setl updatetime=1
+filetype indent on
+let g:tex_flavor='latex'
+set iskeyword+=:
 
 " Numbers.vim
 if isdirectory(expand("~/.vim/bundle/numbers.vim"))
@@ -387,6 +395,12 @@ let g:syntastic_java_javac_classpath = '~/opt/android-sdk/platforms/android-21/*
 
 " Undo tree
 let g:undotree_SetFocusWhenToggle=1
+
+"=====================================================
+" Spellchecking
+"=====================================================
+map <silent> <F7> "<Esc>:silent setlocal spell! spelllang=en<CR>"
+map <silent> <F6> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
 
 "=====================================================
 " Theme
