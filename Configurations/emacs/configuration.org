@@ -1,7 +1,8 @@
+
 #+TITLE: Emacs configuration
 #+AUTHOR: Guillaume QUITTET
 #+EMAIL: guillaume.quittet@gmail.com
-#+DATE: Sun 22th Oct 2017
+#+DATE: Sat. 4th Nov 2017
 * Package Manager
 ** Configuration
 #+BEGIN_SRC emacs-lisp
@@ -14,7 +15,7 @@
 #+END_SRC
 ** Package that I need.
 #+BEGIN_SRC emacs-lisp
-  (setq package-list '(ace-popup-menu aggressive-indent all-the-icons anaconda-mode android-mode async auctex bbdb browse-at-remote buffer-move column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-go company-jedi company-math company-php company-quickhelp company-restclient company-shell company-tern company-web dracula-theme eclim elpy emmet-mode emms exec-path-from-shell expand-region flycheck gist git git-gutter go-mode helm iedit imenu-anywhere impatient-mode jabber js2-mode json-mode lua-mode magit markdown-mode move-text neotree org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd sql-indent sqlplus tern undo-tree web-beautify web-mode yasnippet))
+(setq package-list '(ace-popup-menu aggressive-indent all-the-icons anaconda-mode android-mode async auctex browse-at-remote buffer-move column-marker company company-anaconda company-auctex company-c-headers company-edbi company-emacs-eclim company-go company-jedi company-math company-php company-quickhelp company-restclient company-shell company-tern company-web dracula-theme eclim elpy emmet-mode emms exec-path-from-shell expand-region flycheck gist git git-gutter go-mode helm iedit imenu-anywhere impatient-mode jabber js2-mode json-mode lua-mode magit markdown-mode move-text neotree org org-bullets org-plus-contrib ox-ioslide ox-reveal ox-twbs pdf-tools php-mode plantuml-mode projectile rainbow-delimiters rainbow-mode restclient scss-mode simple-httpd sql-indent sqlplus tern undo-tree web-beautify web-mode yasnippet))
 #+END_SRC
 ** Package initialize
 #+BEGIN_SRC emacs-lisp
