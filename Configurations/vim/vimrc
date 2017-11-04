@@ -327,6 +327,9 @@ set timeout ttimeoutlen=50
 " Clang completition
 let g:clang_library_path='/usr/lib/'
 
+" Grammalecte
+let g:grammalecte_cli_py='/opt/grammalecte/cli.py'
+
 " Indent Guide
 if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
     let g:indent_guides_start_level = 2
@@ -399,8 +402,8 @@ let g:undotree_SetFocusWhenToggle=1
 "=====================================================
 " Spellchecking
 "=====================================================
-map <silent> <F7> "<Esc>:silent setlocal spell! spelllang=en<CR>"
-map <silent> <F6> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
+map <F6> "<Esc>:silent setlocal spell! spelllang=en<CR>"
+map <F7> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
 
 "=====================================================
 " Theme
