@@ -145,7 +145,8 @@ set hlsearch 		" highlight the search result
 set ignorecase                  " Case insensitive search
 set incsearch       " Find as I type during the search
 set linespace=0 " No extra spaces between rows
-set nolist
+set list
+set listchars=tab:»»,trail:•,extends:>,precedes:<
 set nojoinspaces    " Prevents inserting two spaces after punctuation on a join (J)
 set path+=**        " fuzzy matching
 set relativenumber 		" set the number in vim
