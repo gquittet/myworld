@@ -6,9 +6,9 @@ macro index <f2> '<enter-command>source ~/.config/mutt/accounts/gmail/gmailrc<en
 macro index <f3> '<enter-command>source ~/.config/mutt/accounts/heh/hehrc<enter><change-folder>!<enter>'
 
 # HTML mails
-set mailcap_path = ~/.mutt/mailcap
-auto_view text/html
+set mailcap_path = ~/.config/mutt/mailcap
 alternative_order text/plain text/enriched text/html
+auto_view text/html
 
 # Editor
 set editor = "vim"
