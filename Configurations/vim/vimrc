@@ -1,6 +1,6 @@
 " ========================================
 "       Coded by Guillaume QUITTET
-"         Date Sat. 4th Nov 2017
+"         Date Sun. 5th Nov 2017
 " ========================================
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -13,6 +13,13 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+" Vim-Airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" Autopairs
+Plugin 'jiangmiao/auto-pairs'
 
 " c.vim : Speed up c writing on vim
 Plugin 'vim-scripts/c.vim'
@@ -29,7 +36,7 @@ Plugin 'easymotion/vim-easymotion'
 
 " Emmet : new ZenCoding
 " Use abreviations and then type : <C-Y>,
-Plugin 'vim-scripts/Emmet.vim'
+Plugin 'mattn/emmet-vim'
 
 " FastFold plugin
 Plugin 'Konfekt/FastFold'
@@ -325,7 +332,10 @@ set timeout ttimeoutlen=50
 " ====================================================
 " Plugins configuration
 " ====================================================
-"
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+
 " Clang completition
 let g:clang_library_path='/usr/lib/'
 
