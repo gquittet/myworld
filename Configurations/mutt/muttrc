@@ -10,6 +10,11 @@ set mailcap_path = ~/.config/mutt/mailcap
 alternative_order text/plain text/enriched text/html
 auto_view text/html
 
+# Contacts
+set alias_file = ~/.config/mutt/contacts/aliases
+set sort_alias = alias
+source ~/.config/mutt/contacts/aliases
+
 # Editor
 set editor = "vim"
 
