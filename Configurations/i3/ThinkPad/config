@@ -156,8 +156,29 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	position top
-        status_command i3status
+    status_command i3status
+    
+    colors {
+        background #282a36
+        statusline #e6e6e6
+        separator #4d4d4d
+        #                  border  backgr. text
+        focused_workspace  #bd93f9 #bd93f9 #f8f8f2
+        active_workspace   #4d4d4d #4d4d4d #f8f8f2
+        inactive_workspace #282a36 #282a36 #4d4d4d
+        urgent_workspace   #ff5555 #ff5555 #f8f8f2
+    }
 }
+
+# Colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #4d4d4d #4d4d4d #f8f8f2 #bd93f9  #285577
+client.focused_inactive #282a36 #282a36 #e6e6e6 #484e50   #5f676a
+client.unfocused        #282a36 #222222 #e6e6e6 #292d2e   #222222
+client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
 
 # Disable title bar
 new_window none
@@ -188,7 +209,7 @@ bindsym XF86Display exec termite -e "bash -c ~/.config/i3/scripts/display.sh"
 # bindsym XF86WLAN exec urxvt -e bash -c "kill-wifi"
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-fill "/home/user/.wallpapers/panda_wallpaper_by_apofiss-dahj9x5.jpg"
+exec_always --no-startup-id feh --bg-fill "/home/gquittet/.wallpapers/panda_wallpaper_by_apofiss-dahj9x5.jpg"
 
 # Maximize and minimize
 bindsym $mod+m scratchpad show

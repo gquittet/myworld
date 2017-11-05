@@ -11,13 +11,15 @@ esac
 
 rofi -modi "drun,window" \
     -show $showAction \
-    -font "Fira Mono 14" \
+    -dpi 144 \
+    -font "Fira Mono 12" \
+    -hide-scrollbar \
+    -location 0 \
+    -fullscreen \
     -lines 7 \
-    -separator-style none \
-    -location 1 \
-    -width 100 \
-    -line-padding 2 \
-    -color-window "#222222, #222222, #b1b4b3" \
-    -color-normal "#222222, #b1b4b3, #222222, #005577, #b1b4b3" \
-    -color-active "#222222, #b1b4b3, #222222, #007763, #b1b4b3" \
-    -color-urgent "#222222, #b1b4b3, #222222, #77003d, #b1b4b3"
+    -padding 340 \
+    -sidebar-mode \
+    -color-window "argb:ee282a36, argb:ee282a36" \
+    -color-normal "argb:ee282a36, #e6e6e6, argb:ee282a36, argb:eebd93f9, #f8f8f2" \
+    -color-active "argb:ee282a36, #e6e6e6, argb:ee282a36, argb:eebd93f9, #f8f8f2" \
+    -color-urgent "argb:ee282a36, #bd93f9, argb:ee282a36, argb:ee77003d, #bd93f9"
