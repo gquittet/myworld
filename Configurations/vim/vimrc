@@ -316,11 +316,6 @@ map <leader>tt :TagbarToggle<CR>
 " Undo tree
 map <Leader>u :UndotreeToggle<CR>
 
-" Save and quit
-" Don't forget to add this line in the ~/.bashrc file : stty -ixon
-map <C-s> :w!<CR>
-map <C-q> :q<CR>
-
 " Fix alt key for Vim Latex
 let c='a'
 while c <= 'z'
