@@ -28,7 +28,7 @@ ipv6 {
 }
 
 wireless _first_ {
-        format_up   = " %essid (%quality, %bitrate, %frequency) %ip"
+        format_up   = " %essid (%quality) %ip"
         format_down = ""
 }
 
