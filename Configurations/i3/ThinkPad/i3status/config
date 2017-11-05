@@ -64,7 +64,7 @@ tztime hour {
 
 volume master {
    format       = " %volume"
-   format_muted = " %volume"
+   format_muted = " Muted (%volume)"
    device       = "pulse:0"
 }
 
