@@ -283,26 +283,24 @@ let g:sparkupExecuteMapping='<Leader>se'
 let g:sparkupNextMapping='<Leader>sn'
 
 " Tabular
-if exists(":Tabularize")
-    nmap <Leader>t& :Tabularize /&<CR>
-    vmap <Leader>t& :Tabularize /&<CR>
-    nmap <Leader>t= :Tabularize /=<CR>
-    vmap <Leader>t= :Tabularize /=<CR>
-    nmap <Leader>t=> :Tabularize /=><CR>
-    vmap <Leader>t=> :Tabularize /=><CR>
-    nmap <Leader>t: :Tabularize /:<CR>
-    vmap <Leader>t: :Tabularize /:<CR>
-    nmap <Leader>t:: :Tabularize /:\zs<CR>
-    vmap <Leader>t:: :Tabularize /:\zs<CR>
-    nmap <Leader>t, :Tabularize /,<CR>
-    vmap <Leader>t, :Tabularize /,<CR>
-    nmap <Leader>t,, :Tabularize /,\zs<CR>
-    vmap <Leader>t,, :Tabularize /,\zs<CR>
-    nmap <Leader>t<Bar> :Tabularize /<Bar><CR>
-    vmap <Leader>t<Bar> :Tabularize /<Bar><CR>
-    nmap <Leader>t\ :Tabularize /\\<CR>
-    vmap <Leader>t\ :Tabularize /\\<CR>
-endif
+nmap <Leader>t& :Tabularize /&<CR>
+vmap <Leader>t& :Tabularize /&<CR>
+nmap <Leader>t= :Tabularize /=<CR>
+vmap <Leader>t= :Tabularize /=<CR>
+nmap <Leader>t=> :Tabularize /=><CR>
+vmap <Leader>t=> :Tabularize /=><CR>
+nmap <Leader>t: :Tabularize /:<CR>
+vmap <Leader>t: :Tabularize /:<CR>
+nmap <Leader>t:: :Tabularize /:\zs<CR>
+vmap <Leader>t:: :Tabularize /:\zs<CR>
+nmap <Leader>t, :Tabularize /,<CR>
+vmap <Leader>t, :Tabularize /,<CR>
+nmap <Leader>t,, :Tabularize /,\zs<CR>
+vmap <Leader>t,, :Tabularize /,\zs<CR>
+nmap <Leader>t<Bar> :Tabularize /<Bar><CR>
+vmap <Leader>t<Bar> :Tabularize /<Bar><CR>
+nmap <Leader>t\ :Tabularize /\\<CR>
+vmap <Leader>t\ :Tabularize /\\<CR>
 
 " Tagbar
 map <leader>tt :TagbarToggle<CR>
