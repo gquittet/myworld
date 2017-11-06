@@ -131,6 +131,8 @@ set listchars=tab:»»,trail:•,nbsp:~ " Display invisible characters
 set nojoinspaces    " Prevents inserting two spaces after punctuation on a join (J)
 set path+=**        " fuzzy matching
 set relativenumber  " set the number in vim
+set scrolljump=5                " Lines to scroll when cursor leaves screen
+set scrolloff=3                 " Minimum lines to keep above and below cursor
 set shiftwidth=4    " set the tab size
 set showmatch       " Show current brackets
 set smartcase                   " Case sensitive when uc present
