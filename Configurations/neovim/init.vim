@@ -27,6 +27,9 @@ Plug 'dracula/vim'
 " Press <Leader> <Leader> and the letter that you want to go
 Plug 'easymotion/vim-easymotion'
 
+" Eclim for neovim
+Plug 'starcraftman/vim-eclim'
+
 " Emmet : new ZenCoding
 " Use abreviations and then type : <C-Y>,
 Plug 'mattn/emmet-vim'
@@ -52,12 +55,6 @@ Plug 'vim-scripts/javacomplete'
 " Don't forget to install this : sudo pip install jedi
 Plug 'davidhalter/jedi-vim'
 
-" NERDTree
-Plug 'scrooloose/nerdtree'
-
-" Python-mode : VIM as a python ide
-Plug 'klen/python-mode'
-
 " VIM-LaTeX : VIM as a LaTeX IDE
 Plug 'vim-latex/vim-latex'
 
@@ -70,15 +67,21 @@ Plug 'tmhedberg/matchit'
 " NERDCommenter : Better comments in vim
 Plug 'scrooloose/nerdcommenter'
 
+" NERDTree
+Plug 'scrooloose/nerdtree'
+
+" Python-mode : VIM as a python ide
+Plug 'klen/python-mode'
+
 " Numbers.vim
 Plug 'myusuf3/numbers.vim'
-
 
 " Surround
 Plug 'tpope/vim-surround'
 
 " Syntastic : Check errors
 Plug 'scrooloose/syntastic'
+Plug 'Scuilion/gradle-syntastic-plugin'
 
 " Tabular : useful for great alignement
 Plug 'godlygeek/tabular'
@@ -330,8 +333,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" The place of the android sdk
-let g:syntastic_java_javac_classpath = '/opt/android-sdk/platforms/android-26/*.jar'
+let g:syntastic_java_checkers=['javac']
+let g:syntastic_java_javac_config_file_enabled = 1
 
 " Undo tree
 let g:undotree_SetFocusWhenToggle=1
@@ -339,8 +342,9 @@ let g:undotree_SetFocusWhenToggle=1
 "=====================================================
 " Spellchecking
 "=====================================================
-map <F6> "<Esc>:silent setlocal spell! spelllang=en<CR>"
-map <F7> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
+map <F8> "<Esc>:silent setlocal nospell!<CR>"
+map <F9> "<Esc>:silent setlocal spell! spelllang=en<CR>"
+map <F10> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
 set spellsuggest=best
 
 "=====================================================
