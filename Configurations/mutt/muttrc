@@ -16,5 +16,5 @@ set sort_alias = alias
 source ~/.config/mutt/contacts/aliases
 
 # Editor
-set editor = "vim"
+set editor = "nvim"
 
