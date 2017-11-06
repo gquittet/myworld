@@ -102,24 +102,16 @@ Plug 'vim-scripts/ZoomWin'
 call plug#end()            " required
 filetype plugin indent on    " required
 syntax enable               " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+
+
+
 " ====================================================
 " Global configuration
 " ====================================================
 "
 set autowrite " Save automatically all the buffers in vim
 set backup
-set colorcolumn=+1  " Set the 80 character column
+set colorcolumn=81  " Set the 80 character column
 set cursorline      " Highlight the current line
 set expandtab       " Show spaces instead of tabs
 set foldenable                  " Auto fold code
@@ -135,15 +127,11 @@ set list
 set listchars=tab:»»,trail:•,nbsp:~ " Display invisible characters
 set nojoinspaces    " Prevents inserting two spaces after punctuation on a join (J)
 set path+=**        " fuzzy matching
-set relativenumber 		" set the number in vim
-set scrolljump=5                " Lines to scroll when cursor leaves screen
-set scrolloff=3                 " Minimum lines to keep above and below cursor
+set relativenumber  " set the number in vim
 set shiftwidth=4    " set the tab size
 set showmatch       " Show current brackets
 set smartcase                   " Case sensitive when uc present
-set smartindent 	" set auto ident
-set spelllang=en_us
-set spellsuggest=best
+set smartindent     " set auto ident
 set splitbelow      " Puts new split windows to the bottom of the current
 set splitright      " Puts new vsplit windows to the right of the current
 set tabstop=4       " limit the tabs to 4
@@ -155,44 +143,6 @@ set wildmenu                    " Show list instead of just completing
 set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 set winminheight=0              " Windows can be 0 line high
 set wm=2            " set a space before the text
-
-" Initialize directories : Thanks to SPF13 : The ultimate vim configuration
-    function! InitializeDirectories()
-        let parent = $HOME
-        let prefix = 'vim'
-        let dir_list = {
-                    \ 'backup': 'backupdir',
-                    \ 'views': 'viewdir',
-                    \ 'undos' : 'undodir',
-                    \ 'swap': 'directory' }
-
-        if has('persistent_undo')
-            set undodir=~/.vim/.undos/
-            set undofile                " So is persistent undo ...
-            set undolevels=1000         " Maximum number of changes that can be undone
-            set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
-        endif
-
-        for [dirname, settingname] in items(dir_list)
-            let directory = parent . '/.'.  prefix . '/.' . dirname . '/'
-            if exists("*mkdir")
-                if !isdirectory(directory)
-                    call mkdir(directory)
-                endif
-            endif
-            if !isdirectory(directory)
-                echo "Warning: Unable to create backup directory: " . directory
-                echo "Try: mkdir -p " . directory
-            else
-                let directory = substitute(directory, " ", "\\\\ ", "g")
-                exec "set " . settingname . "=" . directory
-            endif
-        endfor
-        set backupdir=~/.vim/.backup//
-        set directory=~/.vim/.swap//
-        set viewdir=~/.vim/.views//
-    endfunction
-    call InitializeDirectories()
 
 
 " Useful git help
@@ -333,15 +283,12 @@ let g:tex_flavor='latex'
 set iskeyword+=:
 
 " Numbers.vim
-if isdirectory(expand("~/.vim/bundle/numbers.vim"))
-    let g:enable_numbers = 1
-    let g:numbers_exclude = ['unite', 'startify', 'w3m', 'vimshell', 'tagbar', 'gundo', 'minibufexpl', 'nerdtree']
-    :au FocusLost * :set number
-    :au FocusGained * :set relativenumber
-    autocmd InsertEnter * :set number
-    autocmd InsertLeave * :set relativenumber
-    " Source : http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
-endif
+let g:enable_numbers = 1
+let g:numbers_exclude = ['unite', 'startify', 'w3m', 'vimshell', 'tagbar', 'gundo', 'minibufexpl', 'nerdtree']
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
 
 " Python-mode
 let g:pymode_rope = 0
@@ -389,6 +336,7 @@ let g:undotree_SetFocusWhenToggle=1
 "=====================================================
 map <F6> "<Esc>:silent setlocal spell! spelllang=en<CR>"
 map <F7> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
+set spellsuggest=best
 
 "=====================================================
 " Theme
@@ -396,9 +344,7 @@ map <F7> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
 " Set the full color compatibility for vim and terminal
 syntax on
 color dracula
-if has('gui_running')
-  set guifont=Fira\ Mono\ 10
-endif
+set guifont=Fira\ Mono\ 10
 hi Normal ctermbg=NONE
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
