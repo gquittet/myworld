@@ -145,6 +145,11 @@ set winminheight=0              " Windows can be 0 line high
 set wm=2            " set a space before the text
 
 
+" Vim directories
+set backupdir=~/.local/share/nvim/backup//
+set directory=~/.local/share/nvim/swap//
+set viewdir=~/.local/share/nvim/views//
+
 " Useful git help
 " Instead of reverting the cursor to the last position in the buffer, we
 " " set it to the first line when editing a git commit message
