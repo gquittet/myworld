@@ -1,0 +1,407 @@
+" ========================================
+"       Coded by Guillaume QUITTET
+"         Date Sun. 5th Nov 2017
+" ========================================
+call plug#begin('~/.local/share/nvim/plugged')
+
+" Vim-Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Autopairs
+Plug 'jiangmiao/auto-pairs'
+
+" c.vim : Speed up c writing on vim
+Plug 'vim-scripts/c.vim'
+
+" Clang-complete : for C/C++ autocomplete
+Plug 'Rip-Rip/clang_complete'
+
+" VIM-Dispatch : Useful for starting Omnisharp
+Plug 'tpope/vim-dispatch'
+
+" Dracula theme
+Plug 'dracula/vim'
+
+" Easy Motion : faster move in vim
+" Press <Leader> <Leader> and the letter that you want to go
+Plug 'easymotion/vim-easymotion'
+
+" Emmet : new ZenCoding
+" Use abreviations and then type : <C-Y>,
+Plug 'mattn/emmet-vim'
+
+" FastFold plugin
+Plug 'Konfekt/FastFold'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plug 'tpope/vim-fugitive'
+
+" Grammalecte
+Plug 'dpelle/vim-Grammalecte'
+
+" Indent Guide
+Plug 'nathanaelkane/vim-indent-guides'
+
+" Java auto complete
+Plug 'vim-scripts/javacomplete'
+
+" Jedi vim : Python completition
+" Don't forget to install this : sudo pip install jedi
+Plug 'davidhalter/jedi-vim'
+
+" NERDTree
+Plug 'scrooloose/nerdtree'
+
+" Python-mode : VIM as a python ide
+Plug 'klen/python-mode'
+
+" VIM-LaTeX : VIM as a LaTeX IDE
+Plug 'vim-latex/vim-latex'
+
+" Markdown Preview
+Plug 'suan/vim-instant-markdown'
+
+" Matchit : useful to switch between the start and the end of a function
+Plug 'tmhedberg/matchit'
+
+" NERDCommenter : Better comments in vim
+Plug 'scrooloose/nerdcommenter'
+
+" Numbers.vim
+Plug 'myusuf3/numbers.vim'
+
+
+" Surround
+Plug 'tpope/vim-surround'
+
+" Syntastic : Check errors
+Plug 'scrooloose/syntastic'
+
+" Tabular : useful for great alignement
+Plug 'godlygeek/tabular'
+
+" TagBar
+" Install ctags before use it
+Plug 'vim-scripts/Tagbar'
+
+" Tern
+" For JavaScript IDE features
+Plug 'ternjs/tern_for_vim'
+
+" UndoTree : See all undos
+Plug 'mbbill/undotree'
+
+" ZoomWin : Show a buffer only without kill the others
+" Use <C-w>o to show and hide buffer
+Plug 'vim-scripts/ZoomWin'
+
+" All of your Plugins must be added before the following line
+call plug#end()            " required
+filetype plugin indent on    " required
+syntax enable               " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+" ====================================================
+" Global configuration
+" ====================================================
+"
+set autowrite " Save automatically all the buffers in vim
+set backup
+set colorcolumn=+1  " Set the 80 character column
+set cursorline      " Highlight the current line
+set expandtab       " Show spaces instead of tabs
+set foldenable                  " Auto fold code
+set foldmethod=syntax       " Fold are defined by syntax highlighting
+set formatoptions-=t      " Keep my textwidth setting
+set hidden " Any buffer can be hidden
+set history=1000 " Set a huge history
+set hlsearch        " highlight the search result
+set ignorecase                  " Case insensitive search
+set incsearch       " Find as I type during the search
+set linespace=0 " No extra spaces between rows
+set list
+set listchars=tab:»»,trail:•,nbsp:~ " Display invisible characters
+set nojoinspaces    " Prevents inserting two spaces after punctuation on a join (J)
+set path+=**        " fuzzy matching
+set relativenumber 		" set the number in vim
+set scrolljump=5                " Lines to scroll when cursor leaves screen
+set scrolloff=3                 " Minimum lines to keep above and below cursor
+set shiftwidth=4    " set the tab size
+set showmatch       " Show current brackets
+set smartcase                   " Case sensitive when uc present
+set smartindent 	" set auto ident
+set spelllang=en_us
+set spellsuggest=best
+set splitbelow      " Puts new split windows to the bottom of the current
+set splitright      " Puts new vsplit windows to the right of the current
+set tabstop=4       " limit the tabs to 4
+set textwidth=0           " Word wrap without line break
+set wrapmargin=0          " Word wrap without line break
+set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+set wrap                        " Set wrapping
+set wildmenu                    " Show list instead of just completing
+set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+set winminheight=0              " Windows can be 0 line high
+set wm=2            " set a space before the text
+
+" Initialize directories : Thanks to SPF13 : The ultimate vim configuration
+    function! InitializeDirectories()
+        let parent = $HOME
+        let prefix = 'vim'
+        let dir_list = {
+                    \ 'backup': 'backupdir',
+                    \ 'views': 'viewdir',
+                    \ 'undos' : 'undodir',
+                    \ 'swap': 'directory' }
+
+        if has('persistent_undo')
+            set undodir=~/.vim/.undos/
+            set undofile                " So is persistent undo ...
+            set undolevels=1000         " Maximum number of changes that can be undone
+            set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+        endif
+
+        for [dirname, settingname] in items(dir_list)
+            let directory = parent . '/.'.  prefix . '/.' . dirname . '/'
+            if exists("*mkdir")
+                if !isdirectory(directory)
+                    call mkdir(directory)
+                endif
+            endif
+            if !isdirectory(directory)
+                echo "Warning: Unable to create backup directory: " . directory
+                echo "Try: mkdir -p " . directory
+            else
+                let directory = substitute(directory, " ", "\\\\ ", "g")
+                exec "set " . settingname . "=" . directory
+            endif
+        endfor
+        set backupdir=~/.vim/.backup//
+        set directory=~/.vim/.swap//
+        set viewdir=~/.vim/.views//
+    endfunction
+    call InitializeDirectories()
+
+
+" Useful git help
+" Instead of reverting the cursor to the last position in the buffer, we
+" " set it to the first line when editing a git commit message
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+" Enable Omni Completiton
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType java set omnifunc=javacomplete#Complete
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+"=====================================================
+" Keymap configuration
+"=====================================================
+let mapleader = ","
+let g:mapleader = ","
+
+" Buffer
+nmap <leader>bn :bnext<CR>
+nmap <leader>bp :bprevious<CR>
+nmap <leader>bf :bfirst<CR>
+nmap <leader>bd :bdelete<CR>
+
+" Disable the arrow keys
+nmap <UP> <NOP>
+nmap <DOWN> <NOP>
+nmap <LEFT> <NOP>
+nmap <RIGHT> <NOP>
+imap <UP> <NOP>
+imap <DOWN> <NOP>
+imap <LEFT> <NOP>
+imap <RIGHT> <NOP>
+vmap <UP> <NOP>
+vmap <DOWN> <NOP>
+vmap <LEFT> <NOP>
+vmap <RIGHT> <NOP>
+
+" Git
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>ga :Git add -A<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gl :Glog<CR>
+nmap <leader>gp :Gpush<CR>
+nmap <leader>gr :Gread<CR>
+nmap <leader>gw :Gwrite<CR>
+nmap <leader>ge :Gedit<CR>
+
+" Highlight
+map <C-h> :nohl<CR>
+
+" Fix the indentation
+nmap <Leader>fi gg=G<CR>
+vmap <Leader>fi =<CR>
+
+" Languagetool
+nmap <Leader>lc :LanguageToolCheck<CR>
+vmap <Leader>lc :LanguageToolCheck<CR>
+nmap <Leader>lh :LanguageToolClear<CR>
+vmap <Leader>lh :LanguageToolClear<CR>
+nmap <Leader>ls :call SwitchLanguage()<CR>
+vmap <Leader>ls :call SwitchLanguage()<CR>
+
+" Numbers.vim
+nnoremap <F3> :NumbersToggle<CR>
+nnoremap <F4> :NumbersOnOff<CR>
+
+" Set a good paste
+nmap <leader>p :set paste<CR>
+vmap <leader>p :set paste<CR>
+nmap <leader>np :set nopaste<CR>
+vmap <leader>np :set nopaste<CR>
+
+" Sparkup
+let g:sparkupExecuteMapping='<Leader>se'
+let g:sparkupNextMapping='<Leader>sn'
+
+" Tabular
+nmap <Leader>t& :Tabularize /&<CR>
+vmap <Leader>t& :Tabularize /&<CR>
+nmap <Leader>t= :Tabularize /=<CR>
+vmap <Leader>t= :Tabularize /=<CR>
+nmap <Leader>t=> :Tabularize /=><CR>
+vmap <Leader>t=> :Tabularize /=><CR>
+nmap <Leader>t: :Tabularize /:<CR>
+vmap <Leader>t: :Tabularize /:<CR>
+nmap <Leader>t:: :Tabularize /:\zs<CR>
+vmap <Leader>t:: :Tabularize /:\zs<CR>
+nmap <Leader>t, :Tabularize /,<CR>
+vmap <Leader>t, :Tabularize /,<CR>
+nmap <Leader>t,, :Tabularize /,\zs<CR>
+vmap <Leader>t,, :Tabularize /,\zs<CR>
+nmap <Leader>t<Bar> :Tabularize /<Bar><CR>
+vmap <Leader>t<Bar> :Tabularize /<Bar><CR>
+nmap <Leader>t\ :Tabularize /\\<CR>
+vmap <Leader>t\ :Tabularize /\\<CR>
+
+" Tagbar
+map <leader>tt :TagbarToggle<CR>
+
+" Undo tree
+map <Leader>u :UndotreeToggle<CR>
+
+" ====================================================
+" Plugins configuration
+" ====================================================
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+
+" Clang completition
+let g:clang_library_path='/usr/lib/'
+
+" Grammalecte
+let g:grammalecte_cli_py='/opt/grammalecte/cli.py'
+
+" Indent Guide
+if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_guide_size = 1
+    let g:indent_guides_enable_on_vim_startup = 1
+endif
+
+" VIM-LaTeX
+let g:Tex_CompileRule_pdf = 'xelatex --synctex=1 -interaction=nonstopmode $*'
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_MultipleCompileFormats = 'pdf, aux'
+let g:livepreview_previewer = 'zathura'
+autocmd Filetype tex setl updatetime=1
+filetype indent on
+let g:tex_flavor='latex'
+set iskeyword+=:
+
+" Numbers.vim
+if isdirectory(expand("~/.vim/bundle/numbers.vim"))
+    let g:enable_numbers = 1
+    let g:numbers_exclude = ['unite', 'startify', 'w3m', 'vimshell', 'tagbar', 'gundo', 'minibufexpl', 'nerdtree']
+    :au FocusLost * :set number
+    :au FocusGained * :set relativenumber
+    autocmd InsertEnter * :set number
+    autocmd InsertLeave * :set relativenumber
+    " Source : http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+endif
+
+" Python-mode
+let g:pymode_rope = 0
+let g:pymode_rope_lookup_project = 0
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+
+" Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+" Auto check on save
+let g:pymode_lint_write = 1
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>b'
+
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" Thanks to SPF13-vim the best vim configuration
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" The place of the android sdk
+let g:syntastic_java_javac_classpath = '/opt/android-sdk/platforms/android-26/*.jar'
+
+" Undo tree
+let g:undotree_SetFocusWhenToggle=1
+
+"=====================================================
+" Spellchecking
+"=====================================================
+map <F6> "<Esc>:silent setlocal spell! spelllang=en<CR>"
+map <F7> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
+
+"=====================================================
+" Theme
+"=====================================================
+" Set the full color compatibility for vim and terminal
+syntax on
+color dracula
+if has('gui_running')
+  set guifont=Fira\ Mono\ 10
+endif
+hi Normal ctermbg=NONE
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+set guicursor= "Remove the gui cursor
