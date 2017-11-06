@@ -337,6 +337,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_java_checkers=['javac']
 let g:syntastic_java_javac_config_file_enabled = 1
+" Ignore LaTeX lstlisting environnement
+let g:syntastic_quiet_messages = { "regex": [
+        \ '\mpossible unwanted space at "{"',
+        \ 'SOME OTHER SYNTASTIC MESSAGE'
+        \ ] }
 
 " Undo tree
 let g:undotree_SetFocusWhenToggle=1
