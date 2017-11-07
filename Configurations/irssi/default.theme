@@ -1,5 +1,5 @@
 default_color = "-1";
 
-abstracts {
+abstracts = {
     sb_background = "%w";
 };
