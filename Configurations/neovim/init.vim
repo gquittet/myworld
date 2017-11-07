@@ -34,12 +34,7 @@ Plug 'starcraftman/vim-eclim'
 " Use abreviations and then type : <C-Y>,
 Plug 'mattn/emmet-vim'
 
-" FastFold plugin
-Plug 'Konfekt/FastFold'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
+" Git
 Plug 'tpope/vim-fugitive'
 
 " Grammalecte
@@ -125,7 +120,7 @@ set backup
 set colorcolumn=81  " Set the 80 character column
 set cursorline      " Highlight the current line
 set expandtab       " Show spaces instead of tabs
-set foldenable                  " Auto fold code
+set foldenable          " Auto fold code
 set foldmethod=syntax       " Fold are defined by syntax highlighting
 set formatoptions-=t      " Keep my textwidth setting
 set hidden " Any buffer can be hidden
@@ -242,10 +237,6 @@ nmap <leader>p :set paste<CR>
 vmap <leader>p :set paste<CR>
 nmap <leader>np :set nopaste<CR>
 vmap <leader>np :set nopaste<CR>
-
-" Sparkup
-let g:sparkupExecuteMapping='<Leader>se'
-let g:sparkupNextMapping='<Leader>sn'
 
 " Tabular
 nmap <Leader>t& :Tabularize /&<CR>
@@ -370,9 +361,8 @@ let g:undotree_SetFocusWhenToggle=1
 "=====================================================
 " Spellchecking
 "=====================================================
-map <F8> "<Esc>:silent setlocal nospell!<CR>"
-map <F9> "<Esc>:silent setlocal spell! spelllang=en<CR>"
-map <F10> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
+map <F9> <Esc>:silent setlocal spell! spelllang=en<CR>
+map <F10> <Esc>:silent setlocal spell! spelllang=fr<CR>
 set spellsuggest=best
 
 "=====================================================
