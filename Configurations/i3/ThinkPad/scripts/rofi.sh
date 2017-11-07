@@ -15,9 +15,7 @@ rofi -modi "drun,window"                                                        
     -font "Fira Mono 12"                                                          \
     -hide-scrollbar                                                               \
     -location 0                                                                   \
-    -fullscreen                                                                   \
     -lines 7                                                                      \
-    -padding 240                                                                  \
     -sidebar-mode                                                                 \
     -color-window "argb:ee282a36, argb:ee282a36, #f8f8f2"                         \
     -color-normal "argb:ee282a36, #e6e6e6, argb:ee282a36, argb:eebd93f9, #f8f8f2" \
