@@ -27,6 +27,8 @@ I've added these lines to *rc.conf*
 
 ```
 map cW bulkrename %s
+map cd console mkdir%space
+map cf console touch%space
 ```
 ### For picture rendering
 I've added these lines to *rc.conf*
