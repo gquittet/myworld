@@ -230,6 +230,9 @@ vmap <Leader>lh :LanguageToolClear<CR>
 nmap <Leader>ls :call SwitchLanguage()<CR>
 vmap <Leader>ls :call SwitchLanguage()<CR>
 
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
 " Numbers.vim
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
