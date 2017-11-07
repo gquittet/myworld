@@ -94,6 +94,14 @@ Plug 'vim-scripts/Tagbar'
 " For JavaScript IDE features
 Plug 'ternjs/tern_for_vim'
 
+" TypeScript
+" Dependencies
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+" IDE Feature
+Plug 'Quramy/tsuquyomi'
+" Syntax highlighting
+Plug 'leafgarland/typescript-vim'
+
 " UndoTree : See all undos
 Plug 'mbbill/undotree'
 
@@ -162,13 +170,13 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " Enable Omni Completiton
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType java set omnifunc=javacomplete#Complete
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType java set omnifunc=javacomplete#Complete
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 "=====================================================
 " Keymap configuration
@@ -342,6 +350,16 @@ let g:syntastic_quiet_messages = { "regex": [
         \ '\mpossible unwanted space at "{"',
         \ 'SOME OTHER SYNTASTIC MESSAGE'
         \ ] }
+
+" TypeScript
+" Refractor feature
+autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
+autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)
+" Syntastic integration
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
+" Tooltip
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 
 " Undo tree
 let g:undotree_SetFocusWhenToggle=1
