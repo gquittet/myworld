@@ -158,16 +158,10 @@ set wildmode=list:longest,full  " Command <Tab> completion, list matches, then l
 set winminheight=0              " Windows can be 0 line high
 set wm=2            " set a space before the text
 
-
 " Vim directories
 set backupdir=~/.local/share/nvim/backup//
 set directory=~/.local/share/nvim/swap//
 set viewdir=~/.local/share/nvim/views//
-
-" Useful git help
-" Instead of reverting the cursor to the last position in the buffer, we
-" " set it to the first line when editing a git commit message
-au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " Enable Omni Completiton
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -219,10 +213,6 @@ nmap <leader>ge :Gedit<CR>
 " Highlight
 map <C-h> :nohl<CR>
 
-" Fix the indentation
-nmap <Leader>fi gg=G<CR>
-vmap <Leader>fi =<CR>
-
 " Languagetool
 nmap <Leader>lc :LanguageToolCheck<CR>
 vmap <Leader>lc :LanguageToolCheck<CR>
@@ -237,12 +227,6 @@ map <C-n> :NERDTreeToggle<CR>
 " Numbers.vim
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
-
-" Set a good paste
-nmap <leader>p :set paste<CR>
-vmap <leader>p :set paste<CR>
-nmap <leader>np :set nopaste<CR>
-vmap <leader>np :set nopaste<CR>
 
 " Tabular
 nmap <Leader>t& :Tabularize /&<CR>
@@ -279,6 +263,12 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Clang completition
 let g:clang_library_path='/usr/lib/'
+
+" Git
+" Useful git help
+" Instead of reverting the cursor to the last position in the buffer, we
+" " set it to the first line when editing a git commit message
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " Grammalecte
 let g:grammalecte_cli_py='/opt/grammalecte/cli.py'
