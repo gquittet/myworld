@@ -237,6 +237,7 @@ bindsym XF86Display exec $term -e "bash -c ~/.config/i3/scripts/display.sh"
 # Wallpaper
 exec_always --no-startup-id feh --bg-fill "/home/gquittet/.wallpapers/panda_wallpaper_by_apofiss-dahj9x5.jpg"
 
+
 # Maximize and minimize
 bindsym $mod+m scratchpad show
 bindsym $mod+n move scratchpad
