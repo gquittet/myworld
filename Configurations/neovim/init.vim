@@ -119,6 +119,7 @@ set autowrite " Save automatically all the buffers in vim
 set backup
 set colorcolumn=81  " Set the 80 character column
 set cursorline      " Highlight the current line
+set encoding=utf-8
 set expandtab       " Show spaces instead of tabs
 set foldenable          " Auto fold code
 set foldmethod=syntax       " Fold are defined by syntax highlighting
