@@ -1,118 +1,120 @@
 " ========================================
 "       Coded by Guillaume QUITTET
-"         Date Sun. 5th Nov 2017
+"         Date Sun. 12th Nov 2017
 " ========================================
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install pl ugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Vim-Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Vim-Android
+Plug 'hsanson/vim-android'
 
 " Autopairs
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 " c.vim : Speed up c writing on vim
-Plugin 'vim-scripts/c.vim'
+Plug 'vim-scripts/c.vim'
 
 " Clang-complete : for C/C++ autocomplete
-Plugin 'Rip-Rip/clang_complete'
+Plug 'Rip-Rip/clang_complete'
 
 " VIM-Dispatch : Useful for starting Omnisharp
-Plugin 'tpope/vim-dispatch'
+Plug 'tpope/vim-dispatch'
 
 " Dracula theme
-Plugin 'dracula/vim'
+Plug 'dracula/vim'
 
 " Easy Motion : faster move in vim
 " Press <Leader> <Leader> and the letter that you want to go
-Plugin 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 
 " Eclim for neovim
-Plugin 'starcraftman/vim-eclim'
+Plug 'starcraftman/vim-eclim'
 
 " Emmet : new ZenCoding
 " Use abreviations and then type : <C-Y>,
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
 " Git
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Grammalecte
-Plugin 'dpelle/vim-Grammalecte'
+Plug 'dpelle/vim-Grammalecte'
 
 " Indent Guide
-Plugin 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 
-" Java auto complete
-Plugin 'vim-scripts/javacomplete'
+" JavaComplete2
+Plug 'artur-shaik/vim-javacomplete2'
 
 " Jedi vim : Python completition
 " Don't forget to install this : sudo pip install jedi
-Plugin 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'
 
 " VIM-LaTeX : VIM as a LaTeX IDE
-Plugin 'vim-latex/vim-latex'
+Plug 'vim-latex/vim-latex'
 
 " Markdown Preview
-Plugin 'suan/vim-instant-markdown'
+Plug 'suan/vim-instant-markdown'
 
 " Matchit : useful to switch between the start and the end of a function
-Plugin 'tmhedberg/matchit'
+Plug 'tmhedberg/matchit'
 
 " NERDCommenter : Better comments in vim
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 " NERDTree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " Python-mode : VIM as a python ide
-Plugin 'klen/python-mode'
+Plug 'klen/python-mode'
 
 " Numbers.vim
-Plugin 'myusuf3/numbers.vim'
+Plug 'myusuf3/numbers.vim'
+
+" PHP Autocomplete
+Plug 'shawncplus/phpcomplete.vim'
 
 " Surround
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " Syntastic : Check errors
-Plugin 'scrooloose/syntastic'
-Plugin 'Scuilion/gradle-syntastic-plugin'
+Plug 'scrooloose/syntastic'
+Plug 'Scuilion/gradle-syntastic-plugin'
 
 " Tabular : useful for great alignement
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 
 " TagBar
 " Install ctags before use it
-Plugin 'vim-scripts/Tagbar'
+Plug 'vim-scripts/Tagbar'
 
 " Tern
 " For JavaScript IDE features
-Plugin 'ternjs/tern_for_vim'
+Plug 'ternjs/tern_for_vim'
 
 " TypeScript
 " Dependencies
-Plugin 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 " IDE Feature
-Plugin 'Quramy/tsuquyomi'
+Plug 'Quramy/tsuquyomi'
 " Syntax highlighting
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 
 " UndoTree : See all undos
-Plugin 'mbbill/undotree'
+Plug 'mbbill/undotree'
 
 " ZoomWin : Show a buffer only without kill the others
 " Use <C-w>o to show and hide buffer
-Plugin 'vim-scripts/ZoomWin'
+Plug 'vim-scripts/ZoomWin'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()             " required
 syntax enable               " required
 
 
@@ -120,63 +122,80 @@ syntax enable               " required
 " ====================================================
 " Global configuration
 " ====================================================
-"
-set autowrite " Save automatically all the buffers in vim
+
+set autowrite                       " Save automatically all the buffers in vim
 set backup
-set colorcolumn=81  " Set the 80 character column
-set cursorline      " Highlight the current line
+set colorcolumn=81                  " Set the 80 character column
+set cursorline                      " Highlight the current line
 set encoding=utf-8
-set expandtab       " Show spaces instead of tabs
+set hidden                          " Any buffer can be hidden
+set history=1000                    " Set a huge history
+set linespace=0                     " No extra spaces between rows
+set nojoinspaces                    " Prevents inserting two spaces after punctuation on a join (J)
+set path+=**                        " fuzzy matching
+set relativenumber                  " set the number in vim
+set scrolljump=5                    " Lines to scroll when cursor leaves screen
+set scrolloff=3                     " Minimum lines to keep above and below cursor
+set showmatch                       " Show current brackets
+set splitbelow                      " Puts new split windows to the bottom of the current
+set splitright                      " Puts new vsplit windows to the right of the current
+set wildmenu                        " Show list instead of just completing
+set wildmode=list:longest,full      " Command <Tab> completion, list matches, then longest common part, then all.
+set winminheight=0                  " Windows can be 0 line height
+
+" Folding
 set foldenable          " Auto fold code
-set foldmethod=syntax       " Fold are defined by syntax highlighting
-set formatoptions-=t      " Keep my textwidth setting
-set hidden " Any buffer can be hidden
-set history=1000 " Set a huge history
-set hlsearch        " highlight the search result
-set ignorecase                  " Case insensitive search
-set incsearch       " Find as I type during the search
-set linespace=0 " No extra spaces between rows
+set foldmethod=syntax   " Fold are defined by syntax highlighting
+
+" Indentation
+" Don't enable smarindent or cindent with filetype plugin indent on
+filetype plugin indent on   " Indentation based on filetype
+set autoindent              " Does not interfere with other indentation settings
+
+" Invisible characters
 set list
-set listchars=tab:»»,trail:•,nbsp:~ " Display invisible characters
-set nojoinspaces    " Prevents inserting two spaces after punctuation on a join (J)
-set path+=**        " fuzzy matching
-set relativenumber  " set the number in vim
-set scrolljump=5                " Lines to scroll when cursor leaves screen
-set scrolloff=3                 " Minimum lines to keep above and below cursor
-set shiftwidth=4    " set the tab size
-set showmatch       " Show current brackets
-set smartcase                   " Case sensitive when uc present
-set smartindent     " set auto ident
-set splitbelow      " Puts new split windows to the bottom of the current
-set splitright      " Puts new vsplit windows to the right of the current
-set tabstop=4       " limit the tabs to 4
-set textwidth=0           " Word wrap without line break
-set wrapmargin=0          " Word wrap without line break
-set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-set wrap                        " Set wrapping
-set wildmenu                    " Show list instead of just completing
-set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
-set winminheight=0              " Windows can be 0 line high
-set wm=2            " set a space before the text
+set listchars=tab:»»,trail:•,nbsp:~     " Display invisible characters
+
+" Omni Completiton
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Search
+set hlsearch     " highlight the search result
+set ignorecase   " Case insensitive search
+set incsearch    " Find as I type during the search
+set smartcase    " Case sensitive only if search contains uppercase letter.
+
+" Tabulation and spaces
+set expandtab            " Show spaces instead of tabs
+set shiftwidth=4         " columns per <<
+set softtabstop=4        " spaces per tab
+set tabstop=4            " columns per tabs
 
 " Vim directories
 set backupdir=~/.local/share/nvim/backup//
 set directory=~/.local/share/nvim/swap//
 set viewdir=~/.local/share/nvim/views//
 
-" Enable Omni Completiton
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType java set omnifunc=javacomplete#Complete
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" Wrapping
+set formatoptions-=t             " Keep my textwidth setting
+set textwidth=0                  " Word wrap without line break
+set wrapmargin=0                 " Word wrap without line break
+set whichwrap=b,s,h,l,<,>,[,]    " Backspace and cursor keys wrap too
+set wrap linebreak               " Set wrapping with soft wrap (set wm=2 => hard wrap)
+
+
 
 "=====================================================
 " Keymap configuration
 "=====================================================
+
 let mapleader = ","
 let g:mapleader = ","
 
@@ -248,12 +267,16 @@ nmap <Leader>t<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>t<Bar> :Tabularize /<Bar><CR>
 nmap <Leader>t\ :Tabularize /\\<CR>
 vmap <Leader>t\ :Tabularize /\\<CR>
+nmap <Leader>t" :Tabularize /"<CR>
+vmap <Leader>t" :Tabularize /"<CR>
 
 " Tagbar
 map <leader>tt :TagbarToggle<CR>
 
 " Undo tree
 map <Leader>u :UndotreeToggle<CR>
+
+
 
 " ====================================================
 " Plugins configuration
@@ -262,13 +285,15 @@ map <Leader>u :UndotreeToggle<CR>
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 
+" Android
+let g:android_sdk_path = "/opt/android/sdk"
+
 " Clang completition
 let g:clang_library_path='/usr/lib/'
 
 " Git
 " Useful git help
-" Instead of reverting the cursor to the last position in the buffer, we
-" " set it to the first line when editing a git commit message
+" Instead of reverting the cursor to the last position in the buffer, we set it to the first line when editing a git commit message
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " Grammalecte
@@ -300,6 +325,7 @@ autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
 " Python-mode
+let g:pymode_python = 'python3'
 let g:pymode_rope = 0
 let g:pymode_rope_lookup_project = 0
 " Documentation
@@ -355,16 +381,22 @@ autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()
 " Undo tree
 let g:undotree_SetFocusWhenToggle=1
 
+
+
 "=====================================================
 " Spellchecking
 "=====================================================
+
 map <F9> <Esc>:silent setlocal spell! spelllang=en<CR>
 map <F10> <Esc>:silent setlocal spell! spelllang=fr<CR>
 set spellsuggest=best
 
+
+
 "=====================================================
 " Theme
 "=====================================================
+
 " Set the full color compatibility for vim and terminal
 syntax on
 color dracula
@@ -376,3 +408,4 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
+
