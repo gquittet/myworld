@@ -8,6 +8,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" ALE (Asynchronous Lint Engine)
+Plug 'w0rp/ale'
+
 " Vim-Android
 Plug 'hsanson/vim-android'
 
@@ -53,9 +56,6 @@ Plug 'artur-shaik/vim-javacomplete2'
 " Don't forget to install this : sudo pip install jedi
 Plug 'davidhalter/jedi-vim'
 
-" VIM-LaTeX : VIM as a LaTeX IDE
-Plug 'vim-latex/vim-latex'
-
 " Markdown Preview
 Plug 'suan/vim-instant-markdown'
 
@@ -68,38 +68,34 @@ Plug 'scrooloose/nerdcommenter'
 " NERDTree
 Plug 'scrooloose/nerdtree'
 
-" Python-mode : VIM as a python ide
-Plug 'klen/python-mode'
-
 " Numbers.vim
 Plug 'myusuf3/numbers.vim'
 
 " PHP Autocomplete
 Plug 'shawncplus/phpcomplete.vim'
 
+" Python-mode : VIM as a python ide
+Plug 'klen/python-mode'
+
 " Surround
 Plug 'tpope/vim-surround'
-
-" Syntastic : Check errors
-Plug 'scrooloose/syntastic'
-Plug 'Scuilion/gradle-syntastic-plugin'
 
 " Tabular : useful for great alignement
 Plug 'godlygeek/tabular'
 
 " TagBar
 " Install ctags before use it
-Plug 'vim-scripts/Tagbar'
+Plug 'majutsushi/tagbar'
 
 " Tern
 " For JavaScript IDE features
 Plug 'ternjs/tern_for_vim'
 
-" TypeScript
-" Dependencies
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-" IDE Feature
-Plug 'Quramy/tsuquyomi'
+" VimTex
+Plug 'lervag/vimtex'
+
+" NVIM-TypeScript
+Plug 'mhartington/nvim-typescript'
 " Syntax highlighting
 Plug 'leafgarland/typescript-vim'
 
@@ -161,6 +157,7 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType typescript setlocal omnifunc=TSComplete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Search
@@ -196,6 +193,10 @@ set wrap linebreak               " Set wrapping with soft wrap (set wm=2 => hard
 let mapleader = ","
 let g:mapleader = ","
 
+" ALE
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 " Buffer
 nmap <leader>bn :bnext<CR>
 nmap <leader>bp :bprevious<CR>
@@ -229,14 +230,6 @@ nmap <leader>ge :Gedit<CR>
 
 " Highlight
 map <C-h> :nohl<CR>
-
-" Languagetool
-nmap <Leader>lc :LanguageToolCheck<CR>
-vmap <Leader>lc :LanguageToolCheck<CR>
-nmap <Leader>lh :LanguageToolClear<CR>
-vmap <Leader>lh :LanguageToolClear<CR>
-nmap <Leader>ls :call SwitchLanguage()<CR>
-vmap <Leader>ls :call SwitchLanguage()<CR>
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -280,7 +273,12 @@ map <Leader>u :UndotreeToggle<CR>
 " ====================================================
 
 " Airline
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
+
+" ALE
+" Lint only when I save the file
+let g:ale_lint_on_text_changed = 'never'
 
 " Android
 let g:android_sdk_path = "/opt/android/sdk"
@@ -302,16 +300,6 @@ if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
     let g:indent_guides_guide_size = 1
     let g:indent_guides_enable_on_vim_startup = 1
 endif
-
-" VIM-LaTeX
-let g:Tex_CompileRule_pdf = 'xelatex --synctex=1 -interaction=nonstopmode $*'
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_MultipleCompileFormats = 'pdf, aux'
-let g:livepreview_previewer = 'zathura'
-autocmd Filetype tex setl updatetime=1
-filetype indent on
-let g:tex_flavor='latex'
-set iskeyword+=:
 
 " Numbers.vim
 let g:enable_numbers = 1
@@ -348,33 +336,6 @@ let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
-" Thanks to SPF13-vim the best vim configuration
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_java_checkers=['javac']
-let g:syntastic_java_javac_config_file_enabled = 1
-" Ignore LaTeX lstlisting environnement
-let g:syntastic_quiet_messages = { "regex": [
-        \ '\mpossible unwanted space at "{"',
-        \ 'SOME OTHER SYNTASTIC MESSAGE'
-        \ ] }
-
-" TypeScript
-" Refractor feature
-autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
-autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)
-" Syntastic integration
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
-" Tooltip
-autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-
 " Undo tree
 let g:undotree_SetFocusWhenToggle=1
 
@@ -404,4 +365,3 @@ set guioptions-=T    " remove toolbar
 set guioptions-=r    " remove right-hand scroll bar
 set guioptions-=L    " remove left-hand scroll bar
 set guicursor=       " Remove the gui cursor
-
