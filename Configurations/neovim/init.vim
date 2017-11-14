@@ -74,9 +74,6 @@ Plug 'myusuf3/numbers.vim'
 " PHP Autocomplete
 Plug 'shawncplus/phpcomplete.vim'
 
-" Python-mode : VIM as a python ide
-Plug 'klen/python-mode'
-
 " Surround
 Plug 'tpope/vim-surround'
 
@@ -274,11 +271,14 @@ map <Leader>u :UndotreeToggle<CR>
 
 " Airline
 let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
 
 " ALE
 " Lint only when I save the file
-let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_text_changed = 'never'
+" Linters
+let g:ale_linters = {
+\   'tex': ['chktex', 'proselint', 'write-good'],
+\}
 
 " Android
 let g:android_sdk_path = "/opt/android/sdk"
@@ -295,11 +295,9 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 let g:grammalecte_cli_py='/opt/grammalecte/cli.py'
 
 " Indent Guide
-if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
-    let g:indent_guides_start_level = 2
-    let g:indent_guides_guide_size = 1
-    let g:indent_guides_enable_on_vim_startup = 1
-endif
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
 
 " Numbers.vim
 let g:enable_numbers = 1
@@ -308,33 +306,6 @@ let g:numbers_exclude = ['unite', 'startify', 'w3m', 'vimshell', 'tagbar', 'gund
 :au FocusGained * :set relativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
-
-" Python-mode
-let g:pymode_python = 'python3'
-let g:pymode_rope = 0
-let g:pymode_rope_lookup_project = 0
-" Documentation
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
-
-" Linting
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-" Auto check on save
-let g:pymode_lint_write = 1
-
-" Support virtualenv
-let g:pymode_virtualenv = 1
-
-" Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>b'
-
-" syntax highlighting
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Undo tree
 let g:undotree_SetFocusWhenToggle=1

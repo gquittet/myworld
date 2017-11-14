@@ -17,7 +17,7 @@ remoteuser = username@gmail.com
 remotepass = thepassword
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 folderfilter = lambda foldername: foldername in ['[Gmail]/Brouillons', '[Gmail]/Corbeille', '[Gmail]/Messages envoy&AOk-s', 'INBOX']
-nametrans = lambda folder:  re.sub('\[Gmail\].Brouillons', 'drafts', 
+nametrans = lambda folder:  re.sub('\[Gmail\].Brouillons', 'drafts',
                             re.sub('\[Gmail\].Corbeille', 'trash',
                             re.sub('\[Gmail\].Messages envoy&AOk-s', 'sent', folder)))
 
