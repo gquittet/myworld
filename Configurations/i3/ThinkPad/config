@@ -254,6 +254,9 @@ bindsym $mod+f exec $term -e ranger
 bindsym F1 exec --no-startup-id echo "I don't need help" > /dev/null
 bindsym F11 fullscreen toggle
 
+# Disable focus follow mouse
+focus_follows_mouse no
+
 # Startup applications
 exec --no-startup-id redshift -l 50.4:3.8
 exec --no-startup-id compton -bCG
