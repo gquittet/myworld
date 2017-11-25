@@ -36,9 +36,6 @@ Plug 'dracula/vim'
 " Press <Leader> <Leader> and the letter that you want to go
 Plug 'easymotion/vim-easymotion'
 
-" Eclim for neovim
-Plug 'starcraftman/vim-eclim'
-
 " Emmet : new ZenCoding
 " Use abreviations and then type : <C-Y>,
 Plug 'mattn/emmet-vim'
@@ -58,9 +55,6 @@ Plug 'artur-shaik/vim-javacomplete2'
 " Jedi vim : Python completition
 " Don't forget to install this : sudo pip install jedi
 Plug 'davidhalter/jedi-vim'
-
-" Markdown Preview
-Plug 'suan/vim-instant-markdown'
 
 " Matchit : useful to switch between the start and the end of a function
 Plug 'tmhedberg/matchit'
