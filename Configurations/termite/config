@@ -1,5 +1,7 @@
 [options]
+allow_bold = true
 font = Fira Mono 10
+mouse_autohide = true
 
 [colors]
 # special
@@ -7,7 +9,7 @@ foreground      = #f8f8f2
 foreground_bold = #f8f8f2
 cursor          = #f8f8f2
 background      = #282a36
-background      = rgba(40, 42, 54, 0.95)
+#background      = rgba(40, 42, 54, 0.95)
 
 # black
 color0  = #000000
