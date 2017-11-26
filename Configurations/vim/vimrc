@@ -342,6 +342,6 @@ endif
 
 " Set the full color compatibility for vim and terminal
 syntax enable
-color dracula
-"color PaperColor
+colorscheme dracula
+"colorscheme PaperColor
 "set background=light
