@@ -1,6 +1,6 @@
 " ========================================
 "       Coded by Guillaume QUITTET
-"         Date Sun. 12th Nov 2017
+"         Date Sun. 26th Nov 2017
 " ========================================
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -67,6 +67,9 @@ Plug 'scrooloose/nerdtree'
 
 " Numbers.vim
 Plug 'myusuf3/numbers.vim'
+
+" Paper color theme
+Plug 'NLKNguyen/papercolor-theme'
 
 " PHP Autocomplete
 Plug 'shawncplus/phpcomplete.vim'
@@ -326,8 +329,13 @@ set spellsuggest=best
 " Set the full color compatibility for vim and terminal
 syntax on
 color dracula
+"colorscheme PaperColor
+"set background=light
+if (has("termguicolors"))
+    set termguicolors
+endif
 if has('gui_running')
-  set guifont=Fira\ Mono\ 10
+    set guifont=Fira\ Mono\ 10
 endif
 hi Normal ctermbg=NONE
 set guioptions-=m    " remove menu bar

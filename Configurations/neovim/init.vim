@@ -1,6 +1,6 @@
 " ========================================
 "       Coded by Guillaume QUITTET
-"         Date Sun. 12th Nov 2017
+"         Date Sun. 26th Nov 2017
 " ========================================
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -64,6 +64,9 @@ Plug 'scrooloose/nerdtree'
 
 " Numbers.vim
 Plug 'myusuf3/numbers.vim'
+
+" Paper color theme
+Plug 'NLKNguyen/papercolor-theme'
 
 " PHP Autocomplete
 Plug 'shawncplus/phpcomplete.vim'
@@ -323,10 +326,14 @@ set spellsuggest=best
 " Set the full color compatibility for vim and terminal
 syntax on
 color dracula
+"colorscheme PaperColor
+"set background=light
+if (has("termguicolors"))
+    set termguicolors
+endif
 set guifont=Fira\ Mono\ 10
 hi Normal ctermbg=NONE
 set guioptions-=m    " remove menu bar
 set guioptions-=T    " remove toolbar
 set guioptions-=r    " remove right-hand scroll bar
 set guioptions-=L    " remove left-hand scroll bar
-set guicursor=       " Remove the gui cursor
