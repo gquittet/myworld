@@ -323,14 +323,15 @@ set spellsuggest=best
 " Theme
 "=====================================================
 
-" Set the full color compatibility for vim and terminal
-syntax on
-color dracula
-"colorscheme PaperColor
-"set background=light
+" Use GUI colors in terminal
 if (has("termguicolors"))
     set termguicolors
 endif
+" Set the full color compatibility for vim and terminal
+syntax enable
+color dracula
+"color PaperColor
+"set background=light
 set guifont=Fira\ Mono\ 10
 hi Normal ctermbg=NONE
 set guioptions-=m    " remove menu bar
