@@ -323,18 +323,22 @@ set spellsuggest=best
 " Theme
 "=====================================================
 
+" GUI settings
+if (has("gui_running"))
+    set guifont=Fira\ Mono\ 10
+    set guioptions-=m    " remove menu bar
+    set guioptions-=T    " remove toolbar
+    set guioptions-=r    " remove right-hand scroll bar
+    set guioptions-=L    " remove left-hand scroll bar
+endif
+
 " Use GUI colors in terminal
 if (has("termguicolors"))
     set termguicolors
 endif
+
 " Set the full color compatibility for vim and terminal
 syntax enable
 color dracula
 "color PaperColor
 "set background=light
-set guifont=Fira\ Mono\ 10
-hi Normal ctermbg=NONE
-set guioptions-=m    " remove menu bar
-set guioptions-=T    " remove toolbar
-set guioptions-=r    " remove right-hand scroll bar
-set guioptions-=L    " remove left-hand scroll bar
