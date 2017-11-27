@@ -1,0 +1,7 @@
+xrandr -s 1920x1080
+xrandr --dpi 144
+xbacklight -set 40
+xinput --disable "ETPS/2 Elantech TrackPoint"
+xrdb -merge ~/.Xresources
+source ~/.profile
+exec i3
