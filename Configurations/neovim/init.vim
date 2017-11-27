@@ -53,6 +53,18 @@ Plug 'artur-shaik/vim-javacomplete2'
 " Don't forget to install this : sudo pip install jedi
 Plug 'davidhalter/jedi-vim'
 
+" Markdown
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+
 " Matchit : useful to switch between the start and the end of a function
 Plug 'tmhedberg/matchit'
 
@@ -71,8 +83,18 @@ Plug 'NLKNguyen/papercolor-theme'
 " PHP Autocomplete
 Plug 'shawncplus/phpcomplete.vim'
 
+" Plantuml-previewer
+Plug 'weirongxu/plantuml-previewer.vim'
+" Plantuml-syntax
+Plug 'aklt/plantuml-syntax'
+" Dependency
+Plug 'tyru/open-browser.vim'
+
 " Surround
 Plug 'tpope/vim-surround'
+
+" Table mode
+Plug 'dhruvasagar/vim-table-mode'
 
 " Tabular : useful for great alignement
 Plug 'godlygeek/tabular'
@@ -303,6 +325,10 @@ let g:numbers_exclude = ['unite', 'startify', 'w3m', 'vimshell', 'tagbar', 'gund
 :au FocusGained * :set relativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
+
+" vim-table-mode
+" Compatibility with markdown
+let g:table_mode_corner='|'
 
 " Undo tree
 let g:undotree_SetFocusWhenToggle=1
