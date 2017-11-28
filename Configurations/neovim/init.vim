@@ -17,10 +17,8 @@ Plug 'hsanson/vim-android'
 " Autopairs
 Plug 'jiangmiao/auto-pairs'
 
-" c.vim : Speed up c writing on vim
-Plug 'vim-scripts/c.vim'
-
 " Clang-complete : for C/C++ autocomplete
+" Need to install clang
 Plug 'Rip-Rip/clang_complete'
 
 " VIM-Dispatch : Useful for starting Omnisharp
@@ -117,10 +115,6 @@ Plug 'leafgarland/typescript-vim'
 
 " UndoTree : See all undos
 Plug 'mbbill/undotree'
-
-" ZoomWin : Show a buffer only without kill the others
-" Use <C-w>o to show and hide buffer
-Plug 'vim-scripts/ZoomWin'
 
 " All of your Plugins must be added before the following line
 call plug#end()             " required
@@ -303,7 +297,7 @@ let g:ale_linters = {
 let g:android_sdk_path = "/opt/android/sdk"
 
 " Clang completition
-let g:clang_library_path='/usr/lib/'
+let g:clang_library_path='/usr/lib'
 
 " Git
 " Useful git help
