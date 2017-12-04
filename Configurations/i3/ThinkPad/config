@@ -219,36 +219,35 @@ for_window [window_role="task_dialog"] floating enable
 
 # Function keys
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
 
 # Sound controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-bindsym XF86AudioMicMute exec amixer sset Capture toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioMicMute exec --no-startup-id amixer sset Capture toggle
 
 # Projection
-bindsym XF86Display exec $term -e "bash -c ~/.config/i3/scripts/display.sh"
+bindsym XF86Display exec --no-startup-id $term -e "bash -c ~/.config/i3/scripts/display.sh"
 
 # Kill Wi-Fi
 # bindsym XF86WLAN exec urxvt -e bash -c "kill-wifi"
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-fill "/home/gquittet/.wallpapers/panda_wallpaper_by_apofiss-dahj9x5.jpg"
-
+exec_always --no-startup-id feh --bg-fill "/home/gquittet/.wallpapers/teddies-couple.jpg" --bg-fill "/home/gquittet/.wallpapers/iyfibt-g.jpg"
 
 # Maximize and minimize
 bindsym $mod+m scratchpad show
 bindsym $mod+n move scratchpad
 
-bindsym $mod+Ctrl+l exec xtrlock -b
+bindsym $mod+Ctrl+l exec --no-startup-id xtrlock -b
 
 # Focus urgent workspace
 bindsym $mod+u [urgent=latest] focus
 
 # Sofwares shortcut
-bindsym $mod+f exec $term -e ranger
+bindsym $mod+f exec --no-startup-id $term -e ranger
 
 # Function keys
 bindsym F1 exec --no-startup-id echo "I don't need help" > /dev/null
