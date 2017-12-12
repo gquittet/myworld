@@ -298,6 +298,9 @@ let g:android_sdk_path = "/opt/android/sdk"
 
 " Clang completition
 let g:clang_library_path='/usr/lib'
+" Fix conflix with autopair
+autocmd FileType c let AutoPairsMapCR = 0
+autocmd FileType c imap <silent> <CR> <CR><Plug>AutoPairsReturn
 
 " Git
 " Useful git help
