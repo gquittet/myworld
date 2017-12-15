@@ -30,6 +30,7 @@ map cW bulkrename %s
 map cd console mkdir%space
 map cf console touch%space
 ```
+
 ### For picture rendering
 I've added these lines to *rc.conf*
 You need to install these packages: *w3m* and the w3m images support (*w3m-img*
@@ -38,4 +39,20 @@ for me)
 ```
 set preview_images true
 set preview_images_method w3m
+```
+
+## My folders mapping
+
+```
+map gdd cd ~/Documents
+map gdw cd ~/Downloads
+map gE cd ~/Documents/Ecole/HEH/BAC3
+map gmm cd ~/.myworld
+map gmw cd ~/.wallpapers
+map gpp cd ~/Projets
+map gpa cd ~/Projets/Android
+map gpc cd ~/Projets/C
+map gph cd ~/Projets/HTML
+map gpj cd ~/Projets/Java
+map gps cd ~/Projets/Spring
 ```
