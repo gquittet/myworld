@@ -152,6 +152,11 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+
+
+# ==============================================================================
+# i3 modes
+# ==============================================================================
 # resize window (you can also use the mouse for that)
 set $mode_resize resize
 mode "$mode_resize" {
@@ -197,6 +202,11 @@ mode "$mode_system" {
 
 bindsym $mod+Pause mode "$mode_system"
 
+
+
+# ==============================================================================
+# Bar
+# ==============================================================================
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -214,7 +224,11 @@ bar {
     }
 }
 
+
+
+# ==============================================================================
 # Colors
+# ==============================================================================
 # class                 border  backgr. text    indicator child_border
 client.focused          #282a36 #282a36 #f8f8f2 #bd93f9  #285577
 client.focused_inactive #4d4d4d #4d4d4d #e6e6e6 #484e50   #5f676a
@@ -224,6 +238,11 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
+
+
+# ==============================================================================
+# windows settings
+# ==============================================================================
 # Disable title bar
 new_window none
 new_float none
@@ -235,7 +254,30 @@ for_window [class="^.*"] border none
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
+# Disable focus follow mouse
+focus_follows_mouse no
+
+
+
+# ==============================================================================
+# Keybindings
+# ==============================================================================
+# Focus urgent workspace
+bindsym $mod+u [urgent=latest] focus
 # Function keys
+bindsym F1 exec --no-startup-id echo "I don't need help" > /dev/null
+bindsym F11 fullscreen toggle
+
+# Projection
+bindsym XF86Display exec --no-startup-id $term -e "bash -c ~/.config/i3/scripts/display.sh"
+
+# Maximize and minimize
+bindsym $mod+m scratchpad show
+bindsym $mod+n move scratchpad
+
+# Sofwares shortcut
+bindsym $mod+f exec --no-startup-id $term -e ranger
+
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
@@ -246,32 +288,11 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86AudioMicMute exec --no-startup-id amixer sset Capture toggle
 
-# Projection
-bindsym XF86Display exec --no-startup-id $term -e "bash -c ~/.config/i3/scripts/display.sh"
 
-# Kill Wi-Fi
-# bindsym XF86WLAN exec urxvt -e bash -c "kill-wifi"
 
-# Wallpaper
-exec_always --no-startup-id feh --bg-fill "/home/gquittet/.wallpapers/teddies-couple.jpg" --bg-fill "/home/gquittet/.wallpapers/iyfibt-g.jpg"
-
-# Maximize and minimize
-bindsym $mod+m scratchpad show
-bindsym $mod+n move scratchpad
-
-# Focus urgent workspace
-bindsym $mod+u [urgent=latest] focus
-
-# Sofwares shortcut
-bindsym $mod+f exec --no-startup-id $term -e ranger
-
-# Function keys
-bindsym F1 exec --no-startup-id echo "I don't need help" > /dev/null
-bindsym F11 fullscreen toggle
-
-# Disable focus follow mouse
-focus_follows_mouse no
-
+# ==============================================================================
 # Startup applications
-exec --no-startup-id redshift -l 50.4:3.8
+# ==============================================================================
 exec --no-startup-id compton -bCG
+exec_always --no-startup-id feh --bg-fill "/home/gquittet/.wallpapers/teddies-couple.jpg" --bg-fill "/home/gquittet/.wallpapers/iyfibt-g.jpg"
+exec --no-startup-id redshift -l 50.4:3.8
