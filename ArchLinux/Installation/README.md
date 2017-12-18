@@ -76,17 +76,41 @@ Connect the ethernet cable
 
 ### Partitionning the disk
 
-Use fdisk and use 2 partitions because we're lazy.
+Use fdisk and use 4 partitions. Here is my partitions table.
 
-- An EFI partition : 512MB
-- A big system partition : the rest of the disk
-- The swap partition : 2 x RAM if you've 4GB or less of RAM. Else, use 1,5 x RAM.
+| Mount point | Partition | Partition type       | Bootable flag | Suggested size          |
+|-------------|-----------|----------------------|---------------|-------------------------|
+| /boot       | /dev/sdx1 | EFI System Partition | Yes           | 4Go                     |
+| /           | /dev/sdx2 | Linux                | No            | 50Go                    |
+| [SWAP]      | /dev/sdx3 | Linux swap           | No            | 16Go                    |
+| /home       | /dev/sdx4 | Linux                | No            | Remainder of the device |
+
+- Root:
+    - With 50Go, I have a lot of space because I've got many programs to install. You can use 20Go $-$ 30Go.
+
+- SWAP:
+    - If the device has < 8Go of RAM, I'll do RAM quantity * 2
+    - If the device has >= 8Go of RAM < 12Go, I'll do RAM quantity * 1.5
+    - If the device has >= 12Go of RAM, I'll do RAM quantity * 1
+
+- HOME:
+    - With an HDD: The remainder of the device.
+    - With an SSD: The remainder of the device - over-provisioning
+
+Over-provisioning is an empty space that maximize the lifetime and performance of an SSD.
+
+- Over-provisioning quantity:
+    - PRO SSD: 28%
+    - Classic SSD: 6.7%
+
+[Source: Samsung documentation](http://www.samsung.com/semiconductor/minisite/ssd/downloads/document/Samsung_SSD_845DC_04_Over-provisioning.pdf)
 
 Don't forget to format it with ***mkfs***
 
     mkfs.fat -F32 /dev/sdX1
     mkfs.ext4 /dev/sdX2
     mkswap /dev/sdX3
+    mkfs.ext4 /dev/sdX4
 
 ### Mount the partitions
 
