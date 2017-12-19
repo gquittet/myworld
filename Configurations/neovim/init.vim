@@ -28,7 +28,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'dracula/vim'
 
 " Easy Motion : faster move in vim
-" Press <Leader> <Leader> and the letter that you want to go
+" Press <Leader><Leader> and the letter that you want to go
 Plug 'easymotion/vim-easymotion'
 
 " Emmet : new ZenCoding
@@ -103,6 +103,8 @@ Plug 'majutsushi/tagbar'
 
 " Tern
 " For JavaScript IDE features
+" Don't forget to run 'npm install' in this extension folder to install the
+" server
 Plug 'ternjs/tern_for_vim'
 
 " VimTex
@@ -369,5 +371,5 @@ endif
 " Set the full color compatibility for vim and terminal
 syntax enable
 colorscheme dracula
-"colorscheme PaperColor
-"set background=light
+" colorscheme PaperColor
+" set background=light
