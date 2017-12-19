@@ -1,14 +1,28 @@
-# My zsh configuration
+#  My bash configuration
+
+## My user configuration
+```bash
+# Vim bindings
+set -o vi
+# Bindings
+bind \C-l:clear-screen
+
+# Allow to cd into directories with typing name only
+shopt -s autocd
+
+# Git support
+# https://github.com/magicmonty/bash-git-prompt
+source ~/.bash-git-prompt/gitprompt.sh
+```
 
 ## My export
-```zsh
+```bash
 export EDITOR=nvim
 export VISUAL=nvim
 ```
 
 ## My aliases
-
-```zsh
+```bash
 alias ea="exa --all"
 alias el="exa -l"
 alias ela="exa --all -l"

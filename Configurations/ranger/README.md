@@ -54,5 +54,7 @@ map gpa cd ~/Projets/Android
 map gpc cd ~/Projets/C
 map gph cd ~/Projets/HTML
 map gpj cd ~/Projets/Java
-map gps cd ~/Projets/Spring
+map gpww cd ~/Projets/Web
+map gpwss cd ~/Projets/Web/Spring
+map gpwsd cd ~/Projets/Web/Spring/dogcare
 ```
