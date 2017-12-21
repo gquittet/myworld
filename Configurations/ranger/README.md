@@ -57,4 +57,9 @@ map gpj cd ~/Projets/Java
 map gpww cd ~/Projets/Web
 map gpwss cd ~/Projets/Web/Spring
 map gpwsd cd ~/Projets/Web/Spring/dogcare
+map g.a cd ~/.android
+map g.ca cd ~/.cache
+map g.cc cd ~/.config
+map g.m cd ~/.mails
+map g.vm cd ~/.vms
 ```

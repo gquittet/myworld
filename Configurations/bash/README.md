@@ -30,11 +30,13 @@ alias elg="exa -l --git"
 alias elt="exa -l --tree"
 alias eltg="exa -l --git --tree"
 alias et="exa --tree"
+alias i3config="nvim ~/config/i3/config"
 alias mutt=neomutt
 alias plantuml="java -jar /opt/plantuml/plantuml.jar"
 alias r="ranger"
 alias v="nvim"
 alias vim="nvim"
+alias vimrc="nvim ~/.config/nvim/init.vim"
 
 # Folders shortcuts
 alias gdd="cd ~/Documents"
@@ -50,4 +52,9 @@ alias gpj="cd ~/Projets/Java"
 alias gpww="cd ~/Projets/Web"
 alias gpwss="cd ~/Projets/Web/Spring"
 alias gpwsd="cd ~/Projets/Web/Spring/dogcare"
+alias g.a="cd ~/.android"
+alias g.ca="cd ~/.cache"
+alias g.cc="cd ~/.config"
+alias g.m="cd ~/.mails"
+alias g.vm="cd ~/.vms"
 ```
