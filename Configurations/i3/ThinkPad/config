@@ -257,6 +257,10 @@ for_window [window_role="task_dialog"] floating enable
 # Disable focus follow mouse
 focus_follows_mouse no
 
+# Applications window settings
+for_window [class="Lxappearance"] floating enable
+for_window [class="mpv"] floating enable
+
 
 
 # ==============================================================================
@@ -294,5 +298,5 @@ bindsym XF86AudioMicMute exec --no-startup-id amixer sset Capture toggle
 # Startup applications
 # ==============================================================================
 exec --no-startup-id compton -bCG
-exec_always --no-startup-id feh --bg-fill "/home/gquittet/.wallpapers/teddies-couple.jpg" --bg-fill "/home/gquittet/.wallpapers/iyfibt-g.jpg"
+exec_always --no-startup-id feh --bg-fill "/home/gquittet/.wallpapers/fuckit0.jpg" --bg-fill "/home/gquittet/.wallpapers/iyfibt-g.jpg"
 exec --no-startup-id redshift -l 50.4:3.8
