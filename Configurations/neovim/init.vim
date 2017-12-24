@@ -203,7 +203,7 @@ set wrap linebreak               " Set wrapping with soft wrap (set wm=2 => hard
 "=====================================================
 
 let mapleader = ","
-let g:mapleader = ","
+let maplocalleader = ","
 
 " ALE
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -337,6 +337,10 @@ let g:table_mode_corner='|'
 
 " Undo tree
 let g:undotree_SetFocusWhenToggle=1
+
+" VimTex
+" View software
+let g:vimtex_view_method = 'zathura'
 
 
 
