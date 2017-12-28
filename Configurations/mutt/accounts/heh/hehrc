@@ -3,6 +3,10 @@ set realname = "Guillaume Quittet"
 set reverse_name = yes
 set from = "guillaume.quittet@std.heh.be"
 set sendmail = "/usr/bin/msmtp -a heh"
+# Signature
+set signature = "~/.config/mutt/accounts/heh/signature"
+
+
 
 # Receive mail
 set mbox_type = Maildir
@@ -17,7 +21,13 @@ set message_cachedir =  ~/.cache/mutt/heh/bodies
 
 mailboxes +INBOX
 
-set signature = "~/.config/mutt/accounts/heh/signature"
+
+
+# Contacts
+set alias_file = ~/.config/mutt/accounts/heh/contacts
+source ~/.config/mutt/accounts/heh/contacts
+
+
 
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index gs "<change-folder>=sent<enter>" "Go to sent mail"

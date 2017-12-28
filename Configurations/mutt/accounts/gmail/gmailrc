@@ -1,8 +1,12 @@
 # Sending mail
-set realname = "your name"
+set realname = "Guillaume Quittet"
 set reverse_name = yes
-set from = "user@gmail.com"
+set from = "guillaume.quittet@gmail.com"
 set sendmail = "/usr/bin/msmtp -a gmail"
+# Signature
+set signature = "~/.config/mutt/accounts/gmail/signature"
+
+
 
 # Receive mail
 set mbox_type = Maildir
@@ -17,7 +21,13 @@ set message_cachedir =  ~/.cache/mutt/gmail/bodies
 
 mailboxes +INBOX
 
-set signature = "~/.config/mutt/accounts/gmail/signature"
+
+
+# Contacts
+set alias_file = ~/.config/mutt/accounts/gmail/contacts
+source ~/.config/mutt/accounts/gmail/contacts
+
+
 
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index gs "<change-folder>=sent<enter>" "Go to sent mail"

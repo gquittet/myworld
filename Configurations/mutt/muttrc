@@ -2,8 +2,8 @@ source ~/.config/mutt/keybindingsrc
 source ~/.config/mutt/accounts/gmail/gmailrc
 source ~/.config/mutt/themerc
 
-macro index <f2> '<enter-command>source ~/.config/mutt/accounts/gmail/gmailrc<enter><change-folder>!<enter>'
-macro index <f3> '<enter-command>source ~/.config/mutt/accounts/heh/hehrc<enter><change-folder>!<enter>'
+macro index \e1 '<enter-command>source ~/.config/mutt/accounts/gmail/gmailrc<enter><change-folder>!<enter>'
+macro index \e2 '<enter-command>source ~/.config/mutt/accounts/heh/hehrc<enter><change-folder>!<enter>'
 
 # HTML mails
 set mailcap_path = ~/.config/mutt/mailcap
@@ -11,9 +11,7 @@ alternative_order text/plain text/enriched text/html
 auto_view text/html
 
 # Contacts
-set alias_file = ~/.config/mutt/contacts/aliases
 set sort_alias = alias
-source ~/.config/mutt/contacts/aliases
 
 # Editor
 set editor = "nvim"

@@ -6,8 +6,8 @@ mono bold bold
 mono underline underline
 mono indicator reverse
 mono error bold
-color indicator color0 color7
-color status color0 color7
+color indicator default color4
+color status default default
 color index default default '.*'
 color index_author color6 default '.*'
 color index_date color5 default
