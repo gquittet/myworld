@@ -1,8 +1,8 @@
 NVidia drivers :
 ----------------
-- Edit /etc/apt/sources.list                                                     
+- Edit /etc/apt/sources.list
 - add these lines : deb http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu xenial main
-					deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu xenial main
+                    deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu xenial main
 - Install nvidia-XXX (latest LTS version)
 
 Shell extension :
