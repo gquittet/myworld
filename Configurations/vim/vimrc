@@ -72,9 +72,6 @@ Plug 'tmhedberg/matchit'
 " NERDCommenter : Better comments in vim
 Plug 'scrooloose/nerdcommenter'
 
-" NERDTree
-Plug 'scrooloose/nerdtree'
-
 " Numbers.vim
 Plug 'myusuf3/numbers.vim'
 
@@ -187,6 +184,25 @@ set shiftwidth=4         " columns per <<
 set softtabstop=4        " spaces per tab
 set tabstop=4            " columns per tabs
 
+" Terminal
+" Color palette
+let g:terminal_color_0 = '#000000'
+let g:terminal_color_1 = '#ff5555'
+let g:terminal_color_2 = '#50fa7b'
+let g:terminal_color_3 = '#f1fa8c'
+let g:terminal_color_4 = '#bd93f9'
+let g:terminal_color_5 = '#ff79c6'
+let g:terminal_color_6 = '#8be9fd'
+let g:terminal_color_7 = '#bfbfbf'
+let g:terminal_color_8 = '#4d4d4d'
+let g:terminal_color_9 = '#ff6e67'
+let g:terminal_color_10 = '#5af78e'
+let g:terminal_color_11 = '#f4f99d'
+let g:terminal_color_12 = '#caa9fa'
+let g:terminal_color_13 = '#ff92d0'
+let g:terminal_color_14 = '#9aedfe'
+let g:terminal_color_15 = '#e6e6e6'
+
 " Vim directories
 set backupdir=~/.local/share/nvim/backup//
 set directory=~/.local/share/nvim/swap//
@@ -245,9 +261,6 @@ nmap <leader>ge :Gedit<CR>
 
 " Highlight
 map <C-h> :nohl<CR>
-
-" NERDTree
-map <C-n> :NERDTreeToggle<CR>
 
 " Numbers.vim
 nnoremap <F3> :NumbersToggle<CR>
