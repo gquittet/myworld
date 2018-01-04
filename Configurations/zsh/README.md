@@ -15,6 +15,7 @@ alias ela="exa --all -l"
 alias elg="exa -l --git"
 alias elt="exa -l --tree"
 alias eltg="exa -l --git --tree"
+alias email="./.scripts/check-email.sh"
 alias et="exa --tree"
 alias i3config="nvim ~/config/i3/config"
 alias mutt=neomutt
