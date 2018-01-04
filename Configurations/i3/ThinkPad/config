@@ -298,5 +298,6 @@ bindsym XF86AudioMicMute exec --no-startup-id amixer sset Capture toggle
 # Startup applications
 # ==============================================================================
 exec --no-startup-id compton -bCG
-exec_always --no-startup-id feh --bg-fill "/home/gquittet/.wallpapers/sunset-landscape-0.jpg" --bg-fill "/home/gquittet/.wallpapers/iyfibt-g.jpg"
+exec --no-startup-id dunst
+exec_always --no-startup-id feh --bg-fill "$HOME/.wallpapers/sunset-landscape-0.jpg" --bg-fill "$HOME/.wallpapers/iyfibt-g.jpg"
 exec --no-startup-id redshift -l 50.4:3.8
