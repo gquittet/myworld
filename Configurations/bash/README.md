@@ -35,6 +35,7 @@ alias i3config="nvim ~/config/i3/config"
 alias mutt=neomutt
 alias plantuml="java -jar /opt/plantuml/plantuml.jar"
 alias r="ranger"
+alias sudo="sudo "
 alias v="nvim"
 alias vim="nvim"
 alias vimrc="nvim ~/.config/nvim/init.vim"
