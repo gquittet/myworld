@@ -224,6 +224,9 @@ set wrap linebreak               " Set wrapping with soft wrap (set wm=2 => hard
 let mapleader = ","
 let maplocalleader = ","
 
+" Shortcuts
+nmap <silent> <Space><Tab> <Esc>/<++><Enter>:nohl<Enter>"_c4l
+
 " ALE
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
