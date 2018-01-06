@@ -23,7 +23,6 @@ export VISUAL=nvim
 
 ## My aliases
 ```bash
-alias dhcpcd="~/.scripts/dhcp.sh"
 alias ea="exa --all"
 alias el="exa -l"
 alias ela="exa --all -l"

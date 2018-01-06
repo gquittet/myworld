@@ -9,7 +9,6 @@ export VISUAL=nvim
 ## My aliases
 
 ```zsh
-alias dhcpcd="~/.scripts/dhcp.sh"
 alias ea="exa --all"
 alias el="exa -l"
 alias ela="exa --all -l"
