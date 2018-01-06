@@ -244,7 +244,7 @@ client.background       #ffffff
 # Disable title bar
 new_window none
 new_float none
-hide_edge_borders none
+hide_edge_borders smart
 for_window [class="^.*"] border pixel 2
 # for_window [class="^.*"] border none
 
