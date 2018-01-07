@@ -43,8 +43,8 @@ bindsym $mod+Shift+c kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec --no-startup-id ~/.config/i3/scripts/rofi.sh -d
-bindsym $mod+Shift+d exec --no-startup-id ~/.config/i3/scripts/rofi.sh -w
+bindsym $mod+d exec --no-startup-id ~/.scripts/rofi.sh -d
+bindsym $mod+Shift+d exec --no-startup-id ~/.scripts/rofi.sh -w
 
 # change focus
 bindsym $mod+h focus left
@@ -271,7 +271,7 @@ bindsym F1 exec --no-startup-id echo "I don't need help" > /dev/null
 bindsym F11 fullscreen toggle
 
 # Projection
-bindsym XF86Display exec --no-startup-id $term -e "bash -c ~/.config/i3/scripts/display.sh"
+bindsym XF86Display exec --no-startup-id $term -e "bash -c ~/.scripts/show-screens.sh"
 
 # Maximize and minimize
 bindsym $mod+m scratchpad show
