@@ -167,12 +167,20 @@ mode "$mode_resize" {
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
+        bindsym Shift+h resize shrink width 50 px or 50 ppt
+        bindsym Shift+j resize grow height 50 px or 50 ppt
+        bindsym Shift+k resize shrink height 50 px or 50 ppt
+        bindsym Shift+l resize grow width 50 px or 50 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Shift+Left resize shrink width 50 px or 50 ppt
+        bindsym Shift+Down resize grow height 50 px or 50 ppt
+        bindsym Shift+Up resize shrink height 50 px or 50 ppt
+        bindsym Shift+Right resize grow width 50 px or 50 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -295,7 +303,7 @@ bindsym XF86AudioMicMute exec --no-startup-id amixer sset Capture toggle
 # ==============================================================================
 # Startup applications
 # ==============================================================================
-exec --no-startup-id compton -bCG
+exec --no-startup-id compton --backend glx --paint-on-overlay --glx-no-stencil --glx-no-rebind-pixmap --unredir-if-possible --vsync opengl-swc -CGb
 exec --no-startup-id dunst
 exec_always --no-startup-id feh --bg-fill "$HOME/.wallpapers/sunset-landscape-0.jpg" --bg-fill "$HOME/.wallpapers/iyfibt-g.jpg"
 exec --no-startup-id redshift -l 50.4:3.8
