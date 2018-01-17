@@ -69,6 +69,9 @@ Plug 'tmhedberg/matchit'
 " NERDCommenter : Better comments in vim
 Plug 'scrooloose/nerdcommenter'
 
+" NERDTree
+Plug 'scrooloose/nerdtree'
+
 " Numbers.vim
 Plug 'myusuf3/numbers.vim'
 
@@ -157,6 +160,12 @@ set autoindent              " Does not interfere with other indentation settings
 " Invisible characters
 set list
 set listchars=tab:»»,trail:•,nbsp:~     " Display invisible characters
+
+" Netrw
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
 
 " Omni Completiton
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -262,6 +271,9 @@ nmap <leader>ge :Gedit<CR>
 " Highlight
 map <C-h> :nohl<CR>
 
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
 " Numbers.vim
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
@@ -338,6 +350,10 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
+
+" NERDTree
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Numbers.vim
 let g:enable_numbers = 1
