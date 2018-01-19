@@ -23,7 +23,6 @@
 
 Extension|Author (truncated)
 ---|---
-Beautify|HookyQR
 C/C++|Microsoft
 Debugger for Chrome|Microsoft
 ESLint|Dirk Baeumer
