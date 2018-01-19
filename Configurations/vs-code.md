@@ -4,40 +4,31 @@
 
 ```json
 {
-    "editor.fontSize": 14,
-    "editor.minimap.enabled": true,
-    "editor.mouseWheelZoom": false,
-    "editor.renderIndentGuides": true,
-    "editor.wordWrap": "on",
-    "gist.oauth_token": "github token",
-    "java.errors.incompleteClasspath.severity": "ignore",
-    "python.formatting.provider": "autopep8",
-    "python.linting.pep8Enabled": true,
-    "python.linting.pylintEnabled": false,
-    "vsicons.dontShowNewVersionMessage": true,
-    "window.menuBarVisibility": "toggle",
-    "window.zoomLevel": 0,
     "workbench.iconTheme": "vscode-icons",
-    "workbench.sideBar.location": "left",
-    "[c]": {
-        "editor.quickSuggestions": false
-    },
-    "[cpp]": {
-        "editor.quickSuggestions": false
-    }
+    "workbench.colorTheme": "Default Light+",
+    "editor.fontFamily": "'Fira Mono', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "window.menuBarVisibility": "toggle",
+    "git.autofetch": true
 }
 ```
 
 ## Plugins installed
 
-|Extension|Author|
-|---|---|
-|vscode-gist|dbankier|
-|python|donjayamanne|
-|theme-dracula|dracula-theme|
-|beautify|HookyQR|
-|cpptools|ms-vscode|
-|csharp|ms-vscode|
-|latex|ms-vscode|
-|java|redhat|
-|vscode-icons|robertohuertasm|;
+- Java: Open Java file and installed recommanded extensions
+- JavaScript: Show welcome screen and click on JavaScript
+- PHP: Show welcome screen and click on PHP
+- Python: Open Show welcome screen and click on Python
+- TypeScript: Show welcome screen and click on TypeScript
+
+Extension|Author (truncated)
+---|---
+Beautify|HookyQR
+C/C++|Microsoft
+Debugger for Chrome|Microsoft
+ESLint|Dirk Baeumer
+Git History|Don Jayamanne
+minify|Hoo
+plantuml|jeb
+sharecode|Rol
+vscode-icons|rob
