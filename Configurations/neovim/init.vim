@@ -1,6 +1,6 @@
 " ========================================
 "       Coded by Guillaume QUITTET
-"         Date Sun. 26th Nov 2017
+"         Date Fri. 17th Aug 2018
 " ========================================
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -20,6 +20,18 @@ Plug 'jiangmiao/auto-pairs'
 " Clang-complete : for C/C++ autocomplete
 " Need to install clang
 Plug 'Rip-Rip/clang_complete'
+
+" Deoplete for async completion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" Denite for helm feature and better implementation that Unite
+Plug 'Shougo/denite.nvim'
 
 " VIM-Dispatch : Useful for starting Omnisharp
 Plug 'tpope/vim-dispatch'
@@ -111,12 +123,17 @@ Plug 'ternjs/tern_for_vim'
 Plug 'lervag/vimtex'
 
 " NVIM-TypeScript
-Plug 'mhartington/nvim-typescript'
+" Don't forget to do :UpdateRemotePlugins
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 " Syntax highlighting
-Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 
 " UndoTree : See all undos
 Plug 'mbbill/undotree'
+
+" Wal
+Plug 'dylanaraps/wal.vim'
+
 
 " All of your Plugins must be added before the following line
 call plug#end()             " required
@@ -332,6 +349,9 @@ let g:clang_library_path='/usr/lib'
 autocmd FileType c let AutoPairsMapCR = 0
 autocmd FileType c imap <silent> <CR> <CR><Plug>AutoPairsReturn
 
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
 " Git
 " Useful git help
 " Instead of reverting the cursor to the last position in the buffer, we set it to the first line when editing a git commit message
@@ -406,6 +426,6 @@ endif
 
 " Set the full color compatibility for vim and terminal
 syntax enable
-colorscheme dracula
-" colorscheme PaperColor
-" set background=light
+" colorscheme dracula
+colorscheme PaperColor
+set background=light
