@@ -192,6 +192,7 @@ ln -sf /usr/share/zoneinfo/Europe/Brussels /etc/localtime
 
 ### Hardware clock
 
+Don't do this step if you have Windows installed on your system.
 ```
 hwclock --systohc --utc
 ```
@@ -231,6 +232,12 @@ MODULES=(intel_agp i915)
 3. Change the **HOOKS** line like this
 ```
 HOOKS=(base udev autodetect modconf block lvm2 encrypt filesystems keyboard fsck shutdown)
+```
+
+or
+
+```
+HOOKS=(base udev autodetect keyboard keymap consolefont modconf block lvm2 encrypt filesystems fsck shutdown)
 ```
 *Note1: shutdown is needed because I've a bug on shutdown with 'Failed to unmount /oldroot'*  
 *Note2: lvm2 and ecnrypt are needed for encrypted files system*
