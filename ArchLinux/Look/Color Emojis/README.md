@@ -48,6 +48,40 @@ sudo pacman -S noto-fonts-emoji
 </fontconfig>
 ```
 
+or use this config:
+
+```xml
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+
+<fontconfig>
+
+    <match>
+        <test name="family"><string>sans-serif</string></test>
+        <edit name="family" mode="prepend" binding="strong">
+            <string>Noto Color Emoji</string>
+        </edit>
+    </match>
+
+    <match>
+        <test name="family"><string>serif</string></test>
+        <edit name="family" mode="prepend" binding="strong">
+            <string>Noto Color Emoji</string>
+        </edit>
+    </match>
+
+    <match>
+        <test name="family"><string>Apple Color Emoji</string></test>
+        <edit name="family" mode="prepend" binding="strong">
+            <string>Noto Color Emoji</string>
+        </edit>
+    </match>
+
+</fontconfig>
+```
+
+I prefer the second one.
+
 3. Enable the new configuration:
 ```bash
 sudo ln -s /etc/fonts/conf.avail/99-noto-emoji-color.conf /etc/fonts/conf.d/99-noto-emoji-color.conf
